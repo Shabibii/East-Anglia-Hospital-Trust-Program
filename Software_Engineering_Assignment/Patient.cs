@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Software_Engineering_Assignment
 {
-    class Patient
+    public class Patient
     {
         public string Name { get; set; } = "Nobody";
 

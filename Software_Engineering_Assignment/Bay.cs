@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +21,22 @@ namespace Software_Engineering_Assignment
             patient6 = DatabaseConnector.GetPatient(bayNumber, 6);
             patient7 = DatabaseConnector.GetPatient(bayNumber, 7);
             patient8 = DatabaseConnector.GetPatient(bayNumber, 8);
+        }
+
+        public Patient GetPatient(int bedNumber)
+        {
+            switch(bedNumber)
+            {
+                case 1: return patient1;
+                case 2: return patient2;
+                case 3: return patient3;
+                case 4: return patient4;
+                case 5: return patient5;
+                case 6: return patient6;
+                case 7: return patient7;
+                case 8: return patient8;
+                default:  return new Patient();
+            }
         }
 
         //Patients from bed 1 to 8

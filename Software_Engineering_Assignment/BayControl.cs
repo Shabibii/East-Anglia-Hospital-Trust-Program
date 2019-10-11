@@ -30,14 +30,14 @@ namespace Software_Engineering_Assignment
         private void SetProperties()
         {
             title.Text = $"Bay {bay.BayNumber}";
-            linkLabel1.Text = $"(1) All Hail Sam";
-            linkLabel2.Text = $"(2) Patient Name";
-            linkLabel3.Text = $"(3) Patient Name";
-            linkLabel4.Text = $"(4) Patient Name";
-            linkLabel5.Text = $"(5) Patient Name";
-            linkLabel6.Text = $"(6) Patient Name";
-            linkLabel7.Text = $"(7) Patient Name";
-            linkLabel8.Text = $"(8) Patient Name";
+            linkLabel1.Text = $"(1) {bay.GetPatient(1).Name}";
+            linkLabel2.Text = $"(2) {bay.GetPatient(2).Name}";
+            linkLabel3.Text = $"(3) {bay.GetPatient(3).Name}";
+            linkLabel4.Text = $"(4) {bay.GetPatient(4).Name}";
+            linkLabel5.Text = $"(5) {bay.GetPatient(5).Name}";
+            linkLabel6.Text = $"(6) {bay.GetPatient(6).Name}";
+            linkLabel7.Text = $"(7) {bay.GetPatient(7).Name}";
+            linkLabel8.Text = $"(8) {bay.GetPatient(8).Name}";
 
             this.DoubleBuffered = true;
         }
