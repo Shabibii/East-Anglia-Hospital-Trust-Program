@@ -16,6 +16,7 @@ namespace Software_Engineering_Assignment
         {
             InitializeComponent();
             InitializeBays();
+            timer.Start();
         }
 
         public void InitializeBays()
@@ -24,5 +25,18 @@ namespace Software_Engineering_Assignment
             bayControl2.SetBay(new Bay(2));
         }
 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            dateTimeLabel.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            if (login.ShowDialog() == DialogResult.Yes)
+            {
+                //If login button clicked on the login form
+            }
+        }
     }
 }
