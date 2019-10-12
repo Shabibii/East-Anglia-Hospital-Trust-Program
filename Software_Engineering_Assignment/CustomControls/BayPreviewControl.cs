@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Software_Engineering_Assignment
 {
-    public partial class BayControl : UserControl
+    public partial class BayPreviewControl : UserControl
     {
         Bay bay;
 
-        public BayControl()
+        public BayPreviewControl()
         {
             InitializeComponent();
             pictureBox1.Hide();

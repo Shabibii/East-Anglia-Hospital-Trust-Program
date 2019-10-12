@@ -1,6 +1,6 @@
 ﻿namespace Software_Engineering_Assignment
 {
-    partial class Register
+    partial class RegisterControl
     {
         /// <summary> 
         /// Required designer variable.

@@ -16,7 +16,7 @@ namespace Software_Engineering_Assignment
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainPage());
+            Application.Run(new Main());
         }
     }
 }

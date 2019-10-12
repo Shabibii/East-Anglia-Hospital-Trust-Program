@@ -46,40 +46,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bay.cs" />
-    <Compile Include="BayControl.cs">
+    <Compile Include="Pages\BayPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BayControl.Designer.cs">
-      <DependentUpon>BayControl.cs</DependentUpon>
+    <Compile Include="Pages\BayPage.Designer.cs">
+      <DependentUpon>BayPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseConnector.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Support Classes\Bay.cs" />
+    <Compile Include="CustomControls\BayPreviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\BayPreviewControl.Designer.cs">
+      <DependentUpon>BayPreviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Support Classes\DatabaseConnector.cs" />
+    <Compile Include="Pages\MainPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patient.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Support Classes\Patient.cs" />
+    <Compile Include="Support Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.cs">
+    <Compile Include="CustomControls\RegisterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Register.Designer.cs">
-      <DependentUpon>Register.cs</DependentUpon>
+    <Compile Include="CustomControls\RegisterControl.Designer.cs">
+      <DependentUpon>RegisterControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Login.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Resources\Login.Designer.cs">
+    <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BayControl.resx">
-      <DependentUpon>BayControl.cs</DependentUpon>
+    <Compile Include="Pages\ManagementPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ManagementPage.Designer.cs">
+      <DependentUpon>ManagementPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\RegistrationPage.Designer.cs">
+      <DependentUpon>RegistrationPage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
+      <DependentUpon>BayPreviewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\BayPage.resx">
+      <DependentUpon>BayPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,11 +121,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Register.resx">
-      <DependentUpon>Register.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\RegisterControl.resx">
+      <DependentUpon>RegisterControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Login.resx">
+    <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ManagementPage.resx">
+      <DependentUpon>ManagementPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\RegistrationPage.resx">
+      <DependentUpon>RegistrationPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,5 +164,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-lock-1002.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

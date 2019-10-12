@@ -1,4 +1,4 @@
-﻿namespace Software_Engineering_Assignment
+﻿namespace Software_Engineering_Assignment.Pages
 {
     partial class MainPage
     {
@@ -34,9 +34,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.register1 = new Software_Engineering_Assignment.Register();
-            this.bayControl2 = new Software_Engineering_Assignment.BayControl();
-            this.bayControl1 = new Software_Engineering_Assignment.BayControl();
+            this.register1 = new Software_Engineering_Assignment.RegisterControl();
+            this.bayControl2 = new Software_Engineering_Assignment.BayPreviewControl();
+            this.bayControl1 = new Software_Engineering_Assignment.BayPreviewControl();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +106,7 @@
             this.bayControl2.Name = "bayControl2";
             this.bayControl2.Size = new System.Drawing.Size(255, 325);
             this.bayControl2.TabIndex = 1;
+            this.bayControl2.Click += new System.EventHandler(this.BayControl2_Click);
             // 
             // bayControl1
             // 
@@ -116,6 +117,7 @@
             this.bayControl1.Name = "bayControl1";
             this.bayControl1.Size = new System.Drawing.Size(255, 325);
             this.bayControl1.TabIndex = 0;
+            this.bayControl1.Click += new System.EventHandler(this.BayControl1_Click);
             // 
             // timer
             // 
@@ -126,15 +128,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(802, 684);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dateTimeLabel);
             this.Controls.Add(this.bayControl2);
             this.Controls.Add(this.bayControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.HelpButton = true;
-            this.MaximizeBox = false;
             this.Name = "MainPage";
+            this.Size = new System.Drawing.Size(802, 684);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,9 +142,9 @@
 
         #endregion
 
-        private BayControl bayControl1;
-        private BayControl bayControl2;
-        private Register register1;
+        private BayPreviewControl bayControl1;
+        private BayPreviewControl bayControl2;
+        private RegisterControl register1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

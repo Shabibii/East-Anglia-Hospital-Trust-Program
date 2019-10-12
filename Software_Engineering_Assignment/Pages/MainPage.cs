@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Software_Engineering_Assignment
+namespace Software_Engineering_Assignment.Pages
 {
-    public partial class MainPage : Form
+    public partial class MainPage : UserControl
     {
         public MainPage()
         {
@@ -37,6 +37,16 @@ namespace Software_Engineering_Assignment
             {
                 //If login button clicked on the login form
             }
+        }
+
+        private void BayControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BayControl2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
