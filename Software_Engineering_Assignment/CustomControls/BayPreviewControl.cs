@@ -55,12 +55,12 @@ namespace Software_Engineering_Assignment
         private void Bay_MouseHover(object sender, EventArgs e)
         {
             
-            BackColor = Color.DarkGray;
+            BackColor = Color.Gainsboro;
         }
 
         private void Bay_MouseDown(object sender, MouseEventArgs e)
         {
-            BackColor = Color.Gray;
+            BackColor = Color.DarkGray;
         }
 
         private void Bay_MouseUp(object sender, MouseEventArgs e)

@@ -34,10 +34,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.register1 = new Software_Engineering_Assignment.RegisterControl();
             this.bayControl2 = new Software_Engineering_Assignment.BayPreviewControl();
             this.bayControl1 = new Software_Engineering_Assignment.BayPreviewControl();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Registration";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -86,6 +87,10 @@
             this.button1.Text = "Management";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // register1
             // 
@@ -118,10 +123,6 @@
             this.bayControl1.Size = new System.Drawing.Size(255, 325);
             this.bayControl1.TabIndex = 0;
             this.bayControl1.Click += new System.EventHandler(this.BayControl1_Click);
-            // 
-            // timer
-            // 
-            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // MainPage
             // 

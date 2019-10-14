@@ -12,6 +12,9 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class MainPage : UserControl
     {
+        public delegate void PageCall(int bayNumber);
+        public PageCall BayPageCall = delegate { };
+
         public MainPage()
         {
             InitializeComponent();
@@ -41,12 +44,21 @@ namespace Software_Engineering_Assignment.Pages
 
         private void BayControl1_Click(object sender, EventArgs e)
         {
-
+            BayPageCall(1);
         }
 
         private void BayControl2_Click(object sender, EventArgs e)
         {
+            BayPageCall(2);
+        }
 
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            if (login.ShowDialog() == DialogResult.Yes)
+            {
+                //If login button clicked on the login form
+            }
         }
     }
 }

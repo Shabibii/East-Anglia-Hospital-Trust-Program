@@ -159,7 +159,7 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // BayControl
+            // BayPreviewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,7 +175,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.title);
             this.MaximumSize = new System.Drawing.Size(255, 360);
-            this.Name = "BayControl";
+            this.Name = "BayPreviewControl";
             this.Size = new System.Drawing.Size(255, 360);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Bay_MouseDown);
             this.MouseLeave += new System.EventHandler(this.BayControl_MouseLeave);

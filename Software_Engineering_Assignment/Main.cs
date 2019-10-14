@@ -24,11 +24,18 @@ namespace Software_Engineering_Assignment
 
         private void InitalizePages()
         {
-            pages.Add(0,new MainPage());
-            pages.Add(1, new BayPage());
-            pages.Add(2, new BayPage());
+            MainPage mainPage = new MainPage
+            {
+                BayPageCall = SetPageToBay
+            };
+
+            pages.Add(0, mainPage);
+            pages.Add(1, new BayPage(1,GoToMainpage));
+            pages.Add(2, new BayPage(2, GoToMainpage));
             pages.Add(3, new ManagementPage());
             pages.Add(4, new RegistrationPage());
+
+            
         }
 
         public void SetPage(int pageNumber)
@@ -36,6 +43,26 @@ namespace Software_Engineering_Assignment
             //Pages have to be the same size for the design theme to work
             Controls.Clear();
             Controls.Add(pages[pageNumber]);
+        }
+
+        public void GoToMainpage()
+        {
+            //Go to Page 0
+            SetPage(0);
+        }
+
+        public void SetPageToBay(int bayNumber)
+        {
+            switch(bayNumber)
+            {
+                case 1:
+                    SetPage(1);
+                    break;
+
+                case 2:
+                    SetPage(2);
+                    break;
+            }
         }
     }
 }
