@@ -1,6 +1,6 @@
-﻿namespace Software_Engineering_Assignment
+﻿namespace Software_Engineering_Assignment.Pages
 {
-    partial class Main
+    partial class PatientPage
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Main
+            // RegistrationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1010, 595);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Main";
-            this.Text = "Main";
-            this.SizeChanged += new System.EventHandler(this.Main_SizeChanged);
+            this.Name = "RegistrationPage";
+            this.Size = new System.Drawing.Size(1010, 595);
             this.ResumeLayout(false);
 
         }

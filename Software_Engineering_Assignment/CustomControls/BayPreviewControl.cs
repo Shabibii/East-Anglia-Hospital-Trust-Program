@@ -44,6 +44,7 @@ namespace Software_Engineering_Assignment
 
         public void DisplayWarningSign()
         {
+            //Display warning sign (Show that an alarm is triggered regarding patient in current bay)
             pictureBox1.Show();
         }
 

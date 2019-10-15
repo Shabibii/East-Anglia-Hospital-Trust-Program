@@ -33,9 +33,8 @@ namespace Software_Engineering_Assignment
             pages.Add(1, new BayPage(1,GoToMainpage));
             pages.Add(2, new BayPage(2, GoToMainpage));
             pages.Add(3, new ManagementPage());
-            pages.Add(4, new RegistrationPage());
-
-            
+            pages.Add(4, new RegisterationPage());
+            pages.Add(5, new PatientPage());
         }
 
         public void SetPage(int pageNumber)
@@ -63,6 +62,11 @@ namespace Software_Engineering_Assignment
                     SetPage(2);
                     break;
             }
+        }
+
+        private void Main_SizeChanged(object sender, EventArgs e)
+        {
+            Text = Size.ToString();
         }
     }
 }
