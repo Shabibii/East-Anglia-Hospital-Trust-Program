@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\DoctorRegistrationFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DoctorRegistrationFieldControl.Designer.cs">
+      <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\StaffAvailabilityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\StaffAvailabilityControl.Designer.cs">
+      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\StaffRegistrationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\StaffRegistrationControl.Designer.cs">
+      <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\UnavailableStaffControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\UnavailableStaffControl.Designer.cs">
+      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BayPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +131,18 @@
     </Compile>
     <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\DoctorRegistrationFieldControl.resx">
+      <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\StaffAvailabilityControl.resx">
+      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\StaffRegistrationControl.resx">
+      <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\UnavailableStaffControl.resx">
+      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\BayPage.resx">
       <DependentUpon>BayPage.cs</DependentUpon>
