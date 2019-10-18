@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\BedsideInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\BedsideInfoControl.Designer.cs">
+      <DependentUpon>BedsideInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\DoctorRegistrationFieldControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\BedsideInfoControl.resx">
+      <DependentUpon>BedsideInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\DoctorRegistrationFieldControl.resx">
       <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +218,11 @@
   <ItemGroup>
     <None Include="Resources\icons8-lock-1002.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\yumminky-pc-43-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Important Notification3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
