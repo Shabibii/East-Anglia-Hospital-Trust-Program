@@ -15,6 +15,9 @@ namespace Software_Engineering_Assignment.CustomControls
         private Patient patient;
         Image WarningImage => Alarm() ? Properties.Resources.ImportantNotification3 : null;
 
+        public delegate void PageCall(int bayNumber, int bedNumber);
+        public PageCall PatientPageCall = delegate { };
+
         public BedsideInfoControl()
         {
             InitializeComponent();
@@ -39,6 +42,11 @@ namespace Software_Engineering_Assignment.CustomControls
             textBox1.Text += $"{p.ModulesActive}";
 
             button2.Text = $"Bedside {p.bedNumber}";
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            PatientPageCall(patient.bayNumber, patient.bedNumber);
         }
     }
 }

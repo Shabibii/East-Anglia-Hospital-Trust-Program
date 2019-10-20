@@ -53,9 +53,9 @@
 
         public string IntakeReason { get; set; } = "Well damn";
 
-        public int bedNumber { get; set; }
+        public int bedNumber = 0;
 
-        public int bayNumber { get; set; }
+        public int bayNumber = 0;
 
         public Module Module1 => new Module();
         public Module Module2 => new Module();

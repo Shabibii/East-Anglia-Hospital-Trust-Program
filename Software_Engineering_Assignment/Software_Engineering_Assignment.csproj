@@ -224,5 +224,8 @@
   <ItemGroup>
     <None Include="Resources\Important Notification3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-lock-1003.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -62,7 +62,6 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // bedsideInfoControl7
             // 
@@ -153,7 +152,6 @@
             this.Controls.Add(this.label1);
             this.Name = "BayPage";
             this.Size = new System.Drawing.Size(1010, 595);
-            this.Load += new System.EventHandler(this.BayPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -63,6 +63,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "Bedside X";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // pictureBox1
             // 
