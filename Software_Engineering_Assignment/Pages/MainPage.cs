@@ -15,17 +15,20 @@ namespace Software_Engineering_Assignment.Pages
         public delegate void PageCall(int bayNumber);
         public PageCall BayPageCall = delegate { };
 
-        public MainPage()
+        public delegate void PageCall2(int bayNumber, int bedNumber);
+
+        public MainPage(PageCall2 patientPageCall)
         {
             InitializeComponent();
-            InitializeBays();
+            InitializeBays(patientPageCall);
             timer.Start();
         }
 
-        public void InitializeBays()
+
+        public void InitializeBays(PageCall2 patientPageCall)
         {
-            bayControl1.SetBay(new Bay(1));
-            bayControl2.SetBay(new Bay(2));
+            bayControl1.SetBay(new Bay(1), patientPageCall);
+            bayControl2.SetBay(new Bay(2), patientPageCall);
         }
 
         private void Timer_Tick(object sender, EventArgs e)

@@ -24,10 +24,9 @@ namespace Software_Engineering_Assignment
 
         private void InitalizePages()
         {
-            MainPage mainPage = new MainPage
+            MainPage mainPage = new MainPage(SetPatientPage)
             {
-                BayPageCall = SetPageToBay,
-                
+                BayPageCall = SetPageToBay
             };
 
             pages.Add(0, mainPage);

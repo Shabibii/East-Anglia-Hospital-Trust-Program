@@ -64,6 +64,7 @@
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "(X) Patient Name";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -76,6 +77,7 @@
             this.linkLabel2.TabIndex = 3;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "(X) Patient Name";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -88,6 +90,7 @@
             this.linkLabel3.TabIndex = 4;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "(X) Patient Name";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel3_LinkClicked);
             // 
             // linkLabel4
             // 
@@ -100,6 +103,7 @@
             this.linkLabel4.TabIndex = 5;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "(X) Patient Name";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel4_LinkClicked);
             // 
             // linkLabel5
             // 
@@ -112,6 +116,7 @@
             this.linkLabel5.TabIndex = 6;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "(X) Patient Name";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel5_LinkClicked);
             // 
             // linkLabel6
             // 
@@ -124,6 +129,7 @@
             this.linkLabel6.TabIndex = 7;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "(X) Patient Name";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel6_LinkClicked);
             // 
             // linkLabel7
             // 
@@ -136,6 +142,7 @@
             this.linkLabel7.TabIndex = 8;
             this.linkLabel7.TabStop = true;
             this.linkLabel7.Text = "(X) Patient Name";
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel7_LinkClicked);
             // 
             // linkLabel8
             // 
@@ -148,6 +155,7 @@
             this.linkLabel8.TabIndex = 9;
             this.linkLabel8.TabStop = true;
             this.linkLabel8.Text = "(X) Patient Name";
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel8_LinkClicked);
             // 
             // pictureBox1
             // 
