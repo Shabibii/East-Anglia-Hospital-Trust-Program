@@ -26,22 +26,30 @@ namespace Software_Engineering_Assignment
         {
             MainPage mainPage = new MainPage
             {
-                BayPageCall = SetPageToBay
+                BayPageCall = SetPageToBay,
+                
             };
 
             pages.Add(0, mainPage);
-            pages.Add(1, new BayPage(1,GoToMainpage));
-            pages.Add(2, new BayPage(2, GoToMainpage));
+            pages.Add(1, new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage});
+            pages.Add(2, new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage });
             pages.Add(3, new ManagementPage());
             pages.Add(4, new RegisterationPage());
-            pages.Add(5, new PatientPage());
-        }
+            pages.Add(5, new PatientPage(GoToMainpage));
+        } 
 
         public void SetPage(int pageNumber)
         {
             //Pages have to be the same size for the design theme to work
             Controls.Clear();
             Controls.Add(pages[pageNumber]);
+        }
+
+        public void SetPatientPage(int bayNumber,int pageNumber)
+        {
+            //Set page to patient page
+            ((PatientPage)pages[5]).SetPatient(bayNumber, pageNumber);
+            SetPage(5);
         }
 
         public void GoToMainpage()

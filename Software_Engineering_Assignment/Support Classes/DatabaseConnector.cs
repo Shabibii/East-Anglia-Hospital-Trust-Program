@@ -19,7 +19,7 @@ namespace Software_Engineering_Assignment
         public static Patient GetPatient(int bayNumber, int bedNumber)
         {
             //To be implemented
-            return new Patient();
+            return new Patient() { bayNumber = bayNumber, bedNumber = bedNumber};
         }
     }
 }

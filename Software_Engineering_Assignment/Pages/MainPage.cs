@@ -60,5 +60,10 @@ namespace Software_Engineering_Assignment.Pages
                 //If login button clicked on the login form
             }
         }
+
+        private void BayControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

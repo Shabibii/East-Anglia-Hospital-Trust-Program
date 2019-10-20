@@ -73,9 +73,39 @@ namespace Software_Engineering_Assignment.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_lock_1003 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-lock-1003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Important_Notification {
             get {
                 object obj = ResourceManager.GetObject("Important Notification", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImportantNotification3 {
+            get {
+                object obj = ResourceManager.GetObject("ImportantNotification3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yumminky_pc_43_512 {
+            get {
+                object obj = ResourceManager.GetObject("yumminky-pc-43-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
