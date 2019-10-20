@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(459, 10);
+            this.label1.Location = new System.Drawing.Point(469, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 26);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(464, 549);
+            this.button2.Location = new System.Drawing.Point(473, 538);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(64, 43);
             this.button2.TabIndex = 13;
@@ -67,73 +67,73 @@
             // bedsideInfoControl7
             // 
             this.bedsideInfoControl7.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl7.Location = new System.Drawing.Point(535, 442);
+            this.bedsideInfoControl7.Location = new System.Drawing.Point(511, 305);
             this.bedsideInfoControl7.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl7.Name = "bedsideInfoControl7";
-            this.bedsideInfoControl7.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl7.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl7.TabIndex = 21;
             // 
             // bedsideInfoControl8
             // 
             this.bedsideInfoControl8.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl8.Location = new System.Drawing.Point(27, 442);
+            this.bedsideInfoControl8.Location = new System.Drawing.Point(511, 431);
             this.bedsideInfoControl8.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl8.Name = "bedsideInfoControl8";
-            this.bedsideInfoControl8.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl8.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl8.TabIndex = 20;
             // 
             // bedsideInfoControl6
             // 
             this.bedsideInfoControl6.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl6.Location = new System.Drawing.Point(535, 316);
+            this.bedsideInfoControl6.Location = new System.Drawing.Point(511, 178);
             this.bedsideInfoControl6.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl6.Name = "bedsideInfoControl6";
-            this.bedsideInfoControl6.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl6.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl6.TabIndex = 19;
             // 
             // bedsideInfoControl5
             // 
             this.bedsideInfoControl5.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl5.Location = new System.Drawing.Point(535, 189);
+            this.bedsideInfoControl5.Location = new System.Drawing.Point(511, 51);
             this.bedsideInfoControl5.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl5.Name = "bedsideInfoControl5";
-            this.bedsideInfoControl5.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl5.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl5.TabIndex = 18;
             // 
             // bedsideInfoControl4
             // 
             this.bedsideInfoControl4.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl4.Location = new System.Drawing.Point(535, 62);
+            this.bedsideInfoControl4.Location = new System.Drawing.Point(30, 431);
             this.bedsideInfoControl4.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl4.Name = "bedsideInfoControl4";
-            this.bedsideInfoControl4.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl4.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl4.TabIndex = 17;
             // 
             // bedsideInfoControl3
             // 
             this.bedsideInfoControl3.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl3.Location = new System.Drawing.Point(27, 316);
+            this.bedsideInfoControl3.Location = new System.Drawing.Point(30, 305);
             this.bedsideInfoControl3.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl3.Name = "bedsideInfoControl3";
-            this.bedsideInfoControl3.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl3.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl3.TabIndex = 16;
             // 
             // bedsideInfoControl2
             // 
             this.bedsideInfoControl2.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl2.Location = new System.Drawing.Point(27, 189);
+            this.bedsideInfoControl2.Location = new System.Drawing.Point(30, 178);
             this.bedsideInfoControl2.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl2.Name = "bedsideInfoControl2";
-            this.bedsideInfoControl2.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl2.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl2.TabIndex = 15;
             // 
             // bedsideInfoControl1
             // 
             this.bedsideInfoControl1.BackColor = System.Drawing.Color.White;
-            this.bedsideInfoControl1.Location = new System.Drawing.Point(27, 62);
+            this.bedsideInfoControl1.Location = new System.Drawing.Point(30, 51);
             this.bedsideInfoControl1.MaximumSize = new System.Drawing.Size(517, 101);
             this.bedsideInfoControl1.Name = "bedsideInfoControl1";
-            this.bedsideInfoControl1.Size = new System.Drawing.Size(444, 101);
+            this.bedsideInfoControl1.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl1.TabIndex = 14;
             // 
             // BayPage

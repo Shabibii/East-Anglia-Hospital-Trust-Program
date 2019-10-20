@@ -26,6 +26,15 @@ namespace Software_Engineering_Assignment.Pages
         {
             SelectBay(bayPage);
             PreviousPageCall = goBackPage;
+
+            bedsideInfoControl1.AssignPatient(selectedBay.GetPatient(1));
+            bedsideInfoControl2.AssignPatient(selectedBay.GetPatient(2));
+            bedsideInfoControl3.AssignPatient(selectedBay.GetPatient(3));
+            bedsideInfoControl4.AssignPatient(selectedBay.GetPatient(4));
+            bedsideInfoControl5.AssignPatient(selectedBay.GetPatient(5));
+            bedsideInfoControl6.AssignPatient(selectedBay.GetPatient(6));
+            bedsideInfoControl7.AssignPatient(selectedBay.GetPatient(7));
+            bedsideInfoControl8.AssignPatient(selectedBay.GetPatient(8));
         }
 
         public void SelectBay(int bayPage)
