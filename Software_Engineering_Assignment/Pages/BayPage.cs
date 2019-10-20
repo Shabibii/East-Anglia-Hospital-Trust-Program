@@ -38,5 +38,10 @@ namespace Software_Engineering_Assignment.Pages
         {
             PreviousPageCall();
         }
+
+        private void BayPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
