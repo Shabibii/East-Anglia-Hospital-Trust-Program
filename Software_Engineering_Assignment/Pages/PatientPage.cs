@@ -16,5 +16,10 @@ namespace Software_Engineering_Assignment.Pages
         {
             InitializeComponent();
         }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
