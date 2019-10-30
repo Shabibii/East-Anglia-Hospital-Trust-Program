@@ -24,7 +24,7 @@ namespace Software_Engineering_Assignment
         public delegate void PageCall2(int bayNumber, int bedNumber);
         public PageCall0 BayPageCall = delegate { };
 
-        
+       
 
         public Main()
         {
