@@ -46,11 +46,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\BedsideInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\BedsideInfoControl.Designer.cs">
+      <DependentUpon>BedsideInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\DoctorRegistrationFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DoctorRegistrationFieldControl.Designer.cs">
+      <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\StaffAvailabilityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\StaffAvailabilityControl.Designer.cs">
+      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\StaffRegistrationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\StaffRegistrationControl.Designer.cs">
+      <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\UnavailableStaffControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\UnavailableStaffControl.Designer.cs">
+      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BayPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pages\BayPage.Designer.cs">
       <DependentUpon>BayPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegisterationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\RegisterationPage.Designer.cs">
+      <DependentUpon>RegisterationPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Support Classes\Bay.cs" />
     <Compile Include="CustomControls\BayPreviewControl.cs">
@@ -93,14 +129,29 @@
     <Compile Include="Pages\ManagementPage.Designer.cs">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RegistrationPage.cs">
+    <Compile Include="Pages\PatientPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\RegistrationPage.Designer.cs">
-      <DependentUpon>RegistrationPage.cs</DependentUpon>
+    <Compile Include="Pages\PatientPage.Designer.cs">
+      <DependentUpon>PatientPage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\BedsideInfoControl.resx">
+      <DependentUpon>BedsideInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\DoctorRegistrationFieldControl.resx">
+      <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\StaffAvailabilityControl.resx">
+      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\StaffRegistrationControl.resx">
+      <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\UnavailableStaffControl.resx">
+      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\BayPage.resx">
       <DependentUpon>BayPage.cs</DependentUpon>
@@ -110,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\RegisterationPage.resx">
+      <DependentUpon>RegisterationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,8 +184,8 @@
     <EmbeddedResource Include="Pages\ManagementPage.resx">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\RegistrationPage.resx">
-      <DependentUpon>RegistrationPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\PatientPage.resx">
+      <DependentUpon>PatientPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,6 +218,14 @@
   <ItemGroup>
     <None Include="Resources\icons8-lock-1002.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\yumminky-pc-43-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Important Notification3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-lock-1003.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

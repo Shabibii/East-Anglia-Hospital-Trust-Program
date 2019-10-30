@@ -1,0 +1,1 @@
+Creating a Staff page in the system. This is good for the maintenance of the system, becuase staff members will leave and new ones will come.

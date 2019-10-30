@@ -14,18 +14,41 @@ namespace Software_Engineering_Assignment.Pages
     {
         Bay selectedBay;
 
-        public delegate void PageCall();
-        public PageCall PreviousPageCall = delegate { };
+        public Main.PageCall2 PatientPageCall = delegate { };
 
         public BayPage()
         {
             InitializeComponent();
         }
 
-        public BayPage(int bayPage, PageCall goBackPage) : this()
+        public BayPage(int bayPage, Main.PageCall0 goBackPage) : this()
         {
             SelectBay(bayPage);
-            PreviousPageCall = goBackPage;
+            button2.Click += delegate { goBackPage(); };
+
+            bedsideInfoControl1.AssignPatient(selectedBay.GetPatient(1));
+            bedsideInfoControl1.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 1);  };
+
+            bedsideInfoControl2.AssignPatient(selectedBay.GetPatient(2));
+            bedsideInfoControl2.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 2); };
+
+            bedsideInfoControl3.AssignPatient(selectedBay.GetPatient(3));
+            bedsideInfoControl3.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 3); };
+
+            bedsideInfoControl4.AssignPatient(selectedBay.GetPatient(4));
+            bedsideInfoControl4.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 4); };
+
+            bedsideInfoControl5.AssignPatient(selectedBay.GetPatient(5));
+            bedsideInfoControl5.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 5); };
+
+            bedsideInfoControl6.AssignPatient(selectedBay.GetPatient(6));
+            bedsideInfoControl6.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 6); };
+
+            bedsideInfoControl7.AssignPatient(selectedBay.GetPatient(7));
+            bedsideInfoControl7.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 7); };
+
+            bedsideInfoControl8.AssignPatient(selectedBay.GetPatient(8));
+            bedsideInfoControl8.PatientPageCall = delegate { PatientPageCall(selectedBay.BayNumber, 8); };
         }
 
         public void SelectBay(int bayPage)
@@ -34,9 +57,5 @@ namespace Software_Engineering_Assignment.Pages
             label1.Text = $"Bay {bayPage}";
         }
 
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            PreviousPageCall();
-        }
     }
 }

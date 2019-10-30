@@ -13,7 +13,18 @@ namespace Software_Engineering_Assignment
 {
     public partial class Main : Form
     {
+        //Pages in the program (User controls in the "Pages" folder)
         private readonly Dictionary<int, UserControl> pages = new Dictionary<int, UserControl>();
+
+        //Page call method with 0 parameters
+        public delegate void PageCall0();
+        //Page call method with 1 parameter
+        public delegate void PageCall1(int bayNumber);
+        //Page call method with 2 parameters
+        public delegate void PageCall2(int bayNumber, int bedNumber);
+        public PageCall0 BayPageCall = delegate { };
+
+        
 
         public Main()
         {
@@ -24,25 +35,31 @@ namespace Software_Engineering_Assignment
 
         private void InitalizePages()
         {
-            MainPage mainPage = new MainPage
+            MainPage mainPage = new MainPage(SetPatientPage)
             {
                 BayPageCall = SetPageToBay
             };
 
             pages.Add(0, mainPage);
-            pages.Add(1, new BayPage(1,GoToMainpage));
-            pages.Add(2, new BayPage(2, GoToMainpage));
+            pages.Add(1, new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage});
+            pages.Add(2, new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage });
             pages.Add(3, new ManagementPage());
-            pages.Add(4, new RegistrationPage());
-
-            
-        }
+            pages.Add(4, new RegisterationPage());
+            pages.Add(5, new PatientPage(GoToMainpage));
+        } 
 
         public void SetPage(int pageNumber)
         {
             //Pages have to be the same size for the design theme to work
             Controls.Clear();
             Controls.Add(pages[pageNumber]);
+        }
+
+        public void SetPatientPage(int bayNumber,int pageNumber)
+        {
+            //Set page to patient page
+            ((PatientPage)pages[5]).SetPatient(bayNumber, pageNumber);
+            SetPage(5);
         }
 
         public void GoToMainpage()
@@ -63,6 +80,11 @@ namespace Software_Engineering_Assignment
                     SetPage(2);
                     break;
             }
+        }
+
+        private void Main_SizeChanged(object sender, EventArgs e)
+        {
+            Text = Size.ToString();
         }
     }
 }

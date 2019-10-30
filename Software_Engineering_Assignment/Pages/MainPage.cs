@@ -12,20 +12,20 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class MainPage : UserControl
     {
-        public delegate void PageCall(int bayNumber);
-        public PageCall BayPageCall = delegate { };
+        public Main.PageCall1 BayPageCall;
 
-        public MainPage()
+        public MainPage(Main.PageCall2 patientPageCall)
         {
             InitializeComponent();
-            InitializeBays();
+            InitializeBays(patientPageCall);
             timer.Start();
         }
 
-        public void InitializeBays()
+
+        public void InitializeBays(Main.PageCall2 patientPageCall)
         {
-            bayControl1.SetBay(new Bay(1));
-            bayControl2.SetBay(new Bay(2));
+            bayControl1.SetBay(new Bay(1), patientPageCall);
+            bayControl2.SetBay(new Bay(2), patientPageCall);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -59,6 +59,11 @@ namespace Software_Engineering_Assignment.Pages
             {
                 //If login button clicked on the login form
             }
+        }
+
+        private void BayControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
