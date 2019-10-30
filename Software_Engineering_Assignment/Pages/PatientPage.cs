@@ -14,9 +14,7 @@ namespace Software_Engineering_Assignment.Pages
     {
         Patient currentPatient;
 
-        public delegate void PageCall();
-
-        public PatientPage(PageCall previousPageCall)
+        public PatientPage(Main.PageCall0 previousPageCall)
         {
             InitializeComponent();
             InitalizeControl();

@@ -14,17 +14,14 @@ namespace Software_Engineering_Assignment.Pages
     {
         Bay selectedBay;
 
-        public delegate void PageCall();
-        public delegate void PageCall2(int bayNumber, int bedNumber);
-
-        public PageCall2 PatientPageCall = delegate { };
+        public Main.PageCall2 PatientPageCall = delegate { };
 
         public BayPage()
         {
             InitializeComponent();
         }
 
-        public BayPage(int bayPage, PageCall goBackPage) : this()
+        public BayPage(int bayPage, Main.PageCall0 goBackPage) : this()
         {
             SelectBay(bayPage);
             button2.Click += delegate { goBackPage(); };

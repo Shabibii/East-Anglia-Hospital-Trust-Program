@@ -15,8 +15,7 @@ namespace Software_Engineering_Assignment
     {
         Bay bay;
 
-        public delegate void PageCall2(int bayNumber, int bedNumber);
-        public PageCall2 PatientPageCall = delegate { };
+        public Main.PageCall2 PatientPageCall = delegate { };
 
         public BayPreviewControl()
         {
@@ -24,19 +23,13 @@ namespace Software_Engineering_Assignment
             pictureBox1.Hide();
         }
 
-        public void SetBay(Bay bay, PageCall2 patientPageCall)
+        public void SetBay(Bay bay, Main.PageCall2 patientPageCall)
         {
             this.bay = bay;
             SetProperties();
             PatientPageCall = patientPageCall;
         }
 
-        internal void SetBay(Bay bay, MainPage.PageCall2 patientPageCall)
-        {
-            this.bay = bay;
-            SetProperties();
-            PatientPageCall = new PageCall2(patientPageCall);
-        }
 
         private void SetProperties()
         {

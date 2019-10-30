@@ -13,7 +13,18 @@ namespace Software_Engineering_Assignment
 {
     public partial class Main : Form
     {
+        //Pages in the program (User controls in the "Pages" folder)
         private readonly Dictionary<int, UserControl> pages = new Dictionary<int, UserControl>();
+
+        //Page call method with 0 parameters
+        public delegate void PageCall0();
+        //Page call method with 1 parameter
+        public delegate void PageCall1(int bayNumber);
+        //Page call method with 2 parameters
+        public delegate void PageCall2(int bayNumber, int bedNumber);
+        public PageCall0 BayPageCall = delegate { };
+
+        
 
         public Main()
         {

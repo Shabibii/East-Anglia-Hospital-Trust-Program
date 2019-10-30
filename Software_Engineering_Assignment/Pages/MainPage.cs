@@ -12,12 +12,9 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class MainPage : UserControl
     {
-        public delegate void PageCall(int bayNumber);
-        public PageCall BayPageCall = delegate { };
+        public Main.PageCall1 BayPageCall;
 
-        public delegate void PageCall2(int bayNumber, int bedNumber);
-
-        public MainPage(PageCall2 patientPageCall)
+        public MainPage(Main.PageCall2 patientPageCall)
         {
             InitializeComponent();
             InitializeBays(patientPageCall);
@@ -25,7 +22,7 @@ namespace Software_Engineering_Assignment.Pages
         }
 
 
-        public void InitializeBays(PageCall2 patientPageCall)
+        public void InitializeBays(Main.PageCall2 patientPageCall)
         {
             bayControl1.SetBay(new Bay(1), patientPageCall);
             bayControl2.SetBay(new Bay(2), patientPageCall);
