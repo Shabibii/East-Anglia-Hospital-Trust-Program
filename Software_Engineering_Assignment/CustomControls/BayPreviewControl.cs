@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Software_Engineering_Assignment.Pages;
+using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment
 {
@@ -50,11 +51,6 @@ namespace Software_Engineering_Assignment
         {
             //Display warning sign (Show that an alarm is triggered regarding patient in current bay)
             pictureBox1.Show();
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Bay_MouseHover(object sender, EventArgs e)

@@ -108,8 +108,9 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Support Classes\Module.cs" />
     <Compile Include="Support Classes\Patient.cs" />
-    <Compile Include="Support Classes\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomControls\RegisterControl.cs">
       <SubType>UserControl</SubType>

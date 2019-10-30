@@ -1,31 +1,34 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Software_Engineering_Assignment
+﻿namespace Software_Engineering_Assignment.Support_Classes
 {
     public class Bay
     {
         public int BayNumber;
 
+        /// <summary>
+        /// Structure to hold information on bays including bedsides/patients
+        /// </summary>
+        /// <param name="bayNumber"></param>
         public Bay(int bayNumber)
         {
             BayNumber = bayNumber;
-            patient1 = DatabaseConnector.GetPatient(bayNumber, 1);
-            patient2 = DatabaseConnector.GetPatient(bayNumber, 2);
-            patient3 = DatabaseConnector.GetPatient(bayNumber, 3);
-            patient4 = DatabaseConnector.GetPatient(bayNumber, 4);
-            patient5 = DatabaseConnector.GetPatient(bayNumber, 5);
-            patient6 = DatabaseConnector.GetPatient(bayNumber, 6);
-            patient7 = DatabaseConnector.GetPatient(bayNumber, 7);
-            patient8 = DatabaseConnector.GetPatient(bayNumber, 8);
+            patient1 = DatabaseConnector.Instance.GetPatient(bayNumber, 1);
+            patient2 = DatabaseConnector.Instance.GetPatient(bayNumber, 2);
+            patient3 = DatabaseConnector.Instance.GetPatient(bayNumber, 3);
+            patient4 = DatabaseConnector.Instance.GetPatient(bayNumber, 4);
+            patient5 = DatabaseConnector.Instance.GetPatient(bayNumber, 5);
+            patient6 = DatabaseConnector.Instance.GetPatient(bayNumber, 6);
+            patient7 = DatabaseConnector.Instance.GetPatient(bayNumber, 7);
+            patient8 = DatabaseConnector.Instance.GetPatient(bayNumber, 8);
         }
 
+        /// <summary>
+        /// This method returns a patient based on the bedside number
+        /// </summary>
+        /// <param name="bedNumber"></param>
+        /// <returns></returns>
         public Patient GetPatient(int bedNumber)
         {
-            switch(bedNumber)
+            switch (bedNumber)
             {
                 case 1: return patient1;
                 case 2: return patient2;
@@ -35,7 +38,7 @@ namespace Software_Engineering_Assignment
                 case 6: return patient6;
                 case 7: return patient7;
                 case 8: return patient8;
-                default:  return new Patient();
+                default: return new Patient();
             }
         }
 
