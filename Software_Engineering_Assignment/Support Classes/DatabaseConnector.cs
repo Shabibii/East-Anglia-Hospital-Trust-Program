@@ -35,5 +35,10 @@ namespace Software_Engineering_Assignment.Support_Classes
             //To be implemented
             return new Patient() { bayNumber = bayNumber, bedNumber = bedNumber};
         }
+
+        public List<Staff> GetAllStaff()
+        {
+            return null;
+        }
     }
 }

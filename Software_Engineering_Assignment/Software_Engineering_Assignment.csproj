@@ -110,6 +110,7 @@
     <Compile Include="CustomControls\BayPreviewControl.Designer.cs">
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Support Classes\Staff.cs" />
     <Compile Include="Support Classes\DatabaseConnector.cs" />
     <Compile Include="Pages\MainPage.cs">
       <SubType>UserControl</SubType>
