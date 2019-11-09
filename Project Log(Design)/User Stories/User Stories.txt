@@ -1,0 +1,18 @@
+Medical Staff
+
+As a medical staff, i want to be able to change the maximum and minimum allowable limit of a patient's module 
+
+As a medical staff, i want to be able to select modules to be used to monitor patient's behaviour.
+
+As a medical staff, i want to recieve an alarm if the system finds any condition in patient.
+
+As a medical staff, i want to be alerted by pager or SMS or Email if i am a consultant.
+
+As a medical staff, i want to be able to register/deregister my on-call time in the system.
+
+As a medical staff, i want to be able to mute patient's alarm if not critical
+
+
+Management
+
+As a manager, i want to be able to monitor medical staff activity
