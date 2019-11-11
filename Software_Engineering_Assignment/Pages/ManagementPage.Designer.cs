@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvManagementInfo = new System.Windows.Forms.DataGridView();
-            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblManagementTitle = new System.Windows.Forms.Label();
             this.lblEventType = new System.Windows.Forms.Label();
             this.lbxEventType = new System.Windows.Forms.ListBox();
@@ -43,67 +37,19 @@
             this.lbxDate = new System.Windows.Forms.ListBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnManagementBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManagementInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvManagementInfo
             // 
             this.dgvManagementInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvManagementInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDate,
-            this.colTime,
-            this.colStaff,
-            this.colEventType,
-            this.colActivity,
-            this.colDescription});
             this.dgvManagementInfo.Location = new System.Drawing.Point(20, 39);
             this.dgvManagementInfo.Name = "dgvManagementInfo";
             this.dgvManagementInfo.RowHeadersWidth = 51;
             this.dgvManagementInfo.RowTemplate.Height = 24;
             this.dgvManagementInfo.Size = new System.Drawing.Size(714, 508);
             this.dgvManagementInfo.TabIndex = 0;
-            // 
-            // colDate
-            // 
-            this.colDate.HeaderText = "Date";
-            this.colDate.MinimumWidth = 6;
-            this.colDate.Name = "colDate";
-            this.colDate.Width = 80;
-            // 
-            // colTime
-            // 
-            this.colTime.HeaderText = "Time";
-            this.colTime.MinimumWidth = 6;
-            this.colTime.Name = "colTime";
-            this.colTime.Width = 80;
-            // 
-            // colStaff
-            // 
-            this.colStaff.HeaderText = "Staff";
-            this.colStaff.MinimumWidth = 6;
-            this.colStaff.Name = "colStaff";
-            this.colStaff.Width = 125;
-            // 
-            // colEventType
-            // 
-            this.colEventType.HeaderText = "Type Of Event";
-            this.colEventType.MinimumWidth = 6;
-            this.colEventType.Name = "colEventType";
-            this.colEventType.Width = 125;
-            // 
-            // colActivity
-            // 
-            this.colActivity.HeaderText = "Activity";
-            this.colActivity.MinimumWidth = 6;
-            this.colActivity.Name = "colActivity";
-            this.colActivity.Width = 125;
-            // 
-            // colDescription
-            // 
-            this.colDescription.HeaderText = "Description";
-            this.colDescription.MinimumWidth = 6;
-            this.colDescription.Name = "colDescription";
-            this.colDescription.Width = 125;
             // 
             // lblManagementTitle
             // 
@@ -184,11 +130,21 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
+            // btnManagementBack
+            // 
+            this.btnManagementBack.Location = new System.Drawing.Point(893, 524);
+            this.btnManagementBack.Name = "btnManagementBack";
+            this.btnManagementBack.Size = new System.Drawing.Size(75, 23);
+            this.btnManagementBack.TabIndex = 9;
+            this.btnManagementBack.Text = "Back";
+            this.btnManagementBack.UseVisualStyleBackColor = true;
+            // 
             // ManagementPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnManagementBack);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lbxDate);
             this.Controls.Add(this.lblDate);
@@ -201,6 +157,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManagementPage";
             this.Size = new System.Drawing.Size(1010, 595);
+            this.Load += new System.EventHandler(this.ManagementPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManagementInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -213,16 +170,11 @@
         private System.Windows.Forms.Label lblManagementTitle;
         private System.Windows.Forms.Label lblEventType;
         private System.Windows.Forms.ListBox lbxEventType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEventType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colActivity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
         private System.Windows.Forms.ListBox lbxStaffID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lbxDate;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnManagementBack;
     }
 }

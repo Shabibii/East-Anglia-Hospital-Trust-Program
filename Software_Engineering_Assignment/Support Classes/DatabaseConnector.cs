@@ -90,6 +90,31 @@ namespace Software_Engineering_Assignment.Support_Classes
             return null;
         }
 
+        /// <summary>
+        /// Method returning dataset of the whole 'Alarm' table
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetAlarms()
+        {
+            //Open connection to database
+            OpenConnection();
+
+            //Create dataset to hold the 'Alarm' table
+            DataSet alarms = new DataSet();
+
+            //Pass a SELECT command to the adapter
+            sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Alarm",sqlConnection);
+
+            //Fill the 'alarms' dataset with 'Alarm' table
+            sqlDataAdapter.Fill(alarms);
+
+            //Close connection to database
+            CloseConnection();
+
+            //Return filled dataset
+            return alarms;
+        }
+
         public bool VerifyLogin(int staffID, string password)
         {
             OpenConnection(); //Open Connection
