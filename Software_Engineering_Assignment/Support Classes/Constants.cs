@@ -14,6 +14,9 @@ namespace Software_Engineering_Assignment.Support_Classes
                 FROM Staff 
                 Where staff_id = {id};";
 
+        //Get staff ID using sql query
+        public static string GetStaffId => $"SELECT staff_id FROM Staff;";
+
         public static string GetStaffPassword(int id) => $"SELECT password FROM Staff Where staff_id = {id};";
 
         //SELECT column1, column2, ...

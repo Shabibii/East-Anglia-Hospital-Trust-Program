@@ -72,8 +72,27 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             OpenConnection(); //Open Connection
 
+            List<Staff> staffList = new List<Staff>();
+
+            using (DataSet dataSet = new DataSet())
+            {
+                //Get data from class Constants
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffId, sqlConnection);
+                sqlDataAdapter.Fill(dataSet); 
+
+                DataTable staffIdTable = dataSet.Tables[0];
+                DataColumn column = staffIdTable.Columns[0];
+
+                foreach (DataRow row in staffIdTable.Rows)
+                {
+                    int staffID = int.Parse(row[column].ToString());
+                    staffList.Add(GetStaff(staffID));
+                }
+            }
+
+
             CloseConnection(); //Close Connection
-            return null;
+            return staffList;
         }
 
         public Staff GetStaff(int staffID)

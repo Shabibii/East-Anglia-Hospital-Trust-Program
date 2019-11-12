@@ -39,14 +39,15 @@ namespace Software_Engineering_Assignment
             MainPage mainPage = new MainPage(SetPatientPage)
             {
                 BayPageCall = SetPageToBay,
-                ManagementPageCall = CallManagementPage
+                ManagementPageCall = CallManagementPage,
+                RegisterationPageCall = CallRegisterationPage
             };
 
             pages.Add(0, mainPage);
             pages.Add(1, new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage});
             pages.Add(2, new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage });
             pages.Add(3, new ManagementPage());
-            pages.Add(4, new RegisterationPage());
+            pages.Add(4, new RegisterationPage() { goBackToParentPage = GoToMainpage });
             pages.Add(5, new PatientPage(GoToMainpage));
         } 
 
@@ -86,8 +87,14 @@ namespace Software_Engineering_Assignment
 
         public void CallManagementPage()
         {
-            //Go to Page 0
+            //Go to Page 3
             SetPage(3);
+        }
+
+        public void CallRegisterationPage()
+        {
+            //Go to Page 4
+            SetPage(4);
         }
 
         private void Main_SizeChanged(object sender, EventArgs e)

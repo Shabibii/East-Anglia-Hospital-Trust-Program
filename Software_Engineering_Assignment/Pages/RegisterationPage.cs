@@ -13,7 +13,8 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class RegisterationPage : UserControl
     {
-        List<Staff> allStaff; 
+        List<Staff> allStaff;
+        public Main.PageCall0 goBackToParentPage;
 
         public RegisterationPage()
         {
@@ -51,8 +52,9 @@ namespace Software_Engineering_Assignment.Pages
 
         }
 
-        
-
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            goBackToParentPage();
+        }
     }
 }
