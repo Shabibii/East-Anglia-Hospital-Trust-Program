@@ -38,6 +38,7 @@
             this.monthCalendar1.Location = new System.Drawing.Point(269, 6);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // label1
             // 
@@ -62,7 +63,7 @@
             this.textBox1.Text = "Dr Samuel Segi (12 Oct 2019)\r\nDr Josephine Luke (09 Oct 2019)\r\n……..\r\n……..\r\n……..\r\n" +
     "……..\r\n……..\r\n……..\r\n……..\r\n……..\r\n……..";
             // 
-            // UnavailableStaff
+            // UnavailableStaffControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,7 +71,7 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "UnavailableStaff";
+            this.Name = "UnavailableStaffControl";
             this.Size = new System.Drawing.Size(500, 291);
             this.ResumeLayout(false);
             this.PerformLayout();
