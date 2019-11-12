@@ -13,24 +13,25 @@ namespace Software_Engineering_Assignment.CustomControls
 {
     public partial class StaffRegistrationControl : UserControl
     {
-        List<Staff> allDoctors;
         public StaffRegistrationControl()
         {
             InitializeComponent();
+            RegisterField();
         }
 
         
-        //public RegisterField()
-        //{
-         //   allDoctors = DatabaseConnector.Instance.GetAllStaff();
+        private void RegisterField()
+        {
+           var allStaff = DatabaseConnector.Instance.GetAllStaff();
 
-         //   foreach (Staff staff in allDoctors)
-           // {
-            //    
-            //}
-        //}
+           foreach (Staff staff in allStaff)
+           {
+                panel1.Controls.Add(new doctorRegistrationFieldControl(staff));
+           }
 
-        //Registeration field conttrol
+        }
+
+        //Registeration field control
         /*
          * Get doctors from database
          * create many regFControls for the doctors

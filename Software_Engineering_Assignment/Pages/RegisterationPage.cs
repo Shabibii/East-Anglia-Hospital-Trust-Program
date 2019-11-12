@@ -48,7 +48,7 @@ namespace Software_Engineering_Assignment.Pages
             }
 
             unavailableStaff1.GetUnavailableStaff(unavailableStaff);
-            //staffAvailabilityControl1.GetAvailableStaff(availableStaff);
+            staffAvailabilityControl1.GetAvailableStaff(availableStaff);           
 
         }
 
