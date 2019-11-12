@@ -72,5 +72,10 @@ namespace Software_Engineering_Assignment
         {
             Close();
         }
+
+        private void ShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            passwordTextBox.PasswordChar = showPassword.Checked ? '\0' : '●';
+        }
     }
 }

@@ -153,19 +153,27 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             OpenConnection(); //Open Connection
 
-            using (DataSet dataSet = new DataSet())
+            try
             {
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffPassword(staffID), sqlConnection);
-                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+                using (DataSet dataSet = new DataSet())
+                {
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffPassword(staffID), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
 
-                DataTable staffTable = dataSet.Tables[0];
-                DataRow row = staffTable.Rows[0];
-                DataColumn column = staffTable.Columns[0];
+                    DataTable staffTable = dataSet.Tables[0];
+                    DataRow row = staffTable.Rows[0];
+                    DataColumn column = staffTable.Columns[0];
 
-                CloseConnection(); //Close Connection
+                    CloseConnection(); //Close Connection
 
-                return password == row[column].ToString();
+                    return password == row[column].ToString();
+                }
             }
+            catch (Exception)
+            {
+                return false; // return false if anything fails
+            }
+            
         }
     }
 }
