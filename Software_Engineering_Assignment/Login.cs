@@ -7,12 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment
 {
     public partial class Login : Form
     {
-        public Login()
+        private Staff staff; //Staff created by authentication
+
+        public Staff Staff
+        {
+            get
+            {
+                //Make null after use
+                var staffCopy = staff;
+                staff = null;
+                return staffCopy;
+            }
+        }
+
+        public Login() 
         {
             InitializeComponent();
         }
@@ -20,6 +34,16 @@ namespace Software_Engineering_Assignment
         private void Button2_Click(object sender, EventArgs e)
         {
             //Dialog Result Yes
+            int.TryParse(staffIdTextBox.Text, out int staffId); //Get staff id in form of INT
+            string password = passwordTextBox.Text; // get password
+
+            //Check if inputed details matches specific staff login details
+            bool succesfulLogin = DatabaseConnector.Instance.VerifyLogin(staffId, password);
+
+            if(succesfulLogin)
+            {
+                staff = DatabaseConnector.Instance.GetStaff(staffId);
+            }
         }
 
         private void LoginField_MouseDown(object sender, MouseEventArgs e)

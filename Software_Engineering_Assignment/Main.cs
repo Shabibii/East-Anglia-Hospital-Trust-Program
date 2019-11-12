@@ -24,6 +24,7 @@ namespace Software_Engineering_Assignment
         public delegate void PageCall2(int bayNumber, int bedNumber);
         public PageCall0 BayPageCall = delegate { };
 
+
         
 
         public Main()
@@ -37,7 +38,8 @@ namespace Software_Engineering_Assignment
         {
             MainPage mainPage = new MainPage(SetPatientPage)
             {
-                BayPageCall = SetPageToBay
+                BayPageCall = SetPageToBay,
+                ManagementPageCall = CallManagementPage
             };
 
             pages.Add(0, mainPage);
@@ -80,6 +82,12 @@ namespace Software_Engineering_Assignment
                     SetPage(2);
                     break;
             }
+        }
+
+        public void CallManagementPage()
+        {
+            //Go to Page 0
+            SetPage(3);
         }
 
         private void Main_SizeChanged(object sender, EventArgs e)
