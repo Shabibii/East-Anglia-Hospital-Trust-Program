@@ -32,8 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.staffIdTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -89,32 +89,32 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Login";
             // 
-            // textBox2
+            // staffIdTextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(61, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(235, 26);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.Tag = "Enter Staff ID";
-            this.textBox2.Text = "Enter Staff ID";
-            this.textBox2.Leave += new System.EventHandler(this.LoginField_Leave);
-            this.textBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginField_MouseDown);
+            this.staffIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffIdTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.staffIdTextBox.Location = new System.Drawing.Point(61, 136);
+            this.staffIdTextBox.Name = "staffIdTextBox";
+            this.staffIdTextBox.Size = new System.Drawing.Size(235, 26);
+            this.staffIdTextBox.TabIndex = 8;
+            this.staffIdTextBox.Tag = "Enter Staff ID";
+            this.staffIdTextBox.Text = "Enter Staff ID";
+            this.staffIdTextBox.Leave += new System.EventHandler(this.LoginField_Leave);
+            this.staffIdTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginField_MouseDown);
             // 
-            // textBox3
+            // passwordTextBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Gray;
-            this.textBox3.Location = new System.Drawing.Point(61, 185);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '●';
-            this.textBox3.Size = new System.Drawing.Size(235, 26);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.Tag = "Enter Password";
-            this.textBox3.Text = "Enter Password";
-            this.textBox3.Leave += new System.EventHandler(this.LoginField_Leave);
-            this.textBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginField_MouseDown);
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.passwordTextBox.Location = new System.Drawing.Point(61, 185);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '●';
+            this.passwordTextBox.Size = new System.Drawing.Size(235, 26);
+            this.passwordTextBox.TabIndex = 9;
+            this.passwordTextBox.Tag = "Enter Password";
+            this.passwordTextBox.Text = "Enter Password";
+            this.passwordTextBox.Leave += new System.EventHandler(this.LoginField_Leave);
+            this.passwordTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginField_MouseDown);
             // 
             // label3
             // 
@@ -156,8 +156,8 @@
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.passwordTextBox);
+            this.panel2.Controls.Add(this.staffIdTextBox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(323, 1);
             this.panel2.Name = "panel2";
@@ -209,8 +209,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox staffIdTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;

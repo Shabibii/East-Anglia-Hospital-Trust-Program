@@ -20,11 +20,11 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public string DOB { get; set; } = "00/00/0000";
 
-        public string StaffType { get; set; } = "NULL";
+        public int StaffType { get; set; } = 0;
 
-        public int ContactNo1 { get; set; } = 1234567890;
+        public string ContactNo1 { get; set; } = "1234567890";
 
-        public int ContactNo2 { get; set; } = 1234567890;
+        public string ContactNo2 { get; set; } = "1234567890";
 
         public string Email { get; set; } = "null@gmail.com";
 
@@ -33,6 +33,25 @@ namespace Software_Engineering_Assignment.Support_Classes
         public bool isAvailable { get; set; } = true;
 
         public bool isOnCall { get; set; } = true;
+
+        public Staff()
+        {
+
+        }
+
+        public Staff(List<string> rawStaffData)
+        {
+            StaffId = int.Parse(rawStaffData[0]);
+            FirstName = rawStaffData[1];
+            LastName = rawStaffData[2];
+            StaffType = int.Parse(rawStaffData[3]);
+            DOB = rawStaffData[4];
+            Gender = rawStaffData[5];
+            ContactNo1 = rawStaffData[6];
+            ContactNo2 = rawStaffData[7];
+            Email = rawStaffData[8];
+            Address = rawStaffData[9];
+        }
     }
 
     public class StaffSchedule

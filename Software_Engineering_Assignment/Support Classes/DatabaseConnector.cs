@@ -49,6 +49,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void CloseConnection()
         {
+            sqlDataAdapter = null;
             sqlConnection.Close(); //Close SQL connection
         }
 
@@ -78,17 +79,31 @@ namespace Software_Engineering_Assignment.Support_Classes
         public Staff GetStaff(int staffID)
         {
             OpenConnection(); //Open Connection
+            Staff staff;
 
             using (DataSet dataSet = new DataSet())
             {
                 sqlDataAdapter = new SqlDataAdapter(Constants.GetStaff(staffID), sqlConnection);
-                sqlDataAdapter.Fill(dataSet);
-                //Copy Data From dataset to Staff Object and return it
+                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                List<string> rawStaffData = new List<string>();
+
+                DataTable staffTable = dataSet.Tables[0];
+                DataRow row = staffTable.Rows[0];
+
+                foreach (DataColumn column in staffTable.Columns)
+                {
+                    rawStaffData.Add(row[column].ToString());
+                }
+
+                staff = new Staff(rawStaffData);
             }
 
             CloseConnection(); //Close Connection
-            return null;
+
+            return staff;
         }
+
 
         /// <summary>
         /// Method returning dataset of the whole 'Alarm' table
@@ -119,8 +134,19 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             OpenConnection(); //Open Connection
 
-            CloseConnection(); //Close Connection
-            return false; 
+            using (DataSet dataSet = new DataSet())
+            {
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffPassword(staffID), sqlConnection);
+                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                DataTable staffTable = dataSet.Tables[0];
+                DataRow row = staffTable.Rows[0];
+                DataColumn column = staffTable.Columns[0];
+
+                CloseConnection(); //Close Connection
+
+                return password == row[column].ToString();
+            }
         }
     }
 }
