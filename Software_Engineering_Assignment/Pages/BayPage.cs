@@ -18,10 +18,7 @@ namespace Software_Engineering_Assignment.Pages
         //Method which takes the screen to the patient page
         public Main.PageCall2 PatientPageCall = delegate { };
 
-        public BayPage()
-        {
-            InitializeComponent();
-        }
+        public BayPage() => InitializeComponent();
 
         /// <summary>
         /// Guide program page to (selected) patient from the bay page
@@ -61,6 +58,7 @@ namespace Software_Engineering_Assignment.Pages
 
         public void SelectBay(int bayPage)
         {
+            // get bay from database connector
             currentBay = DatabaseConnector.Instance.GetBay(bayPage);
             label1.Text = $"Bay {bayPage}";
         }

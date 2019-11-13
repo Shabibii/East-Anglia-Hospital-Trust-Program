@@ -32,6 +32,7 @@ namespace Software_Engineering_Assignment.CustomControls
 
         public void AssignPatient(Patient p)
         {
+            //Assign patient to bedside
             patient = p;
 
             textBox1.Clear();
