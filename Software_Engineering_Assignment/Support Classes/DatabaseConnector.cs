@@ -61,11 +61,10 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Patient GetPatient(int bayNumber, int bedNumber)
         {
-            /*
-             * 
              OpenConnection(); //Open Connection
-            Patient patient;
 
+            /*
+            Patient patient;
             using (DataSet dataSet = new DataSet())
             {
                 sqlDataAdapter = new SqlDataAdapter(Constants.GetPatient(bayNumber,bedNumber), sqlConnection);
@@ -86,7 +85,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             CloseConnection(); //Close Connection
             return patient;
-             */
+            */
             return new Patient() { bayNumber = bayNumber, bedNumber = bedNumber};
         }
 
