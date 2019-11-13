@@ -1,4 +1,6 @@
-﻿namespace Software_Engineering_Assignment.Support_Classes
+﻿using System.Collections.Generic;
+
+namespace Software_Engineering_Assignment.Support_Classes
 {
    
     public class Patient
@@ -27,6 +29,11 @@
         public string ModulesActive => $"{Module1},{Module2}...";
 
         public Patient()
+        {
+
+        }
+
+        public Patient(List<string> rawStaffDat)
         {
 
         }
