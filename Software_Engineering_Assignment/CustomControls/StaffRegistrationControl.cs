@@ -16,7 +16,7 @@ namespace Software_Engineering_Assignment.CustomControls
         public StaffRegistrationControl()
         {
             InitializeComponent();
-            RegisterField();
+            //RegisterField();
         }
 
         
