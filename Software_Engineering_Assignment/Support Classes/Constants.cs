@@ -9,6 +9,12 @@ namespace Software_Engineering_Assignment.Support_Classes
     class Constants
     {
         //These are sql queries that will be used regurally
+
+        public static string GetPatient(int bayNo, int bedsideNo) =>
+            $@"SELECT *
+                FROM Patient 
+                Where bedside_no = {bedsideNo} AND bay_id = {bayNo};";
+
         public static string GetStaff(int id) => 
             $@"SELECT staff_id, first_name, last_name, staff_type, date_of_birth, gender, contact_no_1, contact_no_2, email, address
                 FROM Staff 

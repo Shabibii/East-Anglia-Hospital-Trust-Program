@@ -61,10 +61,31 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Patient GetPatient(int bayNumber, int bedNumber)
         {
-            //To be implemented
-            OpenConnection(); //Open Connection
+             OpenConnection(); //Open Connection
+
+            /*
+            Patient patient;
+            using (DataSet dataSet = new DataSet())
+            {
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetPatient(bayNumber,bedNumber), sqlConnection);
+                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                List<string> rawStaffData = new List<string>();
+
+                DataTable staffTable = dataSet.Tables[0];
+                DataRow row = staffTable.Rows[0];
+
+                foreach (DataColumn column in staffTable.Columns)
+                {
+                    rawStaffData.Add(row[column].ToString());
+                }
+
+                patient = new Patient(rawStaffData);
+            }
 
             CloseConnection(); //Close Connection
+            return patient;
+            */
             return new Patient() { bayNumber = bayNumber, bedNumber = bedNumber};
         }
 

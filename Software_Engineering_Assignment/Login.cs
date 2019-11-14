@@ -33,6 +33,12 @@ namespace Software_Engineering_Assignment
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            ValidateLogin();
+        }
+
+        private void ValidateLogin()
+        {
+            //Create a staff if login is valid
             //Dialog Result Yes
             int.TryParse(staffIdTextBox.Text, out int staffId); //Get staff id in form of INT
             string password = passwordTextBox.Text; // get password
@@ -40,7 +46,7 @@ namespace Software_Engineering_Assignment
             //Check if inputed details matches specific staff login details
             bool succesfulLogin = DatabaseConnector.Instance.VerifyLogin(staffId, password);
 
-            if(succesfulLogin)
+            if (succesfulLogin)
             {
                 staff = DatabaseConnector.Instance.GetStaff(staffId);
             }
@@ -48,6 +54,7 @@ namespace Software_Engineering_Assignment
 
         private void LoginField_MouseDown(object sender, MouseEventArgs e)
         {
+            //if empty, leave water mark
             var txtBox = (TextBox)sender;
 
             if(txtBox.ForeColor == Color.Gray)
@@ -59,6 +66,7 @@ namespace Software_Engineering_Assignment
 
         private void LoginField_Leave(object sender, EventArgs e)
         {
+            //if empty, leave water mark
             var txtBox = (TextBox)sender;
 
             if (txtBox.Text.Length == 0)
@@ -70,12 +78,40 @@ namespace Software_Engineering_Assignment
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Close();
+            Close(); //close form
         }
 
         private void ShowPassword_CheckedChanged(object sender, EventArgs e)
         {
+            //Show password if checked/hide password if unchecked
             passwordTextBox.PasswordChar = showPassword.Checked ? '\0' : '●';
         }
+
+        private void StaffIdTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Down)
+            {
+                LoginField_Leave(staffIdTextBox, null);
+                passwordTextBox.Focus(); // go to password field
+                LoginField_MouseDown(passwordTextBox, null);
+            }
+        }
+
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Up)
+            {
+                LoginField_Leave(passwordTextBox, null);
+                staffIdTextBox.Focus(); // go to staff_id field
+                LoginField_MouseDown(staffIdTextBox, null);
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                ValidateLogin(); // Attempt logging in
+                DialogResult = DialogResult.Yes;
+            }
+        }
+
+        
     }
 }

@@ -38,8 +38,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.showPassword = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +100,7 @@
             this.staffIdTextBox.TabIndex = 8;
             this.staffIdTextBox.Tag = "Enter Staff ID";
             this.staffIdTextBox.Text = "Enter Staff ID";
+            this.staffIdTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StaffIdTextBox_KeyDown);
             this.staffIdTextBox.Leave += new System.EventHandler(this.LoginField_Leave);
             this.staffIdTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginField_MouseDown);
             // 
@@ -114,6 +115,7 @@
             this.passwordTextBox.TabIndex = 9;
             this.passwordTextBox.Tag = "Enter Password";
             this.passwordTextBox.Text = "Enter Password";
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             this.passwordTextBox.Leave += new System.EventHandler(this.LoginField_Leave);
             this.passwordTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginField_MouseDown);
             // 
@@ -166,20 +168,6 @@
             this.panel2.Size = new System.Drawing.Size(358, 331);
             this.panel2.TabIndex = 13;
             // 
-            // button1
-            // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(316, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 34);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // showPassword
             // 
             this.showPassword.AutoSize = true;
@@ -190,6 +178,20 @@
             this.showPassword.Text = "Show password";
             this.showPassword.UseVisualStyleBackColor = true;
             this.showPassword.CheckedChanged += new System.EventHandler(this.ShowPassword_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(316, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 34);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Login
             // 
