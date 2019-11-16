@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.staffRegisterList = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -50,20 +50,20 @@
             this.textBox1.Size = new System.Drawing.Size(130, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // panel1
+            // staffRegisterList
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(3, 64);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(458, 450);
-            this.panel1.TabIndex = 2;
+            this.staffRegisterList.AutoScroll = true;
+            this.staffRegisterList.Location = new System.Drawing.Point(3, 64);
+            this.staffRegisterList.Name = "staffRegisterList";
+            this.staffRegisterList.Size = new System.Drawing.Size(458, 450);
+            this.staffRegisterList.TabIndex = 2;
             // 
             // StaffRegistrationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.staffRegisterList);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "StaffRegistrationControl";
@@ -77,6 +77,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel staffRegisterList;
     }
 }

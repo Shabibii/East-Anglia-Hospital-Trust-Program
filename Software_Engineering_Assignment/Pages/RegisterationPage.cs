@@ -22,6 +22,10 @@ namespace Software_Engineering_Assignment.Pages
             ConnectWithDB();
         }
 
+        /// <summary>
+        /// Get staff members and then assign to control available or unavailable
+        /// based on staff's availability on the selected day.
+        /// </summary>
         private void ConnectWithDB()
         {
             allStaff = DatabaseConnector.Instance.GetAllStaff();
@@ -52,6 +56,11 @@ namespace Software_Engineering_Assignment.Pages
 
         }
 
+        /// <summary>
+        /// Back button on GUI, this will  guide user back to parent page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             goBackToParentPage();

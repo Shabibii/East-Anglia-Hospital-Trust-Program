@@ -32,7 +32,7 @@
             this.doctorName = new System.Windows.Forms.Label();
             this.staffId = new System.Windows.Forms.Label();
             this.deregistrationButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.registerButton1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,18 +81,19 @@
             this.deregistrationButton.Text = "Deregister";
             this.deregistrationButton.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // registerButton1
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(501, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = false;
+            this.registerButton1.BackColor = System.Drawing.Color.Green;
+            this.registerButton1.FlatAppearance.BorderSize = 0;
+            this.registerButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerButton1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerButton1.Location = new System.Drawing.Point(501, 22);
+            this.registerButton1.Name = "registerButton1";
+            this.registerButton1.Size = new System.Drawing.Size(137, 23);
+            this.registerButton1.TabIndex = 5;
+            this.registerButton1.Text = "Register";
+            this.registerButton1.UseVisualStyleBackColor = false;
+            this.registerButton1.Click += new System.EventHandler(this.registerButton1_Click);
             // 
             // dateTimePicker1
             // 
@@ -137,7 +138,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.registerButton1);
             this.Controls.Add(this.deregistrationButton);
             this.Controls.Add(this.staffId);
             this.Controls.Add(this.doctorName);
@@ -156,7 +157,7 @@
         private System.Windows.Forms.Label doctorName;
         private System.Windows.Forms.Label staffId;
         private System.Windows.Forms.Button deregistrationButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button registerButton1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;

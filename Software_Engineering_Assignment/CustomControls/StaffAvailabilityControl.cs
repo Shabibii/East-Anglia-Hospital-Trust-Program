@@ -21,6 +21,11 @@ namespace Software_Engineering_Assignment.CustomControls
             GetAvailableStaff(availableStaff);
         }
 
+        /// <summary>
+        /// Get all available staff and list them below each other.
+        /// Present in StaffAvailabilityControl
+        /// </summary>
+        /// <param name="availableStaff"></param>
         public void GetAvailableStaff(List<Staff> availableStaff)
         {
             this.availableStaff = availableStaff;
