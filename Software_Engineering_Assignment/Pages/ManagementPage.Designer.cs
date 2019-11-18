@@ -138,6 +138,7 @@
             this.btnManagementBack.TabIndex = 9;
             this.btnManagementBack.Text = "Back";
             this.btnManagementBack.UseVisualStyleBackColor = true;
+            this.btnManagementBack.Click += new System.EventHandler(this.btnManagementBack_Click);
             // 
             // ManagementPage
             // 
