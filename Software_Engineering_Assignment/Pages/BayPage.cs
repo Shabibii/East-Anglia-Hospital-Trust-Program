@@ -59,7 +59,7 @@ namespace Software_Engineering_Assignment.Pages
         public void SelectBay(int bayPage)
         {
             // get bay from database connector
-            currentBay = DatabaseConnector.Instance.GetBay(bayPage);
+            currentBay = new Bay(bayPage);
             label1.Text = $"Bay {bayPage}";
         }
 

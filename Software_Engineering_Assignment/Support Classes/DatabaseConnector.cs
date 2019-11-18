@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
-    class DatabaseConnector
+    internal class DatabaseConnector
     {
         //This class is to be accessable to all other classes in this project
         private static DatabaseConnector instance;
@@ -18,13 +16,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         private SqlDataAdapter sqlDataAdapter;
 
 
-        public static string ConnectionString
-        {
-            get
-            {
-                return connectionString;
-            }
-        }
+        public static string ConnectionString => connectionString;
 
         public static DatabaseConnector Instance
         {
@@ -59,47 +51,53 @@ namespace Software_Engineering_Assignment.Support_Classes
             return new Bay(bayNumber);
         }
 
-        public Patient GetPatient(int bayNumber, int bedNumber)
+        public List<Patient> GetAllPatientesFromBay(int bayNumber)
         {
-             OpenConnection(); //Open Connection
+            List<Patient> patients = new List<Patient>();
+            OpenConnection(); //Open Connection
 
-            /*
-            Patient patient;
-            using (DataSet dataSet = new DataSet())
+            SqlCommand sqlCommand = new SqlCommand(
+                Constants.GetPatientsFromBay(bayNumber), sqlConnection);
+
+            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
             {
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetPatient(bayNumber,bedNumber), sqlConnection);
-                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
-
-                List<string> rawStaffData = new List<string>();
-
-                DataTable staffTable = dataSet.Tables[0];
-                DataRow row = staffTable.Rows[0];
-
-                foreach (DataColumn column in staffTable.Columns)
+                List<string> rawPatientData = new List<string>();
+                for (int i = 0; i < 11; i++)
                 {
-                    rawStaffData.Add(row[column].ToString());
+                    rawPatientData.Add(dataReader[i].ToString());
                 }
-
-                patient = new Patient(rawStaffData);
             }
 
             CloseConnection(); //Close Connection
-            return patient;
-            */
-            return new Patient() { bayNumber = bayNumber, bedNumber = bedNumber};
+            return patients;
+        }
+
+        public Patient GetPatient(int bayNumber, int bedNumber)
+        {
+            try
+            {
+                List<Patient> patientsFromBay = GetAllPatientesFromBay(bayNumber);
+
+                return patientsFromBay.Where(x => x.bedNumber == bedNumber).ToArray()[0];
+
+            }
+            catch (Exception)
+            {
+                return new Patient() { FirstName = "Empty", Surname = "Record" };
+
+            }
         }
 
         public List<Staff> GetAllStaff()
         {
             OpenConnection(); //Open Connection
-
             List<Staff> staffList = new List<Staff>();
 
             using (DataSet dataSet = new DataSet())
             {
                 //Get data from class Constants
                 sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffId, sqlConnection);
-                sqlDataAdapter.Fill(dataSet); 
+                sqlDataAdapter.Fill(dataSet);
 
                 DataTable staffIdTable = dataSet.Tables[0];
                 DataColumn column = staffIdTable.Columns[0];
@@ -111,10 +109,12 @@ namespace Software_Engineering_Assignment.Support_Classes
                 }
             }
 
-
             CloseConnection(); //Close Connection
+
             return staffList;
+
         }
+
 
         public Staff GetStaff(int staffID)
         {
@@ -158,7 +158,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             DataSet alarms = new DataSet();
 
             //Pass a SELECT command to the adapter
-            sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Alarm",sqlConnection);
+            sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Alarm", sqlConnection);
 
             //Fill the 'alarms' dataset with 'Alarm' table
             sqlDataAdapter.Fill(alarms);
@@ -194,7 +194,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             {
                 return false; // return false if anything fails
             }
-            
+
         }
     }
 }
