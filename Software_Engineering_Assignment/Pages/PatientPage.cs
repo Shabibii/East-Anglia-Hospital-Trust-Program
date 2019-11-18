@@ -43,8 +43,35 @@ namespace Software_Engineering_Assignment.Pages
         {
             //Fill up patient object with data from the database
             currentPatient = DatabaseConnector.Instance.GetPatient(bayNumber, bedNumber);
-
+            nameLabel.Text = currentPatient.FirstName;
+            surnameLabel.Text = currentPatient.Surname;
+            dobLabel.Text = currentPatient.DOB;
+            intakeReasonLabel.Text = currentPatient.IntakeReason;
             InitalizeControl();
+         }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            using (Login login = new Login())
+            {
+                //If login button clicked on the login form
+                if (login.ShowDialog() == DialogResult.Yes)
+                {
+                    Staff staff = login.Staff;
+
+                    if (staff == null)
+                    {
+                        //If invalid login
+                        MessageBox.Show("Invalid Login", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        //if valid login of any staff type
+                        //tell event log that staff logged in to edit patient data
+                        //enable textboxes for change
+                    }
+                }
+            }
         }
     }
 }
