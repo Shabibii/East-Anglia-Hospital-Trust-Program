@@ -47,6 +47,27 @@ namespace Software_Engineering_Assignment.Pages
             surnameLabel.Text = currentPatient.Surname;
             dobLabel.Text = currentPatient.DOB;
             intakeReasonLabel.Text = currentPatient.IntakeReason;
+
+            module1ModuleType.Text = currentPatient.Module1.ToString();
+            module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
+            module1Max.Text = currentPatient.Module1.MaxValue.ToString();
+            module1Min.Text = currentPatient.Module1.MinValue.ToString();
+
+            module2ModuleType.Text = currentPatient.Module2.currentModule.ToString();
+            module2CurrentReading.Text = currentPatient.Module2.CurrentValue.ToString();
+            module2Max.Text = currentPatient.Module2.MaxValue.ToString();
+            module2Min.Text = currentPatient.Module2.MinValue.ToString();
+
+            module3ModuleType.Text = currentPatient.Module3.currentModule.ToString();
+            module3CurrentReading.Text = currentPatient.Module3.CurrentValue.ToString();
+            module3Max.Text = currentPatient.Module3.MaxValue.ToString();
+            module3Min.Text = currentPatient.Module3.MinValue.ToString();
+
+            module4ModuleType.Text = currentPatient.Module4.currentModule.ToString();
+            module4CurrentReading.Text = currentPatient.Module4.CurrentValue.ToString();
+            module4Max.Text = currentPatient.Module4.MaxValue.ToString();
+            module4Min.Text = currentPatient.Module4.MinValue.ToString();
+
             InitalizeControl();
          }
 
@@ -72,6 +93,11 @@ namespace Software_Engineering_Assignment.Pages
                     }
                 }
             }
+        }
+
+        private void TextBox12_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
