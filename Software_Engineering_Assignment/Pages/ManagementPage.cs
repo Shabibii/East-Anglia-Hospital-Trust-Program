@@ -13,6 +13,9 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class ManagementPage : UserControl
     {
+
+        public Main.PageCall0 pageCall0;
+
         public ManagementPage()
         {
             InitializeComponent();
@@ -38,6 +41,11 @@ namespace Software_Engineering_Assignment.Pages
         {
             //Assign dataGridView data source to alarms dataset
             dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetAlarms();
+        }
+
+        private void btnManagementBack_Click(object sender, EventArgs e)
+        {
+            pageCall0();
         }
     }
 }

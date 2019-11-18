@@ -46,7 +46,7 @@ namespace Software_Engineering_Assignment
             pages.Add(0, mainPage);
             pages.Add(1, new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage});
             pages.Add(2, new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage });
-            pages.Add(3, new ManagementPage());
+            pages.Add(3, new ManagementPage() {pageCall0 = GoToMainpage });
             pages.Add(4, new RegisterationPage() { goBackToParentPage = GoToMainpage });
             pages.Add(5, new PatientPage(GoToMainpage));
         } 
