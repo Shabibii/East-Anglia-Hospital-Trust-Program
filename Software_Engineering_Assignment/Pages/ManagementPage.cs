@@ -47,5 +47,10 @@ namespace Software_Engineering_Assignment.Pages
         {
             pageCall0();
         }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
