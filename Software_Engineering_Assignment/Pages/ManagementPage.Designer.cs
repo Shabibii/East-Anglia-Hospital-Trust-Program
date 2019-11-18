@@ -48,7 +48,7 @@
             this.dgvManagementInfo.Name = "dgvManagementInfo";
             this.dgvManagementInfo.RowHeadersWidth = 51;
             this.dgvManagementInfo.RowTemplate.Height = 24;
-            this.dgvManagementInfo.Size = new System.Drawing.Size(714, 508);
+            this.dgvManagementInfo.Size = new System.Drawing.Size(950, 661);
             this.dgvManagementInfo.TabIndex = 0;
             // 
             // lblManagementTitle
@@ -63,8 +63,10 @@
             // 
             // lblEventType
             // 
+            this.lblEventType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEventType.AutoSize = true;
-            this.lblEventType.Location = new System.Drawing.Point(740, 63);
+            this.lblEventType.Location = new System.Drawing.Point(1001, 63);
             this.lblEventType.Name = "lblEventType";
             this.lblEventType.Size = new System.Drawing.Size(84, 17);
             this.lblEventType.TabIndex = 2;
@@ -73,28 +75,34 @@
             // lbxEventType
             // 
             this.lbxEventType.AllowDrop = true;
+            this.lbxEventType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbxEventType.FormattingEnabled = true;
             this.lbxEventType.ItemHeight = 16;
-            this.lbxEventType.Location = new System.Drawing.Point(840, 63);
+            this.lbxEventType.Location = new System.Drawing.Point(1097, 63);
             this.lbxEventType.Name = "lbxEventType";
-            this.lbxEventType.Size = new System.Drawing.Size(128, 20);
+            this.lbxEventType.Size = new System.Drawing.Size(208, 20);
             this.lbxEventType.TabIndex = 3;
             // 
             // lbxStaffID
             // 
             this.lbxStaffID.AllowDrop = true;
+            this.lbxStaffID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbxStaffID.FormattingEnabled = true;
             this.lbxStaffID.ItemHeight = 16;
-            this.lbxStaffID.Location = new System.Drawing.Point(840, 100);
+            this.lbxStaffID.Location = new System.Drawing.Point(1097, 100);
             this.lbxStaffID.Name = "lbxStaffID";
-            this.lbxStaffID.Size = new System.Drawing.Size(128, 20);
+            this.lbxStaffID.Size = new System.Drawing.Size(208, 20);
             this.lbxStaffID.TabIndex = 5;
             this.lbxStaffID.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(752, 100);
+            this.label1.Location = new System.Drawing.Point(1013, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 4;
@@ -104,18 +112,22 @@
             // lbxDate
             // 
             this.lbxDate.AllowDrop = true;
+            this.lbxDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbxDate.FormattingEnabled = true;
             this.lbxDate.ItemHeight = 16;
-            this.lbxDate.Location = new System.Drawing.Point(840, 139);
+            this.lbxDate.Location = new System.Drawing.Point(1097, 139);
             this.lbxDate.Name = "lbxDate";
-            this.lbxDate.Size = new System.Drawing.Size(128, 20);
+            this.lbxDate.Size = new System.Drawing.Size(208, 20);
             this.lbxDate.TabIndex = 7;
             this.lbxDate.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
             // lblDate
             // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(752, 139);
+            this.lblDate.Location = new System.Drawing.Point(1013, 139);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(58, 17);
             this.lblDate.TabIndex = 6;
@@ -123,18 +135,22 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(893, 178);
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Location = new System.Drawing.Point(1150, 178);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(155, 23);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // btnManagementBack
             // 
-            this.btnManagementBack.Location = new System.Drawing.Point(893, 524);
+            this.btnManagementBack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnManagementBack.Location = new System.Drawing.Point(1150, 643);
             this.btnManagementBack.Name = "btnManagementBack";
-            this.btnManagementBack.Size = new System.Drawing.Size(75, 23);
+            this.btnManagementBack.Size = new System.Drawing.Size(155, 57);
             this.btnManagementBack.TabIndex = 9;
             this.btnManagementBack.Text = "Back";
             this.btnManagementBack.UseVisualStyleBackColor = true;
@@ -157,7 +173,7 @@
             this.Controls.Add(this.dgvManagementInfo);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManagementPage";
-            this.Size = new System.Drawing.Size(1010, 595);
+            this.Size = new System.Drawing.Size(1347, 732);
             this.Load += new System.EventHandler(this.ManagementPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManagementInfo)).EndInit();
             this.ResumeLayout(false);
