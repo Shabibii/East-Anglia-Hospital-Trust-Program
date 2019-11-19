@@ -7,6 +7,32 @@ namespace Software_Engineering_Assignment.Support_Classes
     {
         // get/set patient details 
 
+        public string FullName
+        {
+            //Return truncated value
+            get
+            {
+                string output = FirstName + " ";
+                int displayLimit = 20; //Total number of characters to be returned
+
+                int i = 0;
+                while(output.Length < displayLimit && i < Surname.Length)
+                {
+                    if(output.Length == displayLimit - 3)
+                    {
+                        output += "...";
+                        break;
+                    }
+                    else
+                    {
+                        output += Surname[i];
+                        i++;
+                    }
+                }
+                return output;
+            }
+        }
+
         public string FirstName { get; set; } = "Nobody";
         public string Surname { get; set; } = "Nobody";
 
@@ -17,9 +43,10 @@ namespace Software_Engineering_Assignment.Support_Classes
         public string DOB { get; set; } = "00/00/0000";
 
         public string ContactNumber1 { get; set; } = "07700000000";
+
         public string ContactNumber2 { get; set; } = "07700000000";
 
-        public string IntakeReason { get; set; } = "Well damn";
+        public string IntakeReason { get; set; } = "Intake Reason";
 
         public int bedNumber = 0;
 

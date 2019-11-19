@@ -31,18 +31,18 @@ namespace Software_Engineering_Assignment
             PatientPageCall = patientPageCall;
         }
 
-
+      
         private void SetProperties()
         {
             title.Text = $"Bay {bay.BayNumber}";
-            linkLabel1.Text = $"(1) {bay.GetPatient(1).FirstName}";
-            linkLabel2.Text = $"(2) {bay.GetPatient(2).FirstName}";
-            linkLabel3.Text = $"(3) {bay.GetPatient(3).FirstName}";
-            linkLabel4.Text = $"(4) {bay.GetPatient(4).FirstName}";
-            linkLabel5.Text = $"(5) {bay.GetPatient(5).FirstName}";
-            linkLabel6.Text = $"(6) {bay.GetPatient(6).FirstName}";
-            linkLabel7.Text = $"(7) {bay.GetPatient(7).FirstName}";
-            linkLabel8.Text = $"(8) {bay.GetPatient(8).FirstName}";
+            linkLabel1.Text = $"(1) {bay.GetPatient(1).FullName}";
+            linkLabel2.Text = $"(2) {bay.GetPatient(2).FullName}";
+            linkLabel3.Text = $"(3) {bay.GetPatient(3).FullName}";
+            linkLabel4.Text = $"(4) {bay.GetPatient(4).FullName}";
+            linkLabel5.Text = $"(5) {bay.GetPatient(5).FullName}";
+            linkLabel6.Text = $"(6) {bay.GetPatient(6).FullName}";
+            linkLabel7.Text = $"(7) {bay.GetPatient(7).FullName}";
+            linkLabel8.Text = $"(8) {bay.GetPatient(8).FullName}";
 
             this.DoubleBuffered = true;
         }

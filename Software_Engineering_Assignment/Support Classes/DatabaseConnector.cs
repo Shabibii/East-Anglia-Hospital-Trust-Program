@@ -56,21 +56,28 @@ namespace Software_Engineering_Assignment.Support_Classes
             List<Patient> patients = new List<Patient>();
             OpenConnection(); //Open Connection
 
-            SqlCommand sqlCommand = new SqlCommand(
-                Constants.GetPatientsFromBay(bayNumber), sqlConnection);
-
-            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+            using (DataSet dataSet = new DataSet())
             {
-                List<string> rawPatientData = new List<string>();
-                for (int i = 0; i < 11; i++)
+                //Get data from class Constants
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetPatientsFromBay(bayNumber), sqlConnection);
+                sqlDataAdapter.Fill(dataSet);
+
+                DataTable patientTable = dataSet.Tables[0];
+
+                foreach (DataRow row in patientTable.Rows)
                 {
-                    rawPatientData.Add(dataReader[i].ToString());
+                    List<string> rawPatientData = new List<string>();
+                    foreach (DataColumn column in patientTable.Columns)
+                    {
+                        rawPatientData.Add(row[column].ToString());
+                    }
+                    patients.Add(new Patient(rawPatientData));
                 }
             }
-
             CloseConnection(); //Close Connection
             return patients;
         }
+
 
         public Patient GetPatient(int bayNumber, int bedNumber)
         {
