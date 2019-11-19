@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.module1ModuleType = new System.Windows.Forms.TextBox();
+            this.module1CurrentReading = new System.Windows.Forms.TextBox();
+            this.module1Max = new System.Windows.Forms.TextBox();
+            this.module1Min = new System.Windows.Forms.TextBox();
+            this.module2ModuleType = new System.Windows.Forms.TextBox();
+            this.module2CurrentReading = new System.Windows.Forms.TextBox();
+            this.module2Max = new System.Windows.Forms.TextBox();
+            this.module2Min = new System.Windows.Forms.TextBox();
+            this.module3ModuleType = new System.Windows.Forms.TextBox();
+            this.module3CurrentReading = new System.Windows.Forms.TextBox();
+            this.module3Max = new System.Windows.Forms.TextBox();
+            this.module3Min = new System.Windows.Forms.TextBox();
+            this.module4ModuleType = new System.Windows.Forms.TextBox();
+            this.module4CurrentReading = new System.Windows.Forms.TextBox();
+            this.module4Max = new System.Windows.Forms.TextBox();
+            this.module4Min = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.surnameLabel = new System.Windows.Forms.Label();
+            this.dobLabel = new System.Windows.Forms.Label();
+            this.intakeReasonLabel = new System.Windows.Forms.Label();
+            this.doctorLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,175 +62,192 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // nameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 139);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 14);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Name:";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(8, 139);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(44, 16);
+            this.nameLabel.TabIndex = 22;
+            this.nameLabel.Text = "Name:";
             // 
-            // textBox2
+            // module1ModuleType
             // 
-            this.textBox2.Location = new System.Drawing.Point(259, 46);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(98, 20);
-            this.textBox2.TabIndex = 24;
-            this.textBox2.Text = "2";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module1ModuleType.Location = new System.Drawing.Point(259, 46);
+            this.module1ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module1ModuleType.Name = "module1ModuleType";
+            this.module1ModuleType.ReadOnly = true;
+            this.module1ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module1ModuleType.TabIndex = 24;
+            this.module1ModuleType.Text = "2";
+            this.module1ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // module1CurrentReading
             // 
-            this.textBox3.Location = new System.Drawing.Point(259, 82);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(98, 20);
-            this.textBox3.TabIndex = 25;
-            this.textBox3.Text = "3";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module1CurrentReading.Location = new System.Drawing.Point(259, 82);
+            this.module1CurrentReading.Margin = new System.Windows.Forms.Padding(2);
+            this.module1CurrentReading.Name = "module1CurrentReading";
+            this.module1CurrentReading.ReadOnly = true;
+            this.module1CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module1CurrentReading.TabIndex = 25;
+            this.module1CurrentReading.Text = "3";
+            this.module1CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
+            // module1Max
             // 
-            this.textBox4.Location = new System.Drawing.Point(259, 116);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(98, 20);
-            this.textBox4.TabIndex = 26;
-            this.textBox4.Text = "4";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module1Max.Location = new System.Drawing.Point(259, 116);
+            this.module1Max.Margin = new System.Windows.Forms.Padding(2);
+            this.module1Max.Name = "module1Max";
+            this.module1Max.ReadOnly = true;
+            this.module1Max.Size = new System.Drawing.Size(98, 23);
+            this.module1Max.TabIndex = 26;
+            this.module1Max.Text = "4";
+            this.module1Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox5
+            // module1Min
             // 
-            this.textBox5.Location = new System.Drawing.Point(259, 152);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(98, 20);
-            this.textBox5.TabIndex = 27;
-            this.textBox5.Text = "5";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module1Min.Location = new System.Drawing.Point(259, 152);
+            this.module1Min.Margin = new System.Windows.Forms.Padding(2);
+            this.module1Min.Name = "module1Min";
+            this.module1Min.ReadOnly = true;
+            this.module1Min.Size = new System.Drawing.Size(98, 23);
+            this.module1Min.TabIndex = 27;
+            this.module1Min.Text = "5";
+            this.module1Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // module2ModuleType
             // 
-            this.textBox7.Location = new System.Drawing.Point(561, 46);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(98, 20);
-            this.textBox7.TabIndex = 29;
-            this.textBox7.Text = "7";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module2ModuleType.Location = new System.Drawing.Point(561, 46);
+            this.module2ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module2ModuleType.Name = "module2ModuleType";
+            this.module2ModuleType.ReadOnly = true;
+            this.module2ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module2ModuleType.TabIndex = 29;
+            this.module2ModuleType.Text = "7";
+            this.module2ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // module2CurrentReading
             // 
-            this.textBox8.Location = new System.Drawing.Point(561, 82);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(98, 20);
-            this.textBox8.TabIndex = 30;
-            this.textBox8.Text = "8";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module2CurrentReading.Location = new System.Drawing.Point(561, 82);
+            this.module2CurrentReading.Margin = new System.Windows.Forms.Padding(2);
+            this.module2CurrentReading.Name = "module2CurrentReading";
+            this.module2CurrentReading.ReadOnly = true;
+            this.module2CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module2CurrentReading.TabIndex = 30;
+            this.module2CurrentReading.Text = "8";
+            this.module2CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox9
+            // module2Max
             // 
-            this.textBox9.Location = new System.Drawing.Point(561, 116);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(98, 20);
-            this.textBox9.TabIndex = 31;
-            this.textBox9.Text = "9";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module2Max.Location = new System.Drawing.Point(561, 116);
+            this.module2Max.Margin = new System.Windows.Forms.Padding(2);
+            this.module2Max.Name = "module2Max";
+            this.module2Max.ReadOnly = true;
+            this.module2Max.Size = new System.Drawing.Size(98, 23);
+            this.module2Max.TabIndex = 31;
+            this.module2Max.Text = "9";
+            this.module2Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox10
+            // module2Min
             // 
-            this.textBox10.Location = new System.Drawing.Point(561, 152);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(98, 20);
-            this.textBox10.TabIndex = 32;
-            this.textBox10.Text = "10";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module2Min.Location = new System.Drawing.Point(561, 152);
+            this.module2Min.Margin = new System.Windows.Forms.Padding(2);
+            this.module2Min.Name = "module2Min";
+            this.module2Min.ReadOnly = true;
+            this.module2Min.Size = new System.Drawing.Size(98, 23);
+            this.module2Min.TabIndex = 32;
+            this.module2Min.Text = "10";
+            this.module2Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox12
+            // module3ModuleType
             // 
-            this.textBox12.Location = new System.Drawing.Point(259, 283);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(98, 20);
-            this.textBox12.TabIndex = 34;
-            this.textBox12.Text = "12";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module3ModuleType.Location = new System.Drawing.Point(259, 283);
+            this.module3ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module3ModuleType.Name = "module3ModuleType";
+            this.module3ModuleType.ReadOnly = true;
+            this.module3ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module3ModuleType.TabIndex = 34;
+            this.module3ModuleType.Text = "12";
+            this.module3ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module3ModuleType.TextChanged += new System.EventHandler(this.TextBox12_TextChanged);
             // 
-            // textBox13
+            // module3CurrentReading
             // 
-            this.textBox13.Location = new System.Drawing.Point(259, 318);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(98, 20);
-            this.textBox13.TabIndex = 35;
-            this.textBox13.Text = "13";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module3CurrentReading.Location = new System.Drawing.Point(259, 318);
+            this.module3CurrentReading.Margin = new System.Windows.Forms.Padding(2);
+            this.module3CurrentReading.Name = "module3CurrentReading";
+            this.module3CurrentReading.ReadOnly = true;
+            this.module3CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module3CurrentReading.TabIndex = 35;
+            this.module3CurrentReading.Text = "13";
+            this.module3CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox14
+            // module3Max
             // 
-            this.textBox14.Location = new System.Drawing.Point(259, 353);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(98, 20);
-            this.textBox14.TabIndex = 36;
-            this.textBox14.Text = "14";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module3Max.Location = new System.Drawing.Point(259, 353);
+            this.module3Max.Margin = new System.Windows.Forms.Padding(2);
+            this.module3Max.Name = "module3Max";
+            this.module3Max.ReadOnly = true;
+            this.module3Max.Size = new System.Drawing.Size(98, 23);
+            this.module3Max.TabIndex = 36;
+            this.module3Max.Text = "14";
+            this.module3Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox15
+            // module3Min
             // 
-            this.textBox15.Location = new System.Drawing.Point(259, 388);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(98, 20);
-            this.textBox15.TabIndex = 37;
-            this.textBox15.Text = "15";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module3Min.Location = new System.Drawing.Point(259, 388);
+            this.module3Min.Margin = new System.Windows.Forms.Padding(2);
+            this.module3Min.Name = "module3Min";
+            this.module3Min.ReadOnly = true;
+            this.module3Min.Size = new System.Drawing.Size(98, 23);
+            this.module3Min.TabIndex = 37;
+            this.module3Min.Text = "15";
+            this.module3Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox17
+            // module4ModuleType
             // 
-            this.textBox17.Location = new System.Drawing.Point(561, 283);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(98, 20);
-            this.textBox17.TabIndex = 39;
-            this.textBox17.Text = "17";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module4ModuleType.Location = new System.Drawing.Point(561, 283);
+            this.module4ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module4ModuleType.Name = "module4ModuleType";
+            this.module4ModuleType.ReadOnly = true;
+            this.module4ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module4ModuleType.TabIndex = 39;
+            this.module4ModuleType.Text = "17";
+            this.module4ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox18
+            // module4CurrentReading
             // 
-            this.textBox18.Location = new System.Drawing.Point(561, 318);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(98, 20);
-            this.textBox18.TabIndex = 40;
-            this.textBox18.Text = "18";
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module4CurrentReading.Location = new System.Drawing.Point(561, 318);
+            this.module4CurrentReading.Margin = new System.Windows.Forms.Padding(2);
+            this.module4CurrentReading.Name = "module4CurrentReading";
+            this.module4CurrentReading.ReadOnly = true;
+            this.module4CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module4CurrentReading.TabIndex = 40;
+            this.module4CurrentReading.Text = "18";
+            this.module4CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox19
+            // module4Max
             // 
-            this.textBox19.Location = new System.Drawing.Point(561, 353);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(98, 20);
-            this.textBox19.TabIndex = 41;
-            this.textBox19.Text = "19";
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module4Max.Location = new System.Drawing.Point(561, 353);
+            this.module4Max.Margin = new System.Windows.Forms.Padding(2);
+            this.module4Max.Name = "module4Max";
+            this.module4Max.ReadOnly = true;
+            this.module4Max.Size = new System.Drawing.Size(98, 23);
+            this.module4Max.TabIndex = 41;
+            this.module4Max.Text = "19";
+            this.module4Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox20
+            // module4Min
             // 
-            this.textBox20.Location = new System.Drawing.Point(561, 388);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(98, 20);
-            this.textBox20.TabIndex = 42;
-            this.textBox20.Text = "20";
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module4Min.Location = new System.Drawing.Point(561, 388);
+            this.module4Min.Margin = new System.Windows.Forms.Padding(2);
+            this.module4Min.Name = "module4Min";
+            this.module4Min.ReadOnly = true;
+            this.module4Min.Size = new System.Drawing.Size(98, 23);
+            this.module4Min.TabIndex = 42;
+            this.module4Min.Text = "20";
+            this.module4Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button3
             // 
@@ -245,6 +262,7 @@
             this.button3.TabIndex = 44;
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // pictureBox1
             // 
@@ -269,45 +287,45 @@
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // surnameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 175);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 14);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Surname:";
+            this.surnameLabel.AutoSize = true;
+            this.surnameLabel.Location = new System.Drawing.Point(8, 175);
+            this.surnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.surnameLabel.Name = "surnameLabel";
+            this.surnameLabel.Size = new System.Drawing.Size(61, 16);
+            this.surnameLabel.TabIndex = 46;
+            this.surnameLabel.Text = "Surname:";
             // 
-            // label3
+            // dobLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 216);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 14);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "DOB:";
+            this.dobLabel.AutoSize = true;
+            this.dobLabel.Location = new System.Drawing.Point(8, 216);
+            this.dobLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dobLabel.Name = "dobLabel";
+            this.dobLabel.Size = new System.Drawing.Size(39, 16);
+            this.dobLabel.TabIndex = 47;
+            this.dobLabel.Text = "DOB:";
             // 
-            // label4
+            // intakeReasonLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 259);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 14);
-            this.label4.TabIndex = 48;
-            this.label4.Text = "Intake Reason:";
+            this.intakeReasonLabel.AutoSize = true;
+            this.intakeReasonLabel.Location = new System.Drawing.Point(8, 259);
+            this.intakeReasonLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.intakeReasonLabel.Name = "intakeReasonLabel";
+            this.intakeReasonLabel.Size = new System.Drawing.Size(91, 16);
+            this.intakeReasonLabel.TabIndex = 48;
+            this.intakeReasonLabel.Text = "Intake Reason:";
             // 
-            // label5
+            // doctorLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 305);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 14);
-            this.label5.TabIndex = 49;
-            this.label5.Text = "Doctor:";
+            this.doctorLabel.AutoSize = true;
+            this.doctorLabel.Location = new System.Drawing.Point(8, 305);
+            this.doctorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.doctorLabel.Name = "doctorLabel";
+            this.doctorLabel.Size = new System.Drawing.Size(51, 16);
+            this.doctorLabel.TabIndex = 49;
+            this.doctorLabel.Text = "Doctor:";
             // 
             // label6
             // 
@@ -315,7 +333,7 @@
             this.label6.Location = new System.Drawing.Point(283, 11);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 14);
+            this.label6.Size = new System.Drawing.Size(61, 16);
             this.label6.TabIndex = 50;
             this.label6.Text = "Module 1";
             // 
@@ -325,7 +343,7 @@
             this.label7.Location = new System.Drawing.Point(590, 11);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 14);
+            this.label7.Size = new System.Drawing.Size(61, 16);
             this.label7.TabIndex = 51;
             this.label7.Text = "Module 2";
             // 
@@ -335,7 +353,7 @@
             this.label8.Location = new System.Drawing.Point(274, 247);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 14);
+            this.label8.Size = new System.Drawing.Size(61, 16);
             this.label8.TabIndex = 52;
             this.label8.Text = "Module 3";
             // 
@@ -345,7 +363,7 @@
             this.label9.Location = new System.Drawing.Point(590, 247);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 14);
+            this.label9.Size = new System.Drawing.Size(61, 16);
             this.label9.TabIndex = 53;
             this.label9.Text = "Module 4";
             // 
@@ -356,30 +374,30 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.doctorLabel);
+            this.panel1.Controls.Add(this.intakeReasonLabel);
+            this.panel1.Controls.Add(this.dobLabel);
+            this.panel1.Controls.Add(this.surnameLabel);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.textBox20);
-            this.panel1.Controls.Add(this.textBox19);
-            this.panel1.Controls.Add(this.textBox18);
-            this.panel1.Controls.Add(this.textBox17);
-            this.panel1.Controls.Add(this.textBox15);
-            this.panel1.Controls.Add(this.textBox14);
-            this.panel1.Controls.Add(this.textBox13);
-            this.panel1.Controls.Add(this.textBox12);
-            this.panel1.Controls.Add(this.textBox10);
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.textBox8);
-            this.panel1.Controls.Add(this.textBox7);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.module4Min);
+            this.panel1.Controls.Add(this.module4Max);
+            this.panel1.Controls.Add(this.module4CurrentReading);
+            this.panel1.Controls.Add(this.module4ModuleType);
+            this.panel1.Controls.Add(this.module3Min);
+            this.panel1.Controls.Add(this.module3Max);
+            this.panel1.Controls.Add(this.module3CurrentReading);
+            this.panel1.Controls.Add(this.module3ModuleType);
+            this.panel1.Controls.Add(this.module2Min);
+            this.panel1.Controls.Add(this.module2Max);
+            this.panel1.Controls.Add(this.module2CurrentReading);
+            this.panel1.Controls.Add(this.module2ModuleType);
+            this.panel1.Controls.Add(this.module1Min);
+            this.panel1.Controls.Add(this.module1Max);
+            this.panel1.Controls.Add(this.module1CurrentReading);
+            this.panel1.Controls.Add(this.module1ModuleType);
+            this.panel1.Controls.Add(this.nameLabel);
             this.panel1.Location = new System.Drawing.Point(143, 57);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(674, 474);
@@ -392,13 +410,13 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(449, 13);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 26);
+            this.label10.Size = new System.Drawing.Size(137, 31);
             this.label10.TabIndex = 55;
             this.label10.Text = "Bedside X";
             // 
             // PatientPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label10);
@@ -415,30 +433,30 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.TextBox module1ModuleType;
+        private System.Windows.Forms.TextBox module1CurrentReading;
+        private System.Windows.Forms.TextBox module1Max;
+        private System.Windows.Forms.TextBox module1Min;
+        private System.Windows.Forms.TextBox module2ModuleType;
+        private System.Windows.Forms.TextBox module2CurrentReading;
+        private System.Windows.Forms.TextBox module2Max;
+        private System.Windows.Forms.TextBox module2Min;
+        private System.Windows.Forms.TextBox module3ModuleType;
+        private System.Windows.Forms.TextBox module3CurrentReading;
+        private System.Windows.Forms.TextBox module3Max;
+        private System.Windows.Forms.TextBox module3Min;
+        private System.Windows.Forms.TextBox module4ModuleType;
+        private System.Windows.Forms.TextBox module4CurrentReading;
+        private System.Windows.Forms.TextBox module4Max;
+        private System.Windows.Forms.TextBox module4Min;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label surnameLabel;
+        private System.Windows.Forms.Label dobLabel;
+        private System.Windows.Forms.Label intakeReasonLabel;
+        private System.Windows.Forms.Label doctorLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
