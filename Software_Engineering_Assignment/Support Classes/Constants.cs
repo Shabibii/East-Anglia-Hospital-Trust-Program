@@ -10,6 +10,9 @@ namespace Software_Engineering_Assignment.Support_Classes
     {
         //These are sql queries that will be used regurally
 
+        public static string GetAllEventLogs(int bayNo) =>
+            $@"SELECT * FROM 'Log/Activity'";
+
         public static string GetPatientsFromBay(int bayNo) =>
             $@"SELECT *
                 FROM Patient 

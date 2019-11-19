@@ -83,7 +83,6 @@ namespace Software_Engineering_Assignment.Support_Classes
             try
             {
                 List<Patient> patientsFromBay = GetAllPatientesFromBay(bayNumber);
-
                 return patientsFromBay.Where(x => x.bedNumber == bedNumber).ToArray()[0];
 
             }

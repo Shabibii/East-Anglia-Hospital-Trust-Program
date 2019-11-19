@@ -43,7 +43,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             FirstName = rawPatientDat[1];
             Surname = rawPatientDat[2];
-            DOB = rawPatientDat[3];
+            DOB = rawPatientDat[3].Split(' ')[0];
             Gender = rawPatientDat[4];
             IntakeReason = rawPatientDat[5];
             Address = rawPatientDat[6];
