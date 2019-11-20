@@ -28,10 +28,14 @@ namespace Software_Engineering_Assignment.Pages
         public BayPage(int bayPage, Main.PageCall0 goBackPage) : this()
         {
             SelectBay(bayPage);
+            ConnectBedsidesToDB();
             button2.Click += delegate { goBackPage(); };
+        }
 
+        private void ConnectBedsidesToDB()
+        {
             bedsideInfoControl1.AssignPatient(currentBay.GetPatient(1));
-            bedsideInfoControl1.PatientPageCall = delegate { PatientPageCall(currentBay.BayNumber, 1);  };
+            bedsideInfoControl1.PatientPageCall = delegate { PatientPageCall(currentBay.BayNumber, 1); };
 
             bedsideInfoControl2.AssignPatient(currentBay.GetPatient(2));
             bedsideInfoControl2.PatientPageCall = delegate { PatientPageCall(currentBay.BayNumber, 2); };
@@ -54,7 +58,6 @@ namespace Software_Engineering_Assignment.Pages
             bedsideInfoControl8.AssignPatient(currentBay.GetPatient(8));
             bedsideInfoControl8.PatientPageCall = delegate { PatientPageCall(currentBay.BayNumber, 8); };
         }
-
 
         public void SelectBay(int bayPage)
         {
