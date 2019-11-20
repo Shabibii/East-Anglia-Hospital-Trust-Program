@@ -50,6 +50,7 @@
             this.label1.Size = new System.Drawing.Size(71, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bay X";
+            this.label1.TextChanged += new System.EventHandler(this.Label1_TextChanged);
             // 
             // button2
             // 

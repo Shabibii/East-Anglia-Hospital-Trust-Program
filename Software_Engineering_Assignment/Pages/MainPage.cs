@@ -22,6 +22,7 @@ namespace Software_Engineering_Assignment.Pages
             InitializeComponent();
             InitializeBays(patientPageCall);
             timer.Start();
+            Text = "Central Station";
         }
 
 

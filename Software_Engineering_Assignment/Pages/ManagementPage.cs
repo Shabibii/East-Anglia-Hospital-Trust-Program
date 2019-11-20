@@ -12,6 +12,7 @@ namespace Software_Engineering_Assignment.Pages
         public ManagementPage()
         {
             InitializeComponent();
+            Text = "Management";
         }
 
         private void lblStaffID_Click(object sender, EventArgs e)

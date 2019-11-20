@@ -63,5 +63,9 @@ namespace Software_Engineering_Assignment.Pages
             label1.Text = $"Bay {bayPage}";
         }
 
+        private void Label1_TextChanged(object sender, EventArgs e)
+        {
+            Text = label1.Text; // Set title to bay details
+        }
     }
 }

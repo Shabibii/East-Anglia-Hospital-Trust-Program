@@ -56,6 +56,7 @@ namespace Software_Engineering_Assignment
             //Pages have to be the same size for the design theme to work
             Controls.Clear();
             Controls.Add(pages[pageNumber]);
+            Text = pages[pageNumber].Text;
         }
 
         public void SetPatientPage(int bayNumber,int pageNumber)
