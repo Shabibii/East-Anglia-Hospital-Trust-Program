@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.staffRegisterList = new System.Windows.Forms.Panel();
+            this.staffRegisterList = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -53,9 +53,9 @@
             // staffRegisterList
             // 
             this.staffRegisterList.AutoScroll = true;
-            this.staffRegisterList.Location = new System.Drawing.Point(3, 64);
+            this.staffRegisterList.Location = new System.Drawing.Point(0, 46);
             this.staffRegisterList.Name = "staffRegisterList";
-            this.staffRegisterList.Size = new System.Drawing.Size(458, 450);
+            this.staffRegisterList.Size = new System.Drawing.Size(461, 489);
             this.staffRegisterList.TabIndex = 2;
             // 
             // StaffRegistrationControl
@@ -77,6 +77,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel staffRegisterList;
+        private System.Windows.Forms.FlowLayoutPanel staffRegisterList;
     }
 }

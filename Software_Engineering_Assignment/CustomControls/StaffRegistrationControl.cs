@@ -25,13 +25,13 @@ namespace Software_Engineering_Assignment.CustomControls
         /// Method to get each doctorRegistrationFieldControl 
         /// and present in StaffRegistrationControl as a list
         /// </summary>
-        private void RegisterField()
+        public void InitalizeRegisterField()
         {
             var allStaff = DatabaseConnector.Instance.GetAllStaff();
 
             foreach (Staff staff in allStaff)
             {
-                staffRegisterList.Controls.Add(new doctorRegistrationFieldControl(staff));
+                staffRegisterList.Controls.Add(new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle });
             }
         }
 
