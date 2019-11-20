@@ -174,6 +174,23 @@ namespace Software_Engineering_Assignment.Support_Classes
             return alarms;
         }
 
+        /// <summary>
+        /// Method returning a dataset specified by the fields in management page
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetMatchingEvents(string table, string conditions)
+        {
+            DataSet results = new DataSet();
+            OpenConnection();
+
+            sqlDataAdapter = new SqlDataAdapter("SELECT * FROM " + table + conditions , sqlConnection);
+
+
+
+            CloseConnection();
+            return results;
+        }
+
         public bool VerifyLogin(int staffID, string password)
         {
             OpenConnection(); //Open Connection
