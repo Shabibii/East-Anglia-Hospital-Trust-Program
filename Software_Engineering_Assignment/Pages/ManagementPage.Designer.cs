@@ -31,7 +31,6 @@
             this.dgvManagementInfo = new System.Windows.Forms.DataGridView();
             this.lblManagementTitle = new System.Windows.Forms.Label();
             this.lblEventType = new System.Windows.Forms.Label();
-            this.lbxEventType = new System.Windows.Forms.ListBox();
             this.lblStaffID = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -40,6 +39,9 @@
             this.tbxPatientID = new System.Windows.Forms.TextBox();
             this.dtpManagement = new System.Windows.Forms.DateTimePicker();
             this.tbxStaffID = new System.Windows.Forms.TextBox();
+            this.lbxEventType = new System.Windows.Forms.ListBox();
+            this.cbxEventType = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManagementInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,18 +76,6 @@
             this.lblEventType.TabIndex = 2;
             this.lblEventType.Text = "Event Type:";
             // 
-            // lbxEventType
-            // 
-            this.lbxEventType.AllowDrop = true;
-            this.lbxEventType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbxEventType.FormattingEnabled = true;
-            this.lbxEventType.ItemHeight = 16;
-            this.lbxEventType.Location = new System.Drawing.Point(1097, 63);
-            this.lbxEventType.Name = "lbxEventType";
-            this.lbxEventType.Size = new System.Drawing.Size(208, 20);
-            this.lbxEventType.TabIndex = 3;
-            // 
             // lblStaffID
             // 
             this.lblStaffID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -96,7 +86,7 @@
             this.lblStaffID.Size = new System.Drawing.Size(58, 17);
             this.lblStaffID.TabIndex = 4;
             this.lblStaffID.Text = "Staff ID:";
-            this.lblStaffID.Click += new System.EventHandler(this.label1_Click);
+            this.lblStaffID.Click += new System.EventHandler(this.lblStaffID_Click);
             // 
             // lblDate
             // 
@@ -120,6 +110,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnManagementBack
             // 
@@ -163,11 +154,47 @@
             this.tbxStaffID.Size = new System.Drawing.Size(208, 22);
             this.tbxStaffID.TabIndex = 13;
             // 
+            // lbxEventType
+            // 
+            this.lbxEventType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbxEventType.FormattingEnabled = true;
+            this.lbxEventType.ItemHeight = 16;
+            this.lbxEventType.Items.AddRange(new object[] {
+            "Alarms",
+            "ProgramLogs"});
+            this.lbxEventType.Location = new System.Drawing.Point(1097, 66);
+            this.lbxEventType.Name = "lbxEventType";
+            this.lbxEventType.Size = new System.Drawing.Size(208, 20);
+            this.lbxEventType.TabIndex = 3;
+            // 
+            // cbxEventType
+            // 
+            this.cbxEventType.FormattingEnabled = true;
+            this.cbxEventType.Items.AddRange(new object[] {
+            "Alarms",
+            "ProgramLogs"});
+            this.cbxEventType.Location = new System.Drawing.Point(1097, 299);
+            this.cbxEventType.Name = "cbxEventType";
+            this.cbxEventType.Size = new System.Drawing.Size(208, 24);
+            this.cbxEventType.TabIndex = 14;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1160, 350);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 88);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ManagementPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cbxEventType);
             this.Controls.Add(this.tbxStaffID);
             this.Controls.Add(this.dtpManagement);
             this.Controls.Add(this.tbxPatientID);
@@ -195,7 +222,6 @@
         private System.Windows.Forms.DataGridView dgvManagementInfo;
         private System.Windows.Forms.Label lblManagementTitle;
         private System.Windows.Forms.Label lblEventType;
-        private System.Windows.Forms.ListBox lbxEventType;
         private System.Windows.Forms.Label lblStaffID;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Button btnSearch;
@@ -204,5 +230,8 @@
         private System.Windows.Forms.TextBox tbxPatientID;
         private System.Windows.Forms.DateTimePicker dtpManagement;
         private System.Windows.Forms.TextBox tbxStaffID;
+        private System.Windows.Forms.ListBox lbxEventType;
+        private System.Windows.Forms.ComboBox cbxEventType;
+        private System.Windows.Forms.Button button1;
     }
 }

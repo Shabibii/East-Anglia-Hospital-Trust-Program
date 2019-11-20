@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Software_Engineering_Assignment.Support_Classes;
+using System;
 using System.Windows.Forms;
-using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment.Pages
 {
@@ -21,17 +14,7 @@ namespace Software_Engineering_Assignment.Pages
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void lblStaffID_Click(object sender, EventArgs e)
         {
 
         }
@@ -41,6 +24,7 @@ namespace Software_Engineering_Assignment.Pages
         {
             //Assign dataGridView data source to alarms dataset
             dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetAlarms();
+            dgvManagementInfo.Refresh();
         }
 
         private void btnManagementBack_Click(object sender, EventArgs e)
@@ -51,6 +35,33 @@ namespace Software_Engineering_Assignment.Pages
         private void lblDate_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string table = "Alarm";
+            string conditions = "WHERE ";
+            
+            if(lbxEventType.SelectedItem == "Alarms")
+            {
+                table = "Alarm";
+            }
+            else
+            {
+                table = "Log/Activity";
+            }
+
+            if(tbxPatientID.Text != "")
+            {
+                conditions += "PatientID = " + tbxPatientID;
+            }
+            else
+            {
+                conditions += "PatientID = " + "%";
+            }
+
+
+            dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetMatchingEvents(table, conditions);
         }
     }
 }
