@@ -68,6 +68,8 @@ namespace Software_Engineering_Assignment.Pages
             module4Max.Text = currentPatient.Module4.MaxValue.ToString();
             module4Min.Text = currentPatient.Module4.MinValue.ToString();
 
+            Text = currentPatient.FullName;
+
             InitalizeControl();
          }
 

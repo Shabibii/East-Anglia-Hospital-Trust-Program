@@ -20,6 +20,7 @@ namespace Software_Engineering_Assignment.Pages
         {
             InitializeComponent();
             ConnectWithDB();
+            Text = "Registeration Page";
         }
 
         /// <summary>
