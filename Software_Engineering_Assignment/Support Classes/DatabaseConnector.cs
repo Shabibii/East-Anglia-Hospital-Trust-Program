@@ -10,13 +10,11 @@ namespace Software_Engineering_Assignment.Support_Classes
     {
         //This class is to be accessable to all other classes in this project
         private static DatabaseConnector instance;
-        private static string connectionString;
-
         private SqlConnection sqlConnection;
         private SqlDataAdapter sqlDataAdapter;
 
 
-        public static string ConnectionString => connectionString;
+        public static string ConnectionString { get; private set; }
 
         public static DatabaseConnector Instance
         {
@@ -25,7 +23,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                 if (instance == null)
                 {
                     //set connection string
-                    connectionString = Properties.Settings.Default.ConnectionString;
+                    ConnectionString = Properties.Settings.Default.ConnectionString;
                     //Initalize DatabaseConnector instance
                     instance = new DatabaseConnector();
                 }
@@ -35,7 +33,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void OpenConnection()
         {
-            sqlConnection = new SqlConnection(connectionString); //Initalize sql connection object
+            sqlConnection = new SqlConnection(ConnectionString); //Initalize sql connection object
             sqlConnection.Open(); //Open sql connection
         }
 
@@ -89,7 +87,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
             catch (Exception)
             {
-                return new Patient() { FirstName = "Empty", Surname = "Record" };
+                return new Patient() { FirstName = "Empty", Surname = "Record", bedNumber = bedNumber };
 
             }
         }
