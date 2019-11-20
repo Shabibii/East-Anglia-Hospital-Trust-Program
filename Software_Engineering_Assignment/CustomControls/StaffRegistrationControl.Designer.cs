@@ -78,5 +78,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.FlowLayoutPanel staffRegisterList;
+        private System.Windows.Forms.FlowLayoutPanel staffUnregisterList;
     }
 }

@@ -27,7 +27,7 @@ namespace Software_Engineering_Assignment.CustomControls
         public void DisplayOnCallStaff()
         {
             List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
-            listView1.Clear();
+            StaffOncallList.Clear();
 
             if (onCallStaff == null) return;
 
@@ -35,7 +35,7 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 foreach (Staff staff in onCallStaff)
                 {
-                    listView1.Items.Add(new StaffListViewItem(staff));
+                    StaffOncallList.Items.Add(new StaffListViewItem(staff));
                 }
             }
             Console.Read();

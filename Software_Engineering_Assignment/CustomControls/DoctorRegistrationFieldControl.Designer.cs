@@ -31,7 +31,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.doctorName = new System.Windows.Forms.Label();
             this.staffId = new System.Windows.Forms.Label();
-            this.deregistrationButton = new System.Windows.Forms.Button();
+            this.deregisterButton = new System.Windows.Forms.Button();
             this.registerButton1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,19 +68,19 @@
             this.staffId.TabIndex = 2;
             this.staffId.Text = "Staff ID";
             // 
-            // deregistrationButton
+            // deregisterButton
             // 
-            this.deregistrationButton.BackColor = System.Drawing.Color.Red;
-            this.deregistrationButton.FlatAppearance.BorderSize = 0;
-            this.deregistrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deregistrationButton.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deregistrationButton.Location = new System.Drawing.Point(358, 54);
-            this.deregistrationButton.Name = "deregistrationButton";
-            this.deregistrationButton.Size = new System.Drawing.Size(72, 23);
-            this.deregistrationButton.TabIndex = 4;
-            this.deregistrationButton.Text = "Deregister";
-            this.deregistrationButton.UseVisualStyleBackColor = false;
-            this.deregistrationButton.Click += new System.EventHandler(this.deregistrationButton_Click);
+            this.deregisterButton.BackColor = System.Drawing.Color.Red;
+            this.deregisterButton.FlatAppearance.BorderSize = 0;
+            this.deregisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deregisterButton.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deregisterButton.Location = new System.Drawing.Point(358, 54);
+            this.deregisterButton.Name = "deregisterButton";
+            this.deregisterButton.Size = new System.Drawing.Size(72, 23);
+            this.deregisterButton.TabIndex = 4;
+            this.deregisterButton.Text = "Deregister";
+            this.deregisterButton.UseVisualStyleBackColor = false;
+            this.deregisterButton.Click += new System.EventHandler(this.unregisterStaff);
             // 
             // registerButton1
             // 
@@ -121,7 +121,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.registerButton1);
-            this.Controls.Add(this.deregistrationButton);
+            this.Controls.Add(this.deregisterButton);
             this.Controls.Add(this.staffId);
             this.Controls.Add(this.doctorName);
             this.Controls.Add(this.pictureBox1);
@@ -138,9 +138,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label doctorName;
         private System.Windows.Forms.Label staffId;
-        private System.Windows.Forms.Button deregistrationButton;
+        private System.Windows.Forms.Button deregisterButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button registerButton1;
+        public System.Windows.Forms.Button registerButton1;        
     }
 }

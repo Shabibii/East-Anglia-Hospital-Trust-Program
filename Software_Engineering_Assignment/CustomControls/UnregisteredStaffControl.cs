@@ -13,32 +13,36 @@ namespace Software_Engineering_Assignment.CustomControls
 {
     public partial class UnregisteredStaffControl : UserControl
     {
-        List<Staff> unavailableStaff;
+       
         public UnregisteredStaffControl()
         {
             InitializeComponent();
-            GetUnavailableStaff(unavailableStaff);
         }
 
-        public void GetUnavailableStaff(List<Staff> unavailableStaff)
-        {
-            this.unavailableStaff = unavailableStaff;
-        }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            
-
+            DisplayUnregisterStaff();
         }
 
-        private void UnavailableStaffControl_Load(object sender, EventArgs e)
+        public void DisplayUnregisterStaff()
         {
+            List<Staff> unregisteredStaff = DatabaseConnector.Instance.GetUnregisteredStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
+            staffUnregisterList.Clear();
 
+            if (unregisteredStaff == null) return;
+
+            if (unregisteredStaff.Count > 0)
+            {
+                foreach (Staff staff in unregisteredStaff)
+                {
+                    staffUnregisterList.Items.Add(new StaffListViewItem(staff));
+                }
+            }
+            Console.Read();
         }
 
-        private void addStaffToListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
+
     }
 }

@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.StaffOncallList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -50,23 +50,23 @@
             this.monthCalendar1.TabIndex = 2;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
-            // listView1
+            // StaffOncallList
             // 
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 27);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(252, 261);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.StaffOncallList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.StaffOncallList.HideSelection = false;
+            this.StaffOncallList.Location = new System.Drawing.Point(0, 27);
+            this.StaffOncallList.Name = "StaffOncallList";
+            this.StaffOncallList.Size = new System.Drawing.Size(252, 261);
+            this.StaffOncallList.TabIndex = 3;
+            this.StaffOncallList.UseCompatibleStateImageBehavior = false;
+            this.StaffOncallList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // OnCallStaffControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.StaffOncallList);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.label1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -80,6 +80,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView StaffOncallList;
     }
 }

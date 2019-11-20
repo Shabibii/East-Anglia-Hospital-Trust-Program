@@ -182,6 +182,42 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
         }
 
+        public List<Staff> GetUnregisteredStaff(string date)
+        {
+            try
+            {
+                OpenConnection(); //Open Connection
+                List<Staff> staffList = new List<Staff>();
+
+                using (DataSet dataSet = new DataSet())
+                {
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffUnregistered(date), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                    List<string> rawStaffData = new List<string>();
+
+                    DataTable staffTable = dataSet.Tables[0];
+                    DataColumn column = staffTable.Columns[0];
+
+                    foreach (DataRow row in staffTable.Rows)
+                    {
+                        int staffID = int.Parse(row[column].ToString());
+                        staffList.Add(GetStaff(staffID));
+                    }
+                }
+
+                CloseConnection(); //Close Connection
+
+                return staffList;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+
         public void RegisterStaff(int staffId, string date)
         {
             OpenConnection();
@@ -190,6 +226,16 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
         }
+
+        public void UnregisterStaff(int staffId, string date)
+        {
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand(Constants.UnregisterStaff(staffId), sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@date", $"{date}");
+            sqlCommand.ExecuteNonQuery();
+            CloseConnection();
+        }
+
 
 
         /// <summary>

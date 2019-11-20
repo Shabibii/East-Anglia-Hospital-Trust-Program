@@ -28,8 +28,17 @@ namespace Software_Engineering_Assignment.Support_Classes
                 FROM StaffSchedule
                 WHERE oncall_date = '{date}'";
 
+        public static string GetStaffUnregistered(string date)
+        => $@"SELECT staff_id
+                FROM StaffSchedule
+                WHERE deregistered = '{date}'";
+
+
         public static string RegisterStaff(int staffId)
         => $@"INSERT INTO StaffSchedule VALUES ({staffId},@date,0)";
+
+        public static string UnregisterStaff(int staffId)
+        => $@"INSERT INTO StaffSchedule VALUES ({staffId},0,@true)";
 
 
         //Get staff ID using sql query

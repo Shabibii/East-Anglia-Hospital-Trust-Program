@@ -40,9 +40,10 @@ namespace Software_Engineering_Assignment.CustomControls
             DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
         }
 
-        private void deregistrationButton_Click(object sender, EventArgs e)
+        private void unregisterStaff(object sender, EventArgs e)
         {
             // Deregister staff
+            DatabaseConnector.Instance.UnregisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
         }
     }
 }
