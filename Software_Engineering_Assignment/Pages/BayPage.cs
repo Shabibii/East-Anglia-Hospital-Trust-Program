@@ -13,7 +13,7 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class BayPage : UserControl
     {
-        Bay currentBay;
+        Bay currentBay; // bay holding bedsides being displayed
 
         //Method which takes the screen to the patient page
         public Main.PageCall2 PatientPageCall = delegate { };

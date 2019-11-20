@@ -43,10 +43,10 @@ namespace Software_Engineering_Assignment.Pages
         {
             //Fill up patient object with data from the database
             currentPatient = DatabaseConnector.Instance.GetPatient(bayNumber, bedNumber);
-            nameLabel.Text = currentPatient.FirstName;
-            surnameLabel.Text = currentPatient.Surname;
-            dobLabel.Text = currentPatient.DOB;
-            intakeReasonLabel.Text = currentPatient.IntakeReason;
+            nameLabel.Text = $"First Name: {currentPatient.FirstName}";
+            surnameLabel.Text = $"Last Name: {currentPatient.Surname}";
+            dobLabel.Text = $"Date of Birth: {currentPatient.DOB}";
+            intakeReasonLabel.Text = $"Intake Reason: {currentPatient.IntakeReason}";
 
             module1ModuleType.Text = currentPatient.Module1.ToString();
             module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
