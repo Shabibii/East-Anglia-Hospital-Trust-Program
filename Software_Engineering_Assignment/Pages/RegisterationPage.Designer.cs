@@ -30,8 +30,8 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.staffRegistrationControl1 = new Software_Engineering_Assignment.CustomControls.StaffRegistrationControl();
-            this.unavailableStaff1 = new Software_Engineering_Assignment.CustomControls.UnavailableStaffControl();
-            this.staffAvailabilityControl1 = new Software_Engineering_Assignment.CustomControls.StaffAvailabilityControl();
+            this.unavailableStaff1 = new Software_Engineering_Assignment.CustomControls.UnregisteredStaffControl();
+            this.staffAvailabilityControl1 = new Software_Engineering_Assignment.CustomControls.OnCallStaffControl();
             this.SuspendLayout();
             // 
             // button2
@@ -92,8 +92,8 @@
 
         #endregion
 
-        private CustomControls.StaffAvailabilityControl staffAvailabilityControl1;
-        private CustomControls.UnavailableStaffControl unavailableStaff1;
+        private CustomControls.OnCallStaffControl staffAvailabilityControl1;
+        private CustomControls.UnregisteredStaffControl unavailableStaff1;
         private CustomControls.StaffRegistrationControl staffRegistrationControl1;
         private System.Windows.Forms.Button button2;
     }

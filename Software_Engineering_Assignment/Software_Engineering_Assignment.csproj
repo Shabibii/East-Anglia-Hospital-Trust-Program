@@ -73,11 +73,11 @@
     <Compile Include="CustomControls\DoctorRegistrationFieldControl.Designer.cs">
       <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\StaffAvailabilityControl.cs">
+    <Compile Include="CustomControls\OnCallStaffControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\StaffAvailabilityControl.Designer.cs">
-      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    <Compile Include="CustomControls\OnCallStaffControl.Designer.cs">
+      <DependentUpon>OnCallStaffControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\StaffRegistrationControl.cs">
       <SubType>UserControl</SubType>
@@ -85,11 +85,11 @@
     <Compile Include="CustomControls\StaffRegistrationControl.Designer.cs">
       <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\UnavailableStaffControl.cs">
+    <Compile Include="CustomControls\UnregisteredStaffControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\UnavailableStaffControl.Designer.cs">
-      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
+    <Compile Include="CustomControls\UnregisteredStaffControl.Designer.cs">
+      <DependentUpon>UnregisteredStaffControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\BayPage.cs">
       <SubType>UserControl</SubType>
@@ -111,6 +111,7 @@
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Support Classes\Constants.cs" />
+    <Compile Include="Support Classes\EventLog.cs" />
     <Compile Include="Support Classes\Staff.cs" />
     <Compile Include="Support Classes\DatabaseConnector.cs" />
     <Compile Include="Pages\MainPage.cs">
@@ -162,14 +163,14 @@
     <EmbeddedResource Include="CustomControls\DoctorRegistrationFieldControl.resx">
       <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\StaffAvailabilityControl.resx">
-      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\OnCallStaffControl.resx">
+      <DependentUpon>OnCallStaffControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\StaffRegistrationControl.resx">
       <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\UnavailableStaffControl.resx">
-      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\UnregisteredStaffControl.resx">
+      <DependentUpon>UnregisteredStaffControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\BayPage.resx">
       <DependentUpon>BayPage.cs</DependentUpon>

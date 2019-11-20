@@ -18,10 +18,15 @@ namespace Software_Engineering_Assignment.Support_Classes
                 FROM Patient 
                 Where bay_id = {bayNo};";
 
-        public static string GetStaff(int id) => 
+        public static string GetStaff(int id) =>
             $@"SELECT staff_id, first_name, last_name, staff_type, date_of_birth, gender, contact_no_1, contact_no_2, email, address
                 FROM Staff 
                 Where staff_id = {id};";
+
+        public static string GetStaffOnCall(string date)
+        => $@"SELECT staff_id
+                FROM StaffSchedule
+                WHERE oncall_date = {date}";
 
         //Get staff ID using sql query
         public static string GetStaffId => $"SELECT staff_id FROM Staff;";

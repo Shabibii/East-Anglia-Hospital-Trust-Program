@@ -148,6 +148,33 @@ namespace Software_Engineering_Assignment.Support_Classes
             return staff;
         }
 
+        public List<Staff> GetOnCallStaff(string date)
+        {
+            OpenConnection(); //Open Connection
+            List<Staff> staffList = new List<Staff>();
+
+            using (DataSet dataSet = new DataSet())
+            {
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffOnCall(date), sqlConnection);
+                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                List<string> rawStaffData = new List<string>();
+
+                DataTable staffTable = dataSet.Tables[0];
+                DataRow row = staffTable.Rows[0];
+
+                foreach (DataColumn column in staffTable.Columns)
+                {
+                    int staffID = int.Parse(row[column].ToString());
+                    staffList.Add(GetStaff(staffID));
+                }
+            }
+
+            CloseConnection(); //Close Connection
+
+            return staffList;
+        }
+
 
         /// <summary>
         /// Method returning dataset of the whole 'Alarm' table
