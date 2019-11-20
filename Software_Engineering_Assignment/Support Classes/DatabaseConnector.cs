@@ -150,29 +150,45 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public List<Staff> GetOnCallStaff(string date)
         {
-            OpenConnection(); //Open Connection
-            List<Staff> staffList = new List<Staff>();
-
-            using (DataSet dataSet = new DataSet())
+            try
             {
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffOnCall(date), sqlConnection);
-                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+                OpenConnection(); //Open Connection
+                List<Staff> staffList = new List<Staff>();
 
-                List<string> rawStaffData = new List<string>();
-
-                DataTable staffTable = dataSet.Tables[0];
-                DataRow row = staffTable.Rows[0];
-
-                foreach (DataColumn column in staffTable.Columns)
+                using (DataSet dataSet = new DataSet())
                 {
-                    int staffID = int.Parse(row[column].ToString());
-                    staffList.Add(GetStaff(staffID));
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffOnCall(date), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                    List<string> rawStaffData = new List<string>();
+
+                    DataTable staffTable = dataSet.Tables[0];
+                    DataColumn column = staffTable.Columns[0];
+
+                    foreach (DataRow row in staffTable.Rows)
+                    {
+                        int staffID = int.Parse(row[column].ToString());
+                        staffList.Add(GetStaff(staffID));
+                    }
                 }
+
+                CloseConnection(); //Close Connection
+
+                return staffList;
             }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
-            CloseConnection(); //Close Connection
-
-            return staffList;
+        public void RegisterStaff(int staffId, string date)
+        {
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand(Constants.RegisterStaff(staffId), sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@date", $"{date}");
+            sqlCommand.ExecuteNonQuery();
+            CloseConnection();
         }
 
 

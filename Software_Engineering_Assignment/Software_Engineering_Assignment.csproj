@@ -154,6 +154,7 @@
     <Compile Include="Pages\PatientPage.Designer.cs">
       <DependentUpon>PatientPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Support Classes\StaffListViewItem.cs" />
     <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
     </EmbeddedResource>

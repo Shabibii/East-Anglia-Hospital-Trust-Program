@@ -20,7 +20,15 @@ namespace Software_Engineering_Assignment.Pages
         {
             InitializeComponent();
             ConnectWithDB();
+
             Text = "Registeration Page";
+            staffRegistrationControl1.registerationStateChanged += RefreshStaffStatus;
+            RefreshStaffStatus();
+        }
+
+        private void RefreshStaffStatus()
+        {
+            staffAvailabilityControl1.DisplayOnCallStaff();
         }
 
         /// <summary>

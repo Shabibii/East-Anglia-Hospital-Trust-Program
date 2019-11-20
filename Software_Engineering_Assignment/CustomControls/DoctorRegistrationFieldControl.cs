@@ -18,26 +18,31 @@ namespace Software_Engineering_Assignment.CustomControls
         /// Add in label doctorName & staffId.
         /// </summary>
         /// <param name="staff"></param>
+        /// 
+        Staff currentStaff;
         public doctorRegistrationFieldControl(Staff staff)
         {
             InitializeComponent();
-
+            currentStaff = staff;
             doctorName.Text = staff.FirstName;
             staffId.Text = staff.StaffId.ToString();
-
-            
         }
 
-        List<Staff> allStaff;
         /// <summary>
         /// Add selected staff member to available staff 
         /// after clicking registerButton1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void registerButton1_Click(object sender, EventArgs e)
+        public void registerStaff(object sender, EventArgs e)
         {
-           // Staff staff             
+            // Register staff   
+            DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+        }
+
+        private void deregistrationButton_Click(object sender, EventArgs e)
+        {
+            // Deregister staff
         }
     }
 }

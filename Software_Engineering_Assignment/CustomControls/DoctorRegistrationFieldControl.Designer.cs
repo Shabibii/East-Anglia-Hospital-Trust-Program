@@ -80,6 +80,7 @@
             this.deregistrationButton.TabIndex = 4;
             this.deregistrationButton.Text = "Deregister";
             this.deregistrationButton.UseVisualStyleBackColor = false;
+            this.deregistrationButton.Click += new System.EventHandler(this.deregistrationButton_Click);
             // 
             // registerButton1
             // 
@@ -93,7 +94,7 @@
             this.registerButton1.TabIndex = 5;
             this.registerButton1.Text = "Register";
             this.registerButton1.UseVisualStyleBackColor = false;
-            this.registerButton1.Click += new System.EventHandler(this.registerButton1_Click);
+            this.registerButton1.Click += new System.EventHandler(this.registerStaff);
             // 
             // dateTimePicker2
             // 
@@ -138,8 +139,8 @@
         private System.Windows.Forms.Label doctorName;
         private System.Windows.Forms.Label staffId;
         private System.Windows.Forms.Button deregistrationButton;
-        private System.Windows.Forms.Button registerButton1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button registerButton1;
     }
 }

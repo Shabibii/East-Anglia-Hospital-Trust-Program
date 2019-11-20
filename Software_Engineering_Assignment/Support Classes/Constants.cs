@@ -26,7 +26,11 @@ namespace Software_Engineering_Assignment.Support_Classes
         public static string GetStaffOnCall(string date)
         => $@"SELECT staff_id
                 FROM StaffSchedule
-                WHERE oncall_date = {date}";
+                WHERE oncall_date = '{date}'";
+
+        public static string RegisterStaff(int staffId)
+        => $@"INSERT INTO StaffSchedule VALUES ({staffId},@date,0)";
+
 
         //Get staff ID using sql query
         public static string GetStaffId => $"SELECT staff_id FROM Staff;";

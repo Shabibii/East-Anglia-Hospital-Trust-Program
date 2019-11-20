@@ -13,17 +13,37 @@ namespace Software_Engineering_Assignment.CustomControls
 {
     public partial class OnCallStaffControl : UserControl
     {
-        List<Staff> availableStaff;       
-
         public OnCallStaffControl()
         {
             InitializeComponent();
+            //DisplayOnCallStaff();
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-           var onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(monthCalendar1.SelectionRange.Start.ToShortDateString());
+            DisplayOnCallStaff();
+        }
+
+        public void DisplayOnCallStaff()
+        {
+            List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
+            listView1.Clear();
+
+            if (onCallStaff == null) return;
+
+            if(onCallStaff.Count > 0)
+            {
+                foreach (Staff staff in onCallStaff)
+                {
+                    listView1.Items.Add(new StaffListViewItem(staff));
+                }
+            }
             Console.Read();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
