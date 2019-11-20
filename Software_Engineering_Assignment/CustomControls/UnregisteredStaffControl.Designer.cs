@@ -30,7 +30,7 @@
         {
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.staffUnregisterList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -38,7 +38,6 @@
             this.monthCalendar1.Location = new System.Drawing.Point(269, 6);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // label1
             // 
@@ -50,27 +49,26 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Unregistered Staff";
             // 
-            // listView1
+            // staffUnregisterList
             // 
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 24);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(246, 264);
-            this.listView1.TabIndex = 6;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.staffUnregisterList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.staffUnregisterList.HideSelection = false;
+            this.staffUnregisterList.Location = new System.Drawing.Point(3, 24);
+            this.staffUnregisterList.Name = "staffUnregisterList";
+            this.staffUnregisterList.Size = new System.Drawing.Size(246, 264);
+            this.staffUnregisterList.TabIndex = 6;
+            this.staffUnregisterList.UseCompatibleStateImageBehavior = false;
             // 
-            // UnavailableStaffControl
+            // UnregisteredStaffControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.staffUnregisterList);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.label1);
-            this.Name = "UnavailableStaffControl";
+            this.Name = "UnregisteredStaffControl";
             this.Size = new System.Drawing.Size(500, 291);
-            this.Load += new System.EventHandler(this.UnavailableStaffControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,6 +78,6 @@
 
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView staffUnregisterList;
     }
 }

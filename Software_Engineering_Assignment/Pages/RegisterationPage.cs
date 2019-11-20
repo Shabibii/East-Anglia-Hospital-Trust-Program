@@ -29,6 +29,7 @@ namespace Software_Engineering_Assignment.Pages
         private void RefreshStaffStatus()
         {
             staffAvailabilityControl1.DisplayOnCallStaff();
+            unavailableStaff1.DisplayUnregisterStaff();
         }
 
         /// <summary>
@@ -55,8 +56,8 @@ namespace Software_Engineering_Assignment.Pages
                 }
             }
 
-            unavailableStaff1.GetUnavailableStaff(unregisteredStaff);
             staffRegistrationControl1.InitalizeRegisterField();
+            //unavailableStaff1.
 
         }
 

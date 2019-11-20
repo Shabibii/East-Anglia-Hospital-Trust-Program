@@ -15,7 +15,7 @@ namespace Software_Engineering_Assignment.CustomControls
     {
         public delegate void registerationStateEvent();
         public registerationStateEvent registerationStateChanged;
-
+        
         public StaffRegistrationControl()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 var docReg = new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
                 docReg.registerButton1.Click += registerStaff;
-                staffRegisterList.Controls.Add(docReg);
+                staffRegisterList.Controls.Add(docReg);                               
             }
         }
 
@@ -44,6 +44,8 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             registerationStateChanged();
         }
+
+      
 
         //Registeration field control
         /*
