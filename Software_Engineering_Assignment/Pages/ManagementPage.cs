@@ -24,9 +24,8 @@ namespace Software_Engineering_Assignment.Pages
         //On load of the program fill the management page dataGridView with all alarms
         private void ManagementPage_Load(object sender, EventArgs e)
         {
-            //Assign dataGridView data source to alarms dataset
-            DataSet data = DatabaseConnector.Instance.GetAlarms();
-            dgvManagementInfo.DataSource = data.Tables[0];
+            //Assign dataGridView data source to alarms dataset               
+            dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetAlarms();
         }
 
         private void btnManagementBack_Click(object sender, EventArgs e)

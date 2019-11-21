@@ -242,7 +242,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         /// Method returning dataset of the whole 'Alarm' table
         /// </summary>
         /// <returns></returns>
-        public DataSet GetAlarms()
+        public DataTable GetAlarms()
         {
             //Open connection to database
             OpenConnection();
@@ -259,8 +259,9 @@ namespace Software_Engineering_Assignment.Support_Classes
             //Close connection to database
             CloseConnection();
 
+            DataTable alarmsTable = alarms.Tables[0];
             //Return filled dataset
-            return alarms;
+            return alarmsTable;
         }
 
         /// <summary>
