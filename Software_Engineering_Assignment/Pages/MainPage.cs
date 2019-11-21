@@ -23,6 +23,8 @@ namespace Software_Engineering_Assignment.Pages
             InitializeBays(patientPageCall);
             timer.Start();
             Text = "Central Station";
+
+            register1.StartRealtimeDataDisplay();
         }
 
 
