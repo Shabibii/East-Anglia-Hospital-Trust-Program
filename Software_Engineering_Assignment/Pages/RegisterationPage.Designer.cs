@@ -28,11 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.unavailableStaff1 = new Software_Engineering_Assignment.CustomControls.UnavailableStaffControl();
-            this.staffAvailabilityControl1 = new Software_Engineering_Assignment.CustomControls.StaffAvailabilityControl();
-            this.staffRegistrationControl1 = new Software_Engineering_Assignment.CustomControls.StaffRegistrationControl();
             this.button2 = new System.Windows.Forms.Button();
+            this.staffRegistrationControl1 = new Software_Engineering_Assignment.CustomControls.StaffRegistrationControl();
+            this.unavailableStaff1 = new Software_Engineering_Assignment.CustomControls.UnregisteredStaffControl();
+            this.staffAvailabilityControl1 = new Software_Engineering_Assignment.CustomControls.OnCallStaffControl();
             this.SuspendLayout();
+            // 
+            // button2
+            // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(923, 548);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(64, 43);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Back";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // staffRegistrationControl1
+            // 
+            this.staffRegistrationControl1.BackColor = System.Drawing.Color.White;
+            this.staffRegistrationControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.staffRegistrationControl1.Location = new System.Drawing.Point(523, 3);
+            this.staffRegistrationControl1.Name = "staffRegistrationControl1";
+            this.staffRegistrationControl1.Size = new System.Drawing.Size(464, 531);
+            this.staffRegistrationControl1.TabIndex = 2;
             // 
             // unavailableStaff1
             // 
@@ -53,27 +75,6 @@
             this.staffAvailabilityControl1.Size = new System.Drawing.Size(500, 291);
             this.staffAvailabilityControl1.TabIndex = 0;
             // 
-            // staffRegistrationControl1
-            // 
-            this.staffRegistrationControl1.BackColor = System.Drawing.Color.White;
-            this.staffRegistrationControl1.Location = new System.Drawing.Point(523, 22);
-            this.staffRegistrationControl1.Name = "staffRegistrationControl1";
-            this.staffRegistrationControl1.Size = new System.Drawing.Size(464, 512);
-            this.staffRegistrationControl1.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(923, 548);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 43);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // RegisterationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,8 +92,8 @@
 
         #endregion
 
-        private CustomControls.StaffAvailabilityControl staffAvailabilityControl1;
-        private CustomControls.UnavailableStaffControl unavailableStaff1;
+        private CustomControls.OnCallStaffControl staffAvailabilityControl1;
+        private CustomControls.UnregisteredStaffControl unavailableStaff1;
         private CustomControls.StaffRegistrationControl staffRegistrationControl1;
         private System.Windows.Forms.Button button2;
     }

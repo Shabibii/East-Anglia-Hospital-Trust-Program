@@ -24,8 +24,12 @@ namespace Software_Engineering_Assignment
         public delegate void PageCall2(int bayNumber, int bedNumber);
         public PageCall0 BayPageCall = delegate { };
 
-
-        
+        private MainPage mainPage;
+        private BayPage bayPage1;
+        private BayPage bayPage2;
+        private ManagementPage managementPage;
+        private RegisterationPage registerationPage;
+        private PatientPage patientPage;
 
         public Main()
         {
@@ -36,19 +40,25 @@ namespace Software_Engineering_Assignment
 
         private void InitalizePages()
         {
-            MainPage mainPage = new MainPage(SetPatientPage)
+            mainPage = new MainPage(SetPatientPage)
             {
                 BayPageCall = SetPageToBay,
                 ManagementPageCall = CallManagementPage,
                 RegisterationPageCall = CallRegisterationPage
             };
 
+            bayPage1 = new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage };
+            bayPage2 = new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage };
+            managementPage = new ManagementPage() { pageCall0 = GoToMainpage };
+            registerationPage = new RegisterationPage() { goBackToParentPage = GoToMainpage };
+            patientPage = new PatientPage(GoToMainpage);
+
             pages.Add(0, mainPage);
-            pages.Add(1, new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage});
-            pages.Add(2, new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage });
-            pages.Add(3, new ManagementPage() {pageCall0 = GoToMainpage });
-            pages.Add(4, new RegisterationPage() { goBackToParentPage = GoToMainpage });
-            pages.Add(5, new PatientPage(GoToMainpage));
+            pages.Add(1, bayPage1);
+            pages.Add(2, bayPage2);
+            pages.Add(3, managementPage);
+            pages.Add(4, registerationPage);
+            pages.Add(5, patientPage);
         } 
 
         public void SetPage(int pageNumber)
@@ -101,6 +111,16 @@ namespace Software_Engineering_Assignment
         private void Main_SizeChanged(object sender, EventArgs e)
         {
             Text = Size.ToString();
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainPage.Dispose();
+            bayPage1.Dispose();
+            bayPage2.Dispose();
+            managementPage.Dispose();
+            registerationPage.Dispose();
+            patientPage.Dispose();
         }
     }
 }

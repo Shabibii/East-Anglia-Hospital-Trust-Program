@@ -10,13 +10,11 @@ namespace Software_Engineering_Assignment.Support_Classes
     {
         //This class is to be accessable to all other classes in this project
         private static DatabaseConnector instance;
-        private static string connectionString;
-
         private SqlConnection sqlConnection;
         private SqlDataAdapter sqlDataAdapter;
 
 
-        public static string ConnectionString => connectionString;
+        public static string ConnectionString { get; private set; }
 
         public static DatabaseConnector Instance
         {
@@ -25,7 +23,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                 if (instance == null)
                 {
                     //set connection string
-                    connectionString = Properties.Settings.Default.ConnectionString;
+                    ConnectionString = Properties.Settings.Default.ConnectionString;
                     //Initalize DatabaseConnector instance
                     instance = new DatabaseConnector();
                 }
@@ -35,7 +33,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void OpenConnection()
         {
-            sqlConnection = new SqlConnection(connectionString); //Initalize sql connection object
+            sqlConnection = new SqlConnection(ConnectionString); //Initalize sql connection object
             sqlConnection.Open(); //Open sql connection
         }
 
@@ -89,7 +87,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
             catch (Exception)
             {
-                return new Patient() { FirstName = "Empty", Surname = "Record" };
+                return new Patient() { FirstName = "Empty", Surname = "Record", bedNumber = bedNumber };
 
             }
         }
@@ -149,6 +147,95 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             return staff;
         }
+
+        public List<Staff> GetOnCallStaff(string date)
+        {
+            try
+            {
+                OpenConnection(); //Open Connection
+                List<Staff> staffList = new List<Staff>();
+
+                using (DataSet dataSet = new DataSet())
+                {
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffOnCall(date), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                    List<string> rawStaffData = new List<string>();
+
+                    DataTable staffTable = dataSet.Tables[0];
+                    DataColumn column = staffTable.Columns[0];
+
+                    foreach (DataRow row in staffTable.Rows)
+                    {
+                        int staffID = int.Parse(row[column].ToString());
+                        staffList.Add(GetStaff(staffID));
+                    }
+                }
+
+                CloseConnection(); //Close Connection
+
+                return staffList;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<Staff> GetUnregisteredStaff(string date)
+        {
+            try
+            {
+                OpenConnection(); //Open Connection
+                List<Staff> staffList = new List<Staff>();
+
+                using (DataSet dataSet = new DataSet())
+                {
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffUnregistered(date), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                    List<string> rawStaffData = new List<string>();
+
+                    DataTable staffTable = dataSet.Tables[0];
+                    DataColumn column = staffTable.Columns[0];
+
+                    foreach (DataRow row in staffTable.Rows)
+                    {
+                        int staffID = int.Parse(row[column].ToString());
+                        staffList.Add(GetStaff(staffID));
+                    }
+                }
+
+                CloseConnection(); //Close Connection
+
+                return staffList;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+
+        public void RegisterStaff(int staffId, string date)
+        {
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand(Constants.RegisterStaff(staffId), sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@date", $"{date}");
+            sqlCommand.ExecuteNonQuery();
+            CloseConnection();
+        }
+
+        public void UnregisterStaff(int staffId, string date)
+        {
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand(Constants.UnregisterStaff(staffId), sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@date", $"{date}");
+            sqlCommand.ExecuteNonQuery();
+            CloseConnection();
+        }
+
 
 
         /// <summary>

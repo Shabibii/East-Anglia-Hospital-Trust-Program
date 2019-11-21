@@ -20,7 +20,16 @@ namespace Software_Engineering_Assignment.Pages
         {
             InitializeComponent();
             ConnectWithDB();
+
             Text = "Registeration Page";
+            staffRegistrationControl1.registerationStateChanged += RefreshStaffStatus;
+            RefreshStaffStatus();
+        }
+
+        private void RefreshStaffStatus()
+        {
+            staffAvailabilityControl1.DisplayOnCallStaff();
+            unavailableStaff1.DisplayUnregisterStaff();
         }
 
         /// <summary>
@@ -31,29 +40,24 @@ namespace Software_Engineering_Assignment.Pages
         {
             allStaff = DatabaseConnector.Instance.GetAllStaff();
 
-            List<Staff> availableStaff = new List<Staff>();
-            List<Staff> unavailableStaff = new List<Staff>();
+            List<Staff> unregisteredStaff = new List<Staff>();
             List<Staff> onCallStaff = new List<Staff>();
 
 
             foreach (Staff staff in allStaff)
             {
-                if (staff.isAvailable)
-                {
-                    availableStaff.Add(staff);
-                }
-                else if (staff.isOnCall)
+                if (staff.isOnCall)
                 {
                     onCallStaff.Add(staff);
                 }
                 else
                 {
-                    unavailableStaff.Add(staff);
+                    unregisteredStaff.Add(staff);
                 }
             }
 
-            unavailableStaff1.GetUnavailableStaff(unavailableStaff);
-            staffAvailabilityControl1.GetAvailableStaff(availableStaff);           
+            staffRegistrationControl1.InitalizeRegisterField();
+            //unavailableStaff1.
 
         }
 

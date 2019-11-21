@@ -13,6 +13,9 @@ namespace Software_Engineering_Assignment.CustomControls
 {
     public partial class StaffRegistrationControl : UserControl
     {
+        public delegate void registerationStateEvent();
+        public registerationStateEvent registerationStateChanged;
+        
         public StaffRegistrationControl()
         {
             InitializeComponent();
@@ -25,15 +28,24 @@ namespace Software_Engineering_Assignment.CustomControls
         /// Method to get each doctorRegistrationFieldControl 
         /// and present in StaffRegistrationControl as a list
         /// </summary>
-        private void RegisterField()
+        public void InitalizeRegisterField()
         {
             var allStaff = DatabaseConnector.Instance.GetAllStaff();
 
             foreach (Staff staff in allStaff)
             {
-                staffRegisterList.Controls.Add(new doctorRegistrationFieldControl(staff));
+                var docReg = new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
+                docReg.registerButton1.Click += registerStaff;
+                staffRegisterList.Controls.Add(docReg);                               
             }
         }
+
+        public void registerStaff(object sender, EventArgs e)
+        {
+            registerationStateChanged();
+        }
+
+      
 
         //Registeration field control
         /*
