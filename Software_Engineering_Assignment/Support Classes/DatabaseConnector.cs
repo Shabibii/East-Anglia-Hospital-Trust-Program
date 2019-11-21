@@ -232,6 +232,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             OpenConnection();
             SqlCommand sqlCommand = new SqlCommand(Constants.UnregisterStaff(staffId), sqlConnection);
             sqlCommand.Parameters.AddWithValue("@date", $"{date}");
+            sqlCommand.Parameters.AddWithValue("@deregistered", $"true");
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
         }

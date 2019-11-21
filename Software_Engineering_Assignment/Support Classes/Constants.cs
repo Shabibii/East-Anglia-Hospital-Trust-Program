@@ -31,15 +31,16 @@ namespace Software_Engineering_Assignment.Support_Classes
         public static string GetStaffUnregistered(string date)
         => $@"SELECT staff_id
                 FROM StaffSchedule
-                WHERE oncall_date = '{date}'
-                WHERE deregistered = 'true'";
+                WHERE oncall_date = '{date}' AND deregistered = 'true'";
 
 
         public static string RegisterStaff(int staffId)
         => $@"INSERT INTO StaffSchedule VALUES ({staffId},@date,0)";
 
         public static string UnregisterStaff(int staffId)
-        => $@"INSERT INTO StaffSchedule VALUES ({staffId},0,@true)";
+        => $@"UPDATE StaffSchedule
+                SET oncall_date = '@date', deregistered = @deregistered
+                WHERE staff_Id = {staffId}";
 
 
         //Get staff ID using sql query
