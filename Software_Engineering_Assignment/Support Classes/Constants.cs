@@ -31,7 +31,8 @@ namespace Software_Engineering_Assignment.Support_Classes
         public static string GetStaffUnregistered(string date)
         => $@"SELECT staff_id
                 FROM StaffSchedule
-                WHERE deregistered = '{date}'";
+                WHERE oncall_date = '{date}'
+                WHERE deregistered = 'true'";
 
 
         public static string RegisterStaff(int staffId)
