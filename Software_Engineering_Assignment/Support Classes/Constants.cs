@@ -39,7 +39,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string UnregisterStaff(int staffId)
         => $@"UPDATE StaffSchedule
-                SET oncall_date = '@date', deregistered = @deregistered
+                SET oncall_date = @date, deregistered = @deregistered
                 WHERE staff_Id = {staffId}";
 
 

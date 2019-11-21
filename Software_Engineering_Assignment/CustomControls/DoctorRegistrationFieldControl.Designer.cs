@@ -138,9 +138,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label doctorName;
         private System.Windows.Forms.Label staffId;
-        private System.Windows.Forms.Button deregisterButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button registerButton1;        
+        public System.Windows.Forms.Button registerButton1;
+        public System.Windows.Forms.Button deregisterButton;
     }
 }

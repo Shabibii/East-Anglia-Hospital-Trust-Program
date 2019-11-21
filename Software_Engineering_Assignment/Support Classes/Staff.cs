@@ -54,8 +54,4 @@ namespace Software_Engineering_Assignment.Support_Classes
         }
     }
 
-    public class StaffSchedule
-    {
-
-    }
 }

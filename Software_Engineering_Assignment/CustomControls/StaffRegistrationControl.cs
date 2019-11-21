@@ -36,6 +36,7 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 var docReg = new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
                 docReg.registerButton1.Click += registerStaff;
+                docReg.deregisterButton.Click += registerStaff;
                 staffRegisterList.Controls.Add(docReg);                               
             }
         }
