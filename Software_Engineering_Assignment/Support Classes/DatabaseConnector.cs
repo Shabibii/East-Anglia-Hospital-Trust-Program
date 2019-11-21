@@ -239,7 +239,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
 
         /// <summary>
-        /// Method returning dataset of the whole 'Alarm' table
+        /// Method returning DataTable for 'Alarm' table in db
         /// </summary>
         /// <returns></returns>
         public DataTable GetAlarms()
@@ -247,20 +247,21 @@ namespace Software_Engineering_Assignment.Support_Classes
             //Open connection to database
             OpenConnection();
 
-            //Create dataset to hold the 'Alarm' table
+            //Create dataset to hold data
             DataSet alarms = new DataSet();
 
             //Pass a SELECT command to the adapter
             sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Alarm", sqlConnection);
 
-            //Fill the 'alarms' dataset with 'Alarm' table
+            //Fill the 'alarms' dataset with data
             sqlDataAdapter.Fill(alarms);
 
             //Close connection to database
             CloseConnection();
 
+            //Pick just the table from the whole dataset
             DataTable alarmsTable = alarms.Tables[0];
-            //Return filled dataset
+            //Return table
             return alarmsTable;
         }
 
@@ -268,17 +269,19 @@ namespace Software_Engineering_Assignment.Support_Classes
         /// Method returning a dataset specified by the fields in management page
         /// </summary>
         /// <returns></returns>
-        public DataSet GetMatchingEvents(string table, string conditions)
+        public DataTable GetMatchingEvents(string table, string conditions)
         {
             DataSet results = new DataSet();
             OpenConnection();
 
             sqlDataAdapter = new SqlDataAdapter("SELECT * FROM " + table + conditions , sqlConnection);
 
-
+            sqlDataAdapter.Fill(results);
 
             CloseConnection();
-            return results;
+
+            DataTable resultsTable = results.Tables[0];         
+            return resultsTable;
         }
 
         public bool VerifyLogin(int staffID, string password)

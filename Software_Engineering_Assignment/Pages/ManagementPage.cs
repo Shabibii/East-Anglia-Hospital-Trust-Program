@@ -40,29 +40,63 @@ namespace Software_Engineering_Assignment.Pages
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string table = "Alarm";
-            string conditions = "WHERE ";
+            string table = GetTableName();
+            string conditions = GetQueryConditions();
             
-            if(lbxEventType.SelectedItem == "Alarms")
-            {
-                table = "Alarm";
-            }
-            else
-            {
-                table = "Log/Activity";
-            }
-
-            if(tbxPatientID.Text != "")
-            {
-                conditions += "PatientID = " + tbxPatientID;
-            }
-            else
-            {
-                conditions += "PatientID = " + "%";
-            }
-
-
             dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetMatchingEvents(table, conditions);
+        }
+
+        private string GetTableName()
+        {
+            string table;
+
+
+            switch(cbxEventType.SelectedItem)
+            {
+                case "Alarms":
+                    table = "Alarm";
+                    break;
+                case "ProgramLogs":
+                    table = "LogActivity";
+                    break;
+                default:
+                    table = "Alarm";
+                    break;
+            }
+               
+
+            return table;
+        }
+
+        private string GetQueryConditions()
+        {
+            string conditions = " WHERE ";
+
+            if(tbxStaffID.Text != "")
+            {
+                conditions += "staff_id = '" + tbxStaffID.Text + "'";
+            }
+
+            if(tbxPatientID.Text != "" && tbxStaffID.Text != "")
+            {
+                conditions += " AND patient_id = '" + tbxPatientID.Text + "'";
+            }
+            else if(tbxPatientID.Text != "")
+            {
+                conditions += "patient_id = '" + tbxPatientID.Text + "'";
+            }
+            
+
+            if(conditions == " WHERE ")
+            {
+                conditions = "";
+            }
+            return conditions;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            label1.Text = "SELECT * FROM " + GetTableName() + GetQueryConditions();
         }
     }
 }
