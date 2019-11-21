@@ -1,5 +1,6 @@
 ﻿using Software_Engineering_Assignment.Support_Classes;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Software_Engineering_Assignment.Pages
@@ -24,8 +25,8 @@ namespace Software_Engineering_Assignment.Pages
         private void ManagementPage_Load(object sender, EventArgs e)
         {
             //Assign dataGridView data source to alarms dataset
-            dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetAlarms();
-            dgvManagementInfo.Refresh();
+            DataSet data = DatabaseConnector.Instance.GetAlarms();
+            dgvManagementInfo.DataSource = data.Tables[0];
         }
 
         private void btnManagementBack_Click(object sender, EventArgs e)
