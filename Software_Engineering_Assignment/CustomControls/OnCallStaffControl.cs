@@ -38,7 +38,6 @@ namespace Software_Engineering_Assignment.CustomControls
                     StaffOncallList.Items.Add(new StaffListViewItem(staff));
                 }
             }
-            Console.Read();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

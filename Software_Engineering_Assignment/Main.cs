@@ -122,5 +122,6 @@ namespace Software_Engineering_Assignment
             registerationPage.Dispose();
             patientPage.Dispose();
         }
+
     }
 }
