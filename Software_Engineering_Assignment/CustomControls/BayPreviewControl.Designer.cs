@@ -51,6 +51,7 @@
             this.title.Size = new System.Drawing.Size(76, 26);
             this.title.TabIndex = 0;
             this.title.Text = "Bay X";
+            this.title.Click += new System.EventHandler(this.title_Click);
             // 
             // linkLabel1
             // 

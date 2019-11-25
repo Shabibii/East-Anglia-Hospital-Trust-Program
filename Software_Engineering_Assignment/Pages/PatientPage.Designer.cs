@@ -68,7 +68,7 @@
             this.nameLabel.Location = new System.Drawing.Point(8, 139);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(44, 16);
+            this.nameLabel.Size = new System.Drawing.Size(37, 14);
             this.nameLabel.TabIndex = 22;
             this.nameLabel.Text = "Name:";
             // 
@@ -78,7 +78,7 @@
             this.module1ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module1ModuleType.Name = "module1ModuleType";
             this.module1ModuleType.ReadOnly = true;
-            this.module1ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module1ModuleType.Size = new System.Drawing.Size(98, 20);
             this.module1ModuleType.TabIndex = 24;
             this.module1ModuleType.Text = "2";
             this.module1ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -89,7 +89,7 @@
             this.module1CurrentReading.Margin = new System.Windows.Forms.Padding(2);
             this.module1CurrentReading.Name = "module1CurrentReading";
             this.module1CurrentReading.ReadOnly = true;
-            this.module1CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module1CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module1CurrentReading.TabIndex = 25;
             this.module1CurrentReading.Text = "3";
             this.module1CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -100,7 +100,7 @@
             this.module1Max.Margin = new System.Windows.Forms.Padding(2);
             this.module1Max.Name = "module1Max";
             this.module1Max.ReadOnly = true;
-            this.module1Max.Size = new System.Drawing.Size(98, 23);
+            this.module1Max.Size = new System.Drawing.Size(98, 20);
             this.module1Max.TabIndex = 26;
             this.module1Max.Text = "4";
             this.module1Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -111,7 +111,7 @@
             this.module1Min.Margin = new System.Windows.Forms.Padding(2);
             this.module1Min.Name = "module1Min";
             this.module1Min.ReadOnly = true;
-            this.module1Min.Size = new System.Drawing.Size(98, 23);
+            this.module1Min.Size = new System.Drawing.Size(98, 20);
             this.module1Min.TabIndex = 27;
             this.module1Min.Text = "5";
             this.module1Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -122,7 +122,7 @@
             this.module2ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module2ModuleType.Name = "module2ModuleType";
             this.module2ModuleType.ReadOnly = true;
-            this.module2ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module2ModuleType.Size = new System.Drawing.Size(98, 20);
             this.module2ModuleType.TabIndex = 29;
             this.module2ModuleType.Text = "7";
             this.module2ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -133,7 +133,7 @@
             this.module2CurrentReading.Margin = new System.Windows.Forms.Padding(2);
             this.module2CurrentReading.Name = "module2CurrentReading";
             this.module2CurrentReading.ReadOnly = true;
-            this.module2CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module2CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module2CurrentReading.TabIndex = 30;
             this.module2CurrentReading.Text = "8";
             this.module2CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -144,7 +144,7 @@
             this.module2Max.Margin = new System.Windows.Forms.Padding(2);
             this.module2Max.Name = "module2Max";
             this.module2Max.ReadOnly = true;
-            this.module2Max.Size = new System.Drawing.Size(98, 23);
+            this.module2Max.Size = new System.Drawing.Size(98, 20);
             this.module2Max.TabIndex = 31;
             this.module2Max.Text = "9";
             this.module2Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -155,7 +155,7 @@
             this.module2Min.Margin = new System.Windows.Forms.Padding(2);
             this.module2Min.Name = "module2Min";
             this.module2Min.ReadOnly = true;
-            this.module2Min.Size = new System.Drawing.Size(98, 23);
+            this.module2Min.Size = new System.Drawing.Size(98, 20);
             this.module2Min.TabIndex = 32;
             this.module2Min.Text = "10";
             this.module2Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -166,7 +166,7 @@
             this.module3ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module3ModuleType.Name = "module3ModuleType";
             this.module3ModuleType.ReadOnly = true;
-            this.module3ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module3ModuleType.Size = new System.Drawing.Size(98, 20);
             this.module3ModuleType.TabIndex = 34;
             this.module3ModuleType.Text = "12";
             this.module3ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -178,7 +178,7 @@
             this.module3CurrentReading.Margin = new System.Windows.Forms.Padding(2);
             this.module3CurrentReading.Name = "module3CurrentReading";
             this.module3CurrentReading.ReadOnly = true;
-            this.module3CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module3CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module3CurrentReading.TabIndex = 35;
             this.module3CurrentReading.Text = "13";
             this.module3CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -189,7 +189,7 @@
             this.module3Max.Margin = new System.Windows.Forms.Padding(2);
             this.module3Max.Name = "module3Max";
             this.module3Max.ReadOnly = true;
-            this.module3Max.Size = new System.Drawing.Size(98, 23);
+            this.module3Max.Size = new System.Drawing.Size(98, 20);
             this.module3Max.TabIndex = 36;
             this.module3Max.Text = "14";
             this.module3Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -200,7 +200,7 @@
             this.module3Min.Margin = new System.Windows.Forms.Padding(2);
             this.module3Min.Name = "module3Min";
             this.module3Min.ReadOnly = true;
-            this.module3Min.Size = new System.Drawing.Size(98, 23);
+            this.module3Min.Size = new System.Drawing.Size(98, 20);
             this.module3Min.TabIndex = 37;
             this.module3Min.Text = "15";
             this.module3Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -211,7 +211,7 @@
             this.module4ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module4ModuleType.Name = "module4ModuleType";
             this.module4ModuleType.ReadOnly = true;
-            this.module4ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module4ModuleType.Size = new System.Drawing.Size(98, 20);
             this.module4ModuleType.TabIndex = 39;
             this.module4ModuleType.Text = "17";
             this.module4ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -222,7 +222,7 @@
             this.module4CurrentReading.Margin = new System.Windows.Forms.Padding(2);
             this.module4CurrentReading.Name = "module4CurrentReading";
             this.module4CurrentReading.ReadOnly = true;
-            this.module4CurrentReading.Size = new System.Drawing.Size(98, 23);
+            this.module4CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module4CurrentReading.TabIndex = 40;
             this.module4CurrentReading.Text = "18";
             this.module4CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -233,7 +233,7 @@
             this.module4Max.Margin = new System.Windows.Forms.Padding(2);
             this.module4Max.Name = "module4Max";
             this.module4Max.ReadOnly = true;
-            this.module4Max.Size = new System.Drawing.Size(98, 23);
+            this.module4Max.Size = new System.Drawing.Size(98, 20);
             this.module4Max.TabIndex = 41;
             this.module4Max.Text = "19";
             this.module4Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -244,7 +244,7 @@
             this.module4Min.Margin = new System.Windows.Forms.Padding(2);
             this.module4Min.Name = "module4Min";
             this.module4Min.ReadOnly = true;
-            this.module4Min.Size = new System.Drawing.Size(98, 23);
+            this.module4Min.Size = new System.Drawing.Size(98, 20);
             this.module4Min.TabIndex = 42;
             this.module4Min.Text = "20";
             this.module4Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -255,10 +255,10 @@
             this.button3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::Software_Engineering_Assignment.Properties.Resources.icons8_lock_1003;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(470, 432);
+            this.button3.Location = new System.Drawing.Point(470, 443);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 36);
+            this.button3.Size = new System.Drawing.Size(90, 25);
             this.button3.TabIndex = 44;
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
@@ -279,10 +279,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(579, 432);
+            this.button1.Location = new System.Drawing.Point(579, 443);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 36);
+            this.button1.Size = new System.Drawing.Size(90, 25);
             this.button1.TabIndex = 45;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -293,7 +293,7 @@
             this.surnameLabel.Location = new System.Drawing.Point(8, 175);
             this.surnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.surnameLabel.Name = "surnameLabel";
-            this.surnameLabel.Size = new System.Drawing.Size(61, 16);
+            this.surnameLabel.Size = new System.Drawing.Size(49, 14);
             this.surnameLabel.TabIndex = 46;
             this.surnameLabel.Text = "Surname:";
             // 
@@ -303,7 +303,7 @@
             this.dobLabel.Location = new System.Drawing.Point(8, 216);
             this.dobLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(39, 16);
+            this.dobLabel.Size = new System.Drawing.Size(33, 14);
             this.dobLabel.TabIndex = 47;
             this.dobLabel.Text = "DOB:";
             // 
@@ -313,7 +313,7 @@
             this.intakeReasonLabel.Location = new System.Drawing.Point(8, 259);
             this.intakeReasonLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.intakeReasonLabel.Name = "intakeReasonLabel";
-            this.intakeReasonLabel.Size = new System.Drawing.Size(91, 16);
+            this.intakeReasonLabel.Size = new System.Drawing.Size(76, 14);
             this.intakeReasonLabel.TabIndex = 48;
             this.intakeReasonLabel.Text = "Intake Reason:";
             // 
@@ -323,7 +323,7 @@
             this.doctorLabel.Location = new System.Drawing.Point(8, 305);
             this.doctorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.doctorLabel.Name = "doctorLabel";
-            this.doctorLabel.Size = new System.Drawing.Size(51, 16);
+            this.doctorLabel.Size = new System.Drawing.Size(43, 14);
             this.doctorLabel.TabIndex = 49;
             this.doctorLabel.Text = "Doctor:";
             // 
@@ -333,7 +333,7 @@
             this.label6.Location = new System.Drawing.Point(283, 11);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.Size = new System.Drawing.Size(50, 14);
             this.label6.TabIndex = 50;
             this.label6.Text = "Module 1";
             // 
@@ -343,7 +343,7 @@
             this.label7.Location = new System.Drawing.Point(590, 11);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 16);
+            this.label7.Size = new System.Drawing.Size(50, 14);
             this.label7.TabIndex = 51;
             this.label7.Text = "Module 2";
             // 
@@ -353,7 +353,7 @@
             this.label8.Location = new System.Drawing.Point(274, 247);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 16);
+            this.label8.Size = new System.Drawing.Size(50, 14);
             this.label8.TabIndex = 52;
             this.label8.Text = "Module 3";
             // 
@@ -363,7 +363,7 @@
             this.label9.Location = new System.Drawing.Point(590, 247);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 16);
+            this.label9.Size = new System.Drawing.Size(50, 14);
             this.label9.TabIndex = 53;
             this.label9.Text = "Module 4";
             // 
@@ -410,13 +410,13 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(449, 13);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(137, 31);
+            this.label10.Size = new System.Drawing.Size(112, 26);
             this.label10.TabIndex = 55;
             this.label10.Text = "Bedside X";
             // 
             // PatientPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label10);

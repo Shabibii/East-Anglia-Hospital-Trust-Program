@@ -60,7 +60,7 @@
             this.register1.Dock = System.Windows.Forms.DockStyle.Top;
             this.register1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register1.Location = new System.Drawing.Point(0, 0);
-            this.register1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.register1.Margin = new System.Windows.Forms.Padding(4);
             this.register1.MaximumSize = new System.Drawing.Size(475, 557);
             this.register1.Name = "register1";
             this.register1.Size = new System.Drawing.Size(474, 496);
@@ -71,7 +71,7 @@
             this.bayControl2.BackColor = System.Drawing.Color.White;
             this.bayControl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bayControl2.Location = new System.Drawing.Point(7, 322);
-            this.bayControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bayControl2.Margin = new System.Windows.Forms.Padding(4);
             this.bayControl2.Name = "bayControl2";
             this.bayControl2.Size = new System.Drawing.Size(497, 265);
             this.bayControl2.TabIndex = 1;
@@ -82,7 +82,7 @@
             this.bayControl1.BackColor = System.Drawing.Color.White;
             this.bayControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bayControl1.Location = new System.Drawing.Point(7, 49);
-            this.bayControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bayControl1.Margin = new System.Windows.Forms.Padding(4);
             this.bayControl1.Name = "bayControl1";
             this.bayControl1.Size = new System.Drawing.Size(497, 265);
             this.bayControl1.TabIndex = 0;
@@ -115,7 +115,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(236, 36);
             this.button2.TabIndex = 18;
-            this.button2.Text = "Registeration";
+            this.button2.Text = "Staff (De-)Registration";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 

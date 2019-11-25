@@ -39,9 +39,9 @@
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(923, 548);
+            this.button2.Location = new System.Drawing.Point(923, 552);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 43);
+            this.button2.Size = new System.Drawing.Size(64, 28);
             this.button2.TabIndex = 14;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = true;
