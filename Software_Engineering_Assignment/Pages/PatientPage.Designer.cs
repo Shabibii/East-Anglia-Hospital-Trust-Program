@@ -72,6 +72,17 @@
             this.nameLabel.TabIndex = 22;
             this.nameLabel.Text = "Name:";
             // 
+            // module1ModuleType
+            // 
+            this.module1ModuleType.Location = new System.Drawing.Point(259, 46);
+            this.module1ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module1ModuleType.Name = "module1ModuleType";
+            this.module1ModuleType.ReadOnly = true;
+            this.module1ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module1ModuleType.TabIndex = 24;
+            this.module1ModuleType.Text = "2";
+            this.module1ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // module1CurrentReading
             // 
             this.module1CurrentReading.Location = new System.Drawing.Point(259, 82);
@@ -104,6 +115,17 @@
             this.module1Min.TabIndex = 27;
             this.module1Min.Text = "5";
             this.module1Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // module2ModuleType
+            // 
+            this.module2ModuleType.Location = new System.Drawing.Point(561, 46);
+            this.module2ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module2ModuleType.Name = "module2ModuleType";
+            this.module2ModuleType.ReadOnly = true;
+            this.module2ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module2ModuleType.TabIndex = 29;
+            this.module2ModuleType.Text = "7";
+            this.module2ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module2CurrentReading
             // 
@@ -138,6 +160,18 @@
             this.module2Min.Text = "10";
             this.module2Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // module3ModuleType
+            // 
+            this.module3ModuleType.Location = new System.Drawing.Point(259, 283);
+            this.module3ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module3ModuleType.Name = "module3ModuleType";
+            this.module3ModuleType.ReadOnly = true;
+            this.module3ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module3ModuleType.TabIndex = 34;
+            this.module3ModuleType.Text = "12";
+            this.module3ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.module3ModuleType.TextChanged += new System.EventHandler(this.TextBox12_TextChanged);
+            // 
             // module3CurrentReading
             // 
             this.module3CurrentReading.Location = new System.Drawing.Point(259, 318);
@@ -170,6 +204,17 @@
             this.module3Min.TabIndex = 37;
             this.module3Min.Text = "15";
             this.module3Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // module4ModuleType
+            // 
+            this.module4ModuleType.Location = new System.Drawing.Point(561, 283);
+            this.module4ModuleType.Margin = new System.Windows.Forms.Padding(2);
+            this.module4ModuleType.Name = "module4ModuleType";
+            this.module4ModuleType.ReadOnly = true;
+            this.module4ModuleType.Size = new System.Drawing.Size(98, 23);
+            this.module4ModuleType.TabIndex = 39;
+            this.module4ModuleType.Text = "17";
+            this.module4ModuleType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module4CurrentReading
             // 
@@ -210,10 +255,10 @@
             this.button3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::Software_Engineering_Assignment.Properties.Resources.icons8_lock_1003;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(470, 432);
+            this.button3.Location = new System.Drawing.Point(470, 443);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 36);
+            this.button3.Size = new System.Drawing.Size(90, 25);
             this.button3.TabIndex = 44;
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
@@ -234,10 +279,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(579, 432);
+            this.button1.Location = new System.Drawing.Point(579, 443);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 36);
+            this.button1.Size = new System.Drawing.Size(90, 25);
             this.button1.TabIndex = 45;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;

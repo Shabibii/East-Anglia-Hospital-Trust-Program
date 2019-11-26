@@ -113,5 +113,10 @@ namespace Software_Engineering_Assignment
         {
             PatientPageCall(bay.BayNumber, 8);
         }
+
+        private void title_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
