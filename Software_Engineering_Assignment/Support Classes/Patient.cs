@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
@@ -65,10 +67,10 @@ namespace Software_Engineering_Assignment.Support_Classes
         void ConnectToBedside()
         {
             //Connect patient with 4 modules
-            Module1 = new Module(bedNumber, bayNumber, 1);
-            Module2 = new Module(bedNumber, bayNumber, 2);
-            Module3 = new Module(bedNumber, bayNumber, 3);
-            Module4 = new Module(bedNumber, bayNumber, 4);
+            Module1 = new Module(bedNumber,  1);
+            Module2 = new Module(bedNumber,  2);
+            Module3 = new Module(bedNumber,  3);
+            Module4 = new Module(bedNumber,  4);
         }
 
         public Patient()
@@ -89,7 +91,16 @@ namespace Software_Engineering_Assignment.Support_Classes
             ContactNumber2 = rawPatientDat[8];
             bedNumber = int.Parse(rawPatientDat[9]);
             bayNumber = int.Parse(rawPatientDat[10]);
-            ConnectToBedside();
+
+            try
+            {
+                ConnectToBedside();
+            }
+            catch(Exception e)
+            {
+                //MessageBox.Show(e.Message);
+            }
+            
         }
     }
 }

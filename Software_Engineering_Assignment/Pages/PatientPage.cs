@@ -48,30 +48,42 @@ namespace Software_Engineering_Assignment.Pages
             dobLabel.Text = $"Date of Birth: {currentPatient.DOB}";
             intakeReasonLabel.Text = $"Intake Reason: {currentPatient.IntakeReason}";
 
-            module1ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
-            module1ModuleType.SelectedIndex = (int)currentPatient.Module1.currentModule;
-            module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
-            module1Max.Text = currentPatient.Module1.MaxValue.ToString();
-            module1Min.Text = currentPatient.Module1.MinValue.ToString();
             
-            module2ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
-            module2ModuleType.SelectedIndex = (int)currentPatient.Module2.currentModule;
-            module2CurrentReading.Text = currentPatient.Module2.CurrentValue.ToString();
-            module2Max.Text = currentPatient.Module2.MaxValue.ToString();
-            module2Min.Text = currentPatient.Module2.MinValue.ToString();
 
-            module3ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
-            module3ModuleType.SelectedIndex = (int)currentPatient.Module3.currentModule;
-            module3CurrentReading.Text = currentPatient.Module3.CurrentValue.ToString();
-            module3Max.Text = currentPatient.Module3.MaxValue.ToString();
-            module3Min.Text = currentPatient.Module3.MinValue.ToString();
+            try
+            {
+                module1ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
 
-            module4ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
-            module4ModuleType.SelectedIndex = (int)currentPatient.Module4.currentModule;
-            module4CurrentReading.Text = currentPatient.Module4.CurrentValue.ToString();
-            module4Max.Text = currentPatient.Module4.MaxValue.ToString();
-            module4Min.Text = currentPatient.Module4.MinValue.ToString();
+                module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
+                module1Max.Text = currentPatient.Module1.MaxValue.ToString();
+                module1Min.Text = currentPatient.Module1.MinValue.ToString();
 
+                module2ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
+                module2CurrentReading.Text = currentPatient.Module2.CurrentValue.ToString();
+                module2Max.Text = currentPatient.Module2.MaxValue.ToString();
+                module2Min.Text = currentPatient.Module2.MinValue.ToString();
+
+                module3ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
+                module3CurrentReading.Text = currentPatient.Module3.CurrentValue.ToString();
+                module3Max.Text = currentPatient.Module3.MaxValue.ToString();
+                module3Min.Text = currentPatient.Module3.MinValue.ToString();
+
+                module4ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
+                module4CurrentReading.Text = currentPatient.Module4.CurrentValue.ToString();
+                module4Max.Text = currentPatient.Module4.MaxValue.ToString();
+                module4Min.Text = currentPatient.Module4.MinValue.ToString();
+
+                module1ModuleType.SelectedIndex = (int)currentPatient.Module1.currentModule;
+                module2ModuleType.SelectedIndex = (int)currentPatient.Module2.currentModule;
+                module3ModuleType.SelectedIndex = (int)currentPatient.Module3.currentModule;
+                module4ModuleType.SelectedIndex = (int)currentPatient.Module4.currentModule;
+
+            }
+            catch (Exception)
+            {
+
+            }
+            
             Text = currentPatient.FullName;
 
             InitalizeControl();
