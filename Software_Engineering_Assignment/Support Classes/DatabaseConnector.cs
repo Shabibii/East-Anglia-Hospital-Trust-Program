@@ -339,5 +339,11 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             return module;
         }
+
+
+        public void RegisterModule(int bedNumber, int moduleNumber, Module module)
+        {
+
+        }
     }
 }

@@ -38,14 +38,24 @@ namespace Software_Engineering_Assignment.Support_Classes
             {
                 //Create fake module data
                 module = new Module();
+                //Fill this object with module data
+                currentModule = ModuleType.None;
+                MinValue = Constants.NextRandomValue;
+                MaxValue = Constants.NextRandomValue;
+
+                DatabaseConnector.Instance.RegisterModule(bedsideNo,moduleNumber,module);
+            }
+            else
+            {
+                //Fill this object with module data
+                moduleID = module.moduleID;
+                currentModule = module.currentModule;
+                ModuleUnit = module.ModuleUnit;
+                MinValue = module.MinValue;
+                MaxValue = module.MaxValue;
             }
 
-            //Fill this object with module data
-            moduleID = module.moduleID;
-            currentModule = module.currentModule;
-            ModuleUnit = module.ModuleUnit;
-            MinValue = module.MinValue;
-            MaxValue = module.MaxValue;
+    
         }
 
         public Module(List<string> rawModuleData)

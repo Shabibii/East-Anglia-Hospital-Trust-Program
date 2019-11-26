@@ -6,8 +6,26 @@ using System.Threading.Tasks;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
-    class Constants
+    static class Constants
     {
+
+        private static Random random;
+
+        public static int NextRandomValue
+        {
+            get
+            {
+                lock (random)
+                {
+                    if (random == null)
+                        random = new Random();
+
+                    return random.Next(0, 10);
+                }
+                
+            }
+        }
+
         //These are sql queries that will be used regurally
 
         public static string GetAllEventLogs(int bayNo) =>
