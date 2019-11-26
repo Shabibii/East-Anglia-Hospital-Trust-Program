@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace Software_Engineering_Assignment.Support_Classes
 {
     public class Module
@@ -14,15 +16,23 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public double CurrentValue { get; set; } = 0;
 
+        public static List<string> ModuleTypes()
+        {
+            List<string> output = new List<string>();
+            for (int i = 0; i <= (int)ModuleType.None; i++)
+                output.Add(ToString((ModuleType)i));
+
+            return output;
+        }
+
         public Module()
         {
             
         }
 
-        public override string ToString()
+        private static string ToString(ModuleType moduleType)
         {
-            //Make module class be able to act like string (for patient class)
-            switch (currentModule)
+            switch (moduleType)
             {
                 case ModuleType.TempModule:
                     return "Temperature";
@@ -37,6 +47,12 @@ namespace Software_Engineering_Assignment.Support_Classes
                 default:
                     return "N\\A";
             }
+        }
+
+        public override string ToString()
+        {
+            //Make module class be able to act like string (for patient class)
+            return ToString(currentModule);
         }
     }
 

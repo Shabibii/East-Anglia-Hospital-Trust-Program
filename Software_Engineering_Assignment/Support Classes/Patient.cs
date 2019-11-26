@@ -6,6 +6,7 @@ namespace Software_Engineering_Assignment.Support_Classes
     public class Patient
     {
         // get/set patient details 
+        private string patientId;
 
         public string FullName
         {
@@ -68,6 +69,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Patient(List<string> rawPatientDat)
         {
+            patientId = rawPatientDat[0];
             FirstName = rawPatientDat[1];
             Surname = rawPatientDat[2];
             DOB = rawPatientDat[3].Split(' ')[0];
