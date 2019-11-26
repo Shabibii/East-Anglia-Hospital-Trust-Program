@@ -311,5 +311,33 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
 
         }
+
+        public Module GetModule(int bedsideNo, int moduleNo)
+        {
+            OpenConnection(); //Open Connection
+            Module module;
+
+            using (DataSet dataSet = new DataSet())
+            {
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetModule(moduleNo, bedsideNo), sqlConnection);
+                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                List<string> rawModuleData = new List<string>();
+
+                DataTable moduleTable = dataSet.Tables[0];
+                DataRow row = moduleTable.Rows[0];
+
+                foreach (DataColumn column in moduleTable.Columns)
+                {
+                    rawModuleData.Add(row[column].ToString());
+                }
+
+                module = new Module(rawModuleData);
+            }
+
+            CloseConnection(); //Close Connection
+
+            return module;
+        }
     }
 }

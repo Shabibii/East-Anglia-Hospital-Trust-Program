@@ -48,6 +48,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string GetStaffPassword(int id) => $"SELECT password FROM Staff Where staff_id = {id};";
 
+
+        public static string GetModule(int moduleNumber, int bedsideNo) => $"SELECT module_id_{moduleNumber} FROM Bedside Where bedside_no = {bedsideNo};";
         //SELECT column1, column2, ...
         //FROM table_name;
 

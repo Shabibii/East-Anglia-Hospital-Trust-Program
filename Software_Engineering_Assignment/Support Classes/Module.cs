@@ -5,6 +5,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 {
     public class Module
     {
+        private int moduleID;
+
         public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, None };
 
         // current monitoring function on module
@@ -25,10 +27,24 @@ namespace Software_Engineering_Assignment.Support_Classes
             return output;
         }
 
-        public Module()
+        public Module(int bedsideNo, int moduleNumber)
         {
-            
+            Module module = DatabaseConnector.Instance.GetModule(bedsideNo, moduleID);
+            if(module == null)
+            {
+                //Create fake module data
+            }
+            else
+            {
+                //Fill this object with module data
+            }
         }
+
+        public Module(List<string> rawModuleData)
+        {
+
+        }
+            
 
         private static string ToString(ModuleType moduleType)
         {

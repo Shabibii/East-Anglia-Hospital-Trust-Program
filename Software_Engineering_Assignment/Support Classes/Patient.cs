@@ -54,17 +54,26 @@ namespace Software_Engineering_Assignment.Support_Classes
         public int bayNumber = 0;
 
         // creating module-objects for storing moduledata 
-        public Module Module1 => new Module();
-        public Module Module2 => new Module();
-        public Module Module3 => new Module();
-        public Module Module4 => new Module();
+        public Module Module1;
+        public Module Module2;
+        public Module Module3;
+        public Module Module4;
 
         //Only show first two active modules for space management reasons (to be used on the bay-page)
         public string ModulesActive => $"{Module1},{Module2}...";
 
+        void ConnectToBedside()
+        {
+            //Connect patient with 4 modules
+            Module1 = new Module(bedNumber, bayNumber, 1);
+            Module2 = new Module(bedNumber, bayNumber, 2);
+            Module3 = new Module(bedNumber, bayNumber, 3);
+            Module4 = new Module(bedNumber, bayNumber, 4);
+        }
+
         public Patient()
         {
-
+            
         }
 
         public Patient(List<string> rawPatientDat)
@@ -80,6 +89,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             ContactNumber2 = rawPatientDat[8];
             bedNumber = int.Parse(rawPatientDat[9]);
             bayNumber = int.Parse(rawPatientDat[10]);
+            ConnectToBedside();
         }
     }
 }
