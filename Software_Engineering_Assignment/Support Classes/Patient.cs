@@ -93,7 +93,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             bedNumber = int.Parse(rawPatientDat[9]);
             bayNumber = int.Parse(rawPatientDat[10]);
 
-            //ConnectToBedside();
+            ConnectToBedside();
 
         }
     }

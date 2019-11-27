@@ -83,7 +83,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string GetModule(int moduleNumber, int bedsideNo) => $"SELECT module_id_{moduleNumber} FROM Bedside Where bedside_no = {bedsideNo};";
 
-        public static string GetBedside(int bayNo, int bedsideNo) => $"SELECT * FROM Bedside Where bedside_no = {bedsideNo} AND bay_no = {bayNo};";
+        public static string GetALLBedsides() => $"SELECT * FROM Bedside";
 
         public static string RegisterModule(int bedsideNo, int bayNo)
         {

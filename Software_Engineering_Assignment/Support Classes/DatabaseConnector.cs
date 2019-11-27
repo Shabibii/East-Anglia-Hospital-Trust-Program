@@ -341,40 +341,45 @@ namespace Software_Engineering_Assignment.Support_Classes
             return module;
         }
 
-        public Bedside GetBedside(int bedsideNo, int bay_no)
+        public Bedside GetBedside(int bayNumber, int bedNumber)
         {
+            var allBedsides = GetAllBedsides();
+            return allBedsides
+                .Where(x => x.BedsideNo == bedNumber && x.BayNo == bayNumber)
+                .ToArray()[0];
+        }
+        public List<Bedside> GetAllBedsides()
+        {
+            List<Bedside> bedsides = new List<Bedside>();
             OpenConnection(); //Open Connection
-            Bedside bedside = null;
 
             using (DataSet dataSet = new DataSet())
             {
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetBedside(bay_no, bedsideNo), sqlConnection);
-                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+                //Get data from class Constants
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetALLBedsides(), sqlConnection);
+                sqlDataAdapter.Fill(dataSet);
 
-                List<string> rawModuleData = new List<string>();
+                DataTable bedsideTable = dataSet.Tables[0];
 
-                DataTable moduleTable = dataSet.Tables[0];
-
-                if(moduleTable.Rows.Count > 0)
+                foreach (DataRow row in bedsideTable.Rows)
                 {
-                    DataRow row = moduleTable.Rows[0];
-                    foreach (DataColumn column in moduleTable.Columns)
+                    List<string> rawBedsideData = new List<string>();
+                    foreach (DataColumn column in bedsideTable.Columns)
                     {
-                        rawModuleData.Add(row[column].ToString());
+                        rawBedsideData.Add(row[column].ToString());
                     }
-                    bedside = new Bedside(rawModuleData);
+                    bedsides.Add(new Bedside(rawBedsideData));
                 }
             }
-
             CloseConnection(); //Close Connection
-
-            return bedside;
+            return bedsides;
         }
+
 
 
         public void RegisterModule(int bayNumber, int bedNumber, int moduleNumber, Module module)
         {
-            Bedside bedside = GetBedside(bedNumber, bayNumber);
+            Bedside bedside = GetBedside(bayNumber, bedNumber);
             if(bedside == null)
             {
                 //Register all modules 

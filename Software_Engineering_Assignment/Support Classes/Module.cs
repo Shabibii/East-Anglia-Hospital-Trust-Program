@@ -31,28 +31,9 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Module() { }
 
-        public Module(int bayNumber,int bedsideNo, int moduleNumber)
+        public Module(int moduleNumber)
         {
-            Module module = DatabaseConnector.Instance.GetModule(bedsideNo, moduleID);
-            if(module == null)
-            {
-                //Create fake module data
-                module = new Module();
-                //Fill this object with module data
-                moduleID = Constants.NextRandomValue;
-                currentModule = ModuleType.None;
-                MinValue = Constants.NextRandomValue;
-                MaxValue = Constants.NextRandomValue;
-            }
-            else
-            {
-                //Fill this object with module data
-                moduleID = module.moduleID;
-                currentModule = module.currentModule;
-                ModuleUnit = module.ModuleUnit;
-                MinValue = module.MinValue;
-                MaxValue = module.MaxValue;
-            }
+           
 
     
         }
