@@ -18,7 +18,6 @@ namespace Software_Engineering_Assignment.CustomControls
         /// Add in label doctorName & staffId.
         /// </summary>
         /// <param name="staff"></param>
-        /// 
         Staff currentStaff;
         public doctorRegistrationFieldControl(Staff staff)
         {

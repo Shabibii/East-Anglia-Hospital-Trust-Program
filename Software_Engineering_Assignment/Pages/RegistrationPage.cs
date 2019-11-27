@@ -21,7 +21,7 @@ namespace Software_Engineering_Assignment.Pages
             InitializeComponent();
             ConnectWithDB();
 
-            Text = "Registeration Page";
+            Text = "Registration Page";
             staffRegistrationControl1.registrationStateChanged += RefreshStaffStatus;
             RefreshStaffStatus();
         }

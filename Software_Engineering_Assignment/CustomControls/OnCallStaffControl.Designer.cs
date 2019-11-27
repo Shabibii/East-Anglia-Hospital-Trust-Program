@@ -80,6 +80,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.ListView StaffOncallList;
+        public System.Windows.Forms.ListView StaffOncallList;
     }
 }

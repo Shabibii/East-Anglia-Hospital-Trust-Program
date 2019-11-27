@@ -13,7 +13,17 @@ namespace Software_Engineering_Assignment.CustomControls
 {
     public partial class UnregisteredStaffControl : UserControl
     {
-       
+        public List<Staff> DisplayedStaff()
+        {
+            List<Staff> output = new List<Staff>();
+            foreach (StaffListViewItem item in staffUnregisterList.Items)
+            {
+                output.Add(item.staff);
+            }
+
+            return output;
+        }
+
         public UnregisteredStaffControl()
         {
             InitializeComponent();
@@ -25,6 +35,21 @@ namespace Software_Engineering_Assignment.CustomControls
             DisplayUnregisterStaff();
         }
 
+        private bool unregisterListDoubleStaff(int staffId)
+        {
+            foreach (StaffListViewItem listItem in staffUnregisterList.Items)
+            {
+                if (listItem.staff.StaffId == staffId) return true;
+            }
+
+            return false;
+        }
+
+        public void Remove(StaffListViewItem item)
+        {
+            staffUnregisterList.Items.Remove(item);
+        }
+
         public void DisplayUnregisterStaff()
         {
             List<Staff> unregisteredStaff = DatabaseConnector.Instance.GetUnregisteredStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
@@ -32,11 +57,14 @@ namespace Software_Engineering_Assignment.CustomControls
 
             if (unregisteredStaff == null) return;
 
-            if (unregisteredStaff.Count > 0)
+            if (unregisteredStaff.Count > 0)                
             {
                 foreach (Staff staff in unregisteredStaff)
                 {
-                    staffUnregisterList.Items.Add(new StaffListViewItem(staff));
+                    if(!unregisterListDoubleStaff(staff.StaffId))
+                    {
+                        staffUnregisterList.Items.Add(new StaffListViewItem(staff));
+                    }                   
                 }
             }
             Console.Read();

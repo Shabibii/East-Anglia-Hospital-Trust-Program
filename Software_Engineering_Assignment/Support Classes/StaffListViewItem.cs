@@ -7,12 +7,9 @@ using System.Windows.Forms;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
-    class StaffListViewItem : ListViewItem
+    public class StaffListViewItem : ListViewItem
     {
         public Staff staff;
-        public delegate void registerAction();
-        public registerAction registered;
-        public registerAction deregistered;
 
         public StaffListViewItem(Staff staff)
         {
@@ -20,10 +17,10 @@ namespace Software_Engineering_Assignment.Support_Classes
             Text = $"{staff.FirstName} {staff.LastName} (Staff ID: {staff.StaffId})";
         }
 
-        //public void Registered()
-        //{
-            //if(this.)
-        //}
+    //public void Registered()
+    //{
+    //if(this.)
+    //}
 
-    }
+}
 }

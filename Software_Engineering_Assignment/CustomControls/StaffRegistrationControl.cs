@@ -36,27 +36,28 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 var docReg = new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
 
-                docReg.registerButton1.Click += staffStatusChange;
-                docReg.deregisterButton.Click += staffStatusChange;
-
-                if (!staffRegisterList.Controls.Contains(docReg))
-                {
-                    staffRegisterList.Controls.Add(docReg);
-                }
-                else
-                {
-                    
-                }
+                
+                docReg.registerButton1.Click += staffStatusRegister;
+                docReg.deregisterButton.Click += staffStatusDeregister;                
+               
+                staffRegisterList.Controls.Add(docReg);                                      
                                          
             }
         }
 
-        public void staffStatusChange(object sender, EventArgs e)
+        public void staffStatusRegister(object sender, EventArgs e)
+        {
+            registrationStateChanged();
+            
+        }
+
+        public void staffStatusDeregister(object sender, EventArgs e)
         {
             registrationStateChanged();
         }
 
-      
+
+
 
         //Registeration field control
         /*

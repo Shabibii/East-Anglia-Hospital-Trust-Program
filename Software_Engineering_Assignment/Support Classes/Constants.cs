@@ -39,12 +39,15 @@ namespace Software_Engineering_Assignment.Support_Classes
         public static string GetStaffOnCall(string date)
         => $@"SELECT staff_id
                 FROM StaffSchedule
-                WHERE oncall_date = '{date}'";
+                WHERE oncall_date = '{date}'
+                GROUP BY staff_id";
+                
 
         public static string GetStaffUnregistered(string date)
         => $@"SELECT staff_id
                 FROM StaffSchedule
-                WHERE oncall_date = '{date}' AND deregistered = 'true'";
+                WHERE oncall_date = '{date}' AND deregistered = 'true'
+                GROUP BY staff_id";
 
 
         public static string RegisterStaff(int staffId)
