@@ -11,15 +11,12 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         private static Random random;
 
-        public static int NextRandomValue
+        public static int NextRandomValue(int startRange, int endRange)
         {
-            get
-            {
-                if (random == null)
-                    random = new Random();
+            if (random == null)
+                random = new Random();
 
-                return random.Next(0, 10);
-            }
+            return random.Next(startRange, endRange);
         }
         //These are sql queries that will be used regurally
 

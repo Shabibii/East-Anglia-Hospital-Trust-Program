@@ -30,7 +30,6 @@ namespace Software_Engineering_Assignment.Support_Classes
             if (module1 == null)
             {
                 module1 = new Module();
-                module1.CurrentValue = Constants.NextRandomValue;
                 module1.moduleID = int.Parse(rawBedsideData[2]);
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[2]), module1);
 
@@ -40,7 +39,6 @@ namespace Software_Engineering_Assignment.Support_Classes
             if (module2 == null)
             {
                 module2 = new Module();
-                module2.CurrentValue = Constants.NextRandomValue;
                 module2.moduleID = int.Parse(rawBedsideData[3]);
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[3]), module2);
 
@@ -50,7 +48,6 @@ namespace Software_Engineering_Assignment.Support_Classes
             if (module3 == null)
             {
                 module3 = new Module();
-                module3.CurrentValue = Constants.NextRandomValue;
                 module3.moduleID = int.Parse(rawBedsideData[4]);
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[4]), module3);
 
@@ -60,7 +57,6 @@ namespace Software_Engineering_Assignment.Support_Classes
             if (module4 == null)
             {
                 module4 = new Module();
-                module4.CurrentValue = Constants.NextRandomValue;
                 module4.moduleID = int.Parse(rawBedsideData[5]);
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), module4);
             }

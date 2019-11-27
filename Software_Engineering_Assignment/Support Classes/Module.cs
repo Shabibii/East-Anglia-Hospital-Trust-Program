@@ -30,7 +30,40 @@ namespace Software_Engineering_Assignment.Support_Classes
             return output.ToArray();
         }
 
-        public Module() { }
+        public Module()
+        {
+            //Generate random values
+            currentModule = (ModuleType)Constants.NextRandomValue(0, (int)ModuleType.None + 1);
+
+            switch(currentModule)
+            {
+                case ModuleType.BloodPressureModule:
+                    ModuleUnit = "mm";
+                    MinValue = 70;
+                    MaxValue = 100;
+                    break;
+
+                case ModuleType.HeartRateModule:
+                    ModuleUnit = "bpm";
+                    MinValue = 70;
+                    MaxValue = 100;
+                    break;
+
+                case ModuleType.TempModule:
+                    ModuleUnit = "C";
+                    MinValue = 36;
+                    MaxValue = 37;
+                    break;
+
+                case ModuleType.None:
+
+                    break;
+
+                    
+            }
+            // set current value to be from min - 8 to max + 8
+            CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 8, Convert.ToInt32(MaxValue) + 8);
+        }
 
        
         public Module(List<string> rawModuleData)
