@@ -11,21 +11,25 @@ using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment.Pages
 {
-    public partial class RegisterationPage : UserControl
+    public partial class RegistrationPage : UserControl
     {
         List<Staff> allStaff;
         public Main.PageCall0 goBackToParentPage;
 
-        public RegisterationPage()
+        public RegistrationPage()
         {
             InitializeComponent();
             ConnectWithDB();
 
             Text = "Registeration Page";
-            staffRegistrationControl1.registerationStateChanged += RefreshStaffStatus;
+            staffRegistrationControl1.registrationStateChanged += RefreshStaffStatus;
             RefreshStaffStatus();
         }
 
+        /// <summary>
+        /// Lookup & refresh Staff status. 
+        /// Amend GUI accordingly.
+        /// </summary>
         private void RefreshStaffStatus()
         {
             staffAvailabilityControl1.DisplayOnCallStaff();
@@ -39,7 +43,7 @@ namespace Software_Engineering_Assignment.Pages
         private void ConnectWithDB()
         {
             allStaff = DatabaseConnector.Instance.GetAllStaff();
-
+            
             List<Staff> unregisteredStaff = new List<Staff>();
             List<Staff> onCallStaff = new List<Staff>();
 
@@ -56,8 +60,7 @@ namespace Software_Engineering_Assignment.Pages
                 }
             }
 
-            staffRegistrationControl1.InitalizeRegisterField();
-            //unavailableStaff1.
+            staffRegistrationControl1.InitalizeRegisterField();           
 
         }
 

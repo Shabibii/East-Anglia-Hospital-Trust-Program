@@ -14,7 +14,7 @@ namespace Software_Engineering_Assignment.CustomControls
     public partial class StaffRegistrationControl : UserControl
     {
         public delegate void registerationStateEvent();
-        public registerationStateEvent registerationStateChanged;
+        public registerationStateEvent registrationStateChanged;
         
         public StaffRegistrationControl()
         {
@@ -35,15 +35,25 @@ namespace Software_Engineering_Assignment.CustomControls
             foreach (Staff staff in allStaff)
             {
                 var docReg = new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
-                docReg.registerButton1.Click += registerStaff;
-                docReg.deregisterButton.Click += registerStaff;
-                staffRegisterList.Controls.Add(docReg);                               
+
+                docReg.registerButton1.Click += staffStatusChange;
+                docReg.deregisterButton.Click += staffStatusChange;
+
+                if (!staffRegisterList.Controls.Contains(docReg))
+                {
+                    staffRegisterList.Controls.Add(docReg);
+                }
+                else
+                {
+                    
+                }
+                                         
             }
         }
 
-        public void registerStaff(object sender, EventArgs e)
+        public void staffStatusChange(object sender, EventArgs e)
         {
-            registerationStateChanged();
+            registrationStateChanged();
         }
 
       
