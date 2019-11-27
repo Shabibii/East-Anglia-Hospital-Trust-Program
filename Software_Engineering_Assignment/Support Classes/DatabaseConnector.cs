@@ -340,10 +340,80 @@ namespace Software_Engineering_Assignment.Support_Classes
             return module;
         }
 
-
-        public void RegisterModule(int bedNumber, int moduleNumber, Module module)
+        public Bedside GetBedside(int bedsideNo, int bay_no)
         {
+            OpenConnection(); //Open Connection
+            Bedside bedside = null;
 
+            using (DataSet dataSet = new DataSet())
+            {
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetBedside(bay_no, bedsideNo), sqlConnection);
+                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                List<string> rawModuleData = new List<string>();
+
+                DataTable moduleTable = dataSet.Tables[0];
+
+                if(moduleTable.Rows.Count > 0)
+                {
+                    DataRow row = moduleTable.Rows[0];
+                    foreach (DataColumn column in moduleTable.Columns)
+                    {
+                        rawModuleData.Add(row[column].ToString());
+                    }
+                    bedside = new Bedside(rawModuleData);
+                }
+            }
+
+            CloseConnection(); //Close Connection
+
+            return bedside;
+        }
+
+
+
+
+        public void RegisterBedside(int bayNumber, int bedNumber)
+        {
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand(Constants.RegisterBedside(bedNumber,bayNumber), sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@m1", $"{Constants.NextRandomModuleID}");
+            sqlCommand.Parameters.AddWithValue("@m2", $"{Constants.NextRandomModuleID}");
+            sqlCommand.Parameters.AddWithValue("@m3", $"{Constants.NextRandomModuleID}");
+            sqlCommand.Parameters.AddWithValue("@m4", $"{Constants.NextRandomModuleID}");
+            sqlCommand.ExecuteNonQuery();
+            CloseConnection();
+        }
+
+        public void RegisterModule(int bayNumber, int bedNumber, int moduleNumber, Module module)
+        {
+            Bedside bedside = GetBedside(bedNumber, bayNumber);
+            if(bedside == null)
+            {
+                //Register all modules 
+                RegisterBedside(bayNumber, bedNumber);
+            }
+            else
+            {
+                switch(moduleNumber)
+                {
+                    case 1:
+                        bedside.Module1 = module;
+                        break;
+
+                    case 2:
+                        bedside.Module2 = module;
+                        break;
+
+                    case 3:
+                        bedside.Module3 = module;
+                        break;
+
+                    case 4:
+                        bedside.Module4 = module;
+                        break;
+                }
+            }
         }
     }
 }

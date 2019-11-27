@@ -26,6 +26,21 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
         }
 
+        public static int NextRandomModuleID
+        {
+            get
+            {
+                lock (random)
+                {
+                    if (random == null)
+                        random = new Random();
+
+                    return random.Next(0, 100000);
+                }
+
+            }
+        }
+
         //These are sql queries that will be used regurally
 
         public static string GetAllEventLogs(int bayNo) =>
@@ -69,8 +84,12 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string GetModule(int moduleNumber, int bedsideNo) => $"SELECT module_id_{moduleNumber} FROM Bedside Where bedside_no = {bedsideNo};";
 
+        public static string GetBedside(int bayNo, int bedsideNo) => $"SELECT * FROM Bedside Where bedside_no = {bedsideNo} AND bay_no = {bayNo};";
 
-        public static string RegisterModule(int moduleNumber, int bedsideNo) => $"INSERT INTO Bedside module_id_{moduleNumber} FROM Bedside Where bedside_no = {bedsideNo};";
+        public static string RegisterBedside(int bedsideNo, int bayNo)
+        {
+            return $"INSERT INTO Bedside (bedside_no, bay_no, module_id_1, module_id_2, module_id_3, module_id_4) VALUES ({bedsideNo}, {bayNo}, @M1, @M2, @M3, @M4)";
+        }
 
         //SELECT column1, column2, ...
         //FROM table_name;

@@ -56,21 +56,22 @@ namespace Software_Engineering_Assignment.Support_Classes
         public int bayNumber = 0;
 
         // creating module-objects for storing moduledata 
-        public Module Module1;
-        public Module Module2;
-        public Module Module3;
-        public Module Module4;
+        private Bedside bedside;
+
+        public Module Module1 => bedside?.Module1;
+        public Module Module2 { get => bedside?.Module2; }
+        public Module Module3 { get => bedside?.Module2; }
+        public Module Module4 { get => bedside?.Module3; }
 
         //Only show first two active modules for space management reasons (to be used on the bay-page)
         public string ModulesActive => $"{Module1},{Module2}...";
 
         void ConnectToBedside()
         {
+            //Check if database entry has been created
+
             //Connect patient with 4 modules
-            Module1 = new Module(bedNumber,  1);
-            Module2 = new Module(bedNumber,  2);
-            Module3 = new Module(bedNumber,  3);
-            Module4 = new Module(bedNumber,  4);
+            bedside = new Bedside(bedNumber, bayNumber);
         }
 
         public Patient()
@@ -92,15 +93,8 @@ namespace Software_Engineering_Assignment.Support_Classes
             bedNumber = int.Parse(rawPatientDat[9]);
             bayNumber = int.Parse(rawPatientDat[10]);
 
-            try
-            {
-                ConnectToBedside();
-            }
-            catch(Exception e)
-            {
-                //MessageBox.Show(e.Message);
-            }
-            
+            //ConnectToBedside();
+
         }
     }
 }

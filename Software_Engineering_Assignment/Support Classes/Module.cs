@@ -31,7 +31,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Module() { }
 
-        public Module(int bedsideNo, int moduleNumber)
+        public Module(int bayNumber,int bedsideNo, int moduleNumber)
         {
             Module module = DatabaseConnector.Instance.GetModule(bedsideNo, moduleID);
             if(module == null)
@@ -39,11 +39,10 @@ namespace Software_Engineering_Assignment.Support_Classes
                 //Create fake module data
                 module = new Module();
                 //Fill this object with module data
+                moduleID = Constants.NextRandomValue;
                 currentModule = ModuleType.None;
                 MinValue = Constants.NextRandomValue;
                 MaxValue = Constants.NextRandomValue;
-
-                DatabaseConnector.Instance.RegisterModule(bedsideNo,moduleNumber,module);
             }
             else
             {
