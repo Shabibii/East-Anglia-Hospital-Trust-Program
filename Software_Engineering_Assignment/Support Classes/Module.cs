@@ -21,40 +21,18 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public float CurrentValue { get; set; } = 0;
 
-        public static List<string> ModuleTypes()
+        public static string[] ModuleTypes()
         {
             List<string> output = new List<string>();
             for (int i = 0; i <= (int)ModuleType.None; i++)
                 output.Add(ToString((ModuleType)i));
 
-            return output;
+            return output.ToArray();
         }
 
         public Module() { }
 
-        public Module(int moduleID)
-        {
-            Module module = DatabaseConnector.Instance.GetModule(moduleID);
-            if (module == null)
-            {
-                //Store module data
-                //Create random module values
-                //CurrentValue = Constants.NextRandomValue;
-                CurrentValue = 45;
-                DatabaseConnector.Instance.RegisterModule(moduleID, this);
-            }
-            else
-            {
-                moduleID = module.moduleID;
-                currentModule = module.currentModule;
-                CurrentValue = module.CurrentValue;
-                MaxValue = module.MaxValue;
-                MinValue = module.MinValue;
-                ModuleUnit = module.ModuleUnit;
-            }
-    
-        }
-
+       
         public Module(List<string> rawModuleData)
         {
             moduleID = int.Parse(rawModuleData[0]);

@@ -52,23 +52,27 @@ namespace Software_Engineering_Assignment.Pages
 
             try
             {
-                module1ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
+                var moduleTypeSource = Module.ModuleTypes(); // Different module functionality
+                module1ModuleType.Items.AddRange(moduleTypeSource);
+                module2ModuleType.Items.AddRange(moduleTypeSource);
+                module3ModuleType.Items.AddRange(moduleTypeSource);
+                module4ModuleType.Items.AddRange(moduleTypeSource);
 
                 module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
                 module1Max.Text = currentPatient.Module1.MaxValue.ToString();
                 module1Min.Text = currentPatient.Module1.MinValue.ToString();
 
-                module2ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
+                
                 module2CurrentReading.Text = currentPatient.Module2.CurrentValue.ToString();
                 module2Max.Text = currentPatient.Module2.MaxValue.ToString();
                 module2Min.Text = currentPatient.Module2.MinValue.ToString();
 
-                module3ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
+               
                 module3CurrentReading.Text = currentPatient.Module3.CurrentValue.ToString();
                 module3Max.Text = currentPatient.Module3.MaxValue.ToString();
                 module3Min.Text = currentPatient.Module3.MinValue.ToString();
 
-                module4ModuleType.Items.AddRange(Module.ModuleTypes().ToArray());
+                
                 module4CurrentReading.Text = currentPatient.Module4.CurrentValue.ToString();
                 module4Max.Text = currentPatient.Module4.MaxValue.ToString();
                 module4Min.Text = currentPatient.Module4.MinValue.ToString();
