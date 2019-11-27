@@ -11,15 +11,12 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         private static Random random;
 
-        public static int NextRandomValue
+        public static int NextRandomValue(int startRange, int endRange)
         {
-            get
-            {
-                if (random == null)
-                    random = new Random();
+            if (random == null)
+                random = new Random();
 
-                return random.Next(0, 10);
-            }
+            return random.Next(startRange, endRange);
         }
         //These are sql queries that will be used regurally
 
@@ -64,9 +61,13 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string GetStaffPassword(int id) => $"SELECT password FROM Staff Where staff_id = {id};";
 
-        public static string GetALLModules() => $"SELECT * FROM Module";
+        public static string GetModules(int moduleID) => $@"SELECT module_id, monitor_function, module_unit, module_max, module_min, module_current
+                                                            FROM Module
+                                                            WHERE module_id = {moduleID}";
 
-        public static string GetALLBedsides() => $"SELECT * FROM Bedside";
+        public static string GetBedside(int bedsideNo, int bayNo) => $@"SELECT bedside_no, bay_no, module_id_1, module_id_2, module_id_3, module_id_4 
+                                                FROM Bedside
+                                                 WHERE bedside_no = {bedsideNo} AND bay_no = {bayNo}";
 
         public static string RegisterModule(int moduleID)
         {

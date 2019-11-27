@@ -312,82 +312,84 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         }
 
-        public List<Module> GetAllModules()
+      
+        public Module GetModule(int moduleID)
         {
-            List<Module> modules = new List<Module>();
             OpenConnection(); //Open Connection
-
-            using (DataSet dataSet = new DataSet())
+            try
             {
-                //Get data from class Constants
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetALLModules(), sqlConnection);
-                sqlDataAdapter.Fill(dataSet);
+                Module module = null;
 
-                DataTable moduleTable = dataSet.Tables[0];
-                if (moduleTable.Rows.Count < 1) return null;
-
-                foreach (DataRow row in moduleTable.Rows)
+                using (DataSet dataSet = new DataSet())
                 {
-                    
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetModules(moduleID), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
                     List<string> rawModuleData = new List<string>();
+
+                    DataTable moduleTable = dataSet.Tables[0];
+                    if (moduleTable.Rows.Count < 1) goto endOrReturn;
+                    DataRow row = moduleTable.Rows[0];
+
                     foreach (DataColumn column in moduleTable.Columns)
                     {
                         rawModuleData.Add(row[column].ToString());
                     }
-                    modules.Add(new Module(rawModuleData));
+
+                    module = new Module(rawModuleData);
                 }
+
+                endOrReturn:;
+                CloseConnection(); //Close Connection
+
+               
+                return module;
             }
-            CloseConnection(); //Close Connection
-            return modules;
-        }
-
-        public Module GetModule(int moduleID)
-        {
-            var allModules = GetAllModules();
-            if (allModules == null) return null;
-
-            return allModules
-                .Where(x => x.moduleID == moduleID)
-                .ToArray()[0];
+            catch (Exception)
+            {
+                CloseConnection(); //Close Connection
+                return null;
+            }
         }
 
         public Bedside GetBedside(int bayNumber, int bedNumber)
         {
-            var allBedsides = GetAllBedsides();
-            if (allBedsides == null) return null;
-
-            return allBedsides
-                .Where(x => x.BedsideNo == bedNumber && x.BayNo == bayNumber)
-                .ToArray()[0];
-        }
-
-        public List<Bedside> GetAllBedsides()
-        {
-            List<Bedside> bedsides = new List<Bedside>();
             OpenConnection(); //Open Connection
-
-            using (DataSet dataSet = new DataSet())
+            try
             {
-                //Get data from class Constants
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetALLBedsides(), sqlConnection);
-                sqlDataAdapter.Fill(dataSet);
+                Bedside bedside = null;
 
-                DataTable bedsideTable = dataSet.Tables[0];
-
-                foreach (DataRow row in bedsideTable.Rows)
+                using (DataSet dataSet = new DataSet())
                 {
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetBedside(bedNumber, bayNumber), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
                     List<string> rawBedsideData = new List<string>();
+
+                    DataTable bedsideTable = dataSet.Tables[0];
+                    if (bedsideTable.Rows.Count < 1) goto endOrReturn;
+                    DataRow row = bedsideTable.Rows[0];
+
                     foreach (DataColumn column in bedsideTable.Columns)
                     {
                         rawBedsideData.Add(row[column].ToString());
                     }
-                    bedsides.Add(new Bedside(rawBedsideData));
-                }
-            }
-            CloseConnection(); //Close Connection
-            return bedsides;
-        }
 
+                    bedside = new Bedside(rawBedsideData);
+                }
+
+                endOrReturn:;
+                CloseConnection(); //Close Connection
+
+
+                return bedside;
+            }
+            catch (Exception)
+            {
+                CloseConnection(); //Close Connection
+                return null;
+            }
+        }
 
 
         public void RegisterModule(int moduleID, Module module)

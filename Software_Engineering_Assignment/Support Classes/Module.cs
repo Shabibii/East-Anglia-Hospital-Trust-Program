@@ -21,40 +21,51 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public float CurrentValue { get; set; } = 0;
 
-        public static List<string> ModuleTypes()
+        public static string[] ModuleTypes()
         {
             List<string> output = new List<string>();
             for (int i = 0; i <= (int)ModuleType.None; i++)
                 output.Add(ToString((ModuleType)i));
 
-            return output;
+            return output.ToArray();
         }
 
-        public Module() { }
-
-        public Module(int moduleID)
+        public Module()
         {
-            Module module = DatabaseConnector.Instance.GetModule(moduleID);
-            if (module == null)
+            //Generate random values
+            currentModule = (ModuleType)Constants.NextRandomValue(0, (int)ModuleType.None + 1);
+
+            switch(currentModule)
             {
-                //Store module data
-                //Create random module values
-                //CurrentValue = Constants.NextRandomValue;
-                CurrentValue = 45;
-                DatabaseConnector.Instance.RegisterModule(moduleID, this);
+                case ModuleType.BloodPressureModule:
+                    ModuleUnit = "mm";
+                    MinValue = 70;
+                    MaxValue = 100;
+                    break;
+
+                case ModuleType.HeartRateModule:
+                    ModuleUnit = "bpm";
+                    MinValue = 70;
+                    MaxValue = 100;
+                    break;
+
+                case ModuleType.TempModule:
+                    ModuleUnit = "C";
+                    MinValue = 36;
+                    MaxValue = 37;
+                    break;
+
+                case ModuleType.None:
+
+                    break;
+
+                    
             }
-            else
-            {
-                moduleID = module.moduleID;
-                currentModule = module.currentModule;
-                CurrentValue = module.CurrentValue;
-                MaxValue = module.MaxValue;
-                MinValue = module.MinValue;
-                ModuleUnit = module.ModuleUnit;
-            }
-    
+            // set current value to be from min - 8 to max + 8
+            CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 8, Convert.ToInt32(MaxValue) + 8);
         }
 
+       
         public Module(List<string> rawModuleData)
         {
             moduleID = int.Parse(rawModuleData[0]);

@@ -59,9 +59,9 @@ namespace Software_Engineering_Assignment.Support_Classes
         private Bedside bedside;
 
         public Module Module1 => bedside?.Module1;
-        public Module Module2 { get => bedside?.Module2; }
-        public Module Module3 { get => bedside?.Module2; }
-        public Module Module4 { get => bedside?.Module3; }
+        public Module Module2 => bedside?.Module2;
+        public Module Module3 => bedside?.Module2;
+        public Module Module4 => bedside?.Module3;
 
         //Only show first two active modules for space management reasons (to be used on the bay-page)
         public string ModulesActive => $"{Module1},{Module2}...";
@@ -72,7 +72,6 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             //Connect patient with 4 modules
             bedside = DatabaseConnector.Instance.GetBedside(bayNumber, bedNumber);
-            Console.Read();
         }
 
         public Patient()
