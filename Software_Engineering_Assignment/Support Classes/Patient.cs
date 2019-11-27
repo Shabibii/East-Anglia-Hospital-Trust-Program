@@ -71,7 +71,8 @@ namespace Software_Engineering_Assignment.Support_Classes
             //Check if database entry has been created
 
             //Connect patient with 4 modules
-            bedside = new Bedside(bedNumber, bayNumber);
+            bedside = DatabaseConnector.Instance.GetBedside(bayNumber, bedNumber);
+            Console.Read();
         }
 
         public Patient()

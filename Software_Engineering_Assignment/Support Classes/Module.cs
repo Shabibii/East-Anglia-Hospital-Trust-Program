@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 namespace Software_Engineering_Assignment.Support_Classes
@@ -12,13 +13,13 @@ namespace Software_Engineering_Assignment.Support_Classes
         // current monitoring function on module
         public ModuleType currentModule = ModuleType.None;
 
-        public string ModuleUnit;
+        public string ModuleUnit = "^";
 
         // get/set values for module readings
-        public double MinValue { get; set; } = 0;
-        public double MaxValue { get; set; } = 0;
+        public float MinValue { get; set; } = 0;
+        public float MaxValue { get; set; } = 60;
 
-        public double CurrentValue { get; set; } = 0;
+        public float CurrentValue { get; set; } = 0;
 
         public static List<string> ModuleTypes()
         {
@@ -31,21 +32,37 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Module() { }
 
-        public Module(int moduleNumber)
+        public Module(int moduleID)
         {
-           
-
+            Module module = DatabaseConnector.Instance.GetModule(moduleID);
+            if (module == null)
+            {
+                //Store module data
+                //Create random module values
+                //CurrentValue = Constants.NextRandomValue;
+                CurrentValue = 45;
+                DatabaseConnector.Instance.RegisterModule(moduleID, this);
+            }
+            else
+            {
+                moduleID = module.moduleID;
+                currentModule = module.currentModule;
+                CurrentValue = module.CurrentValue;
+                MaxValue = module.MaxValue;
+                MinValue = module.MinValue;
+                ModuleUnit = module.ModuleUnit;
+            }
     
         }
 
         public Module(List<string> rawModuleData)
         {
             moduleID = int.Parse(rawModuleData[0]);
-            currentModule = (ModuleType)int.Parse(rawModuleData[0]);
-            ModuleUnit = rawModuleData[0];
-            MaxValue = int.Parse(rawModuleData[0]);
-            MinValue = int.Parse(rawModuleData[0]);
-            CurrentValue = int.Parse(rawModuleData[0]);
+            currentModule = (ModuleType)int.Parse(rawModuleData[1]);
+            ModuleUnit = rawModuleData[2];
+            MaxValue = float.Parse(rawModuleData[3]);
+            MinValue = float.Parse(rawModuleData[4]);
+            CurrentValue = float.Parse(rawModuleData[5]);
         }
             
 

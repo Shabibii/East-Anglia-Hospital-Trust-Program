@@ -15,32 +15,12 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             get
             {
-                lock (random)
-                {
-                    if (random == null)
-                        random = new Random();
+                if (random == null)
+                    random = new Random();
 
-                    return random.Next(0, 10);
-                }
-                
+                return random.Next(0, 10);
             }
         }
-
-        public static int NextRandomModuleID
-        {
-            get
-            {
-                lock (random)
-                {
-                    if (random == null)
-                        random = new Random();
-
-                    return random.Next(0, 100000);
-                }
-
-            }
-        }
-
         //These are sql queries that will be used regurally
 
         public static string GetAllEventLogs(int bayNo) =>
@@ -81,13 +61,13 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string GetStaffPassword(int id) => $"SELECT password FROM Staff Where staff_id = {id};";
 
-        public static string GetModule(int moduleNumber, int bedsideNo) => $"SELECT module_id_{moduleNumber} FROM Bedside Where bedside_no = {bedsideNo};";
+        public static string GetALLModules() => $"SELECT * FROM Module";
 
         public static string GetALLBedsides() => $"SELECT * FROM Bedside";
 
-        public static string RegisterModule(int bedsideNo, int bayNo)
+        public static string RegisterModule(int moduleID)
         {
-            return $"INSERT INTO Module (module_id, monitor_function, module_unit, module_max, module_id_3, module_id_4) VALUES (@M1, @M2, @M3, @M4, @M5, @M6)";
+            return $"INSERT INTO Module (module_id, monitor_function, module_unit, module_max, module_min, module_current) VALUES ({moduleID}, '@m1', '@m2', @m3, @m4, @m5)";
         }
 
         //SELECT column1, column2, ...

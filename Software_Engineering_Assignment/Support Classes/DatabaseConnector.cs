@@ -312,42 +312,55 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         }
 
-       
-        public Module GetModule(int bedsideNo, int moduleNo)
+        public List<Module> GetAllModules()
         {
+            List<Module> modules = new List<Module>();
             OpenConnection(); //Open Connection
-            Module module;
 
             using (DataSet dataSet = new DataSet())
             {
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetModule(moduleNo, bedsideNo), sqlConnection);
-                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
-
-                List<string> rawModuleData = new List<string>();
+                //Get data from class Constants
+                sqlDataAdapter = new SqlDataAdapter(Constants.GetALLModules(), sqlConnection);
+                sqlDataAdapter.Fill(dataSet);
 
                 DataTable moduleTable = dataSet.Tables[0];
-                DataRow row = moduleTable.Rows[0];
+                if (moduleTable.Rows.Count < 1) return null;
 
-                foreach (DataColumn column in moduleTable.Columns)
+                foreach (DataRow row in moduleTable.Rows)
                 {
-                    rawModuleData.Add(row[column].ToString());
+                    
+                    List<string> rawModuleData = new List<string>();
+                    foreach (DataColumn column in moduleTable.Columns)
+                    {
+                        rawModuleData.Add(row[column].ToString());
+                    }
+                    modules.Add(new Module(rawModuleData));
                 }
-
-                module = new Module(rawModuleData);
             }
-
             CloseConnection(); //Close Connection
+            return modules;
+        }
 
-            return module;
+        public Module GetModule(int moduleID)
+        {
+            var allModules = GetAllModules();
+            if (allModules == null) return null;
+
+            return allModules
+                .Where(x => x.moduleID == moduleID)
+                .ToArray()[0];
         }
 
         public Bedside GetBedside(int bayNumber, int bedNumber)
         {
             var allBedsides = GetAllBedsides();
+            if (allBedsides == null) return null;
+
             return allBedsides
                 .Where(x => x.BedsideNo == bedNumber && x.BayNo == bayNumber)
                 .ToArray()[0];
         }
+
         public List<Bedside> GetAllBedsides()
         {
             List<Bedside> bedsides = new List<Bedside>();
@@ -377,34 +390,18 @@ namespace Software_Engineering_Assignment.Support_Classes
 
 
 
-        public void RegisterModule(int bayNumber, int bedNumber, int moduleNumber, Module module)
+        public void RegisterModule(int moduleID, Module module)
         {
-            Bedside bedside = GetBedside(bayNumber, bedNumber);
-            if(bedside == null)
-            {
-                //Register all modules 
-            }
-            else
-            {
-                switch(moduleNumber)
-                {
-                    case 1:
-                        bedside.Module1 = module;
-                        break;
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand(Constants.RegisterModule(moduleID), sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@m1", $"{module}");
+            sqlCommand.Parameters.AddWithValue("@m2", $"{module.ModuleUnit}");
+            sqlCommand.Parameters.AddWithValue("@m3", $"{module.MaxValue}");
+            sqlCommand.Parameters.AddWithValue("@m4", $"{module.MinValue}");
+            sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
+            //sqlCommand.ExecuteNonQuery();
+            CloseConnection();
 
-                    case 2:
-                        bedside.Module2 = module;
-                        break;
-
-                    case 3:
-                        bedside.Module3 = module;
-                        break;
-
-                    case 4:
-                        bedside.Module4 = module;
-                        break;
-                }
-            }
         }
     }
 }

@@ -21,24 +21,15 @@ namespace Software_Engineering_Assignment.Support_Classes
         public Module Module3 { get; set; }
         public Module Module4 { get; set; }
 
-        public Bedside(int bedNumber, int bayNumber)
-        {
-            Bedside bedside = DatabaseConnector.Instance.GetBedside(BayNo, BedsideNo);
-            module1 = bedside.Module1;
-            module2 = bedside.Module2;
-            module3 = bedside.Module3;
-            module4 = bedside.Module4;
-        }
-
         public Bedside(List<string> rawBedsideData)
         {
-            int BedsideNo = int.Parse(rawBedsideData[1]);
-            int BayNo = int.Parse(rawBedsideData[2]);
+            BedsideNo = int.Parse(rawBedsideData[1]);
+            BayNo = int.Parse(rawBedsideData[2]);
 
-            module1 = new Module(int.Parse(rawBedsideData[3]));
-            module2 = new Module(int.Parse(rawBedsideData[4]));
-            module3 = new Module(int.Parse(rawBedsideData[5]));
-            module4 = new Module(int.Parse(rawBedsideData[6]));
+            //module1 = new Module(int.Parse(rawBedsideData[3]));
+            //module2 = new Module(int.Parse(rawBedsideData[4]));
+            //module3 = new Module(int.Parse(rawBedsideData[5]));
+            //module4 = new Module(int.Parse(rawBedsideData[6]));
         }
     }
 }
