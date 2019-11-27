@@ -32,17 +32,11 @@ namespace Software_Engineering_Assignment.Support_Classes
         public Bedside(int bedNumber, int bayNumber)
         {
             Bedside bedside = DatabaseConnector.Instance.GetBedside(BedsideNo, BayNo);
-            if(bedside == null)
-            {
-                DatabaseConnector.Instance.RegisterBedside(bayNumber, bedNumber);
-            }
-            else
-            {
-                module1 = bedside.Module1;
-                module2 = bedside.Module2;
-                module3 = bedside.Module3;
-                module4 = bedside.Module4;
-            }
+            module1 = bedside.Module1;
+            module2 = bedside.Module2;
+            module3 = bedside.Module3;
+            module4 = bedside.Module4;
+
             SetupModules(bedNumber, bayNumber);
         }
 

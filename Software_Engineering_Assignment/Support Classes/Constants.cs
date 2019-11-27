@@ -81,14 +81,13 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string GetStaffPassword(int id) => $"SELECT password FROM Staff Where staff_id = {id};";
 
-
         public static string GetModule(int moduleNumber, int bedsideNo) => $"SELECT module_id_{moduleNumber} FROM Bedside Where bedside_no = {bedsideNo};";
 
         public static string GetBedside(int bayNo, int bedsideNo) => $"SELECT * FROM Bedside Where bedside_no = {bedsideNo} AND bay_no = {bayNo};";
 
-        public static string RegisterBedside(int bedsideNo, int bayNo)
+        public static string RegisterModule(int bedsideNo, int bayNo)
         {
-            return $"INSERT INTO Bedside (bedside_no, bay_no, module_id_1, module_id_2, module_id_3, module_id_4) VALUES ({bedsideNo}, {bayNo}, @M1, @M2, @M3, @M4)";
+            return $"INSERT INTO Module (module_id, monitor_function, module_unit, module_max, module_id_3, module_id_4) VALUES (@M1, @M2, @M3, @M4, @M5, @M6)";
         }
 
         //SELECT column1, column2, ...

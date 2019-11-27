@@ -312,6 +312,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         }
 
+       
         public Module GetModule(int bedsideNo, int moduleNo)
         {
             OpenConnection(); //Open Connection
@@ -371,27 +372,12 @@ namespace Software_Engineering_Assignment.Support_Classes
         }
 
 
-
-
-        public void RegisterBedside(int bayNumber, int bedNumber)
-        {
-            OpenConnection();
-            SqlCommand sqlCommand = new SqlCommand(Constants.RegisterBedside(bedNumber,bayNumber), sqlConnection);
-            sqlCommand.Parameters.AddWithValue("@m1", $"{Constants.NextRandomModuleID}");
-            sqlCommand.Parameters.AddWithValue("@m2", $"{Constants.NextRandomModuleID}");
-            sqlCommand.Parameters.AddWithValue("@m3", $"{Constants.NextRandomModuleID}");
-            sqlCommand.Parameters.AddWithValue("@m4", $"{Constants.NextRandomModuleID}");
-            sqlCommand.ExecuteNonQuery();
-            CloseConnection();
-        }
-
         public void RegisterModule(int bayNumber, int bedNumber, int moduleNumber, Module module)
         {
             Bedside bedside = GetBedside(bedNumber, bayNumber);
             if(bedside == null)
             {
                 //Register all modules 
-                RegisterBedside(bayNumber, bedNumber);
             }
             else
             {
