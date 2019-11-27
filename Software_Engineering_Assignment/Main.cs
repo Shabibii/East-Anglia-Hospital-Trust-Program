@@ -28,7 +28,7 @@ namespace Software_Engineering_Assignment
         private BayPage bayPage1;
         private BayPage bayPage2;
         private ManagementPage managementPage;
-        private RegisterationPage registerationPage;
+        private RegistrationPage registerationPage;
         private PatientPage patientPage;
 
         public Main()
@@ -50,7 +50,7 @@ namespace Software_Engineering_Assignment
             bayPage1 = new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage };
             bayPage2 = new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage };
             managementPage = new ManagementPage() { pageCall0 = GoToMainpage };
-            registerationPage = new RegisterationPage() { goBackToParentPage = GoToMainpage };
+            registerationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
             patientPage = new PatientPage(GoToMainpage);
 
             pages.Add(0, mainPage);

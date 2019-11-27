@@ -40,6 +40,12 @@ namespace Software_Engineering_Assignment.CustomControls
             DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
         }
 
+        /// <summary>
+        /// Add selected staff member to unavailable staff 
+        /// after clicking deregisterButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void unregisterStaff(object sender, EventArgs e)
         {
             // Deregister staff

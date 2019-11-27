@@ -30,8 +30,6 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public string Address { get; set; } = "NULL";
 
-        public bool isAvailable { get; set; } = true;
-
         public bool isOnCall { get; set; } = true;
 
         public Staff()

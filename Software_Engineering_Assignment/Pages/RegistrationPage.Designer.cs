@@ -1,6 +1,6 @@
 ﻿namespace Software_Engineering_Assignment.Pages
 {
-    partial class RegisterationPage
+    partial class RegistrationPage
     {
         /// <summary> 
         /// Required designer variable.
