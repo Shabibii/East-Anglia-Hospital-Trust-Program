@@ -93,6 +93,25 @@ namespace Software_Engineering_Assignment.Pages
             InitalizeControl();
          }
 
+        private void LockInputControls(bool doLock)
+        {
+            module1CurrentReading.ReadOnly = doLock;
+            module1Max.ReadOnly = doLock;
+            module1Min.ReadOnly = doLock;
+
+            module2CurrentReading.ReadOnly = doLock;
+            module2Max.ReadOnly = doLock;
+            module2Min.ReadOnly = doLock;
+
+            module3CurrentReading.ReadOnly = doLock;
+            module3Max.ReadOnly = doLock;
+            module3Min.ReadOnly = doLock;
+
+            module4CurrentReading.ReadOnly = doLock;
+            module4Max.ReadOnly = doLock;
+            module4Min.ReadOnly = doLock;
+        }
+
         private void Button3_Click(object sender, EventArgs e)
         {
             using (Login login = new Login())
@@ -112,6 +131,10 @@ namespace Software_Engineering_Assignment.Pages
                         //if valid login of any staff type
                         //tell event log that staff logged in to edit patient data
                         //enable textboxes for change
+                        saveButton.Visible = true;
+                        LockInputControls(false);
+                        MessageBox.Show("Controls have been unlocked for Data Change");
+                        EventLog.LogStaffEvent(staff, $"Logged in to change {currentPatient.FullName} module data");
                     }
                 }
             }
@@ -120,6 +143,19 @@ namespace Software_Engineering_Assignment.Pages
         private void TextBox12_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            saveButton.Visible = false;
+            LockInputControls(true);
+
+            //Register module changes
+            currentPatient.Module1.currentModule = currentPatient.Module1.GetModuleFromString(module1CurrentReading.Text);
+            currentPatient.Module1.CurrentValue = float.Parse(module1CurrentReading.Text);
+            currentPatient.Module1.MaxValue = float.Parse(module1CurrentReading.Text);
+            currentPatient.Module1.MinValue = float.Parse(module1CurrentReading.Text);
+            
         }
     }
 }
