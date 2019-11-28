@@ -33,24 +33,26 @@ namespace Software_Engineering_Assignment.Support_Classes
                 FROM Staff 
                 Where staff_id = {id};";
 
+        public static string GetStaffSchedule(string date)
+       => $@"SELECT staff_id
+                FROM StaffSchedule;";
+
         public static string GetStaffOnCall(string date)
         => $@"SELECT staff_id
                 FROM StaffSchedule
-                WHERE oncall_date = '{date}'
-                GROUP BY staff_id";
+                WHERE oncall_date = '{date}' AND deregistered = 0";
                 
 
         public static string GetStaffUnregistered(string date)
         => $@"SELECT staff_id
                 FROM StaffSchedule
-                WHERE oncall_date = '{date}' AND deregistered = 'true'
-                GROUP BY staff_id";
+                WHERE oncall_date = '{date}' AND deregistered = 1";
 
 
         public static string RegisterStaff(int staffId)
         => $@"INSERT INTO StaffSchedule VALUES ({staffId},@date,0)";
 
-        public static string UnregisterStaff(int staffId)
+        public static string updateStaffRegister(int staffId)
         => $@"UPDATE StaffSchedule
                 SET oncall_date = @date, deregistered = @deregistered
                 WHERE staff_Id = {staffId}";

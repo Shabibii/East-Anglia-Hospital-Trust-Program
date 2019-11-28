@@ -65,9 +65,9 @@ namespace Software_Engineering_Assignment.CustomControls
                     {
                         staffUnregisterList.Items.Add(new StaffListViewItem(staff));
                     }                   
-                }
+                }               
             }
-            Console.Read();
+           
         }
 
 

@@ -19,7 +19,7 @@ namespace Software_Engineering_Assignment.Pages
         public RegistrationPage()
         {
             InitializeComponent();
-            ConnectWithDB();
+            staffRegistrationControl1.InitalizeRegisterField();
 
             Text = "Registration Page";
             staffRegistrationControl1.registrationStateChanged += RefreshStaffStatus;
@@ -36,33 +36,7 @@ namespace Software_Engineering_Assignment.Pages
             unavailableStaff1.DisplayUnregisterStaff();
         }
 
-        /// <summary>
-        /// Get staff members and then assign to control available or unavailable
-        /// based on staff's availability on the selected day.
-        /// </summary>
-        private void ConnectWithDB()
-        {
-            allStaff = DatabaseConnector.Instance.GetAllStaff();
-            
-            List<Staff> unregisteredStaff = new List<Staff>();
-            List<Staff> onCallStaff = new List<Staff>();
-
-
-            foreach (Staff staff in allStaff)
-            {
-                if (staff.isOnCall)
-                {
-                    onCallStaff.Add(staff);
-                }
-                else
-                {
-                    unregisteredStaff.Add(staff);
-                }
-            }
-
-            staffRegistrationControl1.InitalizeRegisterField();           
-
-        }
+       
 
         /// <summary>
         /// Back button on GUI, this will  guide user back to parent page.

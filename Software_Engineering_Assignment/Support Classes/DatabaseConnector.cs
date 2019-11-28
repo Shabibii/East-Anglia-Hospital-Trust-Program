@@ -148,7 +148,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             return staff;
         }
 
-        public List<Staff> GetOnCallStaff(string date)
+        public List<Staff> GetOnCallStaff(string date, bool returnAllStaffAvailableOnDate = false)
         {
             try
             {
@@ -157,7 +157,11 @@ namespace Software_Engineering_Assignment.Support_Classes
 
                 using (DataSet dataSet = new DataSet())
                 {
-                    sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffOnCall(date), sqlConnection);
+                    string code = returnAllStaffAvailableOnDate ?
+                                Constants.GetStaffSchedule(date)
+                                : Constants.GetStaffOnCall(date);
+
+                    sqlDataAdapter = new SqlDataAdapter(code, sqlConnection);
                     sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
 
                     List<string> rawStaffData = new List<string>();
@@ -220,19 +224,32 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void RegisterStaff(int staffId, string date)
         {
-            OpenConnection();
-            SqlCommand sqlCommand = new SqlCommand(Constants.RegisterStaff(staffId), sqlConnection);
-            sqlCommand.Parameters.AddWithValue("@date", $"{date}");
-            sqlCommand.ExecuteNonQuery();
-            CloseConnection();
+            if (GetOnCallStaff(date, true).Select(x => x.StaffId).Contains(staffId))
+            {
+                UpdateStaffschedule(staffId, date, false);
+            }
+            else
+            {
+                OpenConnection();
+                SqlCommand sqlCommand = new SqlCommand(Constants.RegisterStaff(staffId), sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@date", $"{date}");
+                sqlCommand.ExecuteNonQuery();
+                CloseConnection();
+            }
+            
         }
 
         public void UnregisterStaff(int staffId, string date)
         {
+            UpdateStaffschedule(staffId, date, true);
+        }
+
+        public void UpdateStaffschedule(int staffId, string date, bool deregistered)
+        {
             OpenConnection();
-            SqlCommand sqlCommand = new SqlCommand(Constants.UnregisterStaff(staffId), sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(Constants.updateStaffRegister(staffId), sqlConnection);
             sqlCommand.Parameters.AddWithValue("@date", $"{date}");
-            sqlCommand.Parameters.AddWithValue("@deregistered", $"true");
+            sqlCommand.Parameters.AddWithValue("@deregistered", $"{deregistered}");
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
         }
