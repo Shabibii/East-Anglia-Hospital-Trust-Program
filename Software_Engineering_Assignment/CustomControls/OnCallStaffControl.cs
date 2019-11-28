@@ -31,7 +31,6 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 if (listItem.staff.StaffId == staffId) return true;
             }
-
             return false;
         }
 

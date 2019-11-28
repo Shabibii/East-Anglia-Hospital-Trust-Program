@@ -45,7 +45,7 @@ namespace Software_Engineering_Assignment.CustomControls
             return false;
         }
 
-        // Method removes staff from on call list
+        // Method removes staff from unregster list
         public void Remove(StaffListViewItem item)
         {
             staffUnregisterList.Items.Remove(item);

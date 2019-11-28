@@ -186,7 +186,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
         }
 
-        public List<Staff> GetUnregisteredStaff(string date)
+        public List<Staff> GetUnregisteredStaff(string date, bool returnAllStaffUnregisteredOnDate = false)
         {
             try
             {
@@ -195,6 +195,10 @@ namespace Software_Engineering_Assignment.Support_Classes
 
                 using (DataSet dataSet = new DataSet())
                 {
+                    string code = returnAllStaffUnregisteredOnDate ?
+                                Constants.GetStaffSchedule(date)
+                                : Constants.GetStaffUnregistered(date);
+
                     sqlDataAdapter = new SqlDataAdapter(Constants.GetStaffUnregistered(date), sqlConnection);
                     sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
 
@@ -241,7 +245,19 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void UnregisterStaff(int staffId, string date)
         {
-            UpdateStaffschedule(staffId, date, true);
+            if (GetUnregisteredStaff(date, false).Select(x => x.StaffId).Contains(staffId))
+            {
+                UpdateStaffschedule(staffId, date, true);
+            }
+            else
+            {
+                OpenConnection();
+                SqlCommand sqlCommand = new SqlCommand(Constants.DeregisterStaff(staffId), sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@date", $"{date}");
+                sqlCommand.ExecuteNonQuery();
+                CloseConnection();
+            }
+            
         }
 
         public void UpdateStaffschedule(int staffId, string date, bool deregistered)

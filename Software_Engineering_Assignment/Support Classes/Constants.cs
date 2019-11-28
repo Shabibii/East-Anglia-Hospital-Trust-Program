@@ -53,10 +53,14 @@ namespace Software_Engineering_Assignment.Support_Classes
         public static string RegisterStaff(int staffId)
         => $@"INSERT INTO StaffSchedule VALUES ({staffId},@date,0)";
 
+        public static string DeregisterStaff(int staffId)
+        => $@"INSERT INTO StaffSchedule VALUES ({staffId},@date,1)";
+
         public static string updateStaffRegister(int staffId)
         => $@"UPDATE StaffSchedule
                 SET oncall_date = @date, deregistered = @deregistered
                 WHERE staff_Id = {staffId}";
+
 
 
         //Get staff ID using sql query
@@ -69,8 +73,8 @@ namespace Software_Engineering_Assignment.Support_Classes
                                                             WHERE module_id = {moduleID}";
 
         public static string GetBedside(int bedsideNo, int bayNo) => $@"SELECT bedside_no, bay_no, module_id_1, module_id_2, module_id_3, module_id_4 
-                                                FROM Bedside
-                                                 WHERE bedside_no = {bedsideNo} AND bay_no = {bayNo}";
+                                                            FROM Bedside
+                                                            WHERE bedside_no = {bedsideNo} AND bay_no = {bayNo}";
 
         public static string RegisterModule(int moduleID)
         {
