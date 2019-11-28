@@ -30,6 +30,20 @@ namespace Software_Engineering_Assignment.Support_Classes
             return output.ToArray();
         }
 
+
+        public ModuleType GetModuleFromString(string moduleTypeStr)
+        {
+            for (int i = 0; i <= (int)ModuleType.None; i++)
+            {
+
+                if(ToString((ModuleType)i) == moduleTypeStr)
+                {
+                    return (ModuleType)i;
+                }
+            }
+            return ModuleType.None;
+        }
+
         public Module()
         {
             //Generate random values
@@ -75,7 +89,8 @@ namespace Software_Engineering_Assignment.Support_Classes
             MinValue = float.Parse(rawModuleData[4]);
             CurrentValue = float.Parse(rawModuleData[5]);
         }
-            
+           
+
 
         private static string ToString(ModuleType moduleType)
         {

@@ -81,6 +81,11 @@ namespace Software_Engineering_Assignment.Support_Classes
             return $"INSERT INTO Module (module_id, monitor_function, module_unit, module_max, module_min, module_current) VALUES ({moduleID}, '@m1', '@m2', @m3, @m4, @m5)";
         }
 
+        public static string UpdateModule(int moduleID)
+        => $@"UPDATE Module
+                SET monitor_function = @m1, module_unit = @m2, module_unit = @m3, module_max = @m4, module_min = @m5, module_current = @m6
+                WHERE staff_Id = {moduleID}";
+
         //SELECT column1, column2, ...
         //FROM table_name;
 

@@ -16,22 +16,64 @@ namespace Software_Engineering_Assignment.Support_Classes
         private Module module3;
         private Module module4;
 
-        public Module Module1 => module1;
-        public Module Module2 => module2;
-        public Module Module3 => module3;
-        public Module Module4 => module4;
+        public Module Module1
+        {
+            get
+            {
+                return module1;
+            }
+            set
+            {
+                module1 = value;
+            }
+        }
+        public Module Module2
+        {
+            get
+            {
+                return module2;
+            }
+            set
+            {
+                module2 = value;
+            }
+        }
+
+        public Module Module3
+        {
+            get
+            {
+                return module3;
+            }
+            set
+            {
+                module3 = value;
+            }
+        }
+
+        public Module Module4
+        {
+            get
+            {
+                return module4;
+            }
+            set
+            {
+                module4 = value;
+            }
+        }
 
         public Bedside(List<string> rawBedsideData)
         {
             BedsideNo = int.Parse(rawBedsideData[1]);
             BayNo = int.Parse(rawBedsideData[2]);
            
-            module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
-            if (module1 == null)
+            Module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
+            if (Module1 == null)
             {
-                module1 = new Module();
-                module1.moduleID = int.Parse(rawBedsideData[2]);
-                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[2]), module1);
+                Module1 = new Module();
+                Module1.moduleID = int.Parse(rawBedsideData[2]);
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[2]), Module1);
 
             }
 
