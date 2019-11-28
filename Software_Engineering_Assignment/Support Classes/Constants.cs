@@ -18,18 +18,18 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             return random.Next(startRange, endRange);
         }
+
         //These are sql queries that will be used regurally
+        public static string GetAllEventLogs(int bayNo)
+        => $@"SELECT * FROM 'Log/Activity'";
 
-        public static string GetAllEventLogs(int bayNo) =>
-            $@"SELECT * FROM 'Log/Activity'";
-
-        public static string GetPatientsFromBay(int bayNo) =>
-            $@"SELECT *
+        public static string GetPatientsFromBay(int bayNo)
+        => $@"SELECT *
                 FROM Patient 
                 Where bay_id = {bayNo};";
 
-        public static string GetStaff(int id) =>
-            $@"SELECT staff_id, first_name, last_name, staff_type, date_of_birth, gender, contact_no_1, contact_no_2, email, address
+        public static string GetStaff(int id)
+        => $@"SELECT staff_id, first_name, last_name, staff_type, date_of_birth, gender, contact_no_1, contact_no_2, email, address
                 FROM Staff 
                 Where staff_id = {id};";
 

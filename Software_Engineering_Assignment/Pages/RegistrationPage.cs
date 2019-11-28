@@ -33,9 +33,7 @@ namespace Software_Engineering_Assignment.Pages
         {
             staffAvailabilityControl1.DisplayOnCallStaff();
             unavailableStaff1.DisplayUnregisterStaff();
-        }
-
-       
+        }       
 
         /// <summary>
         /// Back button on GUI, this will  guide user back to parent page.

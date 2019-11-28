@@ -11,6 +11,10 @@ namespace Software_Engineering_Assignment.Support_Classes
     {
         public Staff staff;
 
+        /// <summary>
+        /// Method to hold a staff's Full Name & Staff ID
+        /// </summary>
+        /// <param name="staff"></param>
         public StaffListViewItem(Staff staff)
         {
             this.staff = staff;
