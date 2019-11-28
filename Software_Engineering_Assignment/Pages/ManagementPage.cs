@@ -26,6 +26,8 @@ namespace Software_Engineering_Assignment.Pages
         {
             //Assign dataGridView data source to alarms dataset               
             dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetAlarms();
+
+            rbtAnyDay.Checked = true;
         }
 
         private void btnManagementBack_Click(object sender, EventArgs e)
@@ -74,18 +76,24 @@ namespace Software_Engineering_Assignment.Pages
 
             if(tbxStaffID.Text != "")
             {
-                conditions += "staff_id = '" + tbxStaffID.Text + "'";
+                conditions += "staff_id = '" + tbxStaffID.Text + "' ";
             }
 
             if(tbxPatientID.Text != "" && tbxStaffID.Text != "")
             {
-                conditions += " AND patient_id = '" + tbxPatientID.Text + "'";
+                conditions += "AND patient_id = '" + tbxPatientID.Text + "' ";
             }
             else if(tbxPatientID.Text != "")
             {
-                conditions += "patient_id = '" + tbxPatientID.Text + "'";
+                conditions += "patient_id = '" + tbxPatientID.Text + "' ";
             }
             
+            if(conditions != " WHERE trigger_date_time = " + dtpManagement.Value + " ")
+            {
+                conditions += "";
+            }
+
+
 
             if(conditions == " WHERE ")
             {
@@ -97,6 +105,29 @@ namespace Software_Engineering_Assignment.Pages
         private void label1_Click(object sender, EventArgs e)
         {
             label1.Text = "SELECT * FROM " + GetTableName() + GetQueryConditions();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtAnyDay_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtSelectDay_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbtSelectDay.Checked == true)
+            {
+                dtpManagement.Enabled = true;
+
+            }
+            else
+            {
+                dtpManagement.Enabled = false;
+            }
         }
     }
 }
