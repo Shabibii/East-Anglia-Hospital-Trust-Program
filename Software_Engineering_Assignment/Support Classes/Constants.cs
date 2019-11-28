@@ -35,7 +35,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string GetStaffSchedule(string date)
        => $@"SELECT staff_id
-                FROM StaffSchedule;";
+                FROM StaffSchedule
+                WHERE oncall_date = '{date}' AND deregistered = 0";
 
         public static string GetStaffOnCall(string date)
         => $@"SELECT staff_id

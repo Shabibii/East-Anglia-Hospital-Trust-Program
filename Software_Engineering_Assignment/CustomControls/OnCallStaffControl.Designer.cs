@@ -59,7 +59,6 @@
             this.StaffOncallList.Size = new System.Drawing.Size(252, 261);
             this.StaffOncallList.TabIndex = 3;
             this.StaffOncallList.UseCompatibleStateImageBehavior = false;
-            this.StaffOncallList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // OnCallStaffControl
             // 

@@ -13,20 +13,19 @@ namespace Software_Engineering_Assignment.CustomControls
 {
     public partial class StaffRegistrationControl : UserControl
     {
+        // Use delegate function to assign method for change in staff status
         public delegate void registerationStateEvent();
         public registerationStateEvent registrationStateChanged;
         
         public StaffRegistrationControl()
         {
             InitializeComponent();
-            //RegisterField();
-        }
-        
+        }     
       
-
         /// <summary>
         /// Method to get each doctorRegistrationFieldControl 
-        /// and present in StaffRegistrationControl as a list
+        /// and present in StaffRegistrationControl as a list.
+        /// Also, give functionality to register and deregister button.
         /// </summary>
         public void InitalizeRegisterField()
         {
@@ -35,35 +34,24 @@ namespace Software_Engineering_Assignment.CustomControls
             foreach (Staff staff in allStaff)
             {
                 var docReg = new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
-
                 
                 docReg.registerButton1.Click += staffStatusRegister;
                 docReg.deregisterButton.Click += staffStatusDeregister;                
                
-                staffRegisterList.Controls.Add(docReg);                                      
-                                         
+                staffRegisterList.Controls.Add(docReg);           
             }
         }
 
+        //Register selected staff 
         public void staffStatusRegister(object sender, EventArgs e)
         {
-            registrationStateChanged();
-            
+            registrationStateChanged();            
         }
 
+        //Deregister selected staff
         public void staffStatusDeregister(object sender, EventArgs e)
         {
             registrationStateChanged();
         }
-
-
-
-
-        //Registeration field control
-        /*
-         * Get doctors from database
-         * create many regFControls for the doctors
-         * Add controls to panel (with auto scroll(scroll bar))
-         */
     }
 }

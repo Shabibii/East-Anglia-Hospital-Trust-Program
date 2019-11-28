@@ -13,7 +13,6 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class RegistrationPage : UserControl
     {
-        List<Staff> allStaff;
         public Main.PageCall0 goBackToParentPage;
 
         public RegistrationPage()

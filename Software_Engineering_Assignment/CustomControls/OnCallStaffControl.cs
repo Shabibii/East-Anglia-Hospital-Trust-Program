@@ -16,14 +16,15 @@ namespace Software_Engineering_Assignment.CustomControls
         public OnCallStaffControl()
         {
             InitializeComponent();
-            //DisplayOnCallStaff();
         }
 
+        // Get on call staff for selected date using the monthCalendar
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             DisplayOnCallStaff();
         }
 
+        // Check if selected staff (registered) is already in the on call list, for that date.
         private bool registerListDoubleStaff(int staffId)
         {
             foreach (StaffListViewItem listItem in StaffOncallList.Items)
@@ -34,11 +35,13 @@ namespace Software_Engineering_Assignment.CustomControls
             return false;
         }
 
+        // Method removes staff from on call list
         public void Remove(StaffListViewItem item)
         {
             StaffOncallList.Items.Remove(item);
         }
 
+        // Method to hold each on call staff displayed on GUI.
         public List<Staff> DisplayedStaff()
         {
             List<Staff> output = new List<Staff>();
@@ -46,12 +49,15 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 output.Add(item.staff);
             }
-
             return output;
         }
 
+        /// <summary>
+        /// Method to add selected staff to on call list && display on GUI.
+        /// </summary>
         public void DisplayOnCallStaff()
         {
+            // Get on call staff for date
             List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
             StaffOncallList.Clear();
 
@@ -61,17 +67,13 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 foreach (Staff staff in onCallStaff)
                 {
+                    // Only add the member to display on the list, if not already there.
                     if (!registerListDoubleStaff(staff.StaffId))
                     {
                         StaffOncallList.Items.Add(new StaffListViewItem(staff));
                     }                    
                 }
             }
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

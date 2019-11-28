@@ -16,11 +16,5 @@ namespace Software_Engineering_Assignment.Support_Classes
             this.staff = staff;
             Text = $"{staff.FirstName} {staff.LastName} (Staff ID: {staff.StaffId})";
         }
-
-    //public void Registered()
-    //{
-    //if(this.)
-    //}
-
-}
+    }
 }

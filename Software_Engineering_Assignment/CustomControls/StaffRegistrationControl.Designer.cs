@@ -67,7 +67,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "StaffRegistrationControl";
-            this.Size = new System.Drawing.Size(464, 538);
+            this.Size = new System.Drawing.Size(464, 538);            
             this.ResumeLayout(false);
             this.PerformLayout();
 
