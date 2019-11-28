@@ -32,7 +32,6 @@
             this.staffRegistrationControl1 = new Software_Engineering_Assignment.CustomControls.StaffRegistrationControl();
             this.unavailableStaff1 = new Software_Engineering_Assignment.CustomControls.UnregisteredStaffControl();
             this.staffAvailabilityControl1 = new Software_Engineering_Assignment.CustomControls.OnCallStaffControl();
-            this.searchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -76,22 +75,11 @@
             this.staffAvailabilityControl1.Size = new System.Drawing.Size(500, 291);
             this.staffAvailabilityControl1.TabIndex = 0;
             // 
-            // searchButton
-            // 
-            this.searchButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
-            this.searchButton.Location = new System.Drawing.Point(880, 13);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(82, 23);
-            this.searchButton.TabIndex = 15;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            // 
             // RegistrationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.staffRegistrationControl1);
             this.Controls.Add(this.unavailableStaff1);
@@ -108,6 +96,5 @@
         private CustomControls.UnregisteredStaffControl unavailableStaff1;
         private CustomControls.StaffRegistrationControl staffRegistrationControl1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button searchButton;
     }
 }
