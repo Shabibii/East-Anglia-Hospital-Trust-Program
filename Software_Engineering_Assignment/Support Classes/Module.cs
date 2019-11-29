@@ -16,10 +16,10 @@ namespace Software_Engineering_Assignment.Support_Classes
         public string ModuleUnit = "^";
 
         // get/set values for module readings
-        public float MinValue { get; set; } = 0;
-        public float MaxValue { get; set; } = 60;
+        public decimal MinValue { get; set; } = 0;
+        public decimal MaxValue { get; set; } = 60;
 
-        public float CurrentValue { get; set; } = 0;
+        public decimal CurrentValue { get; set; } = 0;
 
         public static string[] ModuleTypes()
         {
@@ -31,7 +31,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         }
 
 
-        public ModuleType GetModuleFromString(string moduleTypeStr)
+        public static ModuleType GetModuleFromString(string moduleTypeStr)
         {
             for (int i = 0; i <= (int)ModuleType.None; i++)
             {
@@ -85,9 +85,9 @@ namespace Software_Engineering_Assignment.Support_Classes
             moduleID = int.Parse(rawModuleData[0]);
             currentModule = (ModuleType)int.Parse(rawModuleData[1]);
             ModuleUnit = rawModuleData[2];
-            MaxValue = float.Parse(rawModuleData[3]);
-            MinValue = float.Parse(rawModuleData[4]);
-            CurrentValue = float.Parse(rawModuleData[5]);
+            MaxValue = decimal.Parse(rawModuleData[3]);
+            MinValue = decimal.Parse(rawModuleData[4]);
+            CurrentValue = decimal.Parse(rawModuleData[5]);
         }
            
 

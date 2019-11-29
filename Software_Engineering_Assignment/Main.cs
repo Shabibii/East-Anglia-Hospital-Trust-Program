@@ -34,8 +34,6 @@ namespace Software_Engineering_Assignment
         public Main()
         {
             InitializeComponent();
-            InitalizePages();
-            SetPage(0);
         }
 
         private void InitalizePages()
@@ -123,5 +121,10 @@ namespace Software_Engineering_Assignment
             patientPage.Dispose();
         }
 
+        private void Main_Load(object sender, EventArgs e)
+        {
+            InitalizePages();
+            SetPage(0);
+        }
     }
 }

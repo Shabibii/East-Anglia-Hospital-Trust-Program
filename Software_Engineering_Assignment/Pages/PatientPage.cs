@@ -48,46 +48,47 @@ namespace Software_Engineering_Assignment.Pages
             dobLabel.Text = $"Date of Birth: {currentPatient.DOB}";
             intakeReasonLabel.Text = $"Intake Reason: {currentPatient.IntakeReason}";
 
+
             
+            var moduleTypeSource = Module.ModuleTypes(); // Different module functionality
+            module1ModuleType.Items.AddRange(moduleTypeSource);
+            module2ModuleType.Items.AddRange(moduleTypeSource);
+            module3ModuleType.Items.AddRange(moduleTypeSource);
+            module4ModuleType.Items.AddRange(moduleTypeSource);
 
-            try
+            if (currentPatient.Module1 != null)
             {
-                var moduleTypeSource = Module.ModuleTypes(); // Different module functionality
-                module1ModuleType.Items.AddRange(moduleTypeSource);
-                module2ModuleType.Items.AddRange(moduleTypeSource);
-                module3ModuleType.Items.AddRange(moduleTypeSource);
-                module4ModuleType.Items.AddRange(moduleTypeSource);
-
                 module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
                 module1Max.Text = currentPatient.Module1.MaxValue.ToString();
                 module1Min.Text = currentPatient.Module1.MinValue.ToString();
+                module1ModuleType.SelectedIndex = (int)currentPatient.Module1.currentModule;
+            }
 
-                
+            if (currentPatient.Module2 != null)
+            {
                 module2CurrentReading.Text = currentPatient.Module2.CurrentValue.ToString();
                 module2Max.Text = currentPatient.Module2.MaxValue.ToString();
                 module2Min.Text = currentPatient.Module2.MinValue.ToString();
+                module2ModuleType.SelectedIndex = (int)currentPatient.Module2.currentModule;
+            }
 
-               
+            if (currentPatient.Module3 != null)
+            {
                 module3CurrentReading.Text = currentPatient.Module3.CurrentValue.ToString();
                 module3Max.Text = currentPatient.Module3.MaxValue.ToString();
                 module3Min.Text = currentPatient.Module3.MinValue.ToString();
+                module3ModuleType.SelectedIndex = (int)currentPatient.Module3.currentModule;
+            }
 
-                
+            if (currentPatient.Module4 != null)
+            {
                 module4CurrentReading.Text = currentPatient.Module4.CurrentValue.ToString();
                 module4Max.Text = currentPatient.Module4.MaxValue.ToString();
                 module4Min.Text = currentPatient.Module4.MinValue.ToString();
-
-                module1ModuleType.SelectedIndex = (int)currentPatient.Module1.currentModule;
-                module2ModuleType.SelectedIndex = (int)currentPatient.Module2.currentModule;
-                module3ModuleType.SelectedIndex = (int)currentPatient.Module3.currentModule;
                 module4ModuleType.SelectedIndex = (int)currentPatient.Module4.currentModule;
-
             }
-            catch (Exception)
-            {
 
-            }
-            
+
             Text = currentPatient.FullName;
 
             InitalizeControl();
@@ -134,7 +135,7 @@ namespace Software_Engineering_Assignment.Pages
                         saveButton.Visible = true;
                         LockInputControls(false);
                         MessageBox.Show("Controls have been unlocked for Data Change");
-                        EventLog.LogStaffEvent(staff, $"Logged in to change {currentPatient.FullName} module data");
+                        //EventLog.LogStaffEvent(staff, $"Logged in to change {currentPatient.FullName} module data");
                     }
                 }
             }
@@ -151,11 +152,31 @@ namespace Software_Engineering_Assignment.Pages
             LockInputControls(true);
 
             //Register module changes
-            currentPatient.Module1.currentModule = currentPatient.Module1.GetModuleFromString(module1CurrentReading.Text);
-            currentPatient.Module1.CurrentValue = float.Parse(module1CurrentReading.Text);
-            currentPatient.Module1.MaxValue = float.Parse(module1CurrentReading.Text);
-            currentPatient.Module1.MinValue = float.Parse(module1CurrentReading.Text);
-            
+            currentPatient.Module1.currentModule = Module.GetModuleFromString(module1CurrentReading.Text);
+            currentPatient.Module1.CurrentValue = decimal.Parse(module1CurrentReading.Text);
+            currentPatient.Module1.MaxValue = decimal.Parse(module1CurrentReading.Text);
+            currentPatient.Module1.MinValue = decimal.Parse(module1CurrentReading.Text);
+
+            currentPatient.Module2.currentModule = Module.GetModuleFromString(module2CurrentReading.Text);
+            currentPatient.Module2.CurrentValue = decimal.Parse(module2CurrentReading.Text);
+            currentPatient.Module2.MaxValue = decimal.Parse(module2CurrentReading.Text);
+            currentPatient.Module2.MinValue = decimal.Parse(module2CurrentReading.Text);
+
+            currentPatient.Module3.currentModule = Module.GetModuleFromString(module3CurrentReading.Text);
+            currentPatient.Module3.CurrentValue = decimal.Parse(module3CurrentReading.Text);
+            currentPatient.Module3.MaxValue = decimal.Parse(module3CurrentReading.Text);
+            currentPatient.Module3.MinValue = decimal.Parse(module3CurrentReading.Text);
+
+            currentPatient.Module4.currentModule = Module.GetModuleFromString(module4CurrentReading.Text);
+            currentPatient.Module4.CurrentValue = decimal.Parse(module4CurrentReading.Text);
+            currentPatient.Module4.MaxValue = decimal.Parse(module4CurrentReading.Text);
+            currentPatient.Module4.MinValue = decimal.Parse(module4CurrentReading.Text);
+
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module1);
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module2);
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module3);
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module4);
+
         }
     }
 }

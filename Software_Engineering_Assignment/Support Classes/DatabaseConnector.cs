@@ -49,40 +49,36 @@ namespace Software_Engineering_Assignment.Support_Classes
             return new Bay(bayNumber);
         }
 
-        public List<Patient> GetAllPatientesFromBay(int bayNumber)
-        {
-            List<Patient> patients = new List<Patient>();
-            OpenConnection(); //Open Connection
-
-            using (DataSet dataSet = new DataSet())
-            {
-                //Get data from class Constants
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetPatientsFromBay(bayNumber), sqlConnection);
-                sqlDataAdapter.Fill(dataSet);
-
-                DataTable patientTable = dataSet.Tables[0];
-
-                foreach (DataRow row in patientTable.Rows)
-                {
-                    List<string> rawPatientData = new List<string>();
-                    foreach (DataColumn column in patientTable.Columns)
-                    {
-                        rawPatientData.Add(row[column].ToString());
-                    }
-                    patients.Add(new Patient(rawPatientData));
-                }
-            }
-            CloseConnection(); //Close Connection
-            return patients;
-        }
 
 
         public Patient GetPatient(int bayNumber, int bedNumber)
         {
             try
             {
-                List<Patient> patientsFromBay = GetAllPatientesFromBay(bayNumber);
-                return patientsFromBay.Where(x => x.bedNumber == bedNumber).ToArray()[0];
+                OpenConnection(); //Open Connection
+                Patient patient;
+
+                using (DataSet dataSet = new DataSet())
+                {
+                    sqlDataAdapter = new SqlDataAdapter(Constants.GetPatient(bedNumber,bayNumber), sqlConnection);
+                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+
+                    List<string> rawPatientData = new List<string>();
+
+                    DataTable staffTable = dataSet.Tables[0];
+                    DataRow row = staffTable.Rows[0];
+
+                    foreach (DataColumn column in staffTable.Columns)
+                    {
+                        rawPatientData.Add(row[column].ToString());
+                    }
+
+                    patient = new Patient(rawPatientData);
+                }
+
+                CloseConnection(); //Close Connection
+
+                return patient;
 
             }
             catch (Exception)
@@ -434,9 +430,23 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.Parameters.AddWithValue("@m3", $"{module.MaxValue}");
             sqlCommand.Parameters.AddWithValue("@m4", $"{module.MinValue}");
             sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
-            //sqlCommand.ExecuteNonQuery();
+            sqlCommand.ExecuteNonQuery();
             CloseConnection();
 
+
+        }
+
+        public void UpdateModule(Module module)
+        {
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand(Constants.UpdateModule(module.moduleID), sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@m1", $"{module}");
+            sqlCommand.Parameters.AddWithValue("@m2", $"{module.ModuleUnit}");
+            sqlCommand.Parameters.AddWithValue("@m3", $"{module.MaxValue}");
+            sqlCommand.Parameters.AddWithValue("@m4", $"{module.MinValue}");
+            sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
+            sqlCommand.ExecuteNonQuery();
+            CloseConnection();
         }
     }
 }

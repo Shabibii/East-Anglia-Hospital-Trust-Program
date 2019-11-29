@@ -53,11 +53,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.module4ModuleType = new System.Windows.Forms.ComboBox();
             this.module3ModuleType = new System.Windows.Forms.ComboBox();
             this.module2ModuleType = new System.Windows.Forms.ComboBox();
             this.module1ModuleType = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,15 +85,6 @@
             this.nameLabel.TabIndex = 22;
             this.nameLabel.Text = "Name:";
             // 
-            // module1ModuleType
-            // 
-            this.module1ModuleType.Location = new System.Drawing.Point(259, 46);
-            this.module1ModuleType.Margin = new System.Windows.Forms.Padding(2);
-            this.module1ModuleType.Name = "module1ModuleType";
-            this.module1ModuleType.Size = new System.Drawing.Size(98, 23);
-            this.module1ModuleType.TabIndex = 24;
-            this.module1ModuleType.Text = "2";
-            // 
             // module1CurrentReading
             // 
             this.module1CurrentReading.Location = new System.Drawing.Point(259, 82);
@@ -89,7 +93,7 @@
             this.module1CurrentReading.ReadOnly = true;
             this.module1CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module1CurrentReading.TabIndex = 25;
-            this.module1CurrentReading.Text = "3";
+            this.module1CurrentReading.Text = "N/A";
             this.module1CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module1Max
@@ -100,7 +104,7 @@
             this.module1Max.ReadOnly = true;
             this.module1Max.Size = new System.Drawing.Size(98, 20);
             this.module1Max.TabIndex = 26;
-            this.module1Max.Text = "4";
+            this.module1Max.Text = "N/A";
             this.module1Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module1Min
@@ -111,17 +115,8 @@
             this.module1Min.ReadOnly = true;
             this.module1Min.Size = new System.Drawing.Size(98, 20);
             this.module1Min.TabIndex = 27;
-            this.module1Min.Text = "5";
+            this.module1Min.Text = "N/A";
             this.module1Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // module2ModuleType
-            // 
-            this.module2ModuleType.Location = new System.Drawing.Point(561, 46);
-            this.module2ModuleType.Margin = new System.Windows.Forms.Padding(2);
-            this.module2ModuleType.Name = "module2ModuleType";
-            this.module2ModuleType.Size = new System.Drawing.Size(98, 23);
-            this.module2ModuleType.TabIndex = 29;
-            this.module2ModuleType.Text = "7";
             // 
             // module2CurrentReading
             // 
@@ -131,7 +126,7 @@
             this.module2CurrentReading.ReadOnly = true;
             this.module2CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module2CurrentReading.TabIndex = 30;
-            this.module2CurrentReading.Text = "8";
+            this.module2CurrentReading.Text = "N/A";
             this.module2CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module2Max
@@ -142,7 +137,7 @@
             this.module2Max.ReadOnly = true;
             this.module2Max.Size = new System.Drawing.Size(98, 20);
             this.module2Max.TabIndex = 31;
-            this.module2Max.Text = "9";
+            this.module2Max.Text = "N/A";
             this.module2Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module2Min
@@ -153,16 +148,8 @@
             this.module2Min.ReadOnly = true;
             this.module2Min.Size = new System.Drawing.Size(98, 20);
             this.module2Min.TabIndex = 32;
-            this.module2Min.Text = "10";
+            this.module2Min.Text = "N/A";
             this.module2Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // module3ModuleType
-            // 
-            this.module3ModuleType.Location = new System.Drawing.Point(259, 283);
-            this.module3ModuleType.Margin = new System.Windows.Forms.Padding(2);
-            this.module3ModuleType.Name = "module3ModuleType";this.module3ModuleType.Size = new System.Drawing.Size(98, 23);
-            this.module3ModuleType.TabIndex = 34;
-            this.module3ModuleType.Text = "12"; this.module3ModuleType.TextChanged += new System.EventHandler(this.TextBox12_TextChanged);
             // 
             // module3CurrentReading
             // 
@@ -172,7 +159,7 @@
             this.module3CurrentReading.ReadOnly = true;
             this.module3CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module3CurrentReading.TabIndex = 35;
-            this.module3CurrentReading.Text = "13";
+            this.module3CurrentReading.Text = "N/A";
             this.module3CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module3Max
@@ -183,7 +170,7 @@
             this.module3Max.ReadOnly = true;
             this.module3Max.Size = new System.Drawing.Size(98, 20);
             this.module3Max.TabIndex = 36;
-            this.module3Max.Text = "14";
+            this.module3Max.Text = "N/A";
             this.module3Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module3Min
@@ -194,17 +181,8 @@
             this.module3Min.ReadOnly = true;
             this.module3Min.Size = new System.Drawing.Size(98, 20);
             this.module3Min.TabIndex = 37;
-            this.module3Min.Text = "15";
+            this.module3Min.Text = "N/A";
             this.module3Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // module4ModuleType
-            // 
-            this.module4ModuleType.Location = new System.Drawing.Point(561, 283);
-            this.module4ModuleType.Margin = new System.Windows.Forms.Padding(2);
-            this.module4ModuleType.Name = "module4ModuleType";
-            this.module4ModuleType.Size = new System.Drawing.Size(98, 23);
-            this.module4ModuleType.TabIndex = 39;
-            this.module4ModuleType.Text = "17";
             // 
             // module4CurrentReading
             // 
@@ -214,7 +192,7 @@
             this.module4CurrentReading.ReadOnly = true;
             this.module4CurrentReading.Size = new System.Drawing.Size(98, 20);
             this.module4CurrentReading.TabIndex = 40;
-            this.module4CurrentReading.Text = "18";
+            this.module4CurrentReading.Text = "N/A";
             this.module4CurrentReading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module4Max
@@ -225,7 +203,7 @@
             this.module4Max.ReadOnly = true;
             this.module4Max.Size = new System.Drawing.Size(98, 20);
             this.module4Max.TabIndex = 41;
-            this.module4Max.Text = "19";
+            this.module4Max.Text = "N/A";
             this.module4Max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // module4Min
@@ -236,7 +214,7 @@
             this.module4Min.ReadOnly = true;
             this.module4Min.Size = new System.Drawing.Size(98, 20);
             this.module4Min.TabIndex = 42;
-            this.module4Min.Text = "20";
+            this.module4Min.Text = "N/A";
             this.module4Min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button3
@@ -360,6 +338,18 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.module4ModuleType);
             this.panel1.Controls.Add(this.module3ModuleType);
             this.panel1.Controls.Add(this.module2ModuleType);
@@ -393,37 +383,166 @@
             this.panel1.Size = new System.Drawing.Size(674, 474);
             this.panel1.TabIndex = 54;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(528, 391);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 14);
+            this.label15.TabIndex = 69;
+            this.label15.Text = "Min:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(526, 355);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(31, 14);
+            this.label16.TabIndex = 68;
+            this.label16.Text = "Max:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(512, 321);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(45, 14);
+            this.label17.TabIndex = 67;
+            this.label17.Text = "Current:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(528, 155);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(29, 14);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Min:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(526, 119);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 14);
+            this.label13.TabIndex = 65;
+            this.label13.Text = "Max:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(512, 85);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 14);
+            this.label14.TabIndex = 64;
+            this.label14.Text = "Current:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(226, 391);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 14);
+            this.label4.TabIndex = 63;
+            this.label4.Text = "Min:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(224, 355);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 14);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Max:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(210, 321);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 14);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "Current:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(226, 155);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 14);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "Min:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(224, 119);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 14);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Max:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(210, 85);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 14);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Current:";
+            // 
             // module4ModuleType
             // 
             this.module4ModuleType.FormattingEnabled = true;
             this.module4ModuleType.Location = new System.Drawing.Point(561, 283);
+            this.module4ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module4ModuleType.Name = "module4ModuleType";
             this.module4ModuleType.Size = new System.Drawing.Size(98, 22);
             this.module4ModuleType.TabIndex = 57;
+            this.module4ModuleType.Text = "N/A";
             // 
             // module3ModuleType
             // 
             this.module3ModuleType.FormattingEnabled = true;
             this.module3ModuleType.Location = new System.Drawing.Point(259, 283);
+            this.module3ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module3ModuleType.Name = "module3ModuleType";
             this.module3ModuleType.Size = new System.Drawing.Size(98, 22);
             this.module3ModuleType.TabIndex = 56;
+            this.module3ModuleType.Text = "N/A";
+            this.module3ModuleType.TextChanged += new System.EventHandler(this.TextBox12_TextChanged);
             // 
             // module2ModuleType
             // 
             this.module2ModuleType.FormattingEnabled = true;
             this.module2ModuleType.Location = new System.Drawing.Point(561, 46);
+            this.module2ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module2ModuleType.Name = "module2ModuleType";
             this.module2ModuleType.Size = new System.Drawing.Size(98, 22);
             this.module2ModuleType.TabIndex = 55;
+            this.module2ModuleType.Text = "N/A";
             // 
             // module1ModuleType
             // 
             this.module1ModuleType.FormattingEnabled = true;
             this.module1ModuleType.Location = new System.Drawing.Point(259, 46);
+            this.module1ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module1ModuleType.Name = "module1ModuleType";
             this.module1ModuleType.Size = new System.Drawing.Size(98, 22);
             this.module1ModuleType.TabIndex = 54;
+            this.module1ModuleType.Text = "N/A";
             // 
             // label10
             // 
@@ -436,11 +555,26 @@
             this.label10.TabIndex = 55;
             this.label10.Text = "Bedside X";
             // 
+            // saveButton
+            // 
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveButton.Location = new System.Drawing.Point(454, 536);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(90, 25);
+            this.saveButton.TabIndex = 56;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Visible = false;
+            // 
             // PatientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -485,5 +619,18 @@
         private System.Windows.Forms.ComboBox module3ModuleType;
         private System.Windows.Forms.ComboBox module2ModuleType;
         private System.Windows.Forms.ComboBox module1ModuleType;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
