@@ -61,6 +61,7 @@ namespace Software_Engineering_Assignment.Pages
                 module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
                 module1Max.Text = currentPatient.Module1.MaxValue.ToString();
                 module1Min.Text = currentPatient.Module1.MinValue.ToString();
+                module1Unit.Text = currentPatient.Module1.ModuleUnit;
                 module1ModuleType.SelectedIndex = (int)currentPatient.Module1.currentModule;
             }
 
@@ -69,6 +70,7 @@ namespace Software_Engineering_Assignment.Pages
                 module2CurrentReading.Text = currentPatient.Module2.CurrentValue.ToString();
                 module2Max.Text = currentPatient.Module2.MaxValue.ToString();
                 module2Min.Text = currentPatient.Module2.MinValue.ToString();
+                module2Unit.Text = currentPatient.Module2.ModuleUnit;
                 module2ModuleType.SelectedIndex = (int)currentPatient.Module2.currentModule;
             }
 
@@ -77,6 +79,7 @@ namespace Software_Engineering_Assignment.Pages
                 module3CurrentReading.Text = currentPatient.Module3.CurrentValue.ToString();
                 module3Max.Text = currentPatient.Module3.MaxValue.ToString();
                 module3Min.Text = currentPatient.Module3.MinValue.ToString();
+                module3Unit.Text = currentPatient.Module3.ModuleUnit;
                 module3ModuleType.SelectedIndex = (int)currentPatient.Module3.currentModule;
             }
 
@@ -85,6 +88,7 @@ namespace Software_Engineering_Assignment.Pages
                 module4CurrentReading.Text = currentPatient.Module4.CurrentValue.ToString();
                 module4Max.Text = currentPatient.Module4.MaxValue.ToString();
                 module4Min.Text = currentPatient.Module4.MinValue.ToString();
+                module4Unit.Text = currentPatient.Module4.ModuleUnit;
                 module4ModuleType.SelectedIndex = (int)currentPatient.Module4.currentModule;
             }
 
@@ -96,18 +100,22 @@ namespace Software_Engineering_Assignment.Pages
 
         private void LockInputControls(bool doLock)
         {
+            module1ModuleType.Enabled = !doLock;
             module1CurrentReading.ReadOnly = doLock;
             module1Max.ReadOnly = doLock;
             module1Min.ReadOnly = doLock;
 
+            module2ModuleType.Enabled = !doLock;
             module2CurrentReading.ReadOnly = doLock;
             module2Max.ReadOnly = doLock;
             module2Min.ReadOnly = doLock;
 
+            module3ModuleType.Enabled = !doLock;
             module3CurrentReading.ReadOnly = doLock;
             module3Max.ReadOnly = doLock;
             module3Min.ReadOnly = doLock;
 
+            module4ModuleType.Enabled = !doLock;
             module4CurrentReading.ReadOnly = doLock;
             module4Max.ReadOnly = doLock;
             module4Min.ReadOnly = doLock;
@@ -152,30 +160,35 @@ namespace Software_Engineering_Assignment.Pages
             LockInputControls(true);
 
             //Register module changes
-            currentPatient.Module1.currentModule = Module.GetModuleFromString(module1CurrentReading.Text);
+            currentPatient.Module1.currentModule = Module.GetModuleFromString(module1ModuleType.Text);
             currentPatient.Module1.CurrentValue = decimal.Parse(module1CurrentReading.Text);
-            currentPatient.Module1.MaxValue = decimal.Parse(module1CurrentReading.Text);
-            currentPatient.Module1.MinValue = decimal.Parse(module1CurrentReading.Text);
+            currentPatient.Module1.MaxValue = decimal.Parse(module1Max.Text);
+            currentPatient.Module1.MinValue = decimal.Parse(module1Min.Text);
 
-            currentPatient.Module2.currentModule = Module.GetModuleFromString(module2CurrentReading.Text);
+            currentPatient.Module2.currentModule = Module.GetModuleFromString(module2ModuleType.Text);
             currentPatient.Module2.CurrentValue = decimal.Parse(module2CurrentReading.Text);
-            currentPatient.Module2.MaxValue = decimal.Parse(module2CurrentReading.Text);
-            currentPatient.Module2.MinValue = decimal.Parse(module2CurrentReading.Text);
+            currentPatient.Module2.MaxValue = decimal.Parse(module2Max.Text);
+            currentPatient.Module2.MinValue = decimal.Parse(module2Min.Text);
 
-            currentPatient.Module3.currentModule = Module.GetModuleFromString(module3CurrentReading.Text);
+            currentPatient.Module3.currentModule = Module.GetModuleFromString(module3ModuleType.Text);
             currentPatient.Module3.CurrentValue = decimal.Parse(module3CurrentReading.Text);
-            currentPatient.Module3.MaxValue = decimal.Parse(module3CurrentReading.Text);
-            currentPatient.Module3.MinValue = decimal.Parse(module3CurrentReading.Text);
+            currentPatient.Module3.MaxValue = decimal.Parse(module3Max.Text);
+            currentPatient.Module3.MinValue = decimal.Parse(module3Min.Text);
 
-            currentPatient.Module4.currentModule = Module.GetModuleFromString(module4CurrentReading.Text);
+            currentPatient.Module4.currentModule = Module.GetModuleFromString(module4ModuleType.Text);
             currentPatient.Module4.CurrentValue = decimal.Parse(module4CurrentReading.Text);
-            currentPatient.Module4.MaxValue = decimal.Parse(module4CurrentReading.Text);
-            currentPatient.Module4.MinValue = decimal.Parse(module4CurrentReading.Text);
+            currentPatient.Module4.MaxValue = decimal.Parse(module4Max.Text);
+            currentPatient.Module4.MinValue = decimal.Parse(module4Min.Text);
 
             DatabaseConnector.Instance.UpdateModule(currentPatient.Module1);
             DatabaseConnector.Instance.UpdateModule(currentPatient.Module2);
             DatabaseConnector.Instance.UpdateModule(currentPatient.Module3);
             DatabaseConnector.Instance.UpdateModule(currentPatient.Module4);
+
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

@@ -396,7 +396,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.Parameters.AddWithValue("@m3", $"{module.MaxValue}");
             sqlCommand.Parameters.AddWithValue("@m4", $"{module.MinValue}");
             sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
-            //sqlCommand.ExecuteNonQuery();
+            sqlCommand.ExecuteNonQuery();
             CloseConnection();
         }
     }

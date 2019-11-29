@@ -71,6 +71,10 @@
             this.module1ModuleType = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.module1Unit = new System.Windows.Forms.Label();
+            this.module3Unit = new System.Windows.Forms.Label();
+            this.module2Unit = new System.Windows.Forms.Label();
+            this.module4Unit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +124,7 @@
             // 
             // module2CurrentReading
             // 
-            this.module2CurrentReading.Location = new System.Drawing.Point(561, 82);
+            this.module2CurrentReading.Location = new System.Drawing.Point(590, 82);
             this.module2CurrentReading.Margin = new System.Windows.Forms.Padding(2);
             this.module2CurrentReading.Name = "module2CurrentReading";
             this.module2CurrentReading.ReadOnly = true;
@@ -131,7 +135,7 @@
             // 
             // module2Max
             // 
-            this.module2Max.Location = new System.Drawing.Point(561, 116);
+            this.module2Max.Location = new System.Drawing.Point(590, 116);
             this.module2Max.Margin = new System.Windows.Forms.Padding(2);
             this.module2Max.Name = "module2Max";
             this.module2Max.ReadOnly = true;
@@ -142,7 +146,7 @@
             // 
             // module2Min
             // 
-            this.module2Min.Location = new System.Drawing.Point(561, 152);
+            this.module2Min.Location = new System.Drawing.Point(590, 152);
             this.module2Min.Margin = new System.Windows.Forms.Padding(2);
             this.module2Min.Name = "module2Min";
             this.module2Min.ReadOnly = true;
@@ -186,7 +190,7 @@
             // 
             // module4CurrentReading
             // 
-            this.module4CurrentReading.Location = new System.Drawing.Point(561, 318);
+            this.module4CurrentReading.Location = new System.Drawing.Point(590, 318);
             this.module4CurrentReading.Margin = new System.Windows.Forms.Padding(2);
             this.module4CurrentReading.Name = "module4CurrentReading";
             this.module4CurrentReading.ReadOnly = true;
@@ -197,7 +201,7 @@
             // 
             // module4Max
             // 
-            this.module4Max.Location = new System.Drawing.Point(561, 353);
+            this.module4Max.Location = new System.Drawing.Point(590, 353);
             this.module4Max.Margin = new System.Windows.Forms.Padding(2);
             this.module4Max.Name = "module4Max";
             this.module4Max.ReadOnly = true;
@@ -208,7 +212,7 @@
             // 
             // module4Min
             // 
-            this.module4Min.Location = new System.Drawing.Point(561, 388);
+            this.module4Min.Location = new System.Drawing.Point(590, 388);
             this.module4Min.Margin = new System.Windows.Forms.Padding(2);
             this.module4Min.Name = "module4Min";
             this.module4Min.ReadOnly = true;
@@ -223,7 +227,7 @@
             this.button3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::Software_Engineering_Assignment.Properties.Resources.icons8_lock_1003;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(470, 443);
+            this.button3.Location = new System.Drawing.Point(545, 442);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 25);
@@ -247,7 +251,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(579, 443);
+            this.button1.Location = new System.Drawing.Point(654, 442);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 25);
@@ -308,7 +312,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(590, 11);
+            this.label7.Location = new System.Drawing.Point(619, 11);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 14);
@@ -328,7 +332,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(590, 247);
+            this.label9.Location = new System.Drawing.Point(619, 247);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 14);
@@ -338,6 +342,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.module4Unit);
+            this.panel1.Controls.Add(this.module2Unit);
+            this.panel1.Controls.Add(this.module3Unit);
+            this.panel1.Controls.Add(this.module1Unit);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label17);
@@ -378,15 +386,16 @@
             this.panel1.Controls.Add(this.module1Max);
             this.panel1.Controls.Add(this.module1CurrentReading);
             this.panel1.Controls.Add(this.nameLabel);
-            this.panel1.Location = new System.Drawing.Point(143, 57);
+            this.panel1.Location = new System.Drawing.Point(127, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(674, 474);
+            this.panel1.Size = new System.Drawing.Size(758, 474);
             this.panel1.TabIndex = 54;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(528, 391);
+            this.label15.Location = new System.Drawing.Point(557, 391);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(29, 14);
@@ -396,7 +405,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(526, 355);
+            this.label16.Location = new System.Drawing.Point(555, 355);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(31, 14);
@@ -406,7 +415,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(512, 321);
+            this.label17.Location = new System.Drawing.Point(541, 321);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(45, 14);
@@ -416,7 +425,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(528, 155);
+            this.label12.Location = new System.Drawing.Point(557, 155);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 14);
@@ -426,7 +435,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(526, 119);
+            this.label13.Location = new System.Drawing.Point(555, 119);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(31, 14);
@@ -436,7 +445,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(512, 85);
+            this.label14.Location = new System.Drawing.Point(541, 85);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(45, 14);
@@ -505,8 +514,9 @@
             // 
             // module4ModuleType
             // 
+            this.module4ModuleType.Enabled = false;
             this.module4ModuleType.FormattingEnabled = true;
-            this.module4ModuleType.Location = new System.Drawing.Point(561, 283);
+            this.module4ModuleType.Location = new System.Drawing.Point(590, 283);
             this.module4ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module4ModuleType.Name = "module4ModuleType";
             this.module4ModuleType.Size = new System.Drawing.Size(98, 22);
@@ -515,6 +525,7 @@
             // 
             // module3ModuleType
             // 
+            this.module3ModuleType.Enabled = false;
             this.module3ModuleType.FormattingEnabled = true;
             this.module3ModuleType.Location = new System.Drawing.Point(259, 283);
             this.module3ModuleType.Margin = new System.Windows.Forms.Padding(2);
@@ -526,8 +537,9 @@
             // 
             // module2ModuleType
             // 
+            this.module2ModuleType.Enabled = false;
             this.module2ModuleType.FormattingEnabled = true;
-            this.module2ModuleType.Location = new System.Drawing.Point(561, 46);
+            this.module2ModuleType.Location = new System.Drawing.Point(590, 46);
             this.module2ModuleType.Margin = new System.Windows.Forms.Padding(2);
             this.module2ModuleType.Name = "module2ModuleType";
             this.module2ModuleType.Size = new System.Drawing.Size(98, 22);
@@ -536,6 +548,7 @@
             // 
             // module1ModuleType
             // 
+            this.module1ModuleType.Enabled = false;
             this.module1ModuleType.FormattingEnabled = true;
             this.module1ModuleType.Location = new System.Drawing.Point(259, 46);
             this.module1ModuleType.Margin = new System.Windows.Forms.Padding(2);
@@ -560,7 +573,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveButton.Location = new System.Drawing.Point(454, 536);
+            this.saveButton.Location = new System.Drawing.Point(457, 547);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(90, 25);
@@ -568,6 +581,47 @@
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Visible = false;
+            this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // module1Unit
+            // 
+            this.module1Unit.AutoSize = true;
+            this.module1Unit.Location = new System.Drawing.Point(361, 85);
+            this.module1Unit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.module1Unit.Name = "module1Unit";
+            this.module1Unit.Size = new System.Drawing.Size(12, 14);
+            this.module1Unit.TabIndex = 70;
+            this.module1Unit.Text = "^";
+            // 
+            // module3Unit
+            // 
+            this.module3Unit.AutoSize = true;
+            this.module3Unit.Location = new System.Drawing.Point(361, 321);
+            this.module3Unit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.module3Unit.Name = "module3Unit";
+            this.module3Unit.Size = new System.Drawing.Size(12, 14);
+            this.module3Unit.TabIndex = 71;
+            this.module3Unit.Text = "^";
+            // 
+            // module2Unit
+            // 
+            this.module2Unit.AutoSize = true;
+            this.module2Unit.Location = new System.Drawing.Point(692, 85);
+            this.module2Unit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.module2Unit.Name = "module2Unit";
+            this.module2Unit.Size = new System.Drawing.Size(12, 14);
+            this.module2Unit.TabIndex = 72;
+            this.module2Unit.Text = "^";
+            // 
+            // module4Unit
+            // 
+            this.module4Unit.AutoSize = true;
+            this.module4Unit.Location = new System.Drawing.Point(692, 321);
+            this.module4Unit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.module4Unit.Name = "module4Unit";
+            this.module4Unit.Size = new System.Drawing.Size(12, 14);
+            this.module4Unit.TabIndex = 73;
+            this.module4Unit.Text = "^";
             // 
             // PatientPage
             // 
@@ -632,5 +686,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label module4Unit;
+        private System.Windows.Forms.Label module2Unit;
+        private System.Windows.Forms.Label module3Unit;
+        private System.Windows.Forms.Label module1Unit;
     }
 }

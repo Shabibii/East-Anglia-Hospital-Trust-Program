@@ -8,7 +8,7 @@ namespace Software_Engineering_Assignment.Support_Classes
     {
         public int moduleID;
 
-        public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, None };
+        public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, BreathingRate, PulseRate, None };
 
         // current monitoring function on module
         public ModuleType currentModule = ModuleType.None;
@@ -51,6 +51,18 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             switch(currentModule)
             {
+                case ModuleType.PulseRate:
+                    ModuleUnit = "mm";
+                    MinValue = 70;
+                    MaxValue = 100;
+                    break;
+
+                case ModuleType.BreathingRate:
+                    ModuleUnit = "bpm"; //breaths per minute
+                    MinValue = 12;
+                    MaxValue = 25;
+                    break;
+
                 case ModuleType.BloodPressureModule:
                     ModuleUnit = "mm";
                     MinValue = 70;
@@ -58,7 +70,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                     break;
 
                 case ModuleType.HeartRateModule:
-                    ModuleUnit = "bpm";
+                    ModuleUnit = "bpm"; //beats per minute
                     MinValue = 70;
                     MaxValue = 100;
                     break;
@@ -104,6 +116,12 @@ namespace Software_Engineering_Assignment.Support_Classes
 
                 case ModuleType.BloodPressureModule:
                     return "Blood Pressure";
+
+                case ModuleType.BreathingRate:
+                    return "Breathing Rate";
+
+                case ModuleType.PulseRate:
+                    return "Pulse Pressure";
 
                 case ModuleType.None:
                 default:

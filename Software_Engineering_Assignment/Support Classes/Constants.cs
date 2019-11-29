@@ -83,13 +83,13 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string RegisterModule(int moduleID)
         {
-            return $"INSERT INTO Module (module_id, monitor_function, module_unit, module_max, module_min, module_current) VALUES ({moduleID}, '@m1', @m2, @m3, @m4, @m5);";
+            return $"INSERT INTO Module (module_id, monitor_function, module_unit, module_max, module_min, module_current) VALUES ({moduleID}, @m1, @m2, @m3, @m4, @m5);";
         }
 
         public static string UpdateModule(int moduleID)
         => $@"UPDATE Module
-                SET monitor_function = @m1, module_unit = @m2, module_unit = @m3, module_max = @m4, module_min = @m5, module_current = @m6
-                WHERE staff_Id = {moduleID}";
+                SET monitor_function = @m1, module_unit = @m2, module_max = @m3, module_min = @m4, module_current = @m5
+                WHERE module_Id = {moduleID}";
 
         //SELECT column1, column2, ...
         //FROM table_name;
