@@ -51,5 +51,13 @@
         readonly Patient patient6;
         readonly Patient patient7;
         readonly Patient patient8;
+
+        public Patient Patient
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

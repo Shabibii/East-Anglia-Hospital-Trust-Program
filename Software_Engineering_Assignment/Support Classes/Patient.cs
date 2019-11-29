@@ -36,6 +36,8 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
         }
 
+        public bool IsEmpty = false;
+
         public string FirstName { get; set; } = "Nobody";
         public string Surname { get; set; } = "Nobody";
 
@@ -76,7 +78,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Patient()
         {
-            
+            IsEmpty = true;
         }
 
         public Patient(string[] rawPatientDat)

@@ -26,12 +26,28 @@ namespace Software_Engineering_Assignment
             }
         }
 
+        internal DatabaseConnector DatabaseConnector
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Staff Validated_Staff
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Login() 
         {
             InitializeComponent();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
             ValidateLogin();
         }
@@ -76,7 +92,7 @@ namespace Software_Engineering_Assignment
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close(); //close form
         }
