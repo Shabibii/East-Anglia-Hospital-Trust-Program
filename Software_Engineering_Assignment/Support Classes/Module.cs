@@ -80,10 +80,10 @@ namespace Software_Engineering_Assignment.Support_Classes
         }
 
        
-        public Module(List<string> rawModuleData)
+        public Module(string[] rawModuleData)
         {
             moduleID = int.Parse(rawModuleData[0]);
-            currentModule = (ModuleType)int.Parse(rawModuleData[1]);
+            currentModule = GetModuleFromString(rawModuleData[1]);
             ModuleUnit = rawModuleData[2];
             MaxValue = decimal.Parse(rawModuleData[3]);
             MinValue = decimal.Parse(rawModuleData[4]);

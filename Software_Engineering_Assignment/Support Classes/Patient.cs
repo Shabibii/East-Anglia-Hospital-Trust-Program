@@ -79,7 +79,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             
         }
 
-        public Patient(List<string> rawPatientDat)
+        public Patient(string[] rawPatientDat)
         {
             patientId = rawPatientDat[0];
             FirstName = rawPatientDat[1];

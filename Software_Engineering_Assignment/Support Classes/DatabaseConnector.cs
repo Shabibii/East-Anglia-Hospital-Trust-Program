@@ -12,7 +12,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         private static DatabaseConnector instance;
         private SqlConnection sqlConnection;
         private SqlDataAdapter sqlDataAdapter;
-
+        private SqlCommand sqlCommand;
 
         public static string ConnectionString { get; private set; }
 
@@ -53,39 +53,24 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Patient GetPatient(int bayNumber, int bedNumber)
         {
-            try
-            {
-                OpenConnection(); //Open Connection
-                Patient patient;
+            OpenConnection(); //Open Connection
+            sqlCommand = new SqlCommand(Constants.GetPatient(bedNumber,bayNumber), sqlConnection);
 
-                using (DataSet dataSet = new DataSet())
+            string[] rawPatientData = new string[11];
+
+            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+            {
+                if (!dataReader.HasRows) return new Patient() { FirstName = "Empty", Surname = "Record", bedNumber = bedNumber }; //If query result is empty
+
+                if (dataReader.Read())
                 {
-                    sqlDataAdapter = new SqlDataAdapter(Constants.GetPatient(bedNumber,bayNumber), sqlConnection);
-                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
-
-                    List<string> rawPatientData = new List<string>();
-
-                    DataTable staffTable = dataSet.Tables[0];
-                    DataRow row = staffTable.Rows[0];
-
-                    foreach (DataColumn column in staffTable.Columns)
-                    {
-                        rawPatientData.Add(row[column].ToString());
-                    }
-
-                    patient = new Patient(rawPatientData);
+                    for (int i = 0; i < rawPatientData.Length; i++)
+                        rawPatientData[i] = dataReader[i].ToString();
                 }
-
-                CloseConnection(); //Close Connection
-
-                return patient;
-
             }
-            catch (Exception)
-            {
-                return new Patient() { FirstName = "Empty", Surname = "Record", bedNumber = bedNumber };
 
-            }
+            CloseConnection();
+            return new Patient(rawPatientData);
         }
 
         public List<Staff> GetAllStaff()
@@ -231,7 +216,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             else
             {
                 OpenConnection();
-                SqlCommand sqlCommand = new SqlCommand(Constants.RegisterStaff(staffId), sqlConnection);
+                sqlCommand = new SqlCommand(Constants.RegisterStaff(staffId), sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@date", $"{date}");
                 sqlCommand.ExecuteNonQuery();
                 CloseConnection();
@@ -248,7 +233,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             else
             {
                 OpenConnection();
-                SqlCommand sqlCommand = new SqlCommand(Constants.DeregisterStaff(staffId), sqlConnection);
+                sqlCommand = new SqlCommand(Constants.DeregisterStaff(staffId), sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@date", $"{date}");
                 sqlCommand.ExecuteNonQuery();
                 CloseConnection();
@@ -259,7 +244,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         public void UpdateStaffschedule(int staffId, string date, bool deregistered)
         {
             OpenConnection();
-            SqlCommand sqlCommand = new SqlCommand(Constants.updateStaffRegister(staffId), sqlConnection);
+            sqlCommand = new SqlCommand(Constants.updateStaffRegister(staffId), sqlConnection);
             sqlCommand.Parameters.AddWithValue("@date", $"{date}");
             sqlCommand.Parameters.AddWithValue("@deregistered", $"{deregistered}");
             sqlCommand.ExecuteNonQuery();
@@ -345,86 +330,52 @@ namespace Software_Engineering_Assignment.Support_Classes
         public Module GetModule(int moduleID)
         {
             OpenConnection(); //Open Connection
-            try
-            {
-                Module module = null;
+            sqlCommand = new SqlCommand(Constants.GetModules(moduleID), sqlConnection);
 
-                using (DataSet dataSet = new DataSet())
+            string[] rawModuleData = new string[6];
+
+            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+            {
+                if (!dataReader.HasRows) return null; //If query result is empty
+
+                if (dataReader.Read())
                 {
-                    sqlDataAdapter = new SqlDataAdapter(Constants.GetModules(moduleID), sqlConnection);
-                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
-
-                    List<string> rawModuleData = new List<string>();
-
-                    DataTable moduleTable = dataSet.Tables[0];
-                    if (moduleTable.Rows.Count < 1) goto endOrReturn;
-                    DataRow row = moduleTable.Rows[0];
-
-                    foreach (DataColumn column in moduleTable.Columns)
-                    {
-                        rawModuleData.Add(row[column].ToString());
-                    }
-
-                    module = new Module(rawModuleData);
+                    for (int i = 0; i < rawModuleData.Length; i++)
+                        rawModuleData[i] = dataReader[i].ToString();
                 }
-
-                endOrReturn:;
-                CloseConnection(); //Close Connection
-
-               
-                return module;
             }
-            catch (Exception)
-            {
-                CloseConnection(); //Close Connection
-                return null;
-            }
+
+            CloseConnection();
+            return new Module(rawModuleData);
         }
 
         public Bedside GetBedside(int bayNumber, int bedNumber)
         {
             OpenConnection(); //Open Connection
-            try
-            {
-                Bedside bedside = null;
+            sqlCommand = new SqlCommand(Constants.GetBedside(bedNumber, bayNumber), sqlConnection);
 
-                using (DataSet dataSet = new DataSet())
+            string[] rawBedsideData = new string[6];
+
+            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+            {
+                if (!dataReader.HasRows) return null; //If query result is empty
+
+                if(dataReader.Read())
                 {
-                    sqlDataAdapter = new SqlDataAdapter(Constants.GetBedside(bedNumber, bayNumber), sqlConnection);
-                    sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
-
-                    List<string> rawBedsideData = new List<string>();
-
-                    DataTable bedsideTable = dataSet.Tables[0];
-                    if (bedsideTable.Rows.Count < 1) goto endOrReturn;
-                    DataRow row = bedsideTable.Rows[0];
-
-                    foreach (DataColumn column in bedsideTable.Columns)
-                    {
-                        rawBedsideData.Add(row[column].ToString());
-                    }
-
-                    bedside = new Bedside(rawBedsideData);
+                    for (int i = 0; i < rawBedsideData.Length; i++)
+                        rawBedsideData[i] = dataReader[i].ToString();
                 }
-
-                endOrReturn:;
-                CloseConnection(); //Close Connection
-
-
-                return bedside;
             }
-            catch (Exception)
-            {
-                CloseConnection(); //Close Connection
-                return null;
-            }
+
+            CloseConnection();
+            return new Bedside(rawBedsideData);
         }
 
 
         public void RegisterModule(int moduleID, Module module)
         {
             OpenConnection();
-            SqlCommand sqlCommand = new SqlCommand(Constants.RegisterModule(moduleID), sqlConnection);
+            sqlCommand = new SqlCommand(Constants.RegisterModule(moduleID), sqlConnection);
             sqlCommand.Parameters.AddWithValue("@m1", $"{module}");
             sqlCommand.Parameters.AddWithValue("@m2", $"{module.ModuleUnit}");
             sqlCommand.Parameters.AddWithValue("@m3", $"{module.MaxValue}");
@@ -439,13 +390,13 @@ namespace Software_Engineering_Assignment.Support_Classes
         public void UpdateModule(Module module)
         {
             OpenConnection();
-            SqlCommand sqlCommand = new SqlCommand(Constants.UpdateModule(module.moduleID), sqlConnection);
+            sqlCommand = new SqlCommand(Constants.UpdateModule(module.moduleID), sqlConnection);
             sqlCommand.Parameters.AddWithValue("@m1", $"{module}");
             sqlCommand.Parameters.AddWithValue("@m2", $"{module.ModuleUnit}");
             sqlCommand.Parameters.AddWithValue("@m3", $"{module.MaxValue}");
             sqlCommand.Parameters.AddWithValue("@m4", $"{module.MinValue}");
             sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
-            sqlCommand.ExecuteNonQuery();
+            //sqlCommand.ExecuteNonQuery();
             CloseConnection();
         }
     }
