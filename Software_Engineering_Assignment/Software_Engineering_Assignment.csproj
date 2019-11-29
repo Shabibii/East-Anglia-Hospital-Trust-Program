@@ -118,11 +118,11 @@
     <Compile Include="Support Classes\EventLog.cs" />
     <Compile Include="Support Classes\Staff.cs" />
     <Compile Include="Support Classes\DatabaseConnector.cs" />
-    <Compile Include="Pages\MainPage.cs">
+    <Compile Include="Pages\CentralStation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\MainPage.Designer.cs">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <Compile Include="Pages\CentralStation.Designer.cs">
+      <DependentUpon>CentralStation.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -152,11 +152,11 @@
     <Compile Include="Pages\ManagementPage.Designer.cs">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PatientPage.cs">
+    <Compile Include="Pages\Bedside.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\PatientPage.Designer.cs">
-      <DependentUpon>PatientPage.cs</DependentUpon>
+    <Compile Include="Pages\Bedside.Designer.cs">
+      <DependentUpon>Bedside.cs</DependentUpon>
     </Compile>
     <Compile Include="Support Classes\StaffListViewItem.cs" />
     <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
@@ -180,8 +180,8 @@
     <EmbeddedResource Include="Pages\BayPage.resx">
       <DependentUpon>BayPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MainPage.resx">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\CentralStation.resx">
+      <DependentUpon>CentralStation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -208,9 +208,12 @@
     <EmbeddedResource Include="Pages\ManagementPage.resx">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PatientPage.resx">
-      <DependentUpon>PatientPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Bedside.resx">
+      <DependentUpon>Bedside.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CentralStation Relationships.cd" />
+    <None Include="Main Relationships.cd" />
+    <None Include="Login Relationships.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

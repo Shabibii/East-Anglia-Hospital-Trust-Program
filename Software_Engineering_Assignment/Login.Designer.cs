@@ -28,52 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.emergencyLabel = new System.Windows.Forms.Label();
+            this.energencyLog = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.staffIdTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.staffIdLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.showPassword = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // emergencyLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Emergencies:";
+            this.emergencyLabel.AutoSize = true;
+            this.emergencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emergencyLabel.Location = new System.Drawing.Point(3, 9);
+            this.emergencyLabel.Name = "emergencyLabel";
+            this.emergencyLabel.Size = new System.Drawing.Size(83, 13);
+            this.emergencyLabel.TabIndex = 5;
+            this.emergencyLabel.Text = "Emergencies:";
             // 
-            // textBox1
+            // energencyLog
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.energencyLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(3, 25);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(313, 303);
-            this.textBox1.TabIndex = 4;
+            this.energencyLog.BackColor = System.Drawing.Color.White;
+            this.energencyLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.energencyLog.Location = new System.Drawing.Point(3, 25);
+            this.energencyLog.Multiline = true;
+            this.energencyLog.Name = "energencyLog";
+            this.energencyLog.ReadOnly = true;
+            this.energencyLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.energencyLog.Size = new System.Drawing.Size(313, 303);
+            this.energencyLog.TabIndex = 4;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.emergencyLabel);
+            this.panel1.Controls.Add(this.energencyLog);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -119,47 +119,47 @@
             this.passwordTextBox.Leave += new System.EventHandler(this.LoginField_Leave);
             this.passwordTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginField_MouseDown);
             // 
-            // label3
+            // staffIdLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(58, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Staff ID:";
+            this.staffIdLabel.AutoSize = true;
+            this.staffIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffIdLabel.Location = new System.Drawing.Point(58, 120);
+            this.staffIdLabel.Name = "staffIdLabel";
+            this.staffIdLabel.Size = new System.Drawing.Size(55, 13);
+            this.staffIdLabel.TabIndex = 10;
+            this.staffIdLabel.Text = "Staff ID:";
             // 
-            // label4
+            // passwordLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(58, 169);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Password:";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.Location = new System.Drawing.Point(58, 169);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(65, 13);
+            this.passwordLabel.TabIndex = 11;
+            this.passwordLabel.Text = "Password:";
             // 
-            // button2
+            // loginButton
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(156, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 43);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Login";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.loginButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loginButton.Location = new System.Drawing.Point(156, 225);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(64, 43);
+            this.loginButton.TabIndex = 12;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.showPassword);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.closeButton);
+            this.panel2.Controls.Add(this.loginButton);
+            this.panel2.Controls.Add(this.passwordLabel);
+            this.panel2.Controls.Add(this.staffIdLabel);
             this.panel2.Controls.Add(this.passwordTextBox);
             this.panel2.Controls.Add(this.staffIdTextBox);
             this.panel2.Controls.Add(this.label1);
@@ -179,19 +179,19 @@
             this.showPassword.UseVisualStyleBackColor = true;
             this.showPassword.CheckedChanged += new System.EventHandler(this.ShowPassword_CheckedChanged);
             // 
-            // button1
+            // closeButton
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(316, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 34);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.closeButton.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeButton.Location = new System.Drawing.Point(316, 3);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(37, 34);
+            this.closeButton.TabIndex = 13;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // Login
             // 
@@ -220,17 +220,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label emergencyLabel;
+        private System.Windows.Forms.TextBox energencyLog;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox staffIdTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label staffIdLabel;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.CheckBox showPassword;
     }
 }

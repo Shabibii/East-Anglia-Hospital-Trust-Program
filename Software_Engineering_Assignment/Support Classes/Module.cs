@@ -8,7 +8,7 @@ namespace Software_Engineering_Assignment.Support_Classes
     {
         public int moduleID;
 
-        public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, None };
+        public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, BreathingRate, PulseRate, None };
 
         // current monitoring function on module
         public ModuleType currentModule = ModuleType.None;
@@ -16,10 +16,10 @@ namespace Software_Engineering_Assignment.Support_Classes
         public string ModuleUnit = "^";
 
         // get/set values for module readings
-        public float MinValue { get; set; } = 0;
-        public float MaxValue { get; set; } = 60;
+        public decimal MinValue { get; set; } = 0;
+        public decimal MaxValue { get; set; } = 60;
 
-        public float CurrentValue { get; set; } = 0;
+        public decimal CurrentValue { get; set; } = 0;
 
         public static string[] ModuleTypes()
         {
@@ -31,7 +31,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         }
 
 
-        public ModuleType GetModuleFromString(string moduleTypeStr)
+        public static ModuleType GetModuleFromString(string moduleTypeStr)
         {
             for (int i = 0; i <= (int)ModuleType.None; i++)
             {
@@ -51,6 +51,18 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             switch(currentModule)
             {
+                case ModuleType.PulseRate:
+                    ModuleUnit = "mm";
+                    MinValue = 70;
+                    MaxValue = 100;
+                    break;
+
+                case ModuleType.BreathingRate:
+                    ModuleUnit = "bpm"; //breaths per minute
+                    MinValue = 12;
+                    MaxValue = 25;
+                    break;
+
                 case ModuleType.BloodPressureModule:
                     ModuleUnit = "mm";
                     MinValue = 70;
@@ -58,7 +70,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                     break;
 
                 case ModuleType.HeartRateModule:
-                    ModuleUnit = "bpm";
+                    ModuleUnit = "bpm"; //beats per minute
                     MinValue = 70;
                     MaxValue = 100;
                     break;
@@ -80,14 +92,14 @@ namespace Software_Engineering_Assignment.Support_Classes
         }
 
        
-        public Module(List<string> rawModuleData)
+        public Module(string[] rawModuleData)
         {
             moduleID = int.Parse(rawModuleData[0]);
-            currentModule = (ModuleType)int.Parse(rawModuleData[1]);
+            currentModule = GetModuleFromString(rawModuleData[1]);
             ModuleUnit = rawModuleData[2];
-            MaxValue = float.Parse(rawModuleData[3]);
-            MinValue = float.Parse(rawModuleData[4]);
-            CurrentValue = float.Parse(rawModuleData[5]);
+            MaxValue = decimal.Parse(rawModuleData[3]);
+            MinValue = decimal.Parse(rawModuleData[4]);
+            CurrentValue = decimal.Parse(rawModuleData[5]);
         }
            
 
@@ -104,6 +116,12 @@ namespace Software_Engineering_Assignment.Support_Classes
 
                 case ModuleType.BloodPressureModule:
                     return "Blood Pressure";
+
+                case ModuleType.BreathingRate:
+                    return "Breathing Rate";
+
+                case ModuleType.PulseRate:
+                    return "Pulse Pressure";
 
                 case ModuleType.None:
                 default:

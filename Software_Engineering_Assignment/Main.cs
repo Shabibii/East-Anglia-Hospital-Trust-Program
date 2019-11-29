@@ -24,23 +24,21 @@ namespace Software_Engineering_Assignment
         public delegate void PageCall2(int bayNumber, int bedNumber);
         public PageCall0 BayPageCall = delegate { };
 
-        private MainPage mainPage;
+        private CentralStation mainPage;
         private BayPage bayPage1;
         private BayPage bayPage2;
         private ManagementPage managementPage;
         private RegistrationPage registerationPage;
-        private PatientPage patientPage;
+        private Bedside patientPage;
 
         public Main()
         {
             InitializeComponent();
-            InitalizePages();
-            SetPage(0);
         }
 
         private void InitalizePages()
         {
-            mainPage = new MainPage(SetPatientPage)
+            mainPage = new CentralStation(SetPatientPage)
             {
                 BayPageCall = SetPageToBay,
                 ManagementPageCall = CallManagementPage,
@@ -51,7 +49,7 @@ namespace Software_Engineering_Assignment
             bayPage2 = new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage };
             managementPage = new ManagementPage() { pageCall0 = GoToMainpage };
             registerationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
-            patientPage = new PatientPage(GoToMainpage);
+            patientPage = new Bedside(GoToMainpage);
 
             pages.Add(0, mainPage);
             pages.Add(1, bayPage1);
@@ -72,7 +70,7 @@ namespace Software_Engineering_Assignment
         public void SetPatientPage(int bayNumber,int pageNumber)
         {
             //Set page to patient page
-            ((PatientPage)pages[5]).SetPatient(bayNumber, pageNumber);
+            ((Bedside)pages[5]).SetPatient(bayNumber, pageNumber);
             SetPage(5);
         }
 
@@ -123,5 +121,10 @@ namespace Software_Engineering_Assignment
             patientPage.Dispose();
         }
 
+        private void Main_Load(object sender, EventArgs e)
+        {
+            InitalizePages();
+            SetPage(0);
+        }
     }
 }
