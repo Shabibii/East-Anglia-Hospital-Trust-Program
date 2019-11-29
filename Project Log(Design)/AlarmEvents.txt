@@ -1,0 +1,7 @@
+Events:
+
+	Alarm triggered
+		- Add alarm full details managementpage
+		- Show alarm icon on Central Station
+		- Show alarm on BayPage, next to alarmedpatient
+		- Show wich model triggered the alarm on bedside 		page
