@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
@@ -23,25 +22,24 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public static string[] ModuleTypes()
         {
-            List<string> output = new List<string>();
-            for (int i = 0; i <= (int)ModuleType.None; i++)
-                output.Add(ToString((ModuleType)i));
+            string[] moduleTypes = new string[(int)ModuleType.None + 1];
 
-            return output.ToArray();
+            for (int i = 0; i <= (int)ModuleType.None; i++)
+                moduleTypes[i] = ToString((ModuleType)i);
+
+            return moduleTypes;
         }
 
 
         public static ModuleType GetModuleFromString(string moduleTypeStr)
         {
+            //Convert string to ModuleType enum
             for (int i = 0; i <= (int)ModuleType.None; i++)
             {
-
                 if(ToString((ModuleType)i) == moduleTypeStr)
-                {
                     return (ModuleType)i;
-                }
             }
-            return ModuleType.None;
+            return ModuleType.None; //Default value
         }
 
         public Module()
@@ -82,8 +80,9 @@ namespace Software_Engineering_Assignment.Support_Classes
                     break;
 
                 case ModuleType.None:
-
-                    break;
+                    MinValue = 0;
+                    MaxValue = 0;
+                    return;
 
                     
             }
@@ -101,31 +100,22 @@ namespace Software_Engineering_Assignment.Support_Classes
             MinValue = decimal.Parse(rawModuleData[4]);
             CurrentValue = decimal.Parse(rawModuleData[5]);
         }
-           
-
 
         private static string ToString(ModuleType moduleType)
         {
             switch (moduleType)
             {
-                case ModuleType.TempModule:
-                    return "Temperature";
+                case ModuleType.TempModule: return "Temperature";
 
-                case ModuleType.HeartRateModule:
-                    return "Heart Rate";
+                case ModuleType.HeartRateModule: return "Heart Rate";
 
-                case ModuleType.BloodPressureModule:
-                    return "Blood Pressure";
+                case ModuleType.BloodPressureModule: return "Blood Pressure";
 
-                case ModuleType.BreathingRate:
-                    return "Breathing Rate";
+                case ModuleType.BreathingRate: return "Breathing Rate";
 
-                case ModuleType.PulseRate:
-                    return "Pulse Pressure";
+                case ModuleType.PulseRate: return "Pulse Pressure";
 
-                case ModuleType.None:
-                default:
-                    return "N\\A";
+                case ModuleType.None: default: return "N\\A";
             }
         }
 

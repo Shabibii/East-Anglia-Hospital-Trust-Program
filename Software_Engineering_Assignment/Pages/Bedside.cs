@@ -148,7 +148,9 @@ namespace Software_Engineering_Assignment.Pages
                         saveButton.Visible = true;
                         LockInputControls(false);
                         MessageBox.Show("Controls have been unlocked for Data Change");
-                        //EventLog.LogStaffEvent(staff, $"Logged in to change {currentPatient.FullName} module data");
+                        //EventLog.LogStaffEvent(staff, );
+
+                        DatabaseConnector.Instance.LogEvent($"logged in to change {currentPatient.FullName} module data", "Staff", staff.StaffId);
                     }
                 }
             }

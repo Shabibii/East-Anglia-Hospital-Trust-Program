@@ -11,15 +11,15 @@ using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment.CustomControls
 {
-    public partial class doctorRegistrationFieldControl : UserControl
+    public partial class DoctorRegistrationFieldControl : UserControl
     {
         /// <summary>
         /// Get staff name + staff Id from database.
         /// Add in label doctorName & staffId.
         /// </summary>
         /// <param name="staff"></param>
-        Staff currentStaff;
-        public doctorRegistrationFieldControl(Staff staff)
+        private readonly Staff currentStaff;
+        public DoctorRegistrationFieldControl(Staff staff)
         {
             InitializeComponent();
             currentStaff = staff;
@@ -33,10 +33,11 @@ namespace Software_Engineering_Assignment.CustomControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void registerStaff(object sender, EventArgs e)
+        public void RegisterStaff(object sender, EventArgs e)
         {
             // Register staff   
             DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+            //DatabaseConnector.Instance.LogEvent($"{currentStaff.} Module data changed");
         }
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace Software_Engineering_Assignment.CustomControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void unregisterStaff(object sender, EventArgs e)
+        private void UnregisterStaff(object sender, EventArgs e)
         {
             // Deregister staff
             DatabaseConnector.Instance.UnregisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));

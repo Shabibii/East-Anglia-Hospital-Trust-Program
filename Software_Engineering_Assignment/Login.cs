@@ -17,6 +17,7 @@ namespace Software_Engineering_Assignment
 
         public Staff Staff
         {
+            //can not be used more than once
             get
             {
                 //Make null after use

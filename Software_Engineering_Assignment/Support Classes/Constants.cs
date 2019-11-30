@@ -20,6 +20,10 @@ namespace Software_Engineering_Assignment.Support_Classes
         }
 
         //These are sql queries that will be used regurally
+        public static string LogEvent(string description, string type, int id)
+      => $@"INSERT INTO 'Log/Activity' ({type}_id, activity_description)
+                    VALUES ({id}, {description}); '";
+
         public static string GetAllEventLogs(int bayNo)
         => $@"SELECT * FROM 'Log/Activity'";
 

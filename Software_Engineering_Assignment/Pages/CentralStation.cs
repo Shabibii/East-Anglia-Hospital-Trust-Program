@@ -17,6 +17,25 @@ namespace Software_Engineering_Assignment.Pages
         public Main.PageCall0 ManagementPageCall;
         public Main.PageCall0 RegisterationPageCall;
 
+        private int Login()
+        {
+            //Attempts Login
+            //Returns -1 if invalid
+            //0 or 1 (Staff type if login is valid)
+            using (Login login = new Login())
+            {
+                //If login button clicked on the login form
+                if (login.ShowDialog() == DialogResult.Yes)
+                {
+                    Staff staff = login.Staff;
+
+                    if (staff == null) return -1;
+                    else return staff.StaffType;
+                }
+            }
+            return -2;
+        }
+
         public CentralStation(Main.PageCall2 patientPageCall)
         {
             InitializeComponent();
@@ -27,93 +46,43 @@ namespace Software_Engineering_Assignment.Pages
             eventRegister.StartRealtimeDataDisplay();
         }
 
-        public BayPreviewControl BayPreviewControl
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public RegisterControl event_Register
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
+        
         public void InitializeBays(Main.PageCall2 patientPageCall)
         {
             bay1.SetBay(new Bay(1), patientPageCall);
             bay2.SetBay(new Bay(2), patientPageCall);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            dateTimeLabel.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
-        }
+        private void Timer_Tick(object sender, EventArgs e) 
+            => dateTimeLabel.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss"); //Display current time
 
         private void ManagementButton_Click(object sender, EventArgs e)
         {
-            using (Login login = new Login())
-            {
-                //If login button clicked on the login form
-                if (login.ShowDialog() == DialogResult.Yes)
-                {
-                    Staff staff = login.Staff;
-
-                    if (staff == null)
-                    {
-                        //If invalid login
-                        MessageBox.Show("Invalid Login", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else if (staff.StaffType == 0)
-                    {
-                        //if regular staff member
-                        MessageBox.Show("You are not authorized to view this page", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        //if is manager
-                        ManagementPageCall();
-                    }
-                }
-            }
-            
-        }
-
-        private void BayControl1_Click(object sender, EventArgs e)
-        {
-            BayPageCall(1);
-        }
-
-        private void BayControl2_Click(object sender, EventArgs e)
-        {
-            BayPageCall(2);
+            int staffType = Login();
+            if (staffType == -2) return;
+            //If login is invalid
+            if (staffType == -1)
+                MessageBox.Show("Invalid Login", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning); //If invalid login
+            else if (staffType == 0)
+                MessageBox.Show("You are not authorized to view this page", 
+                    "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning); //if regular staff member
+            else
+                ManagementPageCall(); //if is manager
         }
 
         private void RegisterationButton_Click(object sender, EventArgs e)
         {
-            using (Login login = new Login())
-            {
-                //If login button clicked on the login form
-                if (login.ShowDialog() == DialogResult.Yes)
-                {
-                    Staff staff = login.Staff;
-
-                    if (staff == null)
-                    {
-                        //If invalid login
-                        MessageBox.Show("Invalid Login", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        //if valid login of any staff type
-                        RegisterationPageCall();
-                    }
-                }
-            }
+            int staffType = Login();
+            if (staffType == -2) return;
+            //If login is valid
+            if (staffType != -1)
+                RegisterationPageCall(); //Call registeration page
+            else
+                MessageBox.Show("Invalid Login", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Prompt user
         }
+
+        private void BayControl1_Click(object sender, EventArgs e) => BayPageCall(1);
+
+        private void BayControl2_Click(object sender, EventArgs e) => BayPageCall(2);
     }
 }

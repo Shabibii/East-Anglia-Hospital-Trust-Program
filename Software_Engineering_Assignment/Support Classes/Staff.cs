@@ -30,14 +30,9 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public string Address { get; set; } = "NULL";
 
-        public bool isOnCall { get; set; } = true;
+        public bool IsOnCall { get; set; } = true;
 
-        public Staff()
-        {
-
-        }
-
-        public Staff(List<string> rawStaffData)
+        public Staff(string[] rawStaffData)
         {
             StaffId = int.Parse(rawStaffData[0]);
             FirstName = rawStaffData[1];

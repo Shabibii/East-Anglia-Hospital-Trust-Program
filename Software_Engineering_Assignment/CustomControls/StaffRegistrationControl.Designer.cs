@@ -92,7 +92,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.FlowLayoutPanel staffRegisterList;
-        private System.Windows.Forms.FlowLayoutPanel staffUnregisterList;
         private System.Windows.Forms.Button searchButton;
     }
 }

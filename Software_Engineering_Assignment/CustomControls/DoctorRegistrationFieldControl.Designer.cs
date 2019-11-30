@@ -1,6 +1,6 @@
 ﻿namespace Software_Engineering_Assignment.CustomControls
 {
-    partial class doctorRegistrationFieldControl
+    partial class DoctorRegistrationFieldControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -80,7 +80,7 @@
             this.deregisterButton.TabIndex = 4;
             this.deregisterButton.Text = "Deregister";
             this.deregisterButton.UseVisualStyleBackColor = false;
-            this.deregisterButton.Click += new System.EventHandler(this.unregisterStaff);
+            this.deregisterButton.Click += new System.EventHandler(this.UnregisterStaff);
             // 
             // registerButton1
             // 
@@ -94,7 +94,7 @@
             this.registerButton1.TabIndex = 5;
             this.registerButton1.Text = "Register";
             this.registerButton1.UseVisualStyleBackColor = false;
-            this.registerButton1.Click += new System.EventHandler(this.registerStaff);
+            this.registerButton1.Click += new System.EventHandler(this.RegisterStaff);
             // 
             // dateTimePicker2
             // 

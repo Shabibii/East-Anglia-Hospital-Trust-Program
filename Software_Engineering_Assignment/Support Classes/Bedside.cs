@@ -26,8 +26,10 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
             if (Module1 == null)
             {
-                Module1 = new Module();
-                Module1.moduleID = int.Parse(rawBedsideData[2]);
+                Module1 = new Module
+                {
+                    moduleID = int.Parse(rawBedsideData[2])
+                };
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[2]), Module1);
 
             }
@@ -35,8 +37,10 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module2 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[3]));
             if (Module2 == null)
             {
-                Module2 = new Module();
-                Module2.moduleID = int.Parse(rawBedsideData[3]);
+                Module2 = new Module
+                {
+                    moduleID = int.Parse(rawBedsideData[3])
+                };
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[3]), Module2);
 
             }
@@ -44,8 +48,10 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module3 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[4]));
             if (Module3 == null)
             {
-                Module3 = new Module();
-                Module3.moduleID = int.Parse(rawBedsideData[4]);
+                Module3 = new Module
+                {
+                    moduleID = int.Parse(rawBedsideData[4])
+                };
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[4]), Module3);
 
             }
@@ -53,10 +59,13 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module4 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[5]));
             if (Module4 == null)
             {
-                Module4 = new Module();
-                Module4.moduleID = int.Parse(rawBedsideData[5]);
+                Module4 = new Module
+                {
+                    moduleID = int.Parse(rawBedsideData[5])
+                };
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), Module4);
             }
         }
+
     }
 }
