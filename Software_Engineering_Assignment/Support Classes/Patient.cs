@@ -7,6 +7,8 @@ namespace Software_Engineering_Assignment.Support_Classes
    
     public class Patient
     {
+        public delegate void PatientEvent(Patient patient, bool on);
+        public PatientEvent ThrowPatientAlarm = delegate { };
         // get/set patient details 
         public readonly string patientId;
 
@@ -58,11 +60,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             get
             {
-                if (Module1.ThrowAlarm) return true;
-                if (Module2.ThrowAlarm) return true;
-                if (Module3.ThrowAlarm) return true;
-                if (Module4.ThrowAlarm) return true;
-                return false;
+                return bedside.ThrowAlarm;
             }
         }
 
@@ -71,8 +69,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Module Module1 => bedside?.Module1;
         public Module Module2 => bedside?.Module2;
-        public Module Module3 => bedside?.Module2;
-        public Module Module4 => bedside?.Module3;
+        public Module Module3 => bedside?.Module3;
+        public Module Module4 => bedside?.Module4;
 
         //Only show first two active modules for space management reasons (to be used on the bay-page)
         public string ModulesActive => $"{Module1},{Module2}...";
@@ -97,6 +95,17 @@ namespace Software_Engineering_Assignment.Support_Classes
             bayNumber = int.Parse(rawPatientDat[10]);
 
             ConnectToBedside();
+
+            Module1.ValueChanged += ModuleValueChanged;
+            Module2.ValueChanged += ModuleValueChanged;
+            Module3.ValueChanged += ModuleValueChanged;
+            Module4.ValueChanged += ModuleValueChanged;
+        }
+
+        void ModuleValueChanged(Module module)
+        {
+            if (bedside.ThrowAlarm) ThrowPatientAlarm(this, true);
+            else ThrowPatientAlarm(this, false);
         }
     }
 }

@@ -170,7 +170,6 @@
             // 
             // alarmCheck
             // 
-            this.alarmCheck.Tick += new System.EventHandler(this.AlarmCheck_Tick);
             // 
             // BayPreviewControl
             // 

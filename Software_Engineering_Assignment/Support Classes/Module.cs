@@ -5,6 +5,9 @@ namespace Software_Engineering_Assignment.Support_Classes
 {
     public class Module
     {
+        public delegate void ModuleValueChanged(Module moduleChange);
+        public ModuleValueChanged ValueChanged = delegate { };
+
         public int moduleID;
 
         public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, BreathingRate, PulseRate, None };
@@ -85,8 +88,6 @@ namespace Software_Engineering_Assignment.Support_Classes
                     MinValue = 0;
                     MaxValue = 0;
                     return;
-
-
             }
             // set current value to be from min - 8 to max + 8
             SetCurrentValue();
@@ -94,7 +95,9 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void SetCurrentValue()
         {
+            if (currentModule == ModuleType.None) return;
             CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 10, Convert.ToInt32(MaxValue) + 10);
+            ValueChanged(this);
         }
 
         public Module(string[] rawModuleData)

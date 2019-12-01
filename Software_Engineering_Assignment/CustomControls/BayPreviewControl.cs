@@ -22,6 +22,14 @@ namespace Software_Engineering_Assignment
         {
             InitializeComponent();
             alarmDisplay.Hide();
+
+            //alarmCheck.Start();
+            
+        }
+
+        public void AlarmThrown(Patient patient, bool on)
+        {
+            alarmDisplay.Visible = on;
         }
 
         public Bay Bay
@@ -37,6 +45,7 @@ namespace Software_Engineering_Assignment
             this.bay = bay;
             SetProperties();
             PatientPageCall = patientPageCall;
+            bay.AlarmThrown += AlarmThrown;
         }
 
       
@@ -78,16 +87,5 @@ namespace Software_Engineering_Assignment
 
         private void Patient8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(bay.BayNumber, 8);
 
-        private void AlarmCheck_Tick(object sender, EventArgs e)
-        {
-            if (bay.ThrowAlarm())
-            {
-                alarmDisplay.Show();
-            }
-            else
-            {
-                alarmDisplay.Hide();
-            }
-        }
     }
 }

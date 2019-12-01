@@ -18,6 +18,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Module Module4 { get; set; }
 
+        public bool ThrowAlarm = false;
+
         public Bedside(string[] rawBedsideData)
         {
             BedsideNo = int.Parse(rawBedsideData[0]);
@@ -67,7 +69,22 @@ namespace Software_Engineering_Assignment.Support_Classes
                 };
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), Module4);
             }
+
+            Module1.ValueChanged += ModuleValueChanged;
+            Module2.ValueChanged += ModuleValueChanged;
+            Module3.ValueChanged += ModuleValueChanged;
+            Module4.ValueChanged += ModuleValueChanged;
         }
 
+
+        public void ModuleValueChanged(Module moduleChanged)
+        {
+            if(moduleChanged.ThrowAlarm)
+            {
+                //Put alarm in log
+                ThrowAlarm = true;
+            }
+            else ThrowAlarm = false;
+        }
     }
 }
