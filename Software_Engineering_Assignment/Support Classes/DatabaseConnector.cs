@@ -233,7 +233,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         public void UpdateStaffschedule(int staffId, string date, bool deregistered)
         {
             OpenConnection();
-            sqlCommand = new SqlCommand(Constants.updateStaffRegister(staffId), sqlConnection);
+            sqlCommand = new SqlCommand(Constants.UpdateStaffRegister(staffId), sqlConnection);
             sqlCommand.Parameters.AddWithValue("@date", $"{date}");
             sqlCommand.Parameters.AddWithValue("@deregistered", $"{deregistered}");
             sqlCommand.ExecuteNonQuery();
@@ -397,6 +397,36 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand = new SqlCommand(Constants.LogEvent(activityDescription,type,id), sqlConnection);
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
+        }
+
+        public List<string[]> GetEventLog(bool filterOutStaff = false)
+        {
+            OpenConnection(); //Open Connection
+            List<string[]> output = new List<string[]>();
+            sqlCommand = new SqlCommand(Constants.GetAllEventLogs(), sqlConnection);
+
+            string[] eventLog = new string[7];
+
+            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+            {
+                if (!dataReader.HasRows) return null; //If query result is empty
+
+                while (dataReader.Read())
+                {
+                    for (int i = 0; i < eventLog.Length; i++)
+                    {
+                        if (i == 1 && filterOutStaff) break;
+                        eventLog[i] = dataReader[i].ToString();
+                    }
+
+                    if (filterOutStaff) continue;
+                    output.Add(eventLog);
+                    eventLog = new string[7];
+                }
+            }
+
+            CloseConnection();
+            return output;
         }
     }
 }

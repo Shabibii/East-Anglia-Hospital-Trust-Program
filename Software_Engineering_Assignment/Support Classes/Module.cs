@@ -20,6 +20,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public decimal CurrentValue { get; set; } = 0;
 
+        public bool ThrowAlarm => CurrentValue < MinValue || CurrentValue > MaxValue;
+
         public static string[] ModuleTypes()
         {
             string[] moduleTypes = new string[(int)ModuleType.None + 1];
@@ -42,12 +44,12 @@ namespace Software_Engineering_Assignment.Support_Classes
             return ModuleType.None; //Default value
         }
 
-        public Module()
+        public Module(int module)
         {
             //Generate random values
-            currentModule = (ModuleType)Constants.NextRandomValue(0, (int)ModuleType.None + 1);
+            currentModule = (ModuleType)module;
 
-            switch(currentModule)
+            switch (currentModule)
             {
                 case ModuleType.PulseRate:
                     ModuleUnit = "mm";
@@ -84,13 +86,17 @@ namespace Software_Engineering_Assignment.Support_Classes
                     MaxValue = 0;
                     return;
 
-                    
+
             }
             // set current value to be from min - 8 to max + 8
-            CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 8, Convert.ToInt32(MaxValue) + 8);
+            SetCurrentValue();
         }
 
-       
+        public void SetCurrentValue()
+        {
+            CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 10, Convert.ToInt32(MaxValue) + 10);
+        }
+
         public Module(string[] rawModuleData)
         {
             moduleID = int.Parse(rawModuleData[0]);

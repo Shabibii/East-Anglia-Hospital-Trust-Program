@@ -54,9 +54,6 @@ namespace Software_Engineering_Assignment
             DoubleBuffered = true;
         }
 
-        //Display warning sign (Show that an alarm is triggered regarding patient in current bay)
-        public void DisplayWarningSign() => alarmDisplay.Show();
-
         private void Bay_MouseHover(object sender, EventArgs e) => BackColor = Color.Gainsboro;
 
         private void Bay_MouseDown(object sender, MouseEventArgs e) => BackColor = Color.DarkGray;
@@ -80,5 +77,17 @@ namespace Software_Engineering_Assignment
         private void Patient7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(bay.BayNumber, 7);
 
         private void Patient8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(bay.BayNumber, 8);
+
+        private void AlarmCheck_Tick(object sender, EventArgs e)
+        {
+            if (bay.ThrowAlarm())
+            {
+                alarmDisplay.Show();
+            }
+            else
+            {
+                alarmDisplay.Hide();
+            }
+        }
     }
 }

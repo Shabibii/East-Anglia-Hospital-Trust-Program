@@ -3,6 +3,21 @@
     public class Bay
     {
         public int BayNumber;
+        
+        
+        public bool ThrowAlarm()
+        {
+            if (patient1.TrowAlarm) return true;
+            if (patient2.TrowAlarm) return true;
+            if (patient3.TrowAlarm) return true;
+            if (patient4.TrowAlarm) return true;
+            if (patient5.TrowAlarm) return true;
+            if (patient6.TrowAlarm) return true;
+            if (patient7.TrowAlarm) return true;
+            if (patient8.TrowAlarm) return true;
+
+            return false;
+        }
 
         /// <summary>
         /// Structure to hold information on bays including bedsides/patients

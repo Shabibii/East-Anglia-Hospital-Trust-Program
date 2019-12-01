@@ -54,6 +54,18 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public int bayNumber = 0;
 
+        public bool TrowAlarm
+        {
+            get
+            {
+                if (Module1.ThrowAlarm) return true;
+                if (Module2.ThrowAlarm) return true;
+                if (Module3.ThrowAlarm) return true;
+                if (Module4.ThrowAlarm) return true;
+                return false;
+            }
+        }
+
         // creating module-objects for storing moduledata 
         private Bedside bedside;
 

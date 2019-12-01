@@ -11,6 +11,14 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         private static Random random;
 
+        public static int Next()
+        {
+            if (random == null)
+                random = new Random();
+
+            return random.Next();
+        }
+
         public static int NextRandomValue(int startRange, int endRange)
         {
             if (random == null)
@@ -21,11 +29,11 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         //These are sql queries that will be used regurally
         public static string LogEvent(string description, string type, int id)
-      => $@"INSERT INTO 'Log/Activity' ({type}_id, activity_description)
-                    VALUES ({id}, {description}); '";
+      => $@"INSERT INTO LogActivity ({type}_id, activity_description, timestamp)
+                    VALUES ({id}, '{description}', '{DateTime.Now}');";
 
-        public static string GetAllEventLogs(int bayNo)
-        => $@"SELECT * FROM 'Log/Activity'";
+        public static string GetAllEventLogs()
+        => $@"SELECT * FROM LogActivity;";
 
         public static string GetPatientsFromBay(int bayNo)
         => $@"SELECT *
@@ -65,7 +73,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         public static string DeregisterStaff(int staffId)
         => $@"INSERT INTO StaffSchedule VALUES ({staffId},@date,1)";
 
-        public static string updateStaffRegister(int staffId)
+        public static string UpdateStaffRegister(int staffId)
         => $@"UPDATE StaffSchedule
                 SET oncall_date = @date, deregistered = @deregistered
                 WHERE staff_Id = {staffId}";

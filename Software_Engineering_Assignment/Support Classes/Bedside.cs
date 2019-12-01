@@ -20,13 +20,15 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Bedside(string[] rawBedsideData)
         {
-            BedsideNo = int.Parse(rawBedsideData[1]);
-            BayNo = int.Parse(rawBedsideData[2]);
-           
+            BedsideNo = int.Parse(rawBedsideData[0]);
+            BayNo = int.Parse(rawBedsideData[1]);
+
+            int[] randomIndexes = new[] { 0, 1, 2, 3, 4, 5 }.OrderBy(x => Constants.Next()).ToArray();
+            
             Module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
             if (Module1 == null)
             {
-                Module1 = new Module
+                Module1 = new Module(randomIndexes[0])
                 {
                     moduleID = int.Parse(rawBedsideData[2])
                 };
@@ -37,7 +39,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module2 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[3]));
             if (Module2 == null)
             {
-                Module2 = new Module
+                Module2 = new Module(randomIndexes[1])
                 {
                     moduleID = int.Parse(rawBedsideData[3])
                 };
@@ -48,7 +50,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module3 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[4]));
             if (Module3 == null)
             {
-                Module3 = new Module
+                Module3 = new Module(randomIndexes[2])
                 {
                     moduleID = int.Parse(rawBedsideData[4])
                 };
@@ -59,7 +61,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module4 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[5]));
             if (Module4 == null)
             {
-                Module4 = new Module
+                Module4 = new Module(randomIndexes[3])
                 {
                     moduleID = int.Parse(rawBedsideData[5])
                 };
