@@ -222,7 +222,7 @@ namespace Software_Engineering_Assignment.Pages
 
             previousPageCall();
         }
-
+        
         private void RefreshModuleData_Tick(object sender, EventArgs e)
         {
             currentPatient.Module1.SetCurrentValue();

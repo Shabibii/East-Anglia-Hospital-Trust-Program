@@ -70,16 +70,7 @@ namespace Software_Engineering_Assignment.Pages
                 ManagementPageCall(); //if is manager
         }
 
-        private void RegisterationButton_Click(object sender, EventArgs e)
-        {
-            int staffType = Login();
-            if (staffType == -2) return;
-            //If login is valid
-            if (staffType != -1)
-                RegisterationPageCall(); //Call registeration page
-            else
-                MessageBox.Show("Invalid Login", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Prompt user
-        }
+        private void RegisterationButton_Click(object sender, EventArgs e) => RegisterationPageCall();        
 
         private void BayControl1_Click(object sender, EventArgs e) => BayPageCall(1);
 
