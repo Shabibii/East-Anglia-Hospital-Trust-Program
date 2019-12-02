@@ -22,6 +22,14 @@ namespace Software_Engineering_Assignment
         {
             InitializeComponent();
             alarmDisplay.Hide();
+
+            //alarmCheck.Start();
+            
+        }
+
+        public void AlarmThrown(Patient patient, bool on)
+        {
+            alarmDisplay.Visible = on;
         }
 
         public Bay Bay
@@ -37,6 +45,7 @@ namespace Software_Engineering_Assignment
             this.bay = bay;
             SetProperties();
             PatientPageCall = patientPageCall;
+            bay.AlarmThrown += AlarmThrown;
         }
 
       
@@ -53,9 +62,6 @@ namespace Software_Engineering_Assignment
             patient8.Text = $"(8) {bay.GetPatient(8).FullName}";
             DoubleBuffered = true;
         }
-
-        //Display warning sign (Show that an alarm is triggered regarding patient in current bay)
-        public void DisplayWarningSign() => alarmDisplay.Show();
 
         private void Bay_MouseHover(object sender, EventArgs e) => BackColor = Color.Gainsboro;
 
@@ -80,5 +86,6 @@ namespace Software_Engineering_Assignment
         private void Patient7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(bay.BayNumber, 7);
 
         private void Patient8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(bay.BayNumber, 8);
+
     }
 }

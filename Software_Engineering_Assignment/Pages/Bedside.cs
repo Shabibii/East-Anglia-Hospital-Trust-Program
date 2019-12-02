@@ -22,6 +22,8 @@ namespace Software_Engineering_Assignment.Pages
             InitalizeControl();
             //Set button1 event handler to delegate that exits the current page and goes to the previous
             this.previousPageCall = previousPageCall;
+
+            refreshModuleData.Start();
         }
 
         private void InitalizeControl()
@@ -50,13 +52,21 @@ namespace Software_Engineering_Assignment.Pages
             intakeReasonLabel.Text = $"Intake Reason: {currentPatient.IntakeReason}";
 
 
-            
+
             var moduleTypeSource = Module.ModuleTypes(); // Different module functionality
             module1ModuleType.Items.AddRange(moduleTypeSource);
             module2ModuleType.Items.AddRange(moduleTypeSource);
             module3ModuleType.Items.AddRange(moduleTypeSource);
             module4ModuleType.Items.AddRange(moduleTypeSource);
+            DisplayModuleData();
 
+            Text = currentPatient.FullName;
+
+            InitalizeControl();
+        }
+
+        private void DisplayModuleData()
+        {
             if (currentPatient.Module1 != null)
             {
                 module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
@@ -92,12 +102,7 @@ namespace Software_Engineering_Assignment.Pages
                 module4Unit.Text = currentPatient.Module4.ModuleUnit;
                 module4ModuleType.SelectedIndex = (int)currentPatient.Module4.currentModule;
             }
-
-
-            Text = currentPatient.FullName;
-
-            InitalizeControl();
-         }
+        }
 
         private void LockInputControls(bool doLock)
         {
@@ -148,7 +153,9 @@ namespace Software_Engineering_Assignment.Pages
                         saveButton.Visible = true;
                         LockInputControls(false);
                         MessageBox.Show("Controls have been unlocked for Data Change");
-                        //EventLog.LogStaffEvent(staff, $"Logged in to change {currentPatient.FullName} module data");
+                        //EventLog.LogStaffEvent(staff, );
+
+                        DatabaseConnector.Instance.LogEvent($"logged in to change {currentPatient.FullName} module data", "Staff", staff.StaffId);
                     }
                 }
             }
@@ -214,6 +221,26 @@ namespace Software_Engineering_Assignment.Pages
             LockInputControls(true);
 
             previousPageCall();
+        }
+
+        private void RefreshModuleData_Tick(object sender, EventArgs e)
+        {
+            currentPatient.Module1.SetCurrentValue();
+            currentPatient.Module2.SetCurrentValue();
+            currentPatient.Module3.SetCurrentValue();
+            currentPatient.Module4.SetCurrentValue();
+
+            alarmDisplay1.Visible = currentPatient.Module1.ThrowAlarm;
+            alarmDisplay2.Visible = currentPatient.Module2.ThrowAlarm;
+            alarmDisplay3.Visible = currentPatient.Module3.ThrowAlarm;
+            alarmDisplay4.Visible = currentPatient.Module4.ThrowAlarm;
+
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module1);
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module2);
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module3);
+            DatabaseConnector.Instance.UpdateModule(currentPatient.Module4);
+
+            DisplayModuleData();
         }
     }
 }

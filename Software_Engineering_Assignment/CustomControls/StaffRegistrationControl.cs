@@ -41,7 +41,7 @@ namespace Software_Engineering_Assignment.CustomControls
             staffRegisterList.Controls.Clear();
             foreach (Staff staff in staffList)
             {
-                var docReg = new doctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
+                var docReg = new DoctorRegistrationFieldControl(staff) { BorderStyle = BorderStyle.FixedSingle };
 
                 docReg.registerButton1.Click += staffStatusRegister;
                 docReg.deregisterButton.Click += staffStatusDeregister;

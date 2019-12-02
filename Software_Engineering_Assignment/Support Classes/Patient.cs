@@ -7,8 +7,10 @@ namespace Software_Engineering_Assignment.Support_Classes
    
     public class Patient
     {
+        public delegate void PatientEvent(Patient patient, bool on);
+        public PatientEvent ThrowPatientAlarm = delegate { };
         // get/set patient details 
-        private string patientId;
+        public readonly string patientId;
 
         public string FullName
         {
@@ -26,11 +28,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                         output += "...";
                         break;
                     }
-                    else
-                    {
-                        output += Surname[i];
-                        i++;
-                    }
+                    else output += Surname[i++];
                 }
                 return output;
             }
@@ -39,11 +37,12 @@ namespace Software_Engineering_Assignment.Support_Classes
         public bool IsEmpty = false;
 
         public string FirstName { get; set; } = "Nobody";
+
         public string Surname { get; set; } = "Nobody";
 
         public string Gender { get; set; } = "Unknown";
 
-        public string Address { get; set; } = "Holy Grove";
+        public string Address { get; set; } = "N/A";
 
         public string DOB { get; set; } = "00/00/0000";
 
@@ -57,29 +56,29 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public int bayNumber = 0;
 
+        public bool TrowAlarm
+        {
+            get
+            {
+                return bedside.ThrowAlarm;
+            }
+        }
+
         // creating module-objects for storing moduledata 
         private Bedside bedside;
 
         public Module Module1 => bedside?.Module1;
         public Module Module2 => bedside?.Module2;
-        public Module Module3 => bedside?.Module2;
-        public Module Module4 => bedside?.Module3;
+        public Module Module3 => bedside?.Module3;
+        public Module Module4 => bedside?.Module4;
 
         //Only show first two active modules for space management reasons (to be used on the bay-page)
         public string ModulesActive => $"{Module1},{Module2}...";
 
-        void ConnectToBedside()
-        {
-            //Check if database entry has been created
+        void ConnectToBedside() =>
+            bedside = DatabaseConnector.Instance.GetBedside(bayNumber, bedNumber); //Connect patient with bedside
 
-            //Connect patient with 4 modules
-            bedside = DatabaseConnector.Instance.GetBedside(bayNumber, bedNumber);
-        }
-
-        public Patient()
-        {
-            IsEmpty = true;
-        }
+        public Patient() => IsEmpty = true;
 
         public Patient(string[] rawPatientDat)
         {
@@ -97,6 +96,16 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             ConnectToBedside();
 
+            Module1.ValueChanged += ModuleValueChanged;
+            Module2.ValueChanged += ModuleValueChanged;
+            Module3.ValueChanged += ModuleValueChanged;
+            Module4.ValueChanged += ModuleValueChanged;
+        }
+
+        void ModuleValueChanged(Module module)
+        {
+            if (bedside.ThrowAlarm) ThrowPatientAlarm(this, true);
+            else ThrowPatientAlarm(this, false);
         }
     }
 }

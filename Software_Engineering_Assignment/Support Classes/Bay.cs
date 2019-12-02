@@ -4,6 +4,9 @@
     {
         public int BayNumber;
 
+        public delegate void patientAlarmEvent(Patient patient, bool on);
+        public patientAlarmEvent AlarmThrown = delegate { };
+
         /// <summary>
         /// Structure to hold information on bays including bedsides/patients
         /// </summary>
@@ -19,6 +22,20 @@
             patient6 = DatabaseConnector.Instance.GetPatient(bayNumber, 6);
             patient7 = DatabaseConnector.Instance.GetPatient(bayNumber, 7);
             patient8 = DatabaseConnector.Instance.GetPatient(bayNumber, 8);
+
+            patient1.ThrowPatientAlarm += PatientAlarmThrown;
+            patient2.ThrowPatientAlarm += PatientAlarmThrown;
+            patient3.ThrowPatientAlarm += PatientAlarmThrown;
+            patient4.ThrowPatientAlarm += PatientAlarmThrown;
+            patient5.ThrowPatientAlarm += PatientAlarmThrown;
+            patient6.ThrowPatientAlarm += PatientAlarmThrown;
+            patient7.ThrowPatientAlarm += PatientAlarmThrown;
+            patient8.ThrowPatientAlarm += PatientAlarmThrown;
+        }
+
+        public void PatientAlarmThrown(Patient patient, bool on)
+        {
+            AlarmThrown(patient, on);
         }
 
         /// <summary>
@@ -51,13 +68,5 @@
         readonly Patient patient6;
         readonly Patient patient7;
         readonly Patient patient8;
-
-        public Patient Patient
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

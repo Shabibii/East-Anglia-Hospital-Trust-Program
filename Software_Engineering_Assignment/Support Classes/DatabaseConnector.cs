@@ -39,14 +39,9 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void CloseConnection()
         {
+            sqlCommand = null;
             sqlDataAdapter = null;
             sqlConnection.Close(); //Close SQL connection
-        }
-
-        public Bay GetBay(int bayNumber)
-        {
-            //To be implemented
-            return new Bay(bayNumber);
         }
 
 
@@ -104,29 +99,23 @@ namespace Software_Engineering_Assignment.Support_Classes
         public Staff GetStaff(int staffID)
         {
             OpenConnection(); //Open Connection
-            Staff staff;
+            sqlCommand = new SqlCommand(Constants.GetStaff(staffID), sqlConnection);
 
-            using (DataSet dataSet = new DataSet())
+            string[] rawStaffData = new string[10];
+
+            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
             {
-                sqlDataAdapter = new SqlDataAdapter(Constants.GetStaff(staffID), sqlConnection);
-                sqlDataAdapter.Fill(dataSet); //Copy Data From dataset to Staff Object and return it
+                if (!dataReader.HasRows) return null; //If query result is empty
 
-                List<string> rawStaffData = new List<string>();
-
-                DataTable staffTable = dataSet.Tables[0];
-                DataRow row = staffTable.Rows[0];
-
-                foreach (DataColumn column in staffTable.Columns)
+                if (dataReader.Read())
                 {
-                    rawStaffData.Add(row[column].ToString());
+                    for (int i = 0; i < rawStaffData.Length; i++)
+                        rawStaffData[i] = dataReader[i].ToString();
                 }
-
-                staff = new Staff(rawStaffData);
             }
 
-            CloseConnection(); //Close Connection
-
-            return staff;
+            CloseConnection();
+            return new Staff(rawStaffData);
         }
 
         public List<Staff> GetOnCallStaff(string date, bool returnAllStaffAvailableOnDate = false)
@@ -244,7 +233,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         public void UpdateStaffschedule(int staffId, string date, bool deregistered)
         {
             OpenConnection();
-            sqlCommand = new SqlCommand(Constants.updateStaffRegister(staffId), sqlConnection);
+            sqlCommand = new SqlCommand(Constants.UpdateStaffRegister(staffId), sqlConnection);
             sqlCommand.Parameters.AddWithValue("@date", $"{date}");
             sqlCommand.Parameters.AddWithValue("@deregistered", $"{deregistered}");
             sqlCommand.ExecuteNonQuery();
@@ -398,6 +387,46 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
+
+            Instance.LogEvent($"values changed", "Module", module.moduleID);
+        }
+
+        public void LogEvent(string activityDescription, string type, int id)
+        {
+            OpenConnection();
+            sqlCommand = new SqlCommand(Constants.LogEvent(activityDescription,type,id), sqlConnection);
+            sqlCommand.ExecuteNonQuery();
+            CloseConnection();
+        }
+
+        public List<string[]> GetEventLog(bool filterOutStaff = false)
+        {
+            OpenConnection(); //Open Connection
+            List<string[]> output = new List<string[]>();
+            sqlCommand = new SqlCommand(Constants.GetAllEventLogs(), sqlConnection);
+
+            string[] eventLog = new string[7];
+
+            using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+            {
+                if (!dataReader.HasRows) return null; //If query result is empty
+
+                while (dataReader.Read())
+                {
+                    for (int i = 0; i < eventLog.Length; i++)
+                    {
+                        if (i == 1 && filterOutStaff) break;
+                        eventLog[i] = dataReader[i].ToString();
+                    }
+
+                    if (filterOutStaff) continue;
+                    output.Add(eventLog);
+                    eventLog = new string[7];
+                }
+            }
+
+            CloseConnection();
+            return output;
         }
     }
 }

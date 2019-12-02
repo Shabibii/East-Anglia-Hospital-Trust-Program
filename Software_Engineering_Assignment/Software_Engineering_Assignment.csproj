@@ -115,7 +115,7 @@
     </Compile>
     <Compile Include="Support Classes\Bedside.cs" />
     <Compile Include="Support Classes\Constants.cs" />
-    <Compile Include="Support Classes\EventLog.cs" />
+    <Compile Include="Support Classes\EventLogNode.cs" />
     <Compile Include="Support Classes\Staff.cs" />
     <Compile Include="Support Classes\DatabaseConnector.cs" />
     <Compile Include="Pages\CentralStation.cs">

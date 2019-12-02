@@ -63,14 +63,19 @@
             // 
             // refreshDisplayData
             // 
-            this.refreshDisplayData.Interval = 2000;
+            this.refreshDisplayData.Interval = 4000;
             this.refreshDisplayData.Tick += new System.EventHandler(this.RefreshDisplayData_Tick);
             // 
             // eventLog
             // 
             this.eventLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventLog.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventLog.Location = new System.Drawing.Point(0, 17);
             this.eventLog.Name = "eventLog";
+            this.eventLog.PathSeparator = "";
+            this.eventLog.ShowLines = false;
+            this.eventLog.ShowPlusMinus = false;
+            this.eventLog.ShowRootLines = false;
             this.eventLog.Size = new System.Drawing.Size(475, 319);
             this.eventLog.TabIndex = 3;
             // 

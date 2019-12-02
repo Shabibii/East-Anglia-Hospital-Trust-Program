@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BayPreviewControl));
             this.title = new System.Windows.Forms.Label();
             this.patient1 = new System.Windows.Forms.LinkLabel();
@@ -39,6 +40,7 @@
             this.patient7 = new System.Windows.Forms.LinkLabel();
             this.patient8 = new System.Windows.Forms.LinkLabel();
             this.alarmDisplay = new System.Windows.Forms.PictureBox();
+            this.alarmCheck = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,6 +168,9 @@
             this.alarmDisplay.TabIndex = 1;
             this.alarmDisplay.TabStop = false;
             // 
+            // alarmCheck
+            // 
+            // 
             // BayPreviewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,5 +210,6 @@
         private System.Windows.Forms.LinkLabel patient6;
         private System.Windows.Forms.LinkLabel patient7;
         private System.Windows.Forms.LinkLabel patient8;
+        private System.Windows.Forms.Timer alarmCheck;
     }
 }
