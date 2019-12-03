@@ -97,7 +97,7 @@ namespace Software_Engineering_Assignment.Pages
                 }
                 else
                 {
-                    conditions += " trigger_date_time = " + dtpManagement.Text + " ";
+                    conditions += " trigger_date_time LIKE '" + getSelectedDate() + "%' ";
                 }
 
 
@@ -113,7 +113,6 @@ namespace Software_Engineering_Assignment.Pages
         private void label1_Click(object sender, EventArgs e)
         {
             label1.Text = "SELECT * FROM " + GetTableName() + GetQueryConditions();
-            label1.Text = dgvManagementInfo.Rows[0].Cells[5].ToString();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
