@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Windows.Forms;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
@@ -22,6 +23,8 @@ namespace Software_Engineering_Assignment.Support_Classes
         public decimal MaxValue { get; set; } = 60;
 
         public decimal CurrentValue { get; set; } = 0;
+
+        public bool LogAlarm = true;
 
         public bool ThrowAlarm => CurrentValue < MinValue || CurrentValue > MaxValue;
 
@@ -108,6 +111,28 @@ namespace Software_Engineering_Assignment.Support_Classes
             MaxValue = decimal.Parse(rawModuleData[3]);
             MinValue = decimal.Parse(rawModuleData[4]);
             CurrentValue = decimal.Parse(rawModuleData[5]);
+        }
+
+        Timer t = new Timer();
+        public void StartGeneratingValues()
+        {
+            //Update current reading value every minute
+            t.Interval = 60000;
+            // t.Interval = 60000; //
+            t.Tick += TimerTick;
+            t.Start();
+        }
+
+        public void TimerTick(object o, EventArgs erg)
+        {
+            SetCurrentValue();
+            DatabaseConnector.Instance.UpdateModule(this);
+            ValueChanged(this);
+        }
+
+        public void StopGeneratingValues()
+        {
+            t.Stop();
         }
 
         private static string ToString(ModuleType moduleType)

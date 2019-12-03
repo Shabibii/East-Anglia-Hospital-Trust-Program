@@ -101,19 +101,32 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module3.ValueChanged = ModuleValueChanged;
             Module4.ValueChanged = ModuleValueChanged;
         }
-
+        
         void ModuleValueChanged(Module module)
         {
             if (bedside.ThrowAlarm)
             {
                 ThrowPatientAlarm(this, true);
-                DatabaseConnector.Instance.LogEvent($"Alarm for {module} thrown", "Patient", patientId);
+                if(module.LogAlarm == true)
+                {
+                    DatabaseConnector.Instance.LogEvent($"Alarm for {module} thrown", "Patient", patientId);
+                    module.LogAlarm = false;
+                }
+
             }
             else
             {
                 ThrowPatientAlarm(this, false);
-                DatabaseConnector.Instance.LogEvent($"{module} back to normal", "Patient", patientId);
+                module.LogAlarm = true;
+                //DatabaseConnector.Instance.LogEvent($"{module} back to normal", "Patient", patientId);
             }
+        }
+
+        public void RandomizeValues()
+        {
+            if (bedside == null) ConnectToBedside();
+            if (bedside == null) return;
+            bedside.StartGeneratingRandomValues();
         }
     }
 }

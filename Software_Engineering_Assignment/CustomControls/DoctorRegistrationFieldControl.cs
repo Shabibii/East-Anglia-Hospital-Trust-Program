@@ -71,6 +71,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             // Register staff   
             DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+            DatabaseConnector.Instance.LogEvent("Registered for shift", "Staff", int.Parse(staffId.Text));
         }
 
         /// <summary>
@@ -98,6 +99,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             // Deregister staff
             DatabaseConnector.Instance.UnregisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+            DatabaseConnector.Instance.LogEvent("Deregistered from shift", "Staff", int.Parse(staffId.Text));
         }
     }
 

@@ -17,8 +17,6 @@ namespace Software_Engineering_Assignment
         EventLogNode bedsideNode;
         EventLogNode moduleNode;
 
-        List<EventLogNode> allLogs = new List<EventLogNode>();
-
         public RegisterControl()
         {
             InitializeComponent();
@@ -68,54 +66,34 @@ namespace Software_Engineering_Assignment
         }
 
 
-        bool LogContains(EventLogNode elog)
-        {
-            foreach (EventLogNode item in allLogs)
-            {
-                if(elog.Text == item.Text && elog.eventType == item.eventType)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
         public void DisplayEventLog()
         {
             var eveLog = DatabaseConnector.Instance.GetEventLog();
 
-            try
+            patientNode.Nodes.Clear();
+            bedsideNode.Nodes.Clear();
+            moduleNode.Nodes.Clear();
+
+            foreach (string[] log in eveLog)
             {
-                foreach (string[] log in eveLog)
+                EventLogNode eLog = new EventLogNode(log);
+
+                switch (eLog.eventType)
                 {
-                    EventLogNode eLog = new EventLogNode(log);
-                    if (LogContains(eLog)) return;
+                    case "patient":
+                        patientNode.Nodes.Add(eLog);
+                        break;
 
-                    switch (eLog.eventType)
-                    {
-                        case "patient":
-                            allLogs.Add(eLog);
-                            patientNode.Nodes.Add(eLog);
-                            break;
+                    case "bedside":
+                        bedsideNode.Nodes.Add(eLog);
+                        break;
 
-                        case "bedside":
-                            allLogs.Add(eLog);
-                            bedsideNode.Nodes.Add(eLog);
-                            break;
-
-                        case "module":
-                            allLogs.Add(eLog);
-                            moduleNode.Nodes.Add(eLog);
-                            break;
-                    }
+                    case "module":
+                        moduleNode.Nodes.Add(eLog);
+                        break;
                 }
             }
-            catch (Exception)
-            {
 
-            }
-           
-
-            
 
             patientNode.Expand();
             bedsideNode.Expand();

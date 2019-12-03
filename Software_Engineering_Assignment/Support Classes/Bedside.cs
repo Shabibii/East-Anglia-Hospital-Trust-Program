@@ -18,7 +18,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Module Module4 { get; set; }
 
-        public bool ThrowAlarm = false;
+        public bool ThrowAlarm => Module1.ThrowAlarm || Module2.ThrowAlarm || Module3.ThrowAlarm || Module4.ThrowAlarm;
 
         public Bedside(string[] rawBedsideData)
         {
@@ -26,7 +26,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             BayNo = int.Parse(rawBedsideData[1]);
 
             int[] randomIndexes = new[] { 0, 1, 2, 3, 4, 5 }.OrderBy(x => Constants.Next()).ToArray();
-            
+
             Module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
             if (Module1 == null)
             {
@@ -70,21 +70,16 @@ namespace Software_Engineering_Assignment.Support_Classes
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), Module4);
             }
 
-            Module1.ValueChanged = ModuleValueChanged;
-            Module2.ValueChanged = ModuleValueChanged;
-            Module3.ValueChanged = ModuleValueChanged;
-            Module4.ValueChanged = ModuleValueChanged;
+            StartGeneratingRandomValues();
         }
 
-
-        public void ModuleValueChanged(Module moduleChanged)
+        public void StartGeneratingRandomValues()
         {
-            if(moduleChanged.ThrowAlarm)
-            {
-                //Put alarm in log
-                ThrowAlarm = true;
-            }
-            else ThrowAlarm = false;
+            Module1.StartGeneratingValues();
+            Module2.StartGeneratingValues();
+            Module3.StartGeneratingValues();
+            Module4.StartGeneratingValues();
         }
+
     }
 }

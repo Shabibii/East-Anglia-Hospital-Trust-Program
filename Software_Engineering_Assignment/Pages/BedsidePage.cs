@@ -226,21 +226,13 @@ namespace Software_Engineering_Assignment.Pages
         private void RefreshModuleData_Tick(object sender, EventArgs e)
         {
             //return;
-            currentPatient.Module1.SetCurrentValue();
-            currentPatient.Module2.SetCurrentValue();
-            currentPatient.Module3.SetCurrentValue();
-            currentPatient.Module4.SetCurrentValue();
+            if (currentPatient == null) return;
 
             alarmDisplay1.Visible = currentPatient.Module1.ThrowAlarm;
             alarmDisplay2.Visible = currentPatient.Module2.ThrowAlarm;
             alarmDisplay3.Visible = currentPatient.Module3.ThrowAlarm;
             alarmDisplay4.Visible = currentPatient.Module4.ThrowAlarm;
-
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module1);
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module2);
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module3);
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module4);
-
+          
             DisplayModuleData();
         }
     }
