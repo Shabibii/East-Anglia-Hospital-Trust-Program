@@ -1,6 +1,6 @@
 ﻿namespace Software_Engineering_Assignment.Pages
 {
-    partial class Bedside
+    partial class BedsidePage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bedside));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BedsidePage));
             this.nameLabel = new System.Windows.Forms.Label();
             this.module1CurrentReading = new System.Windows.Forms.TextBox();
             this.emptyMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);

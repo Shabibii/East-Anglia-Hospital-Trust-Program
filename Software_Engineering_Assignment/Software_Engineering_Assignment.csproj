@@ -152,11 +152,11 @@
     <Compile Include="Pages\ManagementPage.Designer.cs">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Bedside.cs">
+    <Compile Include="Pages\BedsidePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\Bedside.Designer.cs">
-      <DependentUpon>Bedside.cs</DependentUpon>
+    <Compile Include="Pages\BedsidePage.Designer.cs">
+      <DependentUpon>BedsidePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Support Classes\StaffListViewItem.cs" />
     <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
@@ -208,8 +208,8 @@
     <EmbeddedResource Include="Pages\ManagementPage.resx">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Bedside.resx">
-      <DependentUpon>Bedside.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\BedsidePage.resx">
+      <DependentUpon>BedsidePage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="CentralStation Relationships.cd" />
     <None Include="Main Relationships.cd" />

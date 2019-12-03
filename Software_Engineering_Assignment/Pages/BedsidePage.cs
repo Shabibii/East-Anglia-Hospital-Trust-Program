@@ -11,12 +11,12 @@ using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment.Pages
 {
-    public partial class Bedside : UserControl
+    public partial class BedsidePage : UserControl
     {
         Patient currentPatient;
         Main.PageCall0 previousPageCall;
 
-        public Bedside(Main.PageCall0 previousPageCall)
+        public BedsidePage(Main.PageCall0 previousPageCall)
         {
             InitializeComponent();
             InitalizeControl();
@@ -225,6 +225,7 @@ namespace Software_Engineering_Assignment.Pages
 
         private void RefreshModuleData_Tick(object sender, EventArgs e)
         {
+            //return;
             currentPatient.Module1.SetCurrentValue();
             currentPatient.Module2.SetCurrentValue();
             currentPatient.Module3.SetCurrentValue();

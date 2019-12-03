@@ -70,10 +70,10 @@ namespace Software_Engineering_Assignment.Support_Classes
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), Module4);
             }
 
-            Module1.ValueChanged += ModuleValueChanged;
-            Module2.ValueChanged += ModuleValueChanged;
-            Module3.ValueChanged += ModuleValueChanged;
-            Module4.ValueChanged += ModuleValueChanged;
+            Module1.ValueChanged = ModuleValueChanged;
+            Module2.ValueChanged = ModuleValueChanged;
+            Module3.ValueChanged = ModuleValueChanged;
+            Module4.ValueChanged = ModuleValueChanged;
         }
 
 

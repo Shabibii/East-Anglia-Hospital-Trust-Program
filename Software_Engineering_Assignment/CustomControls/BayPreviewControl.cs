@@ -45,7 +45,7 @@ namespace Software_Engineering_Assignment
             this.bay = bay;
             SetProperties();
             PatientPageCall = patientPageCall;
-            bay.AlarmThrown += AlarmThrown;
+            bay.AlarmThrown = AlarmThrown;
         }
 
       

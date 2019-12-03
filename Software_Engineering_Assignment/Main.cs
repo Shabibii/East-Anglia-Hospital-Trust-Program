@@ -34,7 +34,7 @@ namespace Software_Engineering_Assignment
 
         public RegistrationPage RegisterationPage { get; set; }
 
-        public Bedside PatientPage { get; set; }
+        public BedsidePage PatientPage { get; set; }
 
         public Main() => InitializeComponent();
 
@@ -51,7 +51,7 @@ namespace Software_Engineering_Assignment
             BayPage2 = new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage };
             ManagementPage = new ManagementPage() { pageCall0 = GoToMainpage };
             RegisterationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
-            PatientPage = new Bedside(GoToMainpage);
+            PatientPage = new BedsidePage(GoToMainpage);
 
             pages.Add(0, MainPage);
             pages.Add(1, BayPage1);
@@ -72,7 +72,7 @@ namespace Software_Engineering_Assignment
         public void SetPatientPage(int bayNumber,int pageNumber)
         {
             //Set page to patient page
-            ((Bedside)pages[5]).SetPatient(bayNumber, pageNumber);
+            ((BedsidePage)pages[5]).SetPatient(bayNumber, pageNumber);
             SetPage(5);
         }
 

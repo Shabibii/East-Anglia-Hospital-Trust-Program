@@ -10,7 +10,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         public delegate void PatientEvent(Patient patient, bool on);
         public PatientEvent ThrowPatientAlarm = delegate { };
         // get/set patient details 
-        public readonly string patientId;
+        public readonly int patientId;
 
         public string FullName
         {
@@ -82,7 +82,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Patient(string[] rawPatientDat)
         {
-            patientId = rawPatientDat[0];
+            patientId = int.Parse(rawPatientDat[0]);
             FirstName = rawPatientDat[1];
             Surname = rawPatientDat[2];
             DOB = rawPatientDat[3].Split(' ')[0];
@@ -96,16 +96,24 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             ConnectToBedside();
 
-            Module1.ValueChanged += ModuleValueChanged;
-            Module2.ValueChanged += ModuleValueChanged;
-            Module3.ValueChanged += ModuleValueChanged;
-            Module4.ValueChanged += ModuleValueChanged;
+            Module1.ValueChanged = ModuleValueChanged;
+            Module2.ValueChanged = ModuleValueChanged;
+            Module3.ValueChanged = ModuleValueChanged;
+            Module4.ValueChanged = ModuleValueChanged;
         }
 
         void ModuleValueChanged(Module module)
         {
-            if (bedside.ThrowAlarm) ThrowPatientAlarm(this, true);
-            else ThrowPatientAlarm(this, false);
+            if (bedside.ThrowAlarm)
+            {
+                ThrowPatientAlarm(this, true);
+                DatabaseConnector.Instance.LogEvent($"Alarm for {module} thrown", "Patient", patientId);
+            }
+            else
+            {
+                ThrowPatientAlarm(this, false);
+                DatabaseConnector.Instance.LogEvent($"{module} back to normal", "Patient", patientId);
+            }
         }
     }
 }
