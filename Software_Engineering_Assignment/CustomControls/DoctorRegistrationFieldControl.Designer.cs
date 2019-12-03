@@ -80,7 +80,7 @@
             this.deregisterButton.TabIndex = 4;
             this.deregisterButton.Text = "Deregister";
             this.deregisterButton.UseVisualStyleBackColor = false;
-            this.deregisterButton.Click += new System.EventHandler(this.UnregisterStaff);
+            this.deregisterButton.Click += new System.EventHandler(this.UnregisterStaff_Click);
             // 
             // registerButton1
             // 
@@ -94,7 +94,7 @@
             this.registerButton1.TabIndex = 5;
             this.registerButton1.Text = "Register";
             this.registerButton1.UseVisualStyleBackColor = false;
-            this.registerButton1.Click += new System.EventHandler(this.RegisterStaff);
+            this.registerButton1.Click += new System.EventHandler(this.RegisterStaff_Click);
             // 
             // dateTimePicker2
             // 

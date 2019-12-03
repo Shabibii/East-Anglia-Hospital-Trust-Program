@@ -127,8 +127,6 @@ namespace Software_Engineering_Assignment
                 ValidateLogin(); // Attempt logging in
                 DialogResult = DialogResult.Yes;
             }
-        }
-
-        
+        }        
     }
 }
