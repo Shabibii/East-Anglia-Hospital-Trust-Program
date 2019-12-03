@@ -97,7 +97,7 @@ namespace Software_Engineering_Assignment.Pages
                 }
                 else
                 {
-                    conditions += " trigger_date_time LIKE '" + getSelectedDate() + "%' ";
+                    conditions += " trigger_date_time LIKE '" + dtpManagement.Value.ToString("dd/MM/yyyy") + "%' ";
                 }
 
 
