@@ -19,7 +19,7 @@ namespace Software_Engineering_Assignment.CustomControls
         }
 
         // Get on call staff for selected date using the monthCalendar
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void calendarOnCallStaff_DateChanged(object sender, DateRangeEventArgs e)
         {
             DisplayOnCallStaff();
         }
@@ -35,7 +35,7 @@ namespace Software_Engineering_Assignment.CustomControls
         }
 
         // Method removes staff from on call list
-        public void Remove(StaffListViewItem item)
+        public void RemoveOnCallStaffItem(StaffListViewItem item)
         {
             StaffOncallList.Items.Remove(item);
         }

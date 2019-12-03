@@ -40,7 +40,7 @@ namespace Software_Engineering_Assignment.Pages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void backButton_Click(object sender, EventArgs e)
         {
             goBackToParentPage();
         }

@@ -50,6 +50,9 @@
   <PropertyGroup>
     <ApplicationIcon>hospital-buildings.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -213,6 +216,8 @@
     </EmbeddedResource>
     <None Include="CentralStation Relationships.cd" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Main Relationships.cd" />
     <None Include="Login Relationships.cd" />
     <None Include="Properties\Settings.settings">

@@ -45,7 +45,7 @@
             this.backButton.TabIndex = 14;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.button2_Click);
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // staffRegistrationControl
             // 
