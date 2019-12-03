@@ -3,6 +3,8 @@
     public class Bay
     {
         public int BayNumber;
+        public delegate void PatientEvent(Patient patient, bool on);
+        public PatientEvent AlarmThrown = delegate { };
 
         /// <summary>
         /// Structure to hold information on bays including bedsides/patients
@@ -19,7 +21,37 @@
             patient6 = DatabaseConnector.Instance.GetPatient(bayNumber, 6);
             patient7 = DatabaseConnector.Instance.GetPatient(bayNumber, 7);
             patient8 = DatabaseConnector.Instance.GetPatient(bayNumber, 8);
+
+
+            patient1.ThrowPatientAlarm += PatientValueChanged;
+            patient2.ThrowPatientAlarm += PatientValueChanged;
+            patient3.ThrowPatientAlarm += PatientValueChanged;
+            patient4.ThrowPatientAlarm += PatientValueChanged;
+            patient5.ThrowPatientAlarm += PatientValueChanged;
+            patient6.ThrowPatientAlarm += PatientValueChanged;
+            patient7.ThrowPatientAlarm += PatientValueChanged;
+            patient8.ThrowPatientAlarm += PatientValueChanged;
+
+            StartRandomizingValues();
         }
+
+        public void PatientValueChanged(Patient patient, bool on)
+        {
+            AlarmThrown(patient,on);
+        }
+
+        private void StartRandomizingValues()
+        {
+            patient1.RandomizeValues();
+            patient2.RandomizeValues();
+            patient3.RandomizeValues();
+            patient4.RandomizeValues();
+            patient5.RandomizeValues();
+            patient6.RandomizeValues();
+            patient7.RandomizeValues();
+            patient8.RandomizeValues();
+        }
+
 
         /// <summary>
         /// This method returns a patient based on the bedside number

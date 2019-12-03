@@ -19,7 +19,7 @@ namespace Software_Engineering_Assignment.CustomControls
         }
 
         // Get on call staff for selected date using the monthCalendar
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void calendarOnCallStaff_DateChanged(object sender, DateRangeEventArgs e)
         {
             DisplayOnCallStaff();
         }
@@ -31,12 +31,11 @@ namespace Software_Engineering_Assignment.CustomControls
             {
                 if (listItem.staff.StaffId == staffId) return true;
             }
-
             return false;
         }
 
         // Method removes staff from on call list
-        public void Remove(StaffListViewItem item)
+        public void RemoveOnCallStaffItem(StaffListViewItem item)
         {
             StaffOncallList.Items.Remove(item);
         }
@@ -58,7 +57,7 @@ namespace Software_Engineering_Assignment.CustomControls
         public void DisplayOnCallStaff()
         {
             // Get on call staff for date
-            List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
+            List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(calendarOnCallStaff.SelectionRange.Start.ToString("yyyy-MM-dd"));
             StaffOncallList.Clear();
 
             if (onCallStaff == null) return;

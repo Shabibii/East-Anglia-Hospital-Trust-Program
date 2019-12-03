@@ -13,9 +13,18 @@ namespace Software_Engineering_Assignment
 {
     public partial class RegisterControl : UserControl
     {
+        EventLogNode patientNode;
+        EventLogNode bedsideNode;
+        EventLogNode moduleNode;
+
         public RegisterControl()
         {
             InitializeComponent();
+
+            patientNode = new EventLogNode("patient");
+            bedsideNode = new EventLogNode("bedside");
+            moduleNode = new EventLogNode("module");
+            eventLog.Nodes.AddRange(new[] { patientNode, bedsideNode, moduleNode });
         }
 
         private bool ListContains(Staff staff)
@@ -56,10 +65,46 @@ namespace Software_Engineering_Assignment
             }
         }
 
+
+        public void DisplayEventLog()
+        {
+            var eveLog = DatabaseConnector.Instance.GetEventLog();
+
+            patientNode.Nodes.Clear();
+            bedsideNode.Nodes.Clear();
+            moduleNode.Nodes.Clear();
+
+            foreach (string[] log in eveLog)
+            {
+                EventLogNode eLog = new EventLogNode(log);
+
+                switch (eLog.eventType)
+                {
+                    case "patient":
+                        patientNode.Nodes.Add(eLog);
+                        break;
+
+                    case "bedside":
+                        bedsideNode.Nodes.Add(eLog);
+                        break;
+
+                    case "module":
+                        moduleNode.Nodes.Add(eLog);
+                        break;
+                }
+            }
+
+
+            patientNode.Expand();
+            bedsideNode.Expand();
+            moduleNode.Expand();
+        }
+
         private void RefreshDisplayData_Tick(object sender, EventArgs e)
         {
             //Display data, check for changes and repeat
             DisplayOnCallStaff();
+            DisplayEventLog();
         }
 
         public void StartRealtimeDataDisplay()

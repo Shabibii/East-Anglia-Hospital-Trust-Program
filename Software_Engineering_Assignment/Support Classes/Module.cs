@@ -1,14 +1,17 @@
 ﻿
 using System;
-using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
     public class Module
     {
+        public delegate void ModuleValueChanged(Module moduleChange);
+        public ModuleValueChanged ValueChanged = delegate { };
+
         public int moduleID;
 
-        public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, None };
+        public enum ModuleType { TempModule, HeartRateModule, BloodPressureModule, BreathingRate, PulseRate, None };
 
         // current monitoring function on module
         public ModuleType currentModule = ModuleType.None;
@@ -16,27 +19,56 @@ namespace Software_Engineering_Assignment.Support_Classes
         public string ModuleUnit = "^";
 
         // get/set values for module readings
-        public float MinValue { get; set; } = 0;
-        public float MaxValue { get; set; } = 60;
+        public decimal MinValue { get; set; } = 0;
+        public decimal MaxValue { get; set; } = 60;
 
-        public float CurrentValue { get; set; } = 0;
+        public decimal CurrentValue { get; set; } = 0;
+
+        public bool LogAlarm = true;
+
+        public bool ThrowAlarm => CurrentValue < MinValue || CurrentValue > MaxValue;
 
         public static string[] ModuleTypes()
         {
-            List<string> output = new List<string>();
-            for (int i = 0; i <= (int)ModuleType.None; i++)
-                output.Add(ToString((ModuleType)i));
+            string[] moduleTypes = new string[(int)ModuleType.None + 1];
 
-            return output.ToArray();
+            for (int i = 0; i <= (int)ModuleType.None; i++)
+                moduleTypes[i] = ToString((ModuleType)i);
+
+            return moduleTypes;
         }
 
-        public Module()
+
+        public static ModuleType GetModuleFromString(string moduleTypeStr)
+        {
+            //Convert string to ModuleType enum
+            for (int i = 0; i <= (int)ModuleType.None; i++)
+            {
+                if(ToString((ModuleType)i) == moduleTypeStr)
+                    return (ModuleType)i;
+            }
+            return ModuleType.None; //Default value
+        }
+
+        public Module(int module)
         {
             //Generate random values
-            currentModule = (ModuleType)Constants.NextRandomValue(0, (int)ModuleType.None + 1);
+            currentModule = (ModuleType)module;
 
-            switch(currentModule)
+            switch (currentModule)
             {
+                case ModuleType.PulseRate:
+                    ModuleUnit = "mm";
+                    MinValue = 70;
+                    MaxValue = 100;
+                    break;
+
+                case ModuleType.BreathingRate:
+                    ModuleUnit = "bpm"; //breaths per minute
+                    MinValue = 12;
+                    MaxValue = 25;
+                    break;
+
                 case ModuleType.BloodPressureModule:
                     ModuleUnit = "mm";
                     MinValue = 70;
@@ -44,7 +76,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                     break;
 
                 case ModuleType.HeartRateModule:
-                    ModuleUnit = "bpm";
+                    ModuleUnit = "bpm"; //beats per minute
                     MinValue = 70;
                     MaxValue = 100;
                     break;
@@ -56,43 +88,68 @@ namespace Software_Engineering_Assignment.Support_Classes
                     break;
 
                 case ModuleType.None:
-
-                    break;
-
-                    
+                    MinValue = 0;
+                    MaxValue = 0;
+                    return;
             }
             // set current value to be from min - 8 to max + 8
-            CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 8, Convert.ToInt32(MaxValue) + 8);
+            SetCurrentValue();
         }
 
-       
-        public Module(List<string> rawModuleData)
+        public void SetCurrentValue()
+        {
+            if (currentModule == ModuleType.None) return;
+            CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 10, Convert.ToInt32(MaxValue) + 10);
+            ValueChanged(this);
+        }
+
+        public Module(string[] rawModuleData)
         {
             moduleID = int.Parse(rawModuleData[0]);
-            currentModule = (ModuleType)int.Parse(rawModuleData[1]);
+            currentModule = GetModuleFromString(rawModuleData[1]);
             ModuleUnit = rawModuleData[2];
-            MaxValue = float.Parse(rawModuleData[3]);
-            MinValue = float.Parse(rawModuleData[4]);
-            CurrentValue = float.Parse(rawModuleData[5]);
+            MaxValue = decimal.Parse(rawModuleData[3]);
+            MinValue = decimal.Parse(rawModuleData[4]);
+            CurrentValue = decimal.Parse(rawModuleData[5]);
         }
-            
+
+        Timer t = new Timer();
+        public void StartGeneratingValues()
+        {
+            //Update current reading value every minute
+            t.Interval = 60000;
+            // t.Interval = 60000; //
+            t.Tick += TimerTick;
+            t.Start();
+        }
+
+        public void TimerTick(object o, EventArgs erg)
+        {
+            SetCurrentValue();
+            DatabaseConnector.Instance.UpdateModule(this);
+            ValueChanged(this);
+        }
+
+        public void StopGeneratingValues()
+        {
+            t.Stop();
+        }
 
         private static string ToString(ModuleType moduleType)
         {
             switch (moduleType)
             {
-                case ModuleType.TempModule:
-                    return "Temperature";
+                case ModuleType.TempModule: return "Temperature";
 
-                case ModuleType.HeartRateModule:
-                    return "Heart Rate";
+                case ModuleType.HeartRateModule: return "Heart Rate";
 
-                case ModuleType.BloodPressureModule:
-                    return "Blood Pressure";
+                case ModuleType.BloodPressureModule: return "Blood Pressure";
 
-                case ModuleType.None:
-                default:
-                    return "N\\A";
+                case ModuleType.BreathingRate: return "Breathing Rate";
+
+                case ModuleType.PulseRate: return "Pulse Pressure";
+
+                case ModuleType.None: default: return "N\\A";
             }
         }
 

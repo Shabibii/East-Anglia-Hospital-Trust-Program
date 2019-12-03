@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.onCallStaffLabel = new System.Windows.Forms.Label();
+            this.calendarOnCallStaff = new System.Windows.Forms.MonthCalendar();
             this.StaffOncallList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // label1
+            // onCallStaffLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "On Call Staff";
+            this.onCallStaffLabel.AutoSize = true;
+            this.onCallStaffLabel.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onCallStaffLabel.Location = new System.Drawing.Point(0, 9);
+            this.onCallStaffLabel.Name = "onCallStaffLabel";
+            this.onCallStaffLabel.Size = new System.Drawing.Size(79, 15);
+            this.onCallStaffLabel.TabIndex = 1;
+            this.onCallStaffLabel.Text = "On Call Staff";
             // 
-            // monthCalendar1
+            // calendarOnCallStaff
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(264, 9);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 2;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.calendarOnCallStaff.Location = new System.Drawing.Point(264, 9);
+            this.calendarOnCallStaff.Name = "calendarOnCallStaff";
+            this.calendarOnCallStaff.TabIndex = 2;
+            this.calendarOnCallStaff.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarOnCallStaff_DateChanged);
             // 
             // StaffOncallList
             // 
@@ -66,8 +66,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.StaffOncallList);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.calendarOnCallStaff);
+            this.Controls.Add(this.onCallStaffLabel);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Name = "OnCallStaffControl";
             this.Size = new System.Drawing.Size(500, 291);
@@ -77,8 +77,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Label onCallStaffLabel;
+        private System.Windows.Forms.MonthCalendar calendarOnCallStaff;
         public System.Windows.Forms.ListView StaffOncallList;
     }
 }

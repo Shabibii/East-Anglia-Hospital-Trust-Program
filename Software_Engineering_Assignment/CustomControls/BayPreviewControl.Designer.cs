@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BayPreviewControl));
             this.title = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel8 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.patient1 = new System.Windows.Forms.LinkLabel();
+            this.patient2 = new System.Windows.Forms.LinkLabel();
+            this.patient3 = new System.Windows.Forms.LinkLabel();
+            this.patient4 = new System.Windows.Forms.LinkLabel();
+            this.patient5 = new System.Windows.Forms.LinkLabel();
+            this.patient6 = new System.Windows.Forms.LinkLabel();
+            this.patient7 = new System.Windows.Forms.LinkLabel();
+            this.patient8 = new System.Windows.Forms.LinkLabel();
+            this.alarmDisplay = new System.Windows.Forms.PictureBox();
+            this.alarmCheck = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -51,136 +53,138 @@
             this.title.Size = new System.Drawing.Size(76, 26);
             this.title.TabIndex = 0;
             this.title.Text = "Bay X";
-            this.title.Click += new System.EventHandler(this.title_Click);
             // 
-            // linkLabel1
+            // patient1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel1.Location = new System.Drawing.Point(33, 96);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "(X) Patient Name";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
+            this.patient1.AutoSize = true;
+            this.patient1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient1.Location = new System.Drawing.Point(33, 96);
+            this.patient1.Name = "patient1";
+            this.patient1.Size = new System.Drawing.Size(147, 22);
+            this.patient1.TabIndex = 2;
+            this.patient1.TabStop = true;
+            this.patient1.Text = "(X) Patient Name";
+            this.patient1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient1_LinkClicked);
             // 
-            // linkLabel2
+            // patient2
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel2.Location = new System.Drawing.Point(33, 140);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel2.TabIndex = 3;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "(X) Patient Name";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
+            this.patient2.AutoSize = true;
+            this.patient2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient2.Location = new System.Drawing.Point(33, 140);
+            this.patient2.Name = "patient2";
+            this.patient2.Size = new System.Drawing.Size(147, 22);
+            this.patient2.TabIndex = 3;
+            this.patient2.TabStop = true;
+            this.patient2.Text = "(X) Patient Name";
+            this.patient2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient2_LinkClicked);
             // 
-            // linkLabel3
+            // patient3
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel3.Location = new System.Drawing.Point(33, 184);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel3.TabIndex = 4;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "(X) Patient Name";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel3_LinkClicked);
+            this.patient3.AutoSize = true;
+            this.patient3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient3.Location = new System.Drawing.Point(33, 184);
+            this.patient3.Name = "patient3";
+            this.patient3.Size = new System.Drawing.Size(147, 22);
+            this.patient3.TabIndex = 4;
+            this.patient3.TabStop = true;
+            this.patient3.Text = "(X) Patient Name";
+            this.patient3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient3_LinkClicked);
             // 
-            // linkLabel4
+            // patient4
             // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel4.Location = new System.Drawing.Point(33, 228);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel4.TabIndex = 5;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "(X) Patient Name";
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel4_LinkClicked);
+            this.patient4.AutoSize = true;
+            this.patient4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient4.Location = new System.Drawing.Point(33, 228);
+            this.patient4.Name = "patient4";
+            this.patient4.Size = new System.Drawing.Size(147, 22);
+            this.patient4.TabIndex = 5;
+            this.patient4.TabStop = true;
+            this.patient4.Text = "(X) Patient Name";
+            this.patient4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient4_LinkClicked);
             // 
-            // linkLabel5
+            // patient5
             // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel5.Location = new System.Drawing.Point(312, 96);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel5.TabIndex = 6;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "(X) Patient Name";
-            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel5_LinkClicked);
+            this.patient5.AutoSize = true;
+            this.patient5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient5.Location = new System.Drawing.Point(312, 96);
+            this.patient5.Name = "patient5";
+            this.patient5.Size = new System.Drawing.Size(147, 22);
+            this.patient5.TabIndex = 6;
+            this.patient5.TabStop = true;
+            this.patient5.Text = "(X) Patient Name";
+            this.patient5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient5_LinkClicked);
             // 
-            // linkLabel6
+            // patient6
             // 
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel6.Location = new System.Drawing.Point(312, 140);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel6.TabIndex = 7;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "(X) Patient Name";
-            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel6_LinkClicked);
+            this.patient6.AutoSize = true;
+            this.patient6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient6.Location = new System.Drawing.Point(312, 140);
+            this.patient6.Name = "patient6";
+            this.patient6.Size = new System.Drawing.Size(147, 22);
+            this.patient6.TabIndex = 7;
+            this.patient6.TabStop = true;
+            this.patient6.Text = "(X) Patient Name";
+            this.patient6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient6_LinkClicked);
             // 
-            // linkLabel7
+            // patient7
             // 
-            this.linkLabel7.AutoSize = true;
-            this.linkLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel7.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel7.Location = new System.Drawing.Point(312, 184);
-            this.linkLabel7.Name = "linkLabel7";
-            this.linkLabel7.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel7.TabIndex = 8;
-            this.linkLabel7.TabStop = true;
-            this.linkLabel7.Text = "(X) Patient Name";
-            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel7_LinkClicked);
+            this.patient7.AutoSize = true;
+            this.patient7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient7.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient7.Location = new System.Drawing.Point(312, 184);
+            this.patient7.Name = "patient7";
+            this.patient7.Size = new System.Drawing.Size(147, 22);
+            this.patient7.TabIndex = 8;
+            this.patient7.TabStop = true;
+            this.patient7.Text = "(X) Patient Name";
+            this.patient7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient7_LinkClicked);
             // 
-            // linkLabel8
+            // patient8
             // 
-            this.linkLabel8.AutoSize = true;
-            this.linkLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel8.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel8.Location = new System.Drawing.Point(312, 228);
-            this.linkLabel8.Name = "linkLabel8";
-            this.linkLabel8.Size = new System.Drawing.Size(147, 22);
-            this.linkLabel8.TabIndex = 9;
-            this.linkLabel8.TabStop = true;
-            this.linkLabel8.Text = "(X) Patient Name";
-            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel8_LinkClicked);
+            this.patient8.AutoSize = true;
+            this.patient8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patient8.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.patient8.Location = new System.Drawing.Point(312, 228);
+            this.patient8.Name = "patient8";
+            this.patient8.Size = new System.Drawing.Size(147, 22);
+            this.patient8.TabIndex = 9;
+            this.patient8.TabStop = true;
+            this.patient8.Text = "(X) Patient Name";
+            this.patient8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Patient8_LinkClicked);
             // 
-            // pictureBox1
+            // alarmDisplay
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(21, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.alarmDisplay.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay.Image")));
+            this.alarmDisplay.Location = new System.Drawing.Point(21, 18);
+            this.alarmDisplay.Name = "alarmDisplay";
+            this.alarmDisplay.Size = new System.Drawing.Size(62, 55);
+            this.alarmDisplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.alarmDisplay.TabIndex = 1;
+            this.alarmDisplay.TabStop = false;
+            // 
+            // alarmCheck
+            // 
             // 
             // BayPreviewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.linkLabel8);
-            this.Controls.Add(this.linkLabel7);
-            this.Controls.Add(this.linkLabel6);
-            this.Controls.Add(this.linkLabel5);
-            this.Controls.Add(this.linkLabel4);
-            this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.patient8);
+            this.Controls.Add(this.patient7);
+            this.Controls.Add(this.patient6);
+            this.Controls.Add(this.patient5);
+            this.Controls.Add(this.patient4);
+            this.Controls.Add(this.patient3);
+            this.Controls.Add(this.patient2);
+            this.Controls.Add(this.patient1);
+            this.Controls.Add(this.alarmDisplay);
             this.Controls.Add(this.title);
             this.Name = "BayPreviewControl";
             this.Size = new System.Drawing.Size(500, 291);
@@ -188,7 +192,7 @@
             this.MouseLeave += new System.EventHandler(this.BayControl_MouseLeave);
             this.MouseHover += new System.EventHandler(this.Bay_MouseHover);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Bay_MouseUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,14 +201,15 @@
         #endregion
 
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel4;
-        private System.Windows.Forms.LinkLabel linkLabel5;
-        private System.Windows.Forms.LinkLabel linkLabel6;
-        private System.Windows.Forms.LinkLabel linkLabel7;
-        private System.Windows.Forms.LinkLabel linkLabel8;
+        private System.Windows.Forms.PictureBox alarmDisplay;
+        private System.Windows.Forms.LinkLabel patient1;
+        private System.Windows.Forms.LinkLabel patient2;
+        private System.Windows.Forms.LinkLabel patient3;
+        private System.Windows.Forms.LinkLabel patient4;
+        private System.Windows.Forms.LinkLabel patient5;
+        private System.Windows.Forms.LinkLabel patient6;
+        private System.Windows.Forms.LinkLabel patient7;
+        private System.Windows.Forms.LinkLabel patient8;
+        private System.Windows.Forms.Timer alarmCheck;
     }
 }

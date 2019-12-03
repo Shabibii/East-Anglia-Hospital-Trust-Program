@@ -24,41 +24,41 @@ namespace Software_Engineering_Assignment
         public delegate void PageCall2(int bayNumber, int bedNumber);
         public PageCall0 BayPageCall = delegate { };
 
-        private MainPage mainPage;
-        private BayPage bayPage1;
-        private BayPage bayPage2;
-        private ManagementPage managementPage;
-        private RegistrationPage registerationPage;
-        private PatientPage patientPage;
+        public CentralStation MainPage { get; set; }
 
-        public Main()
-        {
-            InitializeComponent();
-            InitalizePages();
-            SetPage(0);
-        }
+        public BayPage BayPage1 { get; set; }
+
+        public BayPage BayPage2 { get; set; }
+
+        public ManagementPage ManagementPage { get; set; }
+
+        public RegistrationPage RegisterationPage { get; set; }
+
+        public BedsidePage PatientPage { get; set; }
+
+        public Main() => InitializeComponent();
 
         private void InitalizePages()
         {
-            mainPage = new MainPage(SetPatientPage)
+            MainPage = new CentralStation(SetPatientPage)
             {
                 BayPageCall = SetPageToBay,
                 ManagementPageCall = CallManagementPage,
                 RegisterationPageCall = CallRegisterationPage
             };
 
-            bayPage1 = new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage };
-            bayPage2 = new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage };
-            managementPage = new ManagementPage() { pageCall0 = GoToMainpage };
-            registerationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
-            patientPage = new PatientPage(GoToMainpage);
+            BayPage1 = new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage };
+            BayPage2 = new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage };
+            ManagementPage = new ManagementPage() { pageCall0 = GoToMainpage };
+            RegisterationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
+            PatientPage = new BedsidePage(GoToMainpage);
 
-            pages.Add(0, mainPage);
-            pages.Add(1, bayPage1);
-            pages.Add(2, bayPage2);
-            pages.Add(3, managementPage);
-            pages.Add(4, registerationPage);
-            pages.Add(5, patientPage);
+            pages.Add(0, MainPage);
+            pages.Add(1, BayPage1);
+            pages.Add(2, BayPage2);
+            pages.Add(3, ManagementPage);
+            pages.Add(4, RegisterationPage);
+            pages.Add(5, PatientPage);
         } 
 
         public void SetPage(int pageNumber)
@@ -72,7 +72,7 @@ namespace Software_Engineering_Assignment
         public void SetPatientPage(int bayNumber,int pageNumber)
         {
             //Set page to patient page
-            ((PatientPage)pages[5]).SetPatient(bayNumber, pageNumber);
+            ((BedsidePage)pages[5]).SetPatient(bayNumber, pageNumber);
             SetPage(5);
         }
 
@@ -84,16 +84,7 @@ namespace Software_Engineering_Assignment
 
         public void SetPageToBay(int bayNumber)
         {
-            switch(bayNumber)
-            {
-                case 1:
-                    SetPage(1);
-                    break;
-
-                case 2:
-                    SetPage(2);
-                    break;
-            }
+            if (bayNumber == 1 || bayNumber == 2) SetPage(bayNumber);
         }
 
         public void CallManagementPage()
@@ -108,20 +99,20 @@ namespace Software_Engineering_Assignment
             SetPage(4);
         }
 
-        private void Main_SizeChanged(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
-            Text = Size.ToString();
+            InitalizePages();
+            SetPage(0);
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mainPage.Dispose();
-            bayPage1.Dispose();
-            bayPage2.Dispose();
-            managementPage.Dispose();
-            registerationPage.Dispose();
-            patientPage.Dispose();
+            MainPage.Dispose();
+            BayPage1.Dispose();
+            BayPage2.Dispose();
+            ManagementPage.Dispose();
+            RegisterationPage.Dispose();
+            PatientPage.Dispose();
         }
-
     }
 }

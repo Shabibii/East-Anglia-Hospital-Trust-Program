@@ -11,55 +11,75 @@ namespace Software_Engineering_Assignment.Support_Classes
         public int BedsideNo { get; set; } = 0;
         public int BayNo { get; set; } = 0;
 
-        private Module module1;
-        private Module module2;
-        private Module module3;
-        private Module module4;
+        public Module Module1 { get; set; }
+        public Module Module2 { get; set; }
 
-        public Module Module1 => module1;
-        public Module Module2 => module2;
-        public Module Module3 => module3;
-        public Module Module4 => module4;
+        public Module Module3 { get; set; }
 
-        public Bedside(List<string> rawBedsideData)
+        public Module Module4 { get; set; }
+
+        public bool ThrowAlarm => Module1.ThrowAlarm || Module2.ThrowAlarm || Module3.ThrowAlarm || Module4.ThrowAlarm;
+
+        public Bedside(string[] rawBedsideData)
         {
-            BedsideNo = int.Parse(rawBedsideData[1]);
-            BayNo = int.Parse(rawBedsideData[2]);
-           
-            module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
-            if (module1 == null)
+            BedsideNo = int.Parse(rawBedsideData[0]);
+            BayNo = int.Parse(rawBedsideData[1]);
+
+            int[] randomIndexes = new[] { 0, 1, 2, 3, 4, 5 }.OrderBy(x => Constants.Next()).ToArray();
+
+            Module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
+            if (Module1 == null)
             {
-                module1 = new Module();
-                module1.moduleID = int.Parse(rawBedsideData[2]);
-                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[2]), module1);
+                Module1 = new Module(randomIndexes[0])
+                {
+                    moduleID = int.Parse(rawBedsideData[2])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[2]), Module1);
 
             }
 
-            module2 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[3]));
-            if (module2 == null)
+            Module2 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[3]));
+            if (Module2 == null)
             {
-                module2 = new Module();
-                module2.moduleID = int.Parse(rawBedsideData[3]);
-                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[3]), module2);
+                Module2 = new Module(randomIndexes[1])
+                {
+                    moduleID = int.Parse(rawBedsideData[3])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[3]), Module2);
 
             }
 
-            module3 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[4]));
-            if (module3 == null)
+            Module3 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[4]));
+            if (Module3 == null)
             {
-                module3 = new Module();
-                module3.moduleID = int.Parse(rawBedsideData[4]);
-                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[4]), module3);
+                Module3 = new Module(randomIndexes[2])
+                {
+                    moduleID = int.Parse(rawBedsideData[4])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[4]), Module3);
 
             }
 
-            module4 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[5]));
-            if (module4 == null)
+            Module4 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[5]));
+            if (Module4 == null)
             {
-                module4 = new Module();
-                module4.moduleID = int.Parse(rawBedsideData[5]);
-                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), module4);
+                Module4 = new Module(randomIndexes[3])
+                {
+                    moduleID = int.Parse(rawBedsideData[5])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), Module4);
             }
+
+            StartGeneratingRandomValues();
         }
+
+        public void StartGeneratingRandomValues()
+        {
+            Module1.StartGeneratingValues();
+            Module2.StartGeneratingValues();
+            Module3.StartGeneratingValues();
+            Module4.StartGeneratingValues();
+        }
+
     }
 }

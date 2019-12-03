@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.label1 = new System.Windows.Forms.Label();
+            this.calendarUnregistered = new System.Windows.Forms.MonthCalendar();
+            this.unregisteredStaffLabel = new System.Windows.Forms.Label();
             this.staffUnregisterList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // monthCalendar1
+            // calendarUnregistered
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(269, 6);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 5;
+            this.calendarUnregistered.Location = new System.Drawing.Point(264, 9);
+            this.calendarUnregistered.Name = "calendarUnregistered";
+            this.calendarUnregistered.TabIndex = 5;
             // 
-            // label1
+            // unregisteredStaffLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Unregistered Staff";
+            this.unregisteredStaffLabel.AutoSize = true;
+            this.unregisteredStaffLabel.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unregisteredStaffLabel.Location = new System.Drawing.Point(5, 6);
+            this.unregisteredStaffLabel.Name = "unregisteredStaffLabel";
+            this.unregisteredStaffLabel.Size = new System.Drawing.Size(104, 15);
+            this.unregisteredStaffLabel.TabIndex = 4;
+            this.unregisteredStaffLabel.Text = "Unregistered Staff";
             // 
             // staffUnregisterList
             // 
@@ -65,8 +65,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.staffUnregisterList);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.calendarUnregistered);
+            this.Controls.Add(this.unregisteredStaffLabel);
             this.Name = "UnregisteredStaffControl";
             this.Size = new System.Drawing.Size(500, 291);
             this.ResumeLayout(false);
@@ -76,8 +76,8 @@
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MonthCalendar calendarUnregistered;
+        private System.Windows.Forms.Label unregisteredStaffLabel;
         public System.Windows.Forms.ListView staffUnregisterList;
     }
 }
