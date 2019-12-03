@@ -18,10 +18,10 @@ namespace Software_Engineering_Assignment.Pages
         public RegistrationPage()
         {
             InitializeComponent();
-            staffRegistrationControl1.InitalizeRegisterField();
+            staffRegistrationControl.InitalizeRegisterField();
 
             Text = "Registration Page";
-            staffRegistrationControl1.registrationStateChanged += RefreshStaffStatus;
+            staffRegistrationControl.registrationStateChanged += RefreshStaffStatus;
             RefreshStaffStatus();
         }
 
@@ -31,8 +31,8 @@ namespace Software_Engineering_Assignment.Pages
         /// </summary>
         private void RefreshStaffStatus()
         {
-            staffAvailabilityControl1.DisplayOnCallStaff();
-            unavailableStaff1.DisplayUnregisterStaff();
+            staffOnCallControl.DisplayOnCallStaff();
+            unregisteredStaffControl.DisplayUnregisterStaff();
         }       
 
         /// <summary>

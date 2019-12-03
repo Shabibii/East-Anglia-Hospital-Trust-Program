@@ -57,7 +57,7 @@ namespace Software_Engineering_Assignment.CustomControls
         public void DisplayOnCallStaff()
         {
             // Get on call staff for date
-            List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
+            List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(calendarOnCallStaff.SelectionRange.Start.ToString("yyyy-MM-dd"));
             StaffOncallList.Clear();
 
             if (onCallStaff == null) return;

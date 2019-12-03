@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.calendarUnregisterd = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.staffUnregisterList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // monthCalendar1
+            // calendarUnregisterd
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(269, 6);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 5;
+            this.calendarUnregisterd.Location = new System.Drawing.Point(264, 9);
+            this.calendarUnregisterd.Name = "calendarUnregisterd";
+            this.calendarUnregisterd.TabIndex = 5;
             // 
             // label1
             // 
@@ -65,7 +65,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.staffUnregisterList);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.calendarUnregisterd);
             this.Controls.Add(this.label1);
             this.Name = "UnregisteredStaffControl";
             this.Size = new System.Drawing.Size(500, 291);
@@ -76,7 +76,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar calendarUnregisterd;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ListView staffUnregisterList;
     }

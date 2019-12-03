@@ -28,62 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.staffRegistrationControl1 = new Software_Engineering_Assignment.CustomControls.StaffRegistrationControl();
-            this.unavailableStaff1 = new Software_Engineering_Assignment.CustomControls.UnregisteredStaffControl();
-            this.staffAvailabilityControl1 = new Software_Engineering_Assignment.CustomControls.OnCallStaffControl();
+            this.backButton = new System.Windows.Forms.Button();
+            this.staffRegistrationControl = new Software_Engineering_Assignment.CustomControls.StaffRegistrationControl();
+            this.unregisteredStaffControl = new Software_Engineering_Assignment.CustomControls.UnregisteredStaffControl();
+            this.staffOnCallControl = new Software_Engineering_Assignment.CustomControls.OnCallStaffControl();
             this.SuspendLayout();
             // 
-            // button2
+            // backButton
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(923, 552);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 28);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.backButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.backButton.Location = new System.Drawing.Point(923, 552);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(64, 28);
+            this.backButton.TabIndex = 14;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // staffRegistrationControl1
+            // staffRegistrationControl
             // 
-            this.staffRegistrationControl1.BackColor = System.Drawing.Color.White;
-            this.staffRegistrationControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.staffRegistrationControl1.Location = new System.Drawing.Point(523, 3);
-            this.staffRegistrationControl1.Name = "staffRegistrationControl1";
-            this.staffRegistrationControl1.Size = new System.Drawing.Size(464, 531);
-            this.staffRegistrationControl1.TabIndex = 2;
+            this.staffRegistrationControl.BackColor = System.Drawing.Color.White;
+            this.staffRegistrationControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.staffRegistrationControl.Location = new System.Drawing.Point(523, 3);
+            this.staffRegistrationControl.Name = "staffRegistrationControl";
+            this.staffRegistrationControl.Size = new System.Drawing.Size(464, 531);
+            this.staffRegistrationControl.TabIndex = 2;
             // 
-            // unavailableStaff1
+            // unregisteredStaffControl
             // 
-            this.unavailableStaff1.BackColor = System.Drawing.Color.White;
-            this.unavailableStaff1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.unavailableStaff1.Location = new System.Drawing.Point(3, 300);
-            this.unavailableStaff1.Name = "unavailableStaff1";
-            this.unavailableStaff1.Size = new System.Drawing.Size(500, 291);
-            this.unavailableStaff1.TabIndex = 1;
+            this.unregisteredStaffControl.BackColor = System.Drawing.Color.White;
+            this.unregisteredStaffControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.unregisteredStaffControl.Location = new System.Drawing.Point(3, 300);
+            this.unregisteredStaffControl.Name = "unregisteredStaffControl";
+            this.unregisteredStaffControl.Size = new System.Drawing.Size(500, 291);
+            this.unregisteredStaffControl.TabIndex = 1;
             // 
-            // staffAvailabilityControl1
+            // staffOnCallControl
             // 
-            this.staffAvailabilityControl1.BackColor = System.Drawing.Color.White;
-            this.staffAvailabilityControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.staffAvailabilityControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.staffAvailabilityControl1.Location = new System.Drawing.Point(3, 3);
-            this.staffAvailabilityControl1.Name = "staffAvailabilityControl1";
-            this.staffAvailabilityControl1.Size = new System.Drawing.Size(500, 291);
-            this.staffAvailabilityControl1.TabIndex = 0;
+            this.staffOnCallControl.BackColor = System.Drawing.Color.White;
+            this.staffOnCallControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.staffOnCallControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.staffOnCallControl.Location = new System.Drawing.Point(3, 3);
+            this.staffOnCallControl.Name = "staffOnCallControl";
+            this.staffOnCallControl.Size = new System.Drawing.Size(500, 291);
+            this.staffOnCallControl.TabIndex = 0;
             // 
             // RegistrationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.staffRegistrationControl1);
-            this.Controls.Add(this.unavailableStaff1);
-            this.Controls.Add(this.staffAvailabilityControl1);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.staffRegistrationControl);
+            this.Controls.Add(this.unregisteredStaffControl);
+            this.Controls.Add(this.staffOnCallControl);
             this.Name = "RegistrationPage";
             this.Size = new System.Drawing.Size(1010, 595);
             this.ResumeLayout(false);
@@ -92,9 +92,9 @@
 
         #endregion
 
-        private CustomControls.OnCallStaffControl staffAvailabilityControl1;
-        private CustomControls.UnregisteredStaffControl unavailableStaff1;
-        private CustomControls.StaffRegistrationControl staffRegistrationControl1;
-        private System.Windows.Forms.Button button2;
+        private CustomControls.OnCallStaffControl staffOnCallControl;
+        private CustomControls.UnregisteredStaffControl unregisteredStaffControl;
+        private CustomControls.StaffRegistrationControl staffRegistrationControl;
+        private System.Windows.Forms.Button backButton;
     }
 }

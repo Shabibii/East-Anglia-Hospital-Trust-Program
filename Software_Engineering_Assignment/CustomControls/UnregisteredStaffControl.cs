@@ -45,7 +45,7 @@ namespace Software_Engineering_Assignment.CustomControls
             return false;
         }
 
-        // Method removes staff from unregster list
+        // Method removes staff from unregister list
         public void Remove(StaffListViewItem item)
         {
             staffUnregisterList.Items.Remove(item);
@@ -57,7 +57,7 @@ namespace Software_Engineering_Assignment.CustomControls
         public void DisplayUnregisterStaff()
         {
             // Get unregistered staff for that date
-            List<Staff> unregisteredStaff = DatabaseConnector.Instance.GetUnregisteredStaff(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
+            List<Staff> unregisteredStaff = DatabaseConnector.Instance.GetUnregisteredStaff(calendarUnregisterd.SelectionRange.Start.ToString("yyyy-MM-dd"));
             staffUnregisterList.Clear();
 
             if (unregisteredStaff == null) return;

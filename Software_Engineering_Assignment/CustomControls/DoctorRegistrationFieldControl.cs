@@ -23,8 +23,8 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             InitializeComponent();
             currentStaff = staff;
-            doctorName.Text = staff.FirstName;
-            staffId.Text = staff.StaffId.ToString();
+            staffNameText.Text = staff.FirstName;
+            staffIdText.Text = staff.StaffId.ToString();
         }
 
         private int Login()
@@ -71,7 +71,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             // Register staff   
             DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
-            DatabaseConnector.Instance.LogEvent("Registered for shift", "Staff", int.Parse(staffId.Text));
+            DatabaseConnector.Instance.LogEvent("Registered for shift", "Staff", int.Parse(staffIdText.Text));
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             // Deregister staff
             DatabaseConnector.Instance.UnregisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
-            DatabaseConnector.Instance.LogEvent("Deregistered from shift", "Staff", int.Parse(staffId.Text));
+            DatabaseConnector.Instance.LogEvent("Deregistered from shift", "Staff", int.Parse(staffIdText.Text));
         }
     }
 

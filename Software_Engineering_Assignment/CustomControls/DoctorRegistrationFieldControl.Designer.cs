@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.doctorName = new System.Windows.Forms.Label();
-            this.staffId = new System.Windows.Forms.Label();
+            this.staffNameText = new System.Windows.Forms.Label();
+            this.staffIdText = new System.Windows.Forms.Label();
             this.deregisterButton = new System.Windows.Forms.Button();
-            this.registerButton1 = new System.Windows.Forms.Button();
+            this.registerButton = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,25 +48,25 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // doctorName
+            // staffNameText
             // 
-            this.doctorName.AutoSize = true;
-            this.doctorName.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorName.Location = new System.Drawing.Point(110, 24);
-            this.doctorName.Name = "doctorName";
-            this.doctorName.Size = new System.Drawing.Size(78, 17);
-            this.doctorName.TabIndex = 1;
-            this.doctorName.Text = "Staff Name";
+            this.staffNameText.AutoSize = true;
+            this.staffNameText.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffNameText.Location = new System.Drawing.Point(110, 24);
+            this.staffNameText.Name = "staffNameText";
+            this.staffNameText.Size = new System.Drawing.Size(78, 17);
+            this.staffNameText.TabIndex = 1;
+            this.staffNameText.Text = "Staff Name";
             // 
-            // staffId
+            // staffIdText
             // 
-            this.staffId.AutoSize = true;
-            this.staffId.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffId.Location = new System.Drawing.Point(110, 60);
-            this.staffId.Name = "staffId";
-            this.staffId.Size = new System.Drawing.Size(57, 17);
-            this.staffId.TabIndex = 2;
-            this.staffId.Text = "Staff ID";
+            this.staffIdText.AutoSize = true;
+            this.staffIdText.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffIdText.Location = new System.Drawing.Point(110, 60);
+            this.staffIdText.Name = "staffIdText";
+            this.staffIdText.Size = new System.Drawing.Size(57, 17);
+            this.staffIdText.TabIndex = 2;
+            this.staffIdText.Text = "Staff ID";
             // 
             // deregisterButton
             // 
@@ -82,19 +82,19 @@
             this.deregisterButton.UseVisualStyleBackColor = false;
             this.deregisterButton.Click += new System.EventHandler(this.UnregisterStaff_Click);
             // 
-            // registerButton1
+            // registerButton
             // 
-            this.registerButton1.BackColor = System.Drawing.Color.Green;
-            this.registerButton1.FlatAppearance.BorderSize = 0;
-            this.registerButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.registerButton1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerButton1.Location = new System.Drawing.Point(358, 18);
-            this.registerButton1.Name = "registerButton1";
-            this.registerButton1.Size = new System.Drawing.Size(72, 23);
-            this.registerButton1.TabIndex = 5;
-            this.registerButton1.Text = "Register";
-            this.registerButton1.UseVisualStyleBackColor = false;
-            this.registerButton1.Click += new System.EventHandler(this.RegisterStaff_Click);
+            this.registerButton.BackColor = System.Drawing.Color.Green;
+            this.registerButton.FlatAppearance.BorderSize = 0;
+            this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerButton.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerButton.Location = new System.Drawing.Point(358, 18);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(72, 23);
+            this.registerButton.TabIndex = 5;
+            this.registerButton.Text = "Register";
+            this.registerButton.UseVisualStyleBackColor = false;
+            this.registerButton.Click += new System.EventHandler(this.RegisterStaff_Click);
             // 
             // dateTimePicker2
             // 
@@ -113,19 +113,19 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Date:";
             // 
-            // doctorRegistrationFieldControl
+            // DoctorRegistrationFieldControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.registerButton1);
+            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.deregisterButton);
-            this.Controls.Add(this.staffId);
-            this.Controls.Add(this.doctorName);
+            this.Controls.Add(this.staffIdText);
+            this.Controls.Add(this.staffNameText);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "doctorRegistrationFieldControl";
+            this.Name = "DoctorRegistrationFieldControl";
             this.Size = new System.Drawing.Size(438, 100);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -136,11 +136,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label doctorName;
-        private System.Windows.Forms.Label staffId;
+        private System.Windows.Forms.Label staffNameText;
+        private System.Windows.Forms.Label staffIdText;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button registerButton1;
+        public System.Windows.Forms.Button registerButton;
         public System.Windows.Forms.Button deregisterButton;
     }
 }
