@@ -25,9 +25,9 @@ namespace Software_Engineering_Assignment.CustomControls
         }
 
         // Check if selected staff (registered) is already in the on call list, for that date.
-        private bool registerListDoubleStaff(int staffId)
+        private bool RegisterListDoubleStaff(int staffId)
         {
-            foreach (StaffListViewItem listItem in StaffOncallList.Items)
+            foreach (StaffListViewItem listItem in staffOncallList.Items)
             {
                 if (listItem.staff.StaffId == staffId) return true;
             }
@@ -37,14 +37,14 @@ namespace Software_Engineering_Assignment.CustomControls
         // Method removes staff from on call list
         public void RemoveOnCallStaffItem(StaffListViewItem item)
         {
-            StaffOncallList.Items.Remove(item);
+            staffOncallList.Items.Remove(item);
         }
 
         // Method to hold each on call staff displayed on GUI.
         public List<Staff> DisplayedStaff()
         {
             List<Staff> output = new List<Staff>();
-            foreach (StaffListViewItem item in StaffOncallList.Items)
+            foreach (StaffListViewItem item in staffOncallList.Items)
             {
                 output.Add(item.staff);
             }
@@ -58,7 +58,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             // Get on call staff for date
             List<Staff> onCallStaff = DatabaseConnector.Instance.GetOnCallStaff(calendarOnCallStaff.SelectionRange.Start.ToString("yyyy-MM-dd"));
-            StaffOncallList.Clear();
+            staffOncallList.Clear();
 
             if (onCallStaff == null) return;
 
@@ -67,9 +67,9 @@ namespace Software_Engineering_Assignment.CustomControls
                 foreach (Staff staff in onCallStaff)
                 {
                     // Only add the member to display on the list, if not already there.
-                    if (!registerListDoubleStaff(staff.StaffId))
+                    if (!RegisterListDoubleStaff(staff.StaffId))
                     {
-                        StaffOncallList.Items.Add(new StaffListViewItem(staff));
+                        staffOncallList.Items.Add(new StaffListViewItem(staff));
                     }                    
                 }
             }

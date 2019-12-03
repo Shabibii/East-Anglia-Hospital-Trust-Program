@@ -30,7 +30,7 @@
         {
             this.onCallStaffLabel = new System.Windows.Forms.Label();
             this.calendarOnCallStaff = new System.Windows.Forms.MonthCalendar();
-            this.StaffOncallList = new System.Windows.Forms.ListView();
+            this.staffOncallList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // onCallStaffLabel
@@ -52,20 +52,20 @@
             // 
             // StaffOncallList
             // 
-            this.StaffOncallList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.StaffOncallList.HideSelection = false;
-            this.StaffOncallList.Location = new System.Drawing.Point(0, 27);
-            this.StaffOncallList.Name = "StaffOncallList";
-            this.StaffOncallList.Size = new System.Drawing.Size(252, 261);
-            this.StaffOncallList.TabIndex = 3;
-            this.StaffOncallList.UseCompatibleStateImageBehavior = false;
+            this.staffOncallList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.staffOncallList.HideSelection = false;
+            this.staffOncallList.Location = new System.Drawing.Point(0, 27);
+            this.staffOncallList.Name = "StaffOncallList";
+            this.staffOncallList.Size = new System.Drawing.Size(252, 261);
+            this.staffOncallList.TabIndex = 3;
+            this.staffOncallList.UseCompatibleStateImageBehavior = false;
             // 
             // OnCallStaffControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.StaffOncallList);
+            this.Controls.Add(this.staffOncallList);
             this.Controls.Add(this.calendarOnCallStaff);
             this.Controls.Add(this.onCallStaffLabel);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -79,6 +79,6 @@
         #endregion
         private System.Windows.Forms.Label onCallStaffLabel;
         private System.Windows.Forms.MonthCalendar calendarOnCallStaff;
-        public System.Windows.Forms.ListView StaffOncallList;
+        public System.Windows.Forms.ListView staffOncallList;
     }
 }
