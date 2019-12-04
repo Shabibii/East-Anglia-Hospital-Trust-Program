@@ -7,6 +7,10 @@
         public delegate void BayEvent(ref Patient patient, bool on);
         public BayEvent ThrowAlarm = delegate { };
 
+        public bool Throw_Alarm => 
+               bedside1.ThrowAlarm || bedside2.ThrowAlarm || bedside3.ThrowAlarm || bedside4.ThrowAlarm
+            || bedside5.ThrowAlarm || bedside6.ThrowAlarm || bedside7.ThrowAlarm || bedside8.ThrowAlarm;
+
         /// <summary>
         /// Structure to hold information on bays including bedsides/patients
         /// </summary>

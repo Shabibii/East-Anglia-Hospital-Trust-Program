@@ -83,7 +83,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
                 case ModuleType.TempModule:
                     ModuleUnit = "C";
-                    MinValue = 36;
+                    MinValue = 32;
                     MaxValue = 37;
                     break;
 
@@ -99,27 +99,22 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void SetCurrentValue()
         {
-            try
-            {
-                if (currentModule == ModuleType.None) return;
-                decimal[] minimums = new[] { MinValue - 10, MinValue, MinValue, MinValue };
+            if (currentModule == ModuleType.None) return;
+            decimal lim = 10;
+            if (ModuleUnit == "C") lim = 2; 
 
-                decimal[] maximums = new[] { MaxValue - 10, MaxValue, MaxValue, MaxValue };
+            decimal[] minimums = new[] { MinValue - lim, MinValue, MinValue, MinValue };
 
-                int min = Convert.ToInt32(minimums[Constants.NextRandomValue(0, 4)]);
+            decimal[] maximums = new[] { MaxValue - lim, MaxValue, MaxValue, MaxValue };
 
-                int max = Convert.ToInt32(maximums[Constants.NextRandomValue(0, 4)]);
+            int min = Convert.ToInt32(minimums[Constants.NextRandomValue(0, 4)]);
 
-                CurrentValue = Constants.NextRandomValue(min, max);
+            int max = Convert.ToInt32(maximums[Constants.NextRandomValue(0, 4)]);
 
-                DatabaseConnector.Instance.UpdateModule(this);
-                ValueChanged(this);
-            }
-            catch (Exception)
-            {
+            CurrentValue = Constants.NextRandomValue(min, max);
 
-            }
-            
+            DatabaseConnector.Instance.UpdateModule(this);
+            ValueChanged(this);
         }
 
         public Module(string[] rawModuleData)

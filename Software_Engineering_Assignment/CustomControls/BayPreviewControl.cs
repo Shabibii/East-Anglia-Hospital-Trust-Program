@@ -48,7 +48,7 @@ namespace Software_Engineering_Assignment
             else if (selectedBay == 2) SetProperties(ref Main.bay2);
 
             PatientPageCall = patientPageCall;
-            
+            alarmCheck.Start();
         }
 
       
@@ -90,5 +90,21 @@ namespace Software_Engineering_Assignment
 
         private void Patient8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 8);
 
+        private void alarmCheck_Tick(object sender, EventArgs e)
+        {
+            if(selectedBay == 1)
+            {
+                alarmDisplay.Visible = Main.bay1.Throw_Alarm;
+            }
+            if (selectedBay == 2)
+            {
+                alarmDisplay.Visible = Main.bay2.Throw_Alarm;
+            }
+        }
+
+        private void BayPreviewControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

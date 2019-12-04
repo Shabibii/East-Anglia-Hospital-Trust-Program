@@ -31,7 +31,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             //Assign patient to bedside
             patient = p;
-            patient.ThrowPatientAlarm += ThrowAlarm;
+            patient.ThrowPatientAlarm = ThrowAlarm;
 
             textBox1.Clear();
             textBox1.Text = $"{Environment.NewLine}";
@@ -43,6 +43,7 @@ namespace Software_Engineering_Assignment.CustomControls
 
             string name = $"{Environment.NewLine}({p.FirstName}{Environment.NewLine}{p.Surname})";
             button2.Text = $"Bedside {p.bedNumber}{Environment.NewLine}{name}";
+            timer1.Start();
         }
 
         private void ThrowAlarm(Patient patient, bool on)
@@ -54,6 +55,12 @@ namespace Software_Engineering_Assignment.CustomControls
         private void Button2_Click(object sender, EventArgs e)
         {
             PatientPageCall(patient.bayNumber, patient.bedNumber);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Alarm = patient.ThrowAlarm;
+            button2.Image = WarningImage;
         }
     }
 }

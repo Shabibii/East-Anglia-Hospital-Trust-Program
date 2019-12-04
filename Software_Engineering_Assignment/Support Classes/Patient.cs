@@ -9,7 +9,7 @@ namespace Software_Engineering_Assignment.Support_Classes
     public class Patient
     {
         public delegate void PatientEvent(Patient patient, bool on);
-        public PatientEvent ThrowPatientAlarm;
+        public PatientEvent ThrowPatientAlarm = delegate { };
         // get/set patient details 
         public readonly int patientId;
 
@@ -57,11 +57,19 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public int bayNumber = 0;
 
-        public bool TrowAlarm
+        public bool ThrowAlarm
         {
             get
             {
-                return Module1.ThrowAlarm || Module2.ThrowAlarm || Module3.ThrowAlarm || Module4.ThrowAlarm;
+                try
+                {
+                    return Module1.ThrowAlarm || Module2.ThrowAlarm || Module3.ThrowAlarm || Module4.ThrowAlarm;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                
             }
         }
 
@@ -92,12 +100,6 @@ namespace Software_Engineering_Assignment.Support_Classes
             ContactNumber2 = rawPatientDat[8];
             bedNumber = int.Parse(rawPatientDat[9]);
             bayNumber = int.Parse(rawPatientDat[10]);
-            ThrowPatientAlarm = PatientAlaramEvenetHandler;
-        }
-
-        void PatientAlaramEvenetHandler(Patient patient, bool on)
-        {
-            Console.ReadKey();
         }
 
         
@@ -150,10 +152,10 @@ namespace Software_Engineering_Assignment.Support_Classes
                 DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), Module4);
             }
 
-            Module1.ValueChanged = ModuleValueChanged;
-            Module2.ValueChanged = ModuleValueChanged;
-            Module3.ValueChanged = ModuleValueChanged;
-            Module4.ValueChanged = ModuleValueChanged;
+            Module1.ValueChanged += ModuleValueChanged;
+            Module2.ValueChanged += ModuleValueChanged;
+            Module3.ValueChanged += ModuleValueChanged;
+            Module4.ValueChanged += ModuleValueChanged;
         }
 
         

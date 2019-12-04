@@ -13,7 +13,6 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class BayPage : UserControl
     {
-
         //Method which takes the screen to the patient page
         public Main.PageCall2 PatientPageCall = delegate { };
 
@@ -64,5 +63,6 @@ namespace Software_Engineering_Assignment.Pages
         {
             Text = label1.Text; // Set title to bay details
         }
+
     }
 }
