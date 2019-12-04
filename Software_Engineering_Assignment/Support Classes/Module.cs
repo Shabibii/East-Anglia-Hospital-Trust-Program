@@ -40,6 +40,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         public void MuteModule(bool doMute = true)
         {
             Mute = doMute;
+            StartGeneratingValues();
         }
 
         public static string[] ModuleTypes()

@@ -248,6 +248,8 @@ namespace Software_Engineering_Assignment.Pages
 
         private bool MuteAlarm()
         {
+            if (saveButton.Visible) return true;
+             
             using (Login login = new Login())
             {
                 //If login button clicked on the login form
@@ -296,6 +298,11 @@ namespace Software_Engineering_Assignment.Pages
         {
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(4);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

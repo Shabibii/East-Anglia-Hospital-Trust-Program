@@ -434,14 +434,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 474);
             this.panel1.TabIndex = 54;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // alarmDisplay4
             // 
             this.alarmDisplay4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alarmDisplay4.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay4.Image")));
-            this.alarmDisplay4.Location = new System.Drawing.Point(498, 332);
+            this.alarmDisplay4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.alarmDisplay4.Location = new System.Drawing.Point(473, 332);
             this.alarmDisplay4.Name = "alarmDisplay4";
-            this.alarmDisplay4.Size = new System.Drawing.Size(38, 63);
+            this.alarmDisplay4.Size = new System.Drawing.Size(63, 49);
             this.alarmDisplay4.TabIndex = 76;
             this.alarmDisplay4.TabStop = false;
             this.alarmDisplay4.Visible = false;
@@ -450,10 +452,10 @@
             // alarmDisplay3
             // 
             this.alarmDisplay3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.alarmDisplay3.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay3.Image")));
-            this.alarmDisplay3.Location = new System.Drawing.Point(163, 332);
+            this.alarmDisplay3.Image = global::Software_Engineering_Assignment.Properties.Resources.ImportantNotification3;
+            this.alarmDisplay3.Location = new System.Drawing.Point(144, 332);
             this.alarmDisplay3.Name = "alarmDisplay3";
-            this.alarmDisplay3.Size = new System.Drawing.Size(42, 63);
+            this.alarmDisplay3.Size = new System.Drawing.Size(63, 49);
             this.alarmDisplay3.TabIndex = 75;
             this.alarmDisplay3.TabStop = false;
             this.alarmDisplay3.Visible = false;
@@ -463,9 +465,10 @@
             // 
             this.alarmDisplay2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alarmDisplay2.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay2.Image")));
-            this.alarmDisplay2.Location = new System.Drawing.Point(498, 85);
+            this.alarmDisplay2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.alarmDisplay2.Location = new System.Drawing.Point(473, 85);
             this.alarmDisplay2.Name = "alarmDisplay2";
-            this.alarmDisplay2.Size = new System.Drawing.Size(38, 68);
+            this.alarmDisplay2.Size = new System.Drawing.Size(63, 49);
             this.alarmDisplay2.TabIndex = 74;
             this.alarmDisplay2.TabStop = false;
             this.alarmDisplay2.Visible = false;
@@ -474,10 +477,10 @@
             // alarmDisplay1
             // 
             this.alarmDisplay1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.alarmDisplay1.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay1.Image")));
-            this.alarmDisplay1.Location = new System.Drawing.Point(163, 82);
+            this.alarmDisplay1.Image = global::Software_Engineering_Assignment.Properties.Resources.ImportantNotification3;
+            this.alarmDisplay1.Location = new System.Drawing.Point(144, 82);
             this.alarmDisplay1.Name = "alarmDisplay1";
-            this.alarmDisplay1.Size = new System.Drawing.Size(42, 71);
+            this.alarmDisplay1.Size = new System.Drawing.Size(63, 49);
             this.alarmDisplay1.TabIndex = 57;
             this.alarmDisplay1.TabStop = false;
             this.alarmDisplay1.Visible = false;

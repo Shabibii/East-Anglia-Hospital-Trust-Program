@@ -28,13 +28,29 @@ namespace Software_Engineering_Assignment.Support_Classes
             /*Because of the practice being used on the Log/Activity table,
               no two IDs can exist (no two should exist) in the same log
              */
+            string id = "  ";
+            if (staff_id != "")
+            {
+                eventType = "staff";
+                id = staff_id;
+            }
+            else if (patient_id != "")
+            {
+                eventType = "patient";
+                id = patient_id;
+            }
+            else if (bedside_id != "")
+            {
+                eventType = "bedside";
+                id = bedside_id;
+            }
+            else if (module_id != "")
+            {
+                eventType = "module";
+                id = module_id;
+            }
 
-            if (staff_id != "") eventType = "staff";
-            else if (patient_id != "") eventType = "patient";
-            else if (bedside_id != "") eventType = "bedside";
-            else if (module_id != "") eventType = "module";
-
-            Text = $"{timestamp} : {description}";
+            Text = $"{timestamp} : ({eventType}-id:{id}) {description}";
         }
 
     }
