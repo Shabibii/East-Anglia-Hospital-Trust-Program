@@ -52,14 +52,14 @@ namespace Software_Engineering_Assignment
         private void SetProperties()
         {
             title.Text = $"Bay {bay.BayNumber}";
-            patient1.Text = $"(1) {bay.GetPatient(1).FullName}";
-            patient2.Text = $"(2) {bay.GetPatient(2).FullName}";
-            patient3.Text = $"(3) {bay.GetPatient(3).FullName}";
-            patient4.Text = $"(4) {bay.GetPatient(4).FullName}";
-            patient5.Text = $"(5) {bay.GetPatient(5).FullName}";
-            patient6.Text = $"(6) {bay.GetPatient(6).FullName}";
-            patient7.Text = $"(7) {bay.GetPatient(7).FullName}";
-            patient8.Text = $"(8) {bay.GetPatient(8).FullName}";
+            patient1.Text = $"(1) {bay.GetBedside(1).patient.FullName}";
+            patient2.Text = $"(2) {bay.GetBedside(2).patient.FullName}";
+            patient3.Text = $"(3) {bay.GetBedside(3).patient.FullName}";
+            patient4.Text = $"(4) {bay.GetBedside(4).patient.FullName}";
+            patient5.Text = $"(5) {bay.GetBedside(5).patient.FullName}";
+            patient6.Text = $"(6) {bay.GetBedside(6).patient.FullName}";
+            patient7.Text = $"(7) {bay.GetBedside(7).patient.FullName}";
+            patient8.Text = $"(8) {bay.GetBedside(8).patient.FullName}";
             DoubleBuffered = true;
         }
 

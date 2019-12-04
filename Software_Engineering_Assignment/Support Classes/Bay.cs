@@ -60,19 +60,19 @@
         /// </summary>
         /// <param name="bedNumber"></param>
         /// <returns></returns>
-        public Patient GetPatient(int bedNumber)
+        public Bedside GetBedside(int bedNumber)
         {
             switch (bedNumber)
             {
-                case 1: return patient1.patient;
-                case 2: return patient2.patient;
-                case 3: return patient3.patient;
-                case 4: return patient4.patient;
-                case 5: return patient5.patient;
-                case 6: return patient6.patient;
-                case 7: return patient7.patient;
-                case 8: return patient8.patient;
-                default: return new Patient();
+                case 1: return patient1;
+                case 2: return patient2;
+                case 3: return patient3;
+                case 4: return patient4;
+                case 5: return patient5;
+                case 6: return patient6;
+                case 7: return patient7;
+                case 8: return patient8;
+                default: return null;
             }
         }
 

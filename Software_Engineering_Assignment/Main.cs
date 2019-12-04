@@ -76,10 +76,14 @@ namespace Software_Engineering_Assignment
             Text = pages[pageNumber].Text;
         }
 
-        public void SetPatientPage(int bayNumber,int pageNumber)
+        public void SetPatientPage(int bayNumber,int bedNumber)
         {
             //Set page to patient page
-            ((BedsidePage)pages[5]).SetPatient(bayNumber, pageNumber);
+            if(bayNumber == 1)
+                ((BedsidePage)pages[5]).SetBedside(bay1.GetBedside(bedNumber));
+            else
+                ((BedsidePage)pages[5]).SetBedside(bay2.GetBedside(bedNumber));
+
             SetPage(5);
         }
 

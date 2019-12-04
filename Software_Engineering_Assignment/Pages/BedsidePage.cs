@@ -13,7 +13,7 @@ namespace Software_Engineering_Assignment.Pages
 {
     public partial class BedsidePage : UserControl
     {
-        Patient currentPatient;
+        Bedside currentBedside;
         Main.PageCall0 previousPageCall;
 
         public BedsidePage(Main.PageCall0 previousPageCall)
@@ -29,8 +29,8 @@ namespace Software_Engineering_Assignment.Pages
         private void InitalizeControl()
         {
             //Set up runtime graphics up
-            if (currentPatient != null)
-                label10.Text = $"Bedside {currentPatient.bedNumber}";
+            if (currentBedside != null)
+                label10.Text = $"Bedside {currentBedside.BedsideNo}";
             CentralizeDisplay();
         }
 
@@ -42,14 +42,15 @@ namespace Software_Engineering_Assignment.Pages
             panel1.Location = new Point(x, y);
         }
 
-        public void SetPatient(int bayNumber, int bedNumber)
+        public void SetBedside(Bedside bedside)
         {
             //Fill up patient object with data from the database
-            currentPatient = DatabaseConnector.Instance.GetPatient(bayNumber, bedNumber);
-            nameLabel.Text = $"First Name: {currentPatient.FirstName}";
-            surnameLabel.Text = $"Last Name: {currentPatient.Surname}";
-            dobLabel.Text = $"Date of Birth: {currentPatient.DOB}";
-            intakeReasonLabel.Text = $"Intake Reason: {currentPatient.IntakeReason}";
+            currentBedside = bedside;
+
+            nameLabel.Text = $"First Name: {currentBedside.patient.FirstName}";
+            surnameLabel.Text = $"Last Name: {currentBedside.patient.Surname}";
+            dobLabel.Text = $"Date of Birth: {currentBedside.patient.DOB}";
+            intakeReasonLabel.Text = $"Intake Reason: {currentBedside.patient.IntakeReason}";
 
 
 
@@ -60,47 +61,47 @@ namespace Software_Engineering_Assignment.Pages
             module4ModuleType.Items.AddRange(moduleTypeSource);
             DisplayModuleData();
 
-            Text = currentPatient.FullName;
+            Text = currentBedside.patient.FullName;
 
             InitalizeControl();
         }
 
         private void DisplayModuleData()
         {
-            if (currentPatient.Module1 != null)
+            if (currentBedside.patient.Module1 != null)
             {
-                module1CurrentReading.Text = currentPatient.Module1.CurrentValue.ToString();
-                module1Max.Text = currentPatient.Module1.MaxValue.ToString();
-                module1Min.Text = currentPatient.Module1.MinValue.ToString();
-                module1Unit.Text = currentPatient.Module1.ModuleUnit;
-                module1ModuleType.SelectedIndex = (int)currentPatient.Module1.currentModule;
+                module1CurrentReading.Text = currentBedside.patient.Module1.CurrentValue.ToString();
+                module1Max.Text = currentBedside.patient.Module1.MaxValue.ToString();
+                module1Min.Text = currentBedside.patient.Module1.MinValue.ToString();
+                module1Unit.Text = currentBedside.patient.Module1.ModuleUnit;
+                module1ModuleType.SelectedIndex = (int)currentBedside.patient.Module1.currentModule;
             }
 
-            if (currentPatient.Module2 != null)
+            if (currentBedside.patient.Module2 != null)
             {
-                module2CurrentReading.Text = currentPatient.Module2.CurrentValue.ToString();
-                module2Max.Text = currentPatient.Module2.MaxValue.ToString();
-                module2Min.Text = currentPatient.Module2.MinValue.ToString();
-                module2Unit.Text = currentPatient.Module2.ModuleUnit;
-                module2ModuleType.SelectedIndex = (int)currentPatient.Module2.currentModule;
+                module2CurrentReading.Text = currentBedside.patient.Module2.CurrentValue.ToString();
+                module2Max.Text = currentBedside.patient.Module2.MaxValue.ToString();
+                module2Min.Text = currentBedside.patient.Module2.MinValue.ToString();
+                module2Unit.Text = currentBedside.patient.Module2.ModuleUnit;
+                module2ModuleType.SelectedIndex = (int)currentBedside.patient.Module2.currentModule;
             }
 
-            if (currentPatient.Module3 != null)
+            if (currentBedside.patient.Module3 != null)
             {
-                module3CurrentReading.Text = currentPatient.Module3.CurrentValue.ToString();
-                module3Max.Text = currentPatient.Module3.MaxValue.ToString();
-                module3Min.Text = currentPatient.Module3.MinValue.ToString();
-                module3Unit.Text = currentPatient.Module3.ModuleUnit;
-                module3ModuleType.SelectedIndex = (int)currentPatient.Module3.currentModule;
+                module3CurrentReading.Text = currentBedside.patient.Module3.CurrentValue.ToString();
+                module3Max.Text = currentBedside.patient.Module3.MaxValue.ToString();
+                module3Min.Text = currentBedside.patient.Module3.MinValue.ToString();
+                module3Unit.Text = currentBedside.patient.Module3.ModuleUnit;
+                module3ModuleType.SelectedIndex = (int)currentBedside.patient.Module3.currentModule;
             }
 
-            if (currentPatient.Module4 != null)
+            if (currentBedside.patient.Module4 != null)
             {
-                module4CurrentReading.Text = currentPatient.Module4.CurrentValue.ToString();
-                module4Max.Text = currentPatient.Module4.MaxValue.ToString();
-                module4Min.Text = currentPatient.Module4.MinValue.ToString();
-                module4Unit.Text = currentPatient.Module4.ModuleUnit;
-                module4ModuleType.SelectedIndex = (int)currentPatient.Module4.currentModule;
+                module4CurrentReading.Text = currentBedside.patient.Module4.CurrentValue.ToString();
+                module4Max.Text = currentBedside.patient.Module4.MaxValue.ToString();
+                module4Min.Text = currentBedside.patient.Module4.MinValue.ToString();
+                module4Unit.Text = currentBedside.patient.Module4.ModuleUnit;
+                module4ModuleType.SelectedIndex = (int)currentBedside.patient.Module4.currentModule;
             }
         }
 
@@ -129,7 +130,7 @@ namespace Software_Engineering_Assignment.Pages
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            if(currentPatient.IsEmpty)
+            if(currentBedside.patient.IsEmpty)
             {
                 return; // Do not allow data to be edited if patient is not assigned to current bedside
             }
@@ -155,7 +156,7 @@ namespace Software_Engineering_Assignment.Pages
                         MessageBox.Show("Controls have been unlocked for Data Change");
                         //EventLog.LogStaffEvent(staff, );
 
-                        DatabaseConnector.Instance.LogEvent($"logged in to change {currentPatient.FullName} module data", "Staff", staff.StaffId);
+                        DatabaseConnector.Instance.LogEvent($"logged in to change {currentBedside.patient.FullName} module data", "Staff", staff.StaffId);
                     }
                 }
             }
@@ -167,30 +168,30 @@ namespace Software_Engineering_Assignment.Pages
             LockInputControls(true);
 
             //Register module changes
-            currentPatient.Module1.currentModule = Module.GetModuleFromString(module1ModuleType.Text);
-            currentPatient.Module1.CurrentValue = decimal.Parse(module1CurrentReading.Text);
-            currentPatient.Module1.MaxValue = decimal.Parse(module1Max.Text);
-            currentPatient.Module1.MinValue = decimal.Parse(module1Min.Text);
+            currentBedside.patient.Module1.currentModule = Module.GetModuleFromString(module1ModuleType.Text);
+            currentBedside.patient.Module1.CurrentValue = decimal.Parse(module1CurrentReading.Text);
+            currentBedside.patient.Module1.MaxValue = decimal.Parse(module1Max.Text);
+            currentBedside.patient.Module1.MinValue = decimal.Parse(module1Min.Text);
 
-            currentPatient.Module2.currentModule = Module.GetModuleFromString(module2ModuleType.Text);
-            currentPatient.Module2.CurrentValue = decimal.Parse(module2CurrentReading.Text);
-            currentPatient.Module2.MaxValue = decimal.Parse(module2Max.Text);
-            currentPatient.Module2.MinValue = decimal.Parse(module2Min.Text);
+            currentBedside.patient.Module2.currentModule = Module.GetModuleFromString(module2ModuleType.Text);
+            currentBedside.patient.Module2.CurrentValue = decimal.Parse(module2CurrentReading.Text);
+            currentBedside.patient.Module2.MaxValue = decimal.Parse(module2Max.Text);
+            currentBedside.patient.Module2.MinValue = decimal.Parse(module2Min.Text);
 
-            currentPatient.Module3.currentModule = Module.GetModuleFromString(module3ModuleType.Text);
-            currentPatient.Module3.CurrentValue = decimal.Parse(module3CurrentReading.Text);
-            currentPatient.Module3.MaxValue = decimal.Parse(module3Max.Text);
-            currentPatient.Module3.MinValue = decimal.Parse(module3Min.Text);
+            currentBedside.patient.Module3.currentModule = Module.GetModuleFromString(module3ModuleType.Text);
+            currentBedside.patient.Module3.CurrentValue = decimal.Parse(module3CurrentReading.Text);
+            currentBedside.patient.Module3.MaxValue = decimal.Parse(module3Max.Text);
+            currentBedside.patient.Module3.MinValue = decimal.Parse(module3Min.Text);
 
-            currentPatient.Module4.currentModule = Module.GetModuleFromString(module4ModuleType.Text);
-            currentPatient.Module4.CurrentValue = decimal.Parse(module4CurrentReading.Text);
-            currentPatient.Module4.MaxValue = decimal.Parse(module4Max.Text);
-            currentPatient.Module4.MinValue = decimal.Parse(module4Min.Text);
+            currentBedside.patient.Module4.currentModule = Module.GetModuleFromString(module4ModuleType.Text);
+            currentBedside.patient.Module4.CurrentValue = decimal.Parse(module4CurrentReading.Text);
+            currentBedside.patient.Module4.MaxValue = decimal.Parse(module4Max.Text);
+            currentBedside.patient.Module4.MinValue = decimal.Parse(module4Min.Text);
 
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module1);
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module2);
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module3);
-            DatabaseConnector.Instance.UpdateModule(currentPatient.Module4);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module1);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module2);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module3);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module4);
 
         }
 
@@ -225,14 +226,14 @@ namespace Software_Engineering_Assignment.Pages
         
         private void RefreshModuleData_Tick(object sender, EventArgs e)
         {
-            //return;
-            if (currentPatient == null) return;
+            return;
+            if (currentBedside == null) return;
 
-            //alarmDisplay1.Visible = currentPatient.Module1.ThrowAlarm;
-            //alarmDisplay2.Visible = currentPatient.Module2.ThrowAlarm;
-            //alarmDisplay3.Visible = currentPatient.Module3.ThrowAlarm;
-            //alarmDisplay4.Visible = currentPatient.Module4.ThrowAlarm;
-          
+            alarmDisplay1.Visible = currentBedside.patient.Module1.ThrowAlarm;
+            alarmDisplay2.Visible = currentBedside.patient.Module2.ThrowAlarm;
+            alarmDisplay3.Visible = currentBedside.patient.Module3.ThrowAlarm;
+            alarmDisplay4.Visible = currentBedside.patient.Module4.ThrowAlarm;
+         
             DisplayModuleData();
         }
     }

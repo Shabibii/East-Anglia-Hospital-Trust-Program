@@ -41,7 +41,8 @@ namespace Software_Engineering_Assignment.CustomControls
             textBox1.Text += $"{p.IntakeReason}{Environment.NewLine}";
             textBox1.Text += $"{p.ModulesActive}";
 
-            button2.Text = $"Bedside {p.bedNumber}";
+            string name = $"{Environment.NewLine}({p.FirstName}{Environment.NewLine}{p.Surname})";
+            button2.Text = $"Bedside {p.bedNumber}{Environment.NewLine}{name}";
         }
 
         private void ThrowAlarm(Patient patient, bool on)
