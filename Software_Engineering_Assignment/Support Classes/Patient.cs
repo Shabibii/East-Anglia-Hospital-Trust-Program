@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Software_Engineering_Assignment.Support_Classes
@@ -67,16 +68,17 @@ namespace Software_Engineering_Assignment.Support_Classes
         // creating module-objects for storing moduledata 
         private Bedside bedside;
 
-        public Module Module1 => bedside?.Module1;
-        public Module Module2 => bedside?.Module2;
-        public Module Module3 => bedside?.Module3;
-        public Module Module4 => bedside?.Module4;
+        public Module Module1 { get; set; }
+
+        public Module Module2 { get; set; }
+
+        public Module Module3 { get; set; }
+
+        public Module Module4 { get; set; }
 
         //Only show first two active modules for space management reasons (to be used on the bay-page)
         public string ModulesActive => $"{Module1},{Module2}...";
 
-        void ConnectToBedside() =>
-            bedside = DatabaseConnector.Instance.GetBedside(bayNumber, bedNumber); //Connect patient with bedside
 
         public Patient() => IsEmpty = true;
 
@@ -93,40 +95,77 @@ namespace Software_Engineering_Assignment.Support_Classes
             ContactNumber2 = rawPatientDat[8];
             bedNumber = int.Parse(rawPatientDat[9]);
             bayNumber = int.Parse(rawPatientDat[10]);
+        }
+        
+        public void ConnectToBedside(string[] rawBedsideData)
+        {
+            int[] randomIndexes = new[] { 0, 1, 2, 3, 4, 5 }.OrderBy(x => Constants.Next()).ToArray();
 
-            ConnectToBedside();
+            Module1 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[2]));
+            if (Module1 == null)
+            {
+                Module1 = new Module(randomIndexes[0])
+                {
+                    moduleID = int.Parse(rawBedsideData[2])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[2]), Module1);
+
+            }
+
+            Module2 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[3]));
+            if (Module2 == null)
+            {
+                Module2 = new Module(randomIndexes[1])
+                {
+                    moduleID = int.Parse(rawBedsideData[3])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[3]), Module2);
+
+            }
+
+            Module3 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[4]));
+            if (Module3 == null)
+            {
+                Module3 = new Module(randomIndexes[2])
+                {
+                    moduleID = int.Parse(rawBedsideData[4])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[4]), Module3);
+
+            }
+
+            Module4 = DatabaseConnector.Instance.GetModule(int.Parse(rawBedsideData[5]));
+            if (Module4 == null)
+            {
+                Module4 = new Module(randomIndexes[3])
+                {
+                    moduleID = int.Parse(rawBedsideData[5])
+                };
+                DatabaseConnector.Instance.RegisterModule(int.Parse(rawBedsideData[5]), Module4);
+            }
 
             Module1.ValueChanged = ModuleValueChanged;
             Module2.ValueChanged = ModuleValueChanged;
             Module3.ValueChanged = ModuleValueChanged;
             Module4.ValueChanged = ModuleValueChanged;
         }
+
         
+
         void ModuleValueChanged(Module module)
         {
             if (bedside.ThrowAlarm)
             {
                 ThrowPatientAlarm(this, true);
-                if(module.LogAlarm == true)
-                {
-                    DatabaseConnector.Instance.LogEvent($"Alarm for {module} thrown", "Patient", patientId);
-                    module.LogAlarm = false;
-                }
+                DatabaseConnector.Instance.LogEvent($"Alarm for {module} thrown", "Patient", patientId);
+                module.LogAlarm = false;
 
             }
             else
             {
                 ThrowPatientAlarm(this, false);
-                module.LogAlarm = true;
                 //DatabaseConnector.Instance.LogEvent($"{module} back to normal", "Patient", patientId);
             }
-        }
-
-        public void RandomizeValues()
-        {
-            if (bedside == null) ConnectToBedside();
-            if (bedside == null) return;
-            bedside.StartGeneratingRandomValues();
         }
     }
 }

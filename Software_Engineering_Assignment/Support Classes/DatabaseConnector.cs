@@ -340,6 +340,14 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Bedside GetBedside(int bayNumber, int bedNumber)
         {
+            Bedside bedside =  new Bedside(GetBedsideData(bayNumber,bedNumber));
+            bedside.patient = GetPatient(bayNumber, bedNumber);
+
+            return bedside;
+        }
+
+        public string[] GetBedsideData(int bayNumber, int bedNumber)
+        {
             OpenConnection(); //Open Connection
             sqlCommand = new SqlCommand(Constants.GetBedside(bedNumber, bayNumber), sqlConnection);
 
@@ -349,7 +357,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             {
                 if (!dataReader.HasRows) return null; //If query result is empty
 
-                if(dataReader.Read())
+                if (dataReader.Read())
                 {
                     for (int i = 0; i < rawBedsideData.Length; i++)
                         rawBedsideData[i] = dataReader[i].ToString();
@@ -357,7 +365,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
 
             CloseConnection();
-            return new Bedside(rawBedsideData);
+            return rawBedsideData;
         }
 
 

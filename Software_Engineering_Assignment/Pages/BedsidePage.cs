@@ -228,10 +228,10 @@ namespace Software_Engineering_Assignment.Pages
             //return;
             if (currentPatient == null) return;
 
-            alarmDisplay1.Visible = currentPatient.Module1.ThrowAlarm;
-            alarmDisplay2.Visible = currentPatient.Module2.ThrowAlarm;
-            alarmDisplay3.Visible = currentPatient.Module3.ThrowAlarm;
-            alarmDisplay4.Visible = currentPatient.Module4.ThrowAlarm;
+            //alarmDisplay1.Visible = currentPatient.Module1.ThrowAlarm;
+            //alarmDisplay2.Visible = currentPatient.Module2.ThrowAlarm;
+            //alarmDisplay3.Visible = currentPatient.Module3.ThrowAlarm;
+            //alarmDisplay4.Visible = currentPatient.Module4.ThrowAlarm;
           
             DisplayModuleData();
         }

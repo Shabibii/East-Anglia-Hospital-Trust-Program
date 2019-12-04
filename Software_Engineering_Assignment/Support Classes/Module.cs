@@ -125,9 +125,13 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void TimerTick(object o, EventArgs erg)
         {
-            SetCurrentValue();
-            DatabaseConnector.Instance.UpdateModule(this);
-            ValueChanged(this);
+            lock (t)
+            {
+                SetCurrentValue();
+                DatabaseConnector.Instance.UpdateModule(this);
+                ValueChanged(this);
+            }
+           
         }
 
         public void StopGeneratingValues()

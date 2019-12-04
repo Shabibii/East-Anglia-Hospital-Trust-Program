@@ -21,8 +21,16 @@ namespace Software_Engineering_Assignment.CustomControls
         public StaffRegistrationControl()
         {
             InitializeComponent();
-        }           
-        
+        }
+
+        public DoctorRegistrationFieldControl DoctorRegistrationFieldControl
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void InitalizeRegisterField()
         {
             var allStaff = DatabaseConnector.Instance.GetAllStaff();

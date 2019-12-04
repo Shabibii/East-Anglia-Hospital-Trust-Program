@@ -13,9 +13,9 @@ namespace Software_Engineering_Assignment
 {
     public partial class RegisterControl : UserControl
     {
-        EventLogNode patientNode;
-        EventLogNode bedsideNode;
-        EventLogNode moduleNode;
+        readonly EventLogNode patientNode;
+        readonly EventLogNode bedsideNode;
+        readonly EventLogNode moduleNode;
 
         public RegisterControl()
         {

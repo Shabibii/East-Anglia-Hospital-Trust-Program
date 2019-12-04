@@ -25,9 +25,9 @@ namespace Software_Engineering_Assignment.Pages
         /// </summary>
         /// <param name="bayPage"></param>
         /// <param name="goBackPage"></param>
-        public BayPage(int bayPage, Main.PageCall0 goBackPage) : this()
+        public BayPage(ref Bay bay, Main.PageCall0 goBackPage) : this()
         {
-            SelectBay(bayPage);
+            SelectBay(ref bay);
             ConnectBedsidesToDB();
             button2.Click += delegate { goBackPage(); };
         }
@@ -59,11 +59,11 @@ namespace Software_Engineering_Assignment.Pages
             bedsideInfoControl8.PatientPageCall = delegate { PatientPageCall(currentBay.BayNumber, 8); };
         }
 
-        public void SelectBay(int bayPage)
+        public void SelectBay(ref Bay bay)
         {
             // get bay from database connector
-            currentBay = new Bay(bayPage);
-            label1.Text = $"Bay {bayPage}";
+            currentBay = bay;
+            label1.Text = $"Bay {bay.BayNumber}";
         }
 
         private void Label1_TextChanged(object sender, EventArgs e)

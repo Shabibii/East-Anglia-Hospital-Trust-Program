@@ -27,7 +27,7 @@ namespace Software_Engineering_Assignment
             
         }
 
-        public void AlarmThrown(Patient patient, bool on)
+        public void AlarmThrown(ref Patient patient, bool on)
         {
             alarmDisplay.Visible = on;
         }
@@ -45,7 +45,7 @@ namespace Software_Engineering_Assignment
             this.bay = bay;
             SetProperties();
             PatientPageCall = patientPageCall;
-            bay.AlarmThrown = AlarmThrown;
+            this.bay.ThrowAlarm = AlarmThrown;
         }
 
       

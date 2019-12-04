@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Software_Engineering_Assignment.Pages;
+using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment
 {
@@ -25,6 +26,9 @@ namespace Software_Engineering_Assignment
         public PageCall0 BayPageCall = delegate { };
 
         public CentralStation MainPage { get; set; }
+
+        public static Bay bay1;
+        public static Bay bay2;
 
         public BayPage BayPage1 { get; set; }
 
@@ -47,8 +51,11 @@ namespace Software_Engineering_Assignment
                 RegisterationPageCall = CallRegisterationPage
             };
 
-            BayPage1 = new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage };
-            BayPage2 = new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage };
+            bay1 = new Bay(1);
+            bay2 = new Bay(2);
+
+            BayPage1 = new BayPage(ref bay1, GoToMainpage) { PatientPageCall = SetPatientPage };
+            BayPage2 = new BayPage(ref bay2, GoToMainpage) { PatientPageCall = SetPatientPage };
             ManagementPage = new ManagementPage() { pageCall0 = GoToMainpage };
             RegisterationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
             PatientPage = new BedsidePage(GoToMainpage);
