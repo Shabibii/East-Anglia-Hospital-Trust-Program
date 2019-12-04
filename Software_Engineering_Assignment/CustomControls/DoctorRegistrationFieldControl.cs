@@ -52,7 +52,7 @@ namespace Software_Engineering_Assignment.CustomControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void RegisterStaff_Click(object sender, EventArgs e)
+        public void registerButton_Click(object sender, EventArgs e)
         {
             int staffType = Login();
             if (staffType == -2) return;
@@ -70,7 +70,7 @@ namespace Software_Engineering_Assignment.CustomControls
         public void RegisterStaff()
         {
             // Register staff   
-            DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+            DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateRegisterActivity.Value.ToString("yyyy-MM-dd"));
             DatabaseConnector.Instance.LogEvent("Registered for shift", "Staff", int.Parse(staffIdText.Text));
         }
 
@@ -80,7 +80,7 @@ namespace Software_Engineering_Assignment.CustomControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void UnregisterStaff_Click(object sender, EventArgs e)
+        private void deregisterButton_Click(object sender, EventArgs e)
         {
             int staffType = Login();
             if (staffType == -2) return;
@@ -98,7 +98,7 @@ namespace Software_Engineering_Assignment.CustomControls
         public void DeregisterStaff()
         {
             // Deregister staff
-            DatabaseConnector.Instance.UnregisterStaff(currentStaff.StaffId, dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+            DatabaseConnector.Instance.UnregisterStaff(currentStaff.StaffId, dateRegisterActivity.Value.ToString("yyyy-MM-dd"));
             DatabaseConnector.Instance.LogEvent("Deregistered from shift", "Staff", int.Parse(staffIdText.Text));
         }
     }

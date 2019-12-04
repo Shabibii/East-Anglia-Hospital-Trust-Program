@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.staffIcon = new System.Windows.Forms.PictureBox();
             this.staffNameText = new System.Windows.Forms.Label();
             this.staffIdText = new System.Windows.Forms.Label();
             this.deregisterButton = new System.Windows.Forms.Button();
             this.registerButton = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.dateRegisterActivity = new System.Windows.Forms.DateTimePicker();
+            this.dateLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.staffIcon)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // staffIcon
             // 
-            this.pictureBox1.Image = global::Software_Engineering_Assignment.Properties.Resources.yumminky_pc_43_512;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(83, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.staffIcon.Image = global::Software_Engineering_Assignment.Properties.Resources.yumminky_pc_43_512;
+            this.staffIcon.Location = new System.Drawing.Point(3, 3);
+            this.staffIcon.Name = "staffIcon";
+            this.staffIcon.Size = new System.Drawing.Size(83, 94);
+            this.staffIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.staffIcon.TabIndex = 0;
+            this.staffIcon.TabStop = false;
             // 
             // staffNameText
             // 
@@ -80,7 +80,7 @@
             this.deregisterButton.TabIndex = 4;
             this.deregisterButton.Text = "Deregister";
             this.deregisterButton.UseVisualStyleBackColor = false;
-            this.deregisterButton.Click += new System.EventHandler(this.UnregisterStaff_Click);
+            this.deregisterButton.Click += new System.EventHandler(this.deregisterButton_Click);
             // 
             // registerButton
             // 
@@ -94,40 +94,40 @@
             this.registerButton.TabIndex = 5;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = false;
-            this.registerButton.Click += new System.EventHandler(this.RegisterStaff_Click);
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
-            // dateTimePicker2
+            // dateRegisterActivity
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(203, 47);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(135, 20);
-            this.dateTimePicker2.TabIndex = 8;
+            this.dateRegisterActivity.Location = new System.Drawing.Point(203, 47);
+            this.dateRegisterActivity.Name = "dateRegisterActivity";
+            this.dateRegisterActivity.Size = new System.Drawing.Size(135, 20);
+            this.dateRegisterActivity.TabIndex = 8;
             // 
-            // label1
+            // dateLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(245, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 15);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Date:";
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(245, 26);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(34, 15);
+            this.dateLabel.TabIndex = 9;
+            this.dateLabel.Text = "Date:";
             // 
             // DoctorRegistrationFieldControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateLabel);
+            this.Controls.Add(this.dateRegisterActivity);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.deregisterButton);
             this.Controls.Add(this.staffIdText);
             this.Controls.Add(this.staffNameText);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.staffIcon);
             this.Name = "DoctorRegistrationFieldControl";
             this.Size = new System.Drawing.Size(438, 100);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,11 +135,11 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox staffIcon;
         private System.Windows.Forms.Label staffNameText;
         private System.Windows.Forms.Label staffIdText;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateRegisterActivity;
+        private System.Windows.Forms.Label dateLabel;
         public System.Windows.Forms.Button registerButton;
         public System.Windows.Forms.Button deregisterButton;
     }

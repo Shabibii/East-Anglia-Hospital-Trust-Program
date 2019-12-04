@@ -36,7 +36,7 @@ namespace Software_Engineering_Assignment.CustomControls
         }
 
         // Check if selected staff (deregistered) is already in the unregister list, for that date.
-        private bool unregisterListDoubleStaff(int staffId)
+        private bool UnregisterListDoubleStaff(int staffId)
         {
             foreach (StaffListViewItem listItem in staffUnregisterList.Items)
             {
@@ -67,7 +67,7 @@ namespace Software_Engineering_Assignment.CustomControls
                 foreach (Staff staff in unregisteredStaff)
                 {
                     // Only add to unregisterlist & display, if not already there.
-                    if(!unregisterListDoubleStaff(staff.StaffId))
+                    if(!UnregisterListDoubleStaff(staff.StaffId))
                     {
                         staffUnregisterList.Items.Add(new StaffListViewItem(staff));
                     }                   
