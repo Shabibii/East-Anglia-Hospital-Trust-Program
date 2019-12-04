@@ -13,7 +13,21 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Patient patient;
 
-        public bool ThrowAlarm => patient.Module1.ThrowAlarm || patient.Module2.ThrowAlarm || patient.Module3.ThrowAlarm || patient.Module4.ThrowAlarm;
+        public bool ThrowAlarm
+        {
+            get
+            {
+                try
+                {
+                    return patient.Module1.ThrowAlarm || patient.Module2.ThrowAlarm || patient.Module3.ThrowAlarm || patient.Module4.ThrowAlarm;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                
+            }
+        }
 
         public delegate void BedsideEvent(ref Patient patient, bool on);
         public BedsideEvent AlarmThrown = delegate { };

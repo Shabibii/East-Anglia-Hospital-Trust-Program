@@ -26,7 +26,21 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public bool LogAlarm = true;
 
-        public bool ThrowAlarm => CurrentValue < MinValue || CurrentValue > MaxValue;
+        public bool ThrowAlarm
+        {
+            get
+            {
+                if (Mute) return false;
+                return CurrentValue < MinValue || CurrentValue > MaxValue;
+            }
+        }
+
+        bool Mute = false;
+
+        public void MuteModule(bool doMute = true)
+        {
+            Mute = doMute;
+        }
 
         public static string[] ModuleTypes()
         {

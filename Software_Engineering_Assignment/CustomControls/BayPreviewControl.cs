@@ -18,26 +18,11 @@ namespace Software_Engineering_Assignment
 
         public Main.PageCall2 PatientPageCall = delegate { };
 
-        static bool HasConnectedAllBays = false;
-
         public BayPreviewControl()
         {
             InitializeComponent();
             alarmDisplay.Hide();
-
-            //alarmCheck.Start();
-            if(HasConnectedAllBays)
-            {
-                Main.bay1.ThrowAlarm += AlarmThrown;
-                Main.bay2.ThrowAlarm += AlarmThrown;
-                HasConnectedAllBays = true;
-            }
            
-        }
-
-        public void AlarmThrown(ref Patient patient, bool on)
-        {
-            alarmDisplay.Visible = on;
         }
 
         public void SetBay(int selectedBay, Main.PageCall2 patientPageCall)

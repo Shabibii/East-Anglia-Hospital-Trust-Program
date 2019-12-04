@@ -57,6 +57,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public int bayNumber = 0;
 
+        public bool mute = false;
+
         public bool ThrowAlarm
         {
             get
@@ -158,6 +160,24 @@ namespace Software_Engineering_Assignment.Support_Classes
             Module4.ValueChanged += ModuleValueChanged;
         }
 
+        public void MuteModule(int moduleNumber, bool doMute = true)
+        {
+            switch(moduleNumber)
+            {
+                case 1:
+                    Module1.MuteModule(doMute);
+                    break;
+                case 2:
+                    Module2.MuteModule(doMute);
+                    break;
+                case 3:
+                    Module3.MuteModule(doMute);
+                    break;
+                case 4:
+                    Module4.MuteModule(doMute);
+                    break;
+            }
+        }
         
 
         void ModuleValueChanged(Module module)

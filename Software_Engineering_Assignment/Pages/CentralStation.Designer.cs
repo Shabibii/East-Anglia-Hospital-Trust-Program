@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.dateTimeLabel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.eventRegister = new Software_Engineering_Assignment.RegisterControl();
-            this.bay2 = new Software_Engineering_Assignment.BayPreviewControl();
-            this.bay1 = new Software_Engineering_Assignment.BayPreviewControl();
             this.managementButton = new System.Windows.Forms.Button();
             this.registrationButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bay2 = new Software_Engineering_Assignment.BayPreviewControl();
+            this.bay1 = new Software_Engineering_Assignment.BayPreviewControl();
+            this.eventRegister = new Software_Engineering_Assignment.RegisterControl();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,17 +54,45 @@
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // eventRegister
+            // managementButton
             // 
-            this.eventRegister.BackColor = System.Drawing.Color.White;
-            this.eventRegister.Dock = System.Windows.Forms.DockStyle.Top;
-            this.eventRegister.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventRegister.Location = new System.Drawing.Point(0, 0);
-            this.eventRegister.Margin = new System.Windows.Forms.Padding(4);
-            this.eventRegister.MaximumSize = new System.Drawing.Size(475, 557);
-            this.eventRegister.Name = "eventRegister";
-            this.eventRegister.Size = new System.Drawing.Size(474, 496);
-            this.eventRegister.TabIndex = 2;
+            this.managementButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.managementButton.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managementButton.Image = global::Software_Engineering_Assignment.Properties.Resources.icons8_lock_1001;
+            this.managementButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.managementButton.Location = new System.Drawing.Point(2, 498);
+            this.managementButton.Margin = new System.Windows.Forms.Padding(2);
+            this.managementButton.Name = "managementButton";
+            this.managementButton.Size = new System.Drawing.Size(230, 36);
+            this.managementButton.TabIndex = 17;
+            this.managementButton.Text = "Management";
+            this.managementButton.UseVisualStyleBackColor = true;
+            this.managementButton.Click += new System.EventHandler(this.ManagementButton_Click);
+            // 
+            // registrationButton
+            // 
+            this.registrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registrationButton.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.registrationButton.Location = new System.Drawing.Point(235, 498);
+            this.registrationButton.Margin = new System.Windows.Forms.Padding(2);
+            this.registrationButton.Name = "registrationButton";
+            this.registrationButton.Size = new System.Drawing.Size(236, 36);
+            this.registrationButton.TabIndex = 18;
+            this.registrationButton.Text = "Staff (De-)Registration";
+            this.registrationButton.UseVisualStyleBackColor = true;
+            this.registrationButton.Click += new System.EventHandler(this.RegisterationButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.registrationButton);
+            this.panel1.Controls.Add(this.eventRegister);
+            this.panel1.Controls.Add(this.managementButton);
+            this.panel1.Location = new System.Drawing.Point(522, 49);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(476, 538);
+            this.panel1.TabIndex = 19;
             // 
             // bay2
             // 
@@ -88,46 +116,17 @@
             this.bay1.TabIndex = 0;
             this.bay1.Click += new System.EventHandler(this.BayControl1_Click);
             // 
-            // managementButton
+            // eventRegister
             // 
-            this.managementButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.managementButton.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.managementButton.Image = global::Software_Engineering_Assignment.Properties.Resources.icons8_lock_1001;
-            this.managementButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.managementButton.Location = new System.Drawing.Point(2, 498);
-            this.managementButton.Margin = new System.Windows.Forms.Padding(2);
-            this.managementButton.Name = "managementButton";
-            this.managementButton.Size = new System.Drawing.Size(230, 36);
-            this.managementButton.TabIndex = 17;
-            this.managementButton.Text = "Management";
-            this.managementButton.UseVisualStyleBackColor = true;
-            this.managementButton.Click += new System.EventHandler(this.ManagementButton_Click);
-            // 
-            // registrationButton
-            // 
-            this.registrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.registrationButton.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrationButton.Image = global::Software_Engineering_Assignment.Properties.Resources.icons8_lock_1001;
-            this.registrationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.registrationButton.Location = new System.Drawing.Point(235, 498);
-            this.registrationButton.Margin = new System.Windows.Forms.Padding(2);
-            this.registrationButton.Name = "registrationButton";
-            this.registrationButton.Size = new System.Drawing.Size(236, 36);
-            this.registrationButton.TabIndex = 18;
-            this.registrationButton.Text = "Staff (De-)Registration";
-            this.registrationButton.UseVisualStyleBackColor = true;
-            this.registrationButton.Click += new System.EventHandler(this.RegisterationButton_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.registrationButton);
-            this.panel1.Controls.Add(this.eventRegister);
-            this.panel1.Controls.Add(this.managementButton);
-            this.panel1.Location = new System.Drawing.Point(522, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(476, 538);
-            this.panel1.TabIndex = 19;
+            this.eventRegister.BackColor = System.Drawing.Color.White;
+            this.eventRegister.Dock = System.Windows.Forms.DockStyle.Top;
+            this.eventRegister.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventRegister.Location = new System.Drawing.Point(0, 0);
+            this.eventRegister.Margin = new System.Windows.Forms.Padding(4);
+            this.eventRegister.MaximumSize = new System.Drawing.Size(475, 557);
+            this.eventRegister.Name = "eventRegister";
+            this.eventRegister.Size = new System.Drawing.Size(474, 496);
+            this.eventRegister.TabIndex = 2;
             // 
             // CentralStation
             // 

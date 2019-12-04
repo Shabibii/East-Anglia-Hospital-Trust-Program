@@ -243,5 +243,59 @@ namespace Software_Engineering_Assignment.Pages
             }
             
         }
+
+        
+
+        private bool MuteAlarm()
+        {
+            using (Login login = new Login())
+            {
+                //If login button clicked on the login form
+                if (login.ShowDialog() == DialogResult.Yes)
+                {
+                    Staff staff = login.Staff;
+
+                    if (staff == null)
+                    {
+                        //If invalid login
+                        MessageBox.Show("Invalid Login", "Invalid login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                    else
+                    {
+                        //if valid login of any staff type
+                        //tell event log that staff logged in to edit patient data
+                        //enable textboxes for change
+                        DatabaseConnector.Instance.LogEvent($"Muted {currentBedside.patient.FullName} module alarm", "Staff", staff.StaffId);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void alarmDisplay1_Click(object sender, EventArgs e)
+        {
+           if(MuteAlarm())
+                currentBedside.patient.MuteModule(1);
+        }
+
+        private void alarmDisplay2_Click(object sender, EventArgs e)
+        {
+            if (MuteAlarm())
+                currentBedside.patient.MuteModule(2);
+        }
+
+        private void alarmDisplay3_Click(object sender, EventArgs e)
+        {
+            if (MuteAlarm())
+                currentBedside.patient.MuteModule(3);
+        }
+
+        private void alarmDisplay4_Click(object sender, EventArgs e)
+        {
+            if (MuteAlarm())
+                currentBedside.patient.MuteModule(4);
+        }
     }
 }

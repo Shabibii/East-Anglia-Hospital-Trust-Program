@@ -445,6 +445,7 @@
             this.alarmDisplay4.TabIndex = 76;
             this.alarmDisplay4.TabStop = false;
             this.alarmDisplay4.Visible = false;
+            this.alarmDisplay4.Click += new System.EventHandler(this.alarmDisplay4_Click);
             // 
             // alarmDisplay3
             // 
@@ -456,6 +457,7 @@
             this.alarmDisplay3.TabIndex = 75;
             this.alarmDisplay3.TabStop = false;
             this.alarmDisplay3.Visible = false;
+            this.alarmDisplay3.Click += new System.EventHandler(this.alarmDisplay3_Click);
             // 
             // alarmDisplay2
             // 
@@ -467,6 +469,7 @@
             this.alarmDisplay2.TabIndex = 74;
             this.alarmDisplay2.TabStop = false;
             this.alarmDisplay2.Visible = false;
+            this.alarmDisplay2.Click += new System.EventHandler(this.alarmDisplay2_Click);
             // 
             // alarmDisplay1
             // 
@@ -478,6 +481,7 @@
             this.alarmDisplay1.TabIndex = 57;
             this.alarmDisplay1.TabStop = false;
             this.alarmDisplay1.Visible = false;
+            this.alarmDisplay1.Click += new System.EventHandler(this.alarmDisplay1_Click);
             // 
             // module4Unit
             // 

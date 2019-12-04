@@ -4,9 +4,6 @@
     {
         public int BayNumber;
 
-        public delegate void BayEvent(ref Patient patient, bool on);
-        public BayEvent ThrowAlarm = delegate { };
-
         public bool Throw_Alarm => 
                bedside1.ThrowAlarm || bedside2.ThrowAlarm || bedside3.ThrowAlarm || bedside4.ThrowAlarm
             || bedside5.ThrowAlarm || bedside6.ThrowAlarm || bedside7.ThrowAlarm || bedside8.ThrowAlarm;
@@ -26,22 +23,6 @@
             bedside6 = DatabaseConnector.Instance.GetBedside(bayNumber, 6);
             bedside7 = DatabaseConnector.Instance.GetBedside(bayNumber, 7);
             bedside8 = DatabaseConnector.Instance.GetBedside(bayNumber, 8);
-
-
-            bedside1.AlarmThrown += PatientValueChanged;
-            bedside2.AlarmThrown += PatientValueChanged;
-            bedside3.AlarmThrown += PatientValueChanged;
-            bedside4.AlarmThrown += PatientValueChanged;
-            bedside5.AlarmThrown += PatientValueChanged;
-            bedside6.AlarmThrown += PatientValueChanged;
-            bedside7.AlarmThrown += PatientValueChanged;
-            bedside8.AlarmThrown += PatientValueChanged;
-        }
-
-        public void PatientValueChanged(ref Patient patient, bool throwAlarm)
-        {
-            // AlarmThrown(patient,on);
-            ThrowAlarm(ref patient, throwAlarm);
         }
 
         public void StartRandomizingValues()
