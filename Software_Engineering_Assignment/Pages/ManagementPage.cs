@@ -47,6 +47,7 @@ namespace Software_Engineering_Assignment.Pages
             
             dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetMatchingEvents(table, conditions);
             dgvManagementInfo.AutoResizeColumns();
+            //MessageBox.Show(table + conditions);
         }
 
         private string GetTableName()
@@ -89,19 +90,19 @@ namespace Software_Engineering_Assignment.Pages
                 conditions += "patient_id = '" + tbxPatientID.Text + "' ";
             }
             
-            if(rbtSelectDay.Checked == true)
-            {
-                if(conditions != " WHERE ")
-                {
-                    conditions += "AND trigger_date_time = '" + dtpManagement.Value + "' ";
-                }
-                else
-                {
-                    conditions += " trigger_date_time LIKE '" + dtpManagement.Value.ToString("dd/MM/yyyy") + "%' ";
-                }
+            //if(rbtSelectDay.Checked == true)
+            //{
+            //    if(conditions != " WHERE ")
+            //    {
+            //        conditions += "AND trigger_date_time = '" + dtpManagement.Value + "' ";
+            //    }
+            //    else
+            //    {
+            //        conditions += " [trigger_date_time] LIKE '" +  dtpManagement.Text  + "%' ";
+            //    }
 
 
-            }
+            //}
 
             if(conditions == " WHERE ")
             {
