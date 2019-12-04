@@ -93,6 +93,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                     return;
             }
             // set current value to be from min - 8 to max + 8
+            ValueChanged = ValueChangedHandler;
             SetCurrentValue();
         }
 
@@ -127,11 +128,22 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             lock (t)
             {
+                if (t.Interval == 60000) t.Interval = 120000;
+                else if (t.Interval == 120000) t.Interval = 60000;
+
                 SetCurrentValue();
                 DatabaseConnector.Instance.UpdateModule(this);
                 ValueChanged(this);
             }
            
+        }
+
+        public void ValueChangedHandler(Module module)
+        {
+            if(module.ThrowAlarm)
+            {
+                StopGeneratingValues(); // Stop generating random values to avoid alarm/event spam
+            }
         }
 
         public void StopGeneratingValues()

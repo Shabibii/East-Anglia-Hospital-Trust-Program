@@ -54,6 +54,9 @@ namespace Software_Engineering_Assignment
             bay1 = new Bay(1);
             bay2 = new Bay(2);
 
+            bay1.StartRandomizingValues();
+            bay2.StartRandomizingValues();
+
             BayPage1 = new BayPage(ref bay1, GoToMainpage) { PatientPageCall = SetPatientPage };
             BayPage2 = new BayPage(ref bay2, GoToMainpage) { PatientPageCall = SetPatientPage };
             ManagementPage = new ManagementPage() { pageCall0 = GoToMainpage };

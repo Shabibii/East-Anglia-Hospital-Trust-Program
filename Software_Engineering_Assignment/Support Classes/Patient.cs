@@ -61,12 +61,9 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             get
             {
-                return bedside.ThrowAlarm;
+                return Module1.ThrowAlarm || Module2.ThrowAlarm || Module3.ThrowAlarm || Module4.ThrowAlarm;
             }
         }
-
-        // creating module-objects for storing moduledata 
-        private Bedside bedside;
 
         public Module Module1 { get; set; }
 
@@ -154,7 +151,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         void ModuleValueChanged(Module module)
         {
-            if (bedside.ThrowAlarm)
+            if (module.ThrowAlarm)
             {
                 ThrowPatientAlarm(this, true);
                 DatabaseConnector.Instance.LogEvent($"Alarm for {module} thrown", "Patient", patientId);

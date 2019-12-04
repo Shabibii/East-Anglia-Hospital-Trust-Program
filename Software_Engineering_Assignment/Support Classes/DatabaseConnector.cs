@@ -340,8 +340,11 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Bedside GetBedside(int bayNumber, int bedNumber)
         {
-            Bedside bedside =  new Bedside(GetBedsideData(bayNumber,bedNumber));
+            var rawBedsideData = GetBedsideData(bayNumber, bedNumber);
+
+            Bedside bedside =  new Bedside(rawBedsideData);
             bedside.patient = GetPatient(bayNumber, bedNumber);
+            bedside.patient.ConnectToBedside(rawBedsideData);
 
             return bedside;
         }

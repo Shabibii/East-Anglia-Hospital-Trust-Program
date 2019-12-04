@@ -50,16 +50,15 @@
             this.surnameLabel = new System.Windows.Forms.Label();
             this.dobLabel = new System.Windows.Forms.Label();
             this.intakeReasonLabel = new System.Windows.Forms.Label();
-            this.doctorLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.alarmDisplay4 = new System.Windows.Forms.PictureBox();
-            this.alarmDisplay3 = new System.Windows.Forms.PictureBox();
-            this.alarmDisplay2 = new System.Windows.Forms.PictureBox();
-            this.alarmDisplay1 = new System.Windows.Forms.PictureBox();
+            this.alarmDisplay4 = new System.Windows.Forms.Button();
+            this.alarmDisplay3 = new System.Windows.Forms.Button();
+            this.alarmDisplay2 = new System.Windows.Forms.Button();
+            this.alarmDisplay1 = new System.Windows.Forms.Button();
             this.module4Unit = new System.Windows.Forms.Label();
             this.module2Unit = new System.Windows.Forms.Label();
             this.module3Unit = new System.Windows.Forms.Label();
@@ -85,10 +84,6 @@
             this.refreshModuleData = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay1)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -343,16 +338,6 @@
             this.intakeReasonLabel.TabIndex = 48;
             this.intakeReasonLabel.Text = "Intake Reason:";
             // 
-            // doctorLabel
-            // 
-            this.doctorLabel.AutoSize = true;
-            this.doctorLabel.Location = new System.Drawing.Point(8, 305);
-            this.doctorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.doctorLabel.Name = "doctorLabel";
-            this.doctorLabel.Size = new System.Drawing.Size(43, 14);
-            this.doctorLabel.TabIndex = 49;
-            this.doctorLabel.Text = "Doctor:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -426,7 +411,6 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.doctorLabel);
             this.panel1.Controls.Add(this.intakeReasonLabel);
             this.panel1.Controls.Add(this.dobLabel);
             this.panel1.Controls.Add(this.surnameLabel);
@@ -453,44 +437,44 @@
             // 
             // alarmDisplay4
             // 
+            this.alarmDisplay4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alarmDisplay4.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay4.Image")));
-            this.alarmDisplay4.Location = new System.Drawing.Point(474, 332);
+            this.alarmDisplay4.Location = new System.Drawing.Point(498, 332);
             this.alarmDisplay4.Name = "alarmDisplay4";
-            this.alarmDisplay4.Size = new System.Drawing.Size(62, 55);
-            this.alarmDisplay4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.alarmDisplay4.Size = new System.Drawing.Size(38, 63);
             this.alarmDisplay4.TabIndex = 76;
             this.alarmDisplay4.TabStop = false;
             this.alarmDisplay4.Visible = false;
             // 
             // alarmDisplay3
             // 
+            this.alarmDisplay3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alarmDisplay3.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay3.Image")));
-            this.alarmDisplay3.Location = new System.Drawing.Point(143, 332);
+            this.alarmDisplay3.Location = new System.Drawing.Point(163, 332);
             this.alarmDisplay3.Name = "alarmDisplay3";
-            this.alarmDisplay3.Size = new System.Drawing.Size(62, 55);
-            this.alarmDisplay3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.alarmDisplay3.Size = new System.Drawing.Size(42, 63);
             this.alarmDisplay3.TabIndex = 75;
             this.alarmDisplay3.TabStop = false;
             this.alarmDisplay3.Visible = false;
             // 
             // alarmDisplay2
             // 
+            this.alarmDisplay2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alarmDisplay2.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay2.Image")));
-            this.alarmDisplay2.Location = new System.Drawing.Point(474, 98);
+            this.alarmDisplay2.Location = new System.Drawing.Point(498, 85);
             this.alarmDisplay2.Name = "alarmDisplay2";
-            this.alarmDisplay2.Size = new System.Drawing.Size(62, 55);
-            this.alarmDisplay2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.alarmDisplay2.Size = new System.Drawing.Size(38, 68);
             this.alarmDisplay2.TabIndex = 74;
             this.alarmDisplay2.TabStop = false;
             this.alarmDisplay2.Visible = false;
             // 
             // alarmDisplay1
             // 
+            this.alarmDisplay1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alarmDisplay1.Image = ((System.Drawing.Image)(resources.GetObject("alarmDisplay1.Image")));
-            this.alarmDisplay1.Location = new System.Drawing.Point(143, 98);
+            this.alarmDisplay1.Location = new System.Drawing.Point(163, 82);
             this.alarmDisplay1.Name = "alarmDisplay1";
-            this.alarmDisplay1.Size = new System.Drawing.Size(62, 55);
-            this.alarmDisplay1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.alarmDisplay1.Size = new System.Drawing.Size(42, 71);
             this.alarmDisplay1.TabIndex = 57;
             this.alarmDisplay1.TabStop = false;
             this.alarmDisplay1.Visible = false;
@@ -746,7 +730,7 @@
             // 
             // refreshModuleData
             // 
-            this.refreshModuleData.Interval = 500;
+            this.refreshModuleData.Interval = 1;
             this.refreshModuleData.Tick += new System.EventHandler(this.RefreshModuleData_Tick);
             // 
             // BedsidePage
@@ -763,10 +747,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmDisplay1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -792,7 +772,6 @@
         private System.Windows.Forms.Label surnameLabel;
         private System.Windows.Forms.Label dobLabel;
         private System.Windows.Forms.Label intakeReasonLabel;
-        private System.Windows.Forms.Label doctorLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -822,9 +801,9 @@
         private System.Windows.Forms.Label module1Unit;
         private System.Windows.Forms.ContextMenuStrip emptyMenuStrip;
         private System.Windows.Forms.Timer refreshModuleData;
-        private System.Windows.Forms.PictureBox alarmDisplay4;
-        private System.Windows.Forms.PictureBox alarmDisplay3;
-        private System.Windows.Forms.PictureBox alarmDisplay2;
-        private System.Windows.Forms.PictureBox alarmDisplay1;
+        private System.Windows.Forms.Button alarmDisplay4;
+        private System.Windows.Forms.Button alarmDisplay3;
+        private System.Windows.Forms.Button alarmDisplay2;
+        private System.Windows.Forms.Button alarmDisplay1;
     }
 }

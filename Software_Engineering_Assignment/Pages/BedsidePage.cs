@@ -226,7 +226,6 @@ namespace Software_Engineering_Assignment.Pages
         
         private void RefreshModuleData_Tick(object sender, EventArgs e)
         {
-            return;
             if (currentBedside == null) return;
 
             alarmDisplay1.Visible = currentBedside.patient.Module1.ThrowAlarm;

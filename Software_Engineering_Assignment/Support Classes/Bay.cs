@@ -14,26 +14,24 @@
         public Bay(int bayNumber)
         {
             BayNumber = bayNumber;
-            patient1 = DatabaseConnector.Instance.GetBedside(bayNumber, 1);
-            patient2 = DatabaseConnector.Instance.GetBedside(bayNumber, 2);
-            patient3 = DatabaseConnector.Instance.GetBedside(bayNumber, 3);
-            patient4 = DatabaseConnector.Instance.GetBedside(bayNumber, 4);
-            patient5 = DatabaseConnector.Instance.GetBedside(bayNumber, 5);
-            patient6 = DatabaseConnector.Instance.GetBedside(bayNumber, 6);
-            patient7 = DatabaseConnector.Instance.GetBedside(bayNumber, 7);
-            patient8 = DatabaseConnector.Instance.GetBedside(bayNumber, 8);
+            bedside1 = DatabaseConnector.Instance.GetBedside(bayNumber, 1);
+            bedside2 = DatabaseConnector.Instance.GetBedside(bayNumber, 2);
+            bedside3 = DatabaseConnector.Instance.GetBedside(bayNumber, 3);
+            bedside4 = DatabaseConnector.Instance.GetBedside(bayNumber, 4);
+            bedside5 = DatabaseConnector.Instance.GetBedside(bayNumber, 5);
+            bedside6 = DatabaseConnector.Instance.GetBedside(bayNumber, 6);
+            bedside7 = DatabaseConnector.Instance.GetBedside(bayNumber, 7);
+            bedside8 = DatabaseConnector.Instance.GetBedside(bayNumber, 8);
 
 
-            patient1.AlarmThrown = PatientValueChanged;
-            patient2.AlarmThrown = PatientValueChanged;
-            patient3.AlarmThrown = PatientValueChanged;
-            patient4.AlarmThrown = PatientValueChanged;
-            patient5.AlarmThrown = PatientValueChanged;
-            patient6.AlarmThrown = PatientValueChanged;
-            patient7.AlarmThrown = PatientValueChanged;
-            patient8.AlarmThrown = PatientValueChanged;
-
-            //StartRandomizingValues();
+            bedside1.AlarmThrown = PatientValueChanged;
+            bedside2.AlarmThrown = PatientValueChanged;
+            bedside3.AlarmThrown = PatientValueChanged;
+            bedside4.AlarmThrown = PatientValueChanged;
+            bedside5.AlarmThrown = PatientValueChanged;
+            bedside6.AlarmThrown = PatientValueChanged;
+            bedside7.AlarmThrown = PatientValueChanged;
+            bedside8.AlarmThrown = PatientValueChanged;
         }
 
         public void PatientValueChanged(ref Patient patient, bool throwAlarm)
@@ -42,16 +40,16 @@
             ThrowAlarm(ref patient, throwAlarm);
         }
 
-        private void StartRandomizingValues()
+        public void StartRandomizingValues()
         {
-            patient1.StartGeneratingRandomValues();
-            patient2.StartGeneratingRandomValues();
-            patient3.StartGeneratingRandomValues();
-            patient4.StartGeneratingRandomValues();
-            patient5.StartGeneratingRandomValues();
-            patient6.StartGeneratingRandomValues();
-            patient7.StartGeneratingRandomValues();
-            patient8.StartGeneratingRandomValues();
+            bedside1.StartGeneratingRandomValues();
+            bedside2.StartGeneratingRandomValues();
+            bedside3.StartGeneratingRandomValues();
+            bedside4.StartGeneratingRandomValues();
+            bedside5.StartGeneratingRandomValues();
+            bedside6.StartGeneratingRandomValues();
+            bedside7.StartGeneratingRandomValues();
+            bedside8.StartGeneratingRandomValues();
         }
 
 
@@ -64,26 +62,26 @@
         {
             switch (bedNumber)
             {
-                case 1: return patient1;
-                case 2: return patient2;
-                case 3: return patient3;
-                case 4: return patient4;
-                case 5: return patient5;
-                case 6: return patient6;
-                case 7: return patient7;
-                case 8: return patient8;
+                case 1: return bedside1;
+                case 2: return bedside2;
+                case 3: return bedside3;
+                case 4: return bedside4;
+                case 5: return bedside5;
+                case 6: return bedside6;
+                case 7: return bedside7;
+                case 8: return bedside8;
                 default: return null;
             }
         }
 
         //Patients from bed 1 to 8
-        readonly Bedside patient1;
-        readonly Bedside patient2;
-        readonly Bedside patient3;
-        readonly Bedside patient4;
-        readonly Bedside patient5;
-        readonly Bedside patient6;
-        readonly Bedside patient7;
-        readonly Bedside patient8;
+        readonly Bedside bedside1;
+        readonly Bedside bedside2;
+        readonly Bedside bedside3;
+        readonly Bedside bedside4;
+        readonly Bedside bedside5;
+        readonly Bedside bedside6;
+        readonly Bedside bedside7;
+        readonly Bedside bedside8;
     }
 }
