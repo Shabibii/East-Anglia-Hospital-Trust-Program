@@ -186,6 +186,7 @@
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 15;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblDateType
@@ -244,7 +245,7 @@
             this.Controls.Add(this.lblEventType);
             this.Controls.Add(this.lblManagementTitle);
             this.Controls.Add(this.dgvManagementInfo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManagementPage";
             this.Size = new System.Drawing.Size(1347, 732);
             this.Load += new System.EventHandler(this.ManagementPage_Load);
