@@ -26,15 +26,22 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void StartGeneratingRandomValues()
         {
-            patient.Module1.ValueChanged = ModuleChanged;
-            patient.Module2.ValueChanged = ModuleChanged;
-            patient.Module3.ValueChanged = ModuleChanged;
-            patient.Module4.ValueChanged = ModuleChanged;
+            if (patient.FullName == "Empty Record") return;
+
+            patient.Module1.ValueChanged += ModuleChanged;
+            patient.Module2.ValueChanged += ModuleChanged;
+            patient.Module3.ValueChanged += ModuleChanged;
+            patient.Module4.ValueChanged += ModuleChanged;
 
             patient.Module1.StartGeneratingValues();
             patient.Module2.StartGeneratingValues();
             patient.Module3.StartGeneratingValues();
             patient.Module4.StartGeneratingValues();
+
+            ModuleChanged(patient.Module1);
+            ModuleChanged(patient.Module2);
+            ModuleChanged(patient.Module3);
+            ModuleChanged(patient.Module4);
         }
 
         private void ModuleChanged(Module module)

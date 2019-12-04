@@ -31,7 +31,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             //Assign patient to bedside
             patient = p;
-            patient.ThrowPatientAlarm = ThrowAlarm;
+            patient.ThrowPatientAlarm += ThrowAlarm;
 
             textBox1.Clear();
             textBox1.Text = $"{Environment.NewLine}";

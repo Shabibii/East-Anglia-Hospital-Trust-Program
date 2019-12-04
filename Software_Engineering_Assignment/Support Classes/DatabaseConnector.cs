@@ -344,6 +344,8 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             Bedside bedside =  new Bedside(rawBedsideData);
             bedside.patient = GetPatient(bayNumber, bedNumber);
+
+            if(bedside.patient.FirstName != "Empty" && bedside.patient.Surname != "Record")
             bedside.patient.ConnectToBedside(rawBedsideData);
 
             return bedside;
@@ -399,7 +401,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
 
-            Instance.LogEvent($"values changed", "Module", module.moduleID);
+            //Instance.LogEvent($"values changed", "Module", module.moduleID);
         }
 
         public void LogEvent(string activityDescription, string type, int id)

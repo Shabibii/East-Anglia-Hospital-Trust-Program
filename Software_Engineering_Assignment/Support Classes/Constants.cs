@@ -19,12 +19,12 @@ namespace Software_Engineering_Assignment.Support_Classes
             return random.Next();
         }
 
-        public static int NextRandomValue(int startRange, int endRange)
+        public static int NextRandomValue(int min, int max)
         {
             if (random == null)
                 random = new Random();
 
-            return random.Next(startRange, endRange);
+            return random.Next(min, max);
         }
 
         //These are sql queries that will be used regurally

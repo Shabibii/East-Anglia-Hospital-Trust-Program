@@ -24,14 +24,14 @@
             bedside8 = DatabaseConnector.Instance.GetBedside(bayNumber, 8);
 
 
-            bedside1.AlarmThrown = PatientValueChanged;
-            bedside2.AlarmThrown = PatientValueChanged;
-            bedside3.AlarmThrown = PatientValueChanged;
-            bedside4.AlarmThrown = PatientValueChanged;
-            bedside5.AlarmThrown = PatientValueChanged;
-            bedside6.AlarmThrown = PatientValueChanged;
-            bedside7.AlarmThrown = PatientValueChanged;
-            bedside8.AlarmThrown = PatientValueChanged;
+            bedside1.AlarmThrown += PatientValueChanged;
+            bedside2.AlarmThrown += PatientValueChanged;
+            bedside3.AlarmThrown += PatientValueChanged;
+            bedside4.AlarmThrown += PatientValueChanged;
+            bedside5.AlarmThrown += PatientValueChanged;
+            bedside6.AlarmThrown += PatientValueChanged;
+            bedside7.AlarmThrown += PatientValueChanged;
+            bedside8.AlarmThrown += PatientValueChanged;
         }
 
         public void PatientValueChanged(ref Patient patient, bool throwAlarm)

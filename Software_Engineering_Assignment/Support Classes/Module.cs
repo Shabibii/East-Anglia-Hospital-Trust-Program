@@ -99,9 +99,27 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void SetCurrentValue()
         {
-            if (currentModule == ModuleType.None) return;
-            CurrentValue = Constants.NextRandomValue(Convert.ToInt32(MinValue) - 10, Convert.ToInt32(MaxValue) + 10);
-            ValueChanged(this);
+            try
+            {
+                if (currentModule == ModuleType.None) return;
+                decimal[] minimums = new[] { MinValue - 10, MinValue, MinValue, MinValue };
+
+                decimal[] maximums = new[] { MaxValue - 10, MaxValue, MaxValue, MaxValue };
+
+                int min = Convert.ToInt32(minimums[Constants.NextRandomValue(0, 4)]);
+
+                int max = Convert.ToInt32(maximums[Constants.NextRandomValue(0, 4)]);
+
+                CurrentValue = Constants.NextRandomValue(min, max);
+
+                DatabaseConnector.Instance.UpdateModule(this);
+                ValueChanged(this);
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         public Module(string[] rawModuleData)
@@ -118,7 +136,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         public void StartGeneratingValues()
         {
             //Update current reading value every minute
-            t.Interval = 60000;
+            t.Interval = 30000;
             // t.Interval = 60000; //
             t.Tick += TimerTick;
             t.Start();
@@ -126,23 +144,18 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public void TimerTick(object o, EventArgs erg)
         {
-            lock (t)
-            {
-                if (t.Interval == 60000) t.Interval = 120000;
-                else if (t.Interval == 120000) t.Interval = 60000;
+            if (t.Interval == 240000) t.Interval = 30000;
 
-                SetCurrentValue();
-                DatabaseConnector.Instance.UpdateModule(this);
-                ValueChanged(this);
-            }
-           
+            SetCurrentValue();
         }
 
         public void ValueChangedHandler(Module module)
         {
+            //Do nothing for now
             if(module.ThrowAlarm)
             {
-                StopGeneratingValues(); // Stop generating random values to avoid alarm/event spam
+                t.Interval = 240000;
+                StopGeneratingValues();
             }
         }
 

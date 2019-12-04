@@ -49,8 +49,8 @@ namespace Software_Engineering_Assignment.Pages
         
         public void InitializeBays(Main.PageCall2 patientPageCall)
         {
-            bay1.SetBay(new Bay(1), patientPageCall);
-            bay2.SetBay(new Bay(2), patientPageCall);
+            bay1.SetBay(1, patientPageCall);
+            bay2.SetBay(2, patientPageCall);
         }
 
         private void Timer_Tick(object sender, EventArgs e) 

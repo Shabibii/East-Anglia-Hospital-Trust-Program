@@ -69,7 +69,6 @@
             // bay2
             // 
             this.bay2.BackColor = System.Drawing.Color.White;
-            this.bay2.Bay = null;
             this.bay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bay2.Location = new System.Drawing.Point(7, 322);
             this.bay2.Margin = new System.Windows.Forms.Padding(4);
@@ -81,7 +80,6 @@
             // bay1
             // 
             this.bay1.BackColor = System.Drawing.Color.White;
-            this.bay1.Bay = null;
             this.bay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bay1.Location = new System.Drawing.Point(7, 49);
             this.bay1.Margin = new System.Windows.Forms.Padding(4);

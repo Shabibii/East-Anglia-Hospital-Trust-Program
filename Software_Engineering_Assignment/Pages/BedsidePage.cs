@@ -226,14 +226,22 @@ namespace Software_Engineering_Assignment.Pages
         
         private void RefreshModuleData_Tick(object sender, EventArgs e)
         {
-            if (currentBedside == null) return;
+            try
+            {
+                if (currentBedside == null) return;
 
-            alarmDisplay1.Visible = currentBedside.patient.Module1.ThrowAlarm;
-            alarmDisplay2.Visible = currentBedside.patient.Module2.ThrowAlarm;
-            alarmDisplay3.Visible = currentBedside.patient.Module3.ThrowAlarm;
-            alarmDisplay4.Visible = currentBedside.patient.Module4.ThrowAlarm;
-         
-            DisplayModuleData();
+                alarmDisplay1.Visible = currentBedside.patient.Module1.ThrowAlarm;
+                alarmDisplay2.Visible = currentBedside.patient.Module2.ThrowAlarm;
+                alarmDisplay3.Visible = currentBedside.patient.Module3.ThrowAlarm;
+                alarmDisplay4.Visible = currentBedside.patient.Module4.ThrowAlarm;
+
+                DisplayModuleData();
+            }
+            catch (Exception)
+            {
+                refreshModuleData.Stop();
+            }
+            
         }
     }
 }
