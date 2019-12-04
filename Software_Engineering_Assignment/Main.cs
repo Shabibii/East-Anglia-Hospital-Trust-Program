@@ -23,6 +23,8 @@ namespace Software_Engineering_Assignment
         public delegate void PageCall1(int bayNumber);
         //Page call method with 2 parameters
         public delegate void PageCall2(int bayNumber, int bedNumber);
+
+        public delegate void PageCall3(bool NavBack,int bayNumber, int bedNumber);
         public PageCall0 BayPageCall = delegate { };
 
         public CentralStation MainPage { get; set; }
@@ -66,6 +68,7 @@ namespace Software_Engineering_Assignment
             ManagementPage = new ManagementPage() { pageCall0 = GoToMainpage };
             RegisterationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
             PatientPage = new BedsidePage(GoToMainpage);
+            PatientPage.NavBack = PatientPage.NavForward = NavigatePatientPage;
 
             pages.Add(0, MainPage);
             pages.Add(1, BayPage1);
@@ -92,6 +95,20 @@ namespace Software_Engineering_Assignment
                 ((BedsidePage)pages[5]).SetBedside(bay2.GetBedside(bedNumber));
 
             SetPage(5);
+        }
+
+        public void NavigatePatientPage(bool NavigateBackwards,int baynumber, int patientNumber)
+        {
+            int pNum = patientNumber;
+            if(pNum != 1 && pNum != 8)
+            {
+                if (NavigateBackwards)
+                    SetPatientPage(baynumber, patientNumber - 1);
+                else
+                    SetPatientPage(baynumber, patientNumber + 1);
+            }
+
+           
         }
 
         public void GoToMainpage()

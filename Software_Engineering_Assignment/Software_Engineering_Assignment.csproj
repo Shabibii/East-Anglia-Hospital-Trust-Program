@@ -264,6 +264,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>hospitalDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\next.png" />
+    <None Include="Resources\back.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

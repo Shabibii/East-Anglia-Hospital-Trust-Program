@@ -15,6 +15,8 @@ namespace Software_Engineering_Assignment.Pages
     {
         Bedside currentBedside;
         Main.PageCall0 previousPageCall;
+        public Main.PageCall3 NavBack;
+        public Main.PageCall3 NavForward;
 
         public BedsidePage(Main.PageCall0 previousPageCall)
         {
@@ -64,6 +66,8 @@ namespace Software_Engineering_Assignment.Pages
             Text = currentBedside.patient.FullName;
 
             InitalizeControl();
+            saveButton.Visible = false;
+            LockInputControls(true);
         }
 
         private void DisplayModuleData()
@@ -302,6 +306,36 @@ namespace Software_Engineering_Assignment.Pages
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (currentBedside.BedsideNo == 1) return;
+
+            if (currentBedside.BayNo == 1)
+            {
+                SetBedside(Main.bay1.GetBedside(currentBedside.BedsideNo - 1));
+            }
+
+            if (currentBedside.BayNo == 2)
+            {
+                SetBedside(Main.bay2.GetBedside(currentBedside.BedsideNo - 1));
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (currentBedside.BedsideNo == 8) return;
+            if (currentBedside.BayNo == 1)
+            {
+                SetBedside(Main.bay1.GetBedside(currentBedside.BedsideNo + 1));
+            }
+
+            if (currentBedside.BayNo == 2)
+            {
+                SetBedside(Main.bay2.GetBedside(currentBedside.BedsideNo + 1));
+            }
 
         }
     }
