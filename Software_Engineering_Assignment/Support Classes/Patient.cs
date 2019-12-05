@@ -63,14 +63,11 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             get
             {
-                try
-                {
-                    return Module1.ThrowAlarm || Module2.ThrowAlarm || Module3.ThrowAlarm || Module4.ThrowAlarm;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                bool module1Throw = (Module1 != null) && Module1.ThrowAlarm;
+                bool module2Throw = (Module2 != null) && Module2.ThrowAlarm;
+                bool module3Throw = (Module3 != null) && Module3.ThrowAlarm;
+                bool module4Throw = (Module4 != null) && Module4.ThrowAlarm;
+                return module1Throw || module2Throw || module3Throw || module4Throw;
                 
             }
         }
