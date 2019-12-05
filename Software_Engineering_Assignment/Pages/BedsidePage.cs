@@ -285,21 +285,21 @@ namespace Software_Engineering_Assignment.Pages
 
         private void alarmDisplay1_Click(object sender, EventArgs e)
         {
-            DatabaseConnector.Instance.LogEvent($"Module 1 on bedside Nuted", "Bedside", currentBedside.BedsideId);
+            DatabaseConnector.Instance.LogEvent($"Module 1 on bedside Muted", "Bedside", currentBedside.BedsideId);
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(1);
         }
 
         private void alarmDisplay2_Click(object sender, EventArgs e)
         {
-            DatabaseConnector.Instance.LogEvent($"Module 2 on bedside Nuted", "Bedside", currentBedside.BedsideId);
+            DatabaseConnector.Instance.LogEvent($"Module 2 on bedside Muted", "Bedside", currentBedside.BedsideId);
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(2);
         }
 
         private void alarmDisplay3_Click(object sender, EventArgs e)
         {
-            DatabaseConnector.Instance.LogEvent($"Module 3 on bedside Nuted", "Bedside", currentBedside.BedsideId);
+            DatabaseConnector.Instance.LogEvent($"Module 3 on bedside Muted", "Bedside", currentBedside.BedsideId);
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(3);
         }
