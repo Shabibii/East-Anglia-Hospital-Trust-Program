@@ -53,6 +53,7 @@
             this.dgvManagementInfo.Location = new System.Drawing.Point(20, 45);
             this.dgvManagementInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvManagementInfo.Name = "dgvManagementInfo";
+            this.dgvManagementInfo.ReadOnly = true;
             this.dgvManagementInfo.RowHeadersWidth = 51;
             this.dgvManagementInfo.RowTemplate.Height = 24;
             this.dgvManagementInfo.Size = new System.Drawing.Size(949, 655);

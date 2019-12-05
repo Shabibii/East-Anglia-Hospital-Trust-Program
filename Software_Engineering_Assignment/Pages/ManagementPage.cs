@@ -26,7 +26,7 @@ namespace Software_Engineering_Assignment.Pages
         {
             //Assign dataGridView data source to alarms dataset               
             dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetAlarms();
-
+            dgvManagementInfo.AutoResizeColumns();
             rbtAnyDay.Checked = true;
         }
 
@@ -47,6 +47,13 @@ namespace Software_Engineering_Assignment.Pages
             
             dgvManagementInfo.DataSource = DatabaseConnector.Instance.GetMatchingEvents(table, conditions);
             dgvManagementInfo.AutoResizeColumns();
+            if((dgvManagementInfo.Rows.Count - 1) == 0)
+            {
+                MessageBox.Show("No results for given parameters");
+            }else
+            {
+                MessageBox.Show(dgvManagementInfo.Rows.Count - 1 + " results");
+            }
             //MessageBox.Show(table + conditions);
         }
 
@@ -89,22 +96,20 @@ namespace Software_Engineering_Assignment.Pages
             {
                 conditions += "patient_id = '" + tbxPatientID.Text + "' ";
             }
-            
-            //if(rbtSelectDay.Checked == true)
+
+            //if (rbtSelectDay.Checked == true && GetTableName() == "Alarm")
             //{
-            //    if(conditions != " WHERE ")
+            //    if (conditions != " WHERE ")
             //    {
             //        conditions += "AND trigger_date_time = '" + dtpManagement.Value + "' ";
             //    }
             //    else
             //    {
-            //        conditions += " [trigger_date_time] LIKE '" +  dtpManagement.Text  + "%' ";
+            //        conditions += " [trigger_date_time] LIKE '" + dtpManagement.Value.ToString("dd/MM/yyyy") + "%' ";
             //    }
-
-
             //}
 
-            if(conditions == " WHERE ")
+            if (conditions == " WHERE ")
             {
                 conditions = "";
             }
