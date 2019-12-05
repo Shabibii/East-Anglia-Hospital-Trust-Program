@@ -89,7 +89,7 @@ namespace Software_Engineering_Assignment.Support_Classes
                                                             FROM Module
                                                             WHERE module_id = {moduleID}";
 
-        public static string GetBedside(int bedsideNo, int bayNo) => $@"SELECT bedside_no, bay_no, module_id_1, module_id_2, module_id_3, module_id_4 
+        public static string GetBedside(int bedsideNo, int bayNo) => $@"SELECT bedside_id, bedside_no, bay_no, module_id_1, module_id_2, module_id_3, module_id_4 
                                                             FROM Bedside
                                                             WHERE bedside_no = {bedsideNo} AND bay_no = {bayNo}";
 

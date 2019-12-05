@@ -356,7 +356,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             OpenConnection(); //Open Connection
             sqlCommand = new SqlCommand(Constants.GetBedside(bedNumber, bayNumber), sqlConnection);
 
-            string[] rawBedsideData = new string[6];
+            string[] rawBedsideData = new string[7];
 
             using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
             {

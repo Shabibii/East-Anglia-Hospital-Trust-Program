@@ -22,7 +22,16 @@ namespace Software_Engineering_Assignment.Support_Classes
         public decimal MinValue { get; set; } = 0;
         public decimal MaxValue { get; set; } = 60;
 
-        public decimal CurrentValue { get; set; } = 0;
+        private decimal currentValue;
+        public decimal CurrentValue 
+        { 
+            get => currentValue; 
+            set 
+            {
+                currentValue = value;
+                ValueChanged(this);
+            } 
+        }
 
         public bool LogAlarm = true;
 
@@ -109,10 +118,10 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
             // set current value to be from min - 8 to max + 8
             ValueChanged = ValueChangedHandler;
-            SetCurrentValue();
+            SetCurrentValue(true);
         }
 
-        public void SetCurrentValue()
+        public void SetCurrentValue(bool firstTime = false)
         {
             if (currentModule == ModuleType.None) return;
             decimal lim = 10;
@@ -122,14 +131,13 @@ namespace Software_Engineering_Assignment.Support_Classes
 
             decimal[] maximums = new[] { MaxValue - lim, MaxValue, MaxValue, MaxValue };
 
-            int min = Convert.ToInt32(minimums[Constants.NextRandomValue(0, 4)]);
+            int min = firstTime ? Convert.ToInt32(MinValue) : Convert.ToInt32(minimums[Constants.NextRandomValue(0, 4)]);
 
-            int max = Convert.ToInt32(maximums[Constants.NextRandomValue(0, 4)]);
+            int max = firstTime ? Convert.ToInt32(MinValue) :  Convert.ToInt32(maximums[Constants.NextRandomValue(0, 4)]);
 
             CurrentValue = Constants.NextRandomValue(min, max);
 
             DatabaseConnector.Instance.UpdateModule(this);
-            ValueChanged(this);
         }
 
         public Module(string[] rawModuleData)

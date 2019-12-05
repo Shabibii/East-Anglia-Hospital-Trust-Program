@@ -8,6 +8,9 @@
                bedside1.ThrowAlarm || bedside2.ThrowAlarm || bedside3.ThrowAlarm || bedside4.ThrowAlarm
             || bedside5.ThrowAlarm || bedside6.ThrowAlarm || bedside7.ThrowAlarm || bedside8.ThrowAlarm;
 
+        public delegate void BayEvent(ref Patient patient, bool on);
+        public BayEvent AlarmThrown = delegate { };
+
         /// <summary>
         /// Structure to hold information on bays including bedsides/patients
         /// </summary>
@@ -35,8 +38,21 @@
             bedside6.StartGeneratingRandomValues();
             bedside7.StartGeneratingRandomValues();
             bedside8.StartGeneratingRandomValues();
+
+            bedside1.AlarmThrown += AlarmEveThrown;
+            bedside2.AlarmThrown += AlarmEveThrown;
+            bedside3.AlarmThrown += AlarmEveThrown;
+            bedside4.AlarmThrown += AlarmEveThrown;
+            bedside5.AlarmThrown += AlarmEveThrown;
+            bedside6.AlarmThrown += AlarmEveThrown;
+            bedside7.AlarmThrown += AlarmEveThrown;
+            bedside8.AlarmThrown += AlarmEveThrown;
         }
 
+        private void AlarmEveThrown(ref Patient patient, bool on)
+        {
+            //Do nothing
+        }
 
         /// <summary>
         /// This method returns a patient based on the bedside number
@@ -60,13 +76,13 @@
         }
 
         //Patients from bed 1 to 8
-        readonly Bedside bedside1;
-        readonly Bedside bedside2;
-        readonly Bedside bedside3;
-        readonly Bedside bedside4;
-        readonly Bedside bedside5;
-        readonly Bedside bedside6;
-        readonly Bedside bedside7;
-        readonly Bedside bedside8;
+        private Bedside bedside1;
+        private Bedside bedside2;
+        private Bedside bedside3;
+        private Bedside bedside4;
+        private Bedside bedside5;
+        private Bedside bedside6;
+        private Bedside bedside7;
+        private Bedside bedside8;
     }
 }

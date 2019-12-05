@@ -11,6 +11,8 @@ namespace Software_Engineering_Assignment.Support_Classes
         public int BedsideNo { get; set; } = 0;
         public int BayNo { get; set; } = 0;
 
+        public int BedsideId;
+
         public Patient patient;
 
         public bool ThrowAlarm
@@ -34,8 +36,9 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         public Bedside(string[] rawBedsideData)
         {
-            BedsideNo = int.Parse(rawBedsideData[0]);
-            BayNo = int.Parse(rawBedsideData[1]);
+            BedsideId = int.Parse(rawBedsideData[0]);
+            BedsideNo = int.Parse(rawBedsideData[1]);
+            BayNo = int.Parse(rawBedsideData[2]);
         }
 
         public void StartGeneratingRandomValues()

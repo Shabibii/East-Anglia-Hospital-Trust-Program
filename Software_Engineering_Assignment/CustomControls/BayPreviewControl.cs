@@ -14,7 +14,7 @@ namespace Software_Engineering_Assignment
 {
     public partial class BayPreviewControl : UserControl
     {
-        int selectedBay = 0;
+        Bay currentBay;
 
         public Main.PageCall2 PatientPageCall = delegate { };
 
@@ -25,18 +25,15 @@ namespace Software_Engineering_Assignment
            
         }
 
-        public void SetBay(int selectedBay, Main.PageCall2 patientPageCall)
+        public void SetBay(Bay selectedBay, Main.PageCall2 patientPageCall)
         {
-            this.selectedBay = selectedBay;
-
-            if (selectedBay == 1) SetProperties(ref Main.bay1);
-            else if (selectedBay == 2) SetProperties(ref Main.bay2);
+            currentBay = selectedBay;
+            SetProperties(ref selectedBay);
 
             PatientPageCall = patientPageCall;
             alarmCheck.Start();
         }
 
-      
         private void SetProperties(ref Bay bay)
         {
             title.Text = $"Bay {bay.BayNumber}";
@@ -59,37 +56,26 @@ namespace Software_Engineering_Assignment
 
         private void BayControl_MouseLeave(object sender, EventArgs e) => BackColor = Color.White;
 
-        private void Patient1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 1);
+        private void Patient1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 1);
 
-        private void Patient2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 2);
+        private void Patient2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 2);
 
-        private void Patient3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 3);
+        private void Patient3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 3);
 
-        private void Patient4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 4);
+        private void Patient4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 4);
 
-        private void Patient5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 5);
+        private void Patient5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 5);
 
-        private void Patient6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 6);
+        private void Patient6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 6);
 
-        private void Patient7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 7);
+        private void Patient7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 7);
 
-        private void Patient8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(selectedBay, 8);
+        private void Patient8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 8);
+
 
         private void alarmCheck_Tick(object sender, EventArgs e)
         {
-            if(selectedBay == 1)
-            {
-                alarmDisplay.Visible = Main.bay1.Throw_Alarm;
-            }
-            if (selectedBay == 2)
-            {
-                alarmDisplay.Visible = Main.bay2.Throw_Alarm;
-            }
-        }
-
-        private void BayPreviewControl_Load(object sender, EventArgs e)
-        {
-
+            alarmDisplay.Visible = currentBay.Throw_Alarm;
         }
     }
 }

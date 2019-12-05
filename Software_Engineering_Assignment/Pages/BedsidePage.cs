@@ -272,6 +272,7 @@ namespace Software_Engineering_Assignment.Pages
                         //if valid login of any staff type
                         //tell event log that staff logged in to edit patient data
                         //enable textboxes for change
+                        
                         DatabaseConnector.Instance.LogEvent($"Muted {currentBedside.patient.FullName} module alarm", "Staff", staff.StaffId);
                         return true;
                     }
@@ -282,24 +283,28 @@ namespace Software_Engineering_Assignment.Pages
 
         private void alarmDisplay1_Click(object sender, EventArgs e)
         {
-           if(MuteAlarm())
+            DatabaseConnector.Instance.LogEvent($"Module 1 on bedside Nuted", "Bedside", currentBedside.BedsideId);
+            if (MuteAlarm())
                 currentBedside.patient.MuteModule(1);
         }
 
         private void alarmDisplay2_Click(object sender, EventArgs e)
         {
+            DatabaseConnector.Instance.LogEvent($"Module 2 on bedside Nuted", "Bedside", currentBedside.BedsideId);
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(2);
         }
 
         private void alarmDisplay3_Click(object sender, EventArgs e)
         {
+            DatabaseConnector.Instance.LogEvent($"Module 3 on bedside Nuted", "Bedside", currentBedside.BedsideId);
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(3);
         }
 
         private void alarmDisplay4_Click(object sender, EventArgs e)
         {
+            DatabaseConnector.Instance.LogEvent($"Module 4 on bedside Nuted", "Bedside", currentBedside.BedsideId);
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(4);
         }

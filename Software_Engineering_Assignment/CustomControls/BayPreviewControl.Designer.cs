@@ -189,7 +189,6 @@
             this.Controls.Add(this.title);
             this.Name = "BayPreviewControl";
             this.Size = new System.Drawing.Size(500, 291);
-            this.Load += new System.EventHandler(this.BayPreviewControl_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Bay_MouseDown);
             this.MouseLeave += new System.EventHandler(this.BayControl_MouseLeave);
             this.MouseHover += new System.EventHandler(this.Bay_MouseHover);

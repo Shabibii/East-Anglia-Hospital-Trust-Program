@@ -75,13 +75,13 @@ namespace Software_Engineering_Assignment.Support_Classes
             }
         }
 
-        public Module Module1 { get; set; }
+        public Module Module1;
 
-        public Module Module2 { get; set; }
+        public Module Module2;
 
-        public Module Module3 { get; set; }
+        public Module Module3;
 
-        public Module Module4 { get; set; }
+        public Module Module4;
 
         //Only show first two active modules for space management reasons (to be used on the bay-page)
         public string ModulesActive => $"{Module1},{Module2}...";
@@ -186,15 +186,10 @@ namespace Software_Engineering_Assignment.Support_Classes
             {
                 ThrowPatientAlarm(this, true);
                 DatabaseConnector.Instance.LogEvent($"Alarm for {module} thrown", "Patient", patientId);
-                module.LogAlarm = false;
-
-               // module.StopGeneratingValues(); // Stop generating random values to avoid alarm/event spam
-
             }
             else
             {
                 ThrowPatientAlarm(this, false);
-                //DatabaseConnector.Instance.LogEvent($"{module} back to normal", "Patient", patientId);
             }
         }
     }
