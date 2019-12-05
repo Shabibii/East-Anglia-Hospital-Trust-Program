@@ -30,7 +30,7 @@ namespace Software_Engineering_Assignment.Support_Classes
         //These are sql queries that will be used regurally
         public static string LogEvent(string description, string type, int id)
       => $@"INSERT INTO LogActivity ({type}_id, activity_description, timestamp)
-                    VALUES ({id}, '{description}', '{DateTime.Now}');";
+                    VALUES ({id}, '{description}', '{DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}');";
 
         public static string GetAllEventLogs()
         => $@"SELECT * FROM LogActivity;";
