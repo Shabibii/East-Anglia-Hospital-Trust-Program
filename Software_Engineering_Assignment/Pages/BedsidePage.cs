@@ -138,6 +138,7 @@ namespace Software_Engineering_Assignment.Pages
             {
                 return; // Do not allow data to be edited if patient is not assigned to current bedside
             }
+            refreshModuleData.Stop();
             using (Login login = new Login())
             {
                 //If login button clicked on the login form
@@ -192,11 +193,12 @@ namespace Software_Engineering_Assignment.Pages
             currentBedside.patient.Module4.MaxValue = decimal.Parse(module4Max.Text);
             currentBedside.patient.Module4.MinValue = decimal.Parse(module4Min.Text);
 
-            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module1);
-            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module2);
-            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module3);
-            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module4);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module1, true);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module2, true);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module3, true);
+            DatabaseConnector.Instance.UpdateModule(currentBedside.patient.Module4, true);
 
+            refreshModuleData.Start();
         }
 
         private void Module1ModuleType_KeyPress(object sender, KeyPressEventArgs e)
@@ -304,7 +306,7 @@ namespace Software_Engineering_Assignment.Pages
 
         private void alarmDisplay4_Click(object sender, EventArgs e)
         {
-            DatabaseConnector.Instance.LogEvent($"Module 4 on bedside Nuted", "Bedside", currentBedside.BedsideId);
+            DatabaseConnector.Instance.LogEvent($"Module 4 on bedside Muted", "Bedside", currentBedside.BedsideId);
             if (MuteAlarm())
                 currentBedside.patient.MuteModule(4);
         }

@@ -389,7 +389,7 @@ namespace Software_Engineering_Assignment.Support_Classes
 
         }
 
-        public void UpdateModule(Module module)
+        public void UpdateModule(Module module, bool logEvent = false)
         {
             OpenConnection();
             sqlCommand = new SqlCommand(Constants.UpdateModule(module.moduleID), sqlConnection);
@@ -401,7 +401,7 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
 
-            //Instance.LogEvent($"values changed", "Module", module.moduleID);
+            if(logEvent) Instance.LogEvent($"values changed", "Module", module.moduleID);
         }
 
         public void LogEvent(string activityDescription, string type, int id)
