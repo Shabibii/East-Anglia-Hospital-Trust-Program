@@ -412,6 +412,8 @@ namespace Software_Engineering_Assignment.Support_Classes
             CloseConnection();
         }
 
+        
+
         public List<string[]> GetEventLog(bool filterOutStaff = false)
         {
             OpenConnection(); //Open Connection
