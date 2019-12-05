@@ -28,51 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.onCallStaffList = new System.Windows.Forms.ListView();
+            this.Staff_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.onCallStaffLabel = new System.Windows.Forms.Label();
+            this.refreshDisplayData = new System.Windows.Forms.Timer(this.components);
+            this.eventLog = new System.Windows.Forms.TreeView();
+            this.eventLogLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // onCallStaffList
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(475, 332);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Event Log:";
+            this.onCallStaffList.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
+            this.onCallStaffList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.onCallStaffList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Staff_Name});
+            this.onCallStaffList.HideSelection = false;
+            this.onCallStaffList.Location = new System.Drawing.Point(0, 356);
+            this.onCallStaffList.MultiSelect = false;
+            this.onCallStaffList.Name = "onCallStaffList";
+            this.onCallStaffList.Size = new System.Drawing.Size(475, 140);
+            this.onCallStaffList.TabIndex = 1;
+            this.onCallStaffList.UseCompatibleStateImageBehavior = false;
             // 
-            // textBox2
+            // onCallStaffLabel
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(0, 338);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(475, 158);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "On Call Staff:";
+            this.onCallStaffLabel.AutoSize = true;
+            this.onCallStaffLabel.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onCallStaffLabel.Location = new System.Drawing.Point(3, 339);
+            this.onCallStaffLabel.Name = "onCallStaffLabel";
+            this.onCallStaffLabel.Size = new System.Drawing.Size(70, 14);
+            this.onCallStaffLabel.TabIndex = 2;
+            this.onCallStaffLabel.Text = "On Call Staff:";
+            // 
+            // refreshDisplayData
+            // 
+            this.refreshDisplayData.Interval = 4000;
+            this.refreshDisplayData.Tick += new System.EventHandler(this.RefreshDisplayData_Tick);
+            // 
+            // eventLog
+            // 
+            this.eventLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventLog.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventLog.Location = new System.Drawing.Point(0, 17);
+            this.eventLog.Name = "eventLog";
+            this.eventLog.PathSeparator = "";
+            this.eventLog.ShowLines = false;
+            this.eventLog.ShowPlusMinus = false;
+            this.eventLog.ShowRootLines = false;
+            this.eventLog.Size = new System.Drawing.Size(475, 319);
+            this.eventLog.TabIndex = 3;
+            // 
+            // eventLogLabel
+            // 
+            this.eventLogLabel.AutoSize = true;
+            this.eventLogLabel.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventLogLabel.Location = new System.Drawing.Point(3, 0);
+            this.eventLogLabel.Name = "eventLogLabel";
+            this.eventLogLabel.Size = new System.Drawing.Size(59, 14);
+            this.eventLogLabel.TabIndex = 4;
+            this.eventLogLabel.Text = "Event Log:";
             // 
             // RegisterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.eventLogLabel);
+            this.Controls.Add(this.eventLog);
+            this.Controls.Add(this.onCallStaffLabel);
+            this.Controls.Add(this.onCallStaffList);
             this.MaximumSize = new System.Drawing.Size(475, 557);
             this.Name = "RegisterControl";
             this.Size = new System.Drawing.Size(475, 496);
@@ -82,8 +107,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ListView onCallStaffList;
+        private System.Windows.Forms.Label onCallStaffLabel;
+        private System.Windows.Forms.Timer refreshDisplayData;
+        private System.Windows.Forms.ColumnHeader Staff_Name;
+        private System.Windows.Forms.TreeView eventLog;
+        private System.Windows.Forms.Label eventLogLabel;
     }
 }

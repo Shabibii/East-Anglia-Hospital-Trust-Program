@@ -1,2 +1,7 @@
 https://icons8.com/icons/set/lock
 https://www.iconfinder.com/icons/1628472/account_avatar_login_pc_silhouette_user_yumminky_icon
+https://www.w3schools.com/sql/sql_where.asp
+https://www.w3schools.com/sql/sql_insert.asp
+https://docs.microsoft.com/en-us/dotnet/api/system.data.dataset.tables?view=netframework-4.8
+https://www.flaticon.com/free-icon/hospital-buildings_33777 -> icon for application
+https://icons8.com/icons/set/white-back-button 

@@ -47,6 +47,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hospital-buildings.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -73,11 +79,11 @@
     <Compile Include="CustomControls\DoctorRegistrationFieldControl.Designer.cs">
       <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\StaffAvailabilityControl.cs">
+    <Compile Include="CustomControls\OnCallStaffControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\StaffAvailabilityControl.Designer.cs">
-      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    <Compile Include="CustomControls\OnCallStaffControl.Designer.cs">
+      <DependentUpon>OnCallStaffControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\StaffRegistrationControl.cs">
       <SubType>UserControl</SubType>
@@ -85,11 +91,11 @@
     <Compile Include="CustomControls\StaffRegistrationControl.Designer.cs">
       <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\UnavailableStaffControl.cs">
+    <Compile Include="CustomControls\UnregisteredStaffControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\UnavailableStaffControl.Designer.cs">
-      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
+    <Compile Include="CustomControls\UnregisteredStaffControl.Designer.cs">
+      <DependentUpon>UnregisteredStaffControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\BayPage.cs">
       <SubType>UserControl</SubType>
@@ -97,11 +103,11 @@
     <Compile Include="Pages\BayPage.Designer.cs">
       <DependentUpon>BayPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RegisterationPage.cs">
+    <Compile Include="Pages\RegistrationPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\RegisterationPage.Designer.cs">
-      <DependentUpon>RegisterationPage.cs</DependentUpon>
+    <Compile Include="Pages\RegistrationPage.Designer.cs">
+      <DependentUpon>RegistrationPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Support Classes\Bay.cs" />
     <Compile Include="CustomControls\BayPreviewControl.cs">
@@ -110,12 +116,16 @@
     <Compile Include="CustomControls\BayPreviewControl.Designer.cs">
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Support Classes\Bedside.cs" />
+    <Compile Include="Support Classes\Constants.cs" />
+    <Compile Include="Support Classes\EventLogNode.cs" />
+    <Compile Include="Support Classes\Staff.cs" />
     <Compile Include="Support Classes\DatabaseConnector.cs" />
-    <Compile Include="Pages\MainPage.cs">
+    <Compile Include="Pages\CentralStation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\MainPage.Designer.cs">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <Compile Include="Pages\CentralStation.Designer.cs">
+      <DependentUpon>CentralStation.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -145,12 +155,13 @@
     <Compile Include="Pages\ManagementPage.Designer.cs">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PatientPage.cs">
+    <Compile Include="Pages\BedsidePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\PatientPage.Designer.cs">
-      <DependentUpon>PatientPage.cs</DependentUpon>
+    <Compile Include="Pages\BedsidePage.Designer.cs">
+      <DependentUpon>BedsidePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Support Classes\StaffListViewItem.cs" />
     <EmbeddedResource Include="CustomControls\BayPreviewControl.resx">
       <DependentUpon>BayPreviewControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,26 +171,26 @@
     <EmbeddedResource Include="CustomControls\DoctorRegistrationFieldControl.resx">
       <DependentUpon>DoctorRegistrationFieldControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\StaffAvailabilityControl.resx">
-      <DependentUpon>StaffAvailabilityControl.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\OnCallStaffControl.resx">
+      <DependentUpon>OnCallStaffControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\StaffRegistrationControl.resx">
       <DependentUpon>StaffRegistrationControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\UnavailableStaffControl.resx">
-      <DependentUpon>UnavailableStaffControl.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\UnregisteredStaffControl.resx">
+      <DependentUpon>UnregisteredStaffControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\BayPage.resx">
       <DependentUpon>BayPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MainPage.resx">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\CentralStation.resx">
+      <DependentUpon>CentralStation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\RegisterationPage.resx">
-      <DependentUpon>RegisterationPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\RegistrationPage.resx">
+      <DependentUpon>RegistrationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -200,9 +211,10 @@
     <EmbeddedResource Include="Pages\ManagementPage.resx">
       <DependentUpon>ManagementPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PatientPage.resx">
-      <DependentUpon>PatientPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\BedsidePage.resx">
+      <DependentUpon>BedsidePage.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -244,6 +256,7 @@
     <None Include="Resources\icons8-lock-1003.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="hospital-buildings.ico" />
     <Content Include="hospitalDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -251,6 +264,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>hospitalDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\next.png" />
+    <None Include="Resources\back.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

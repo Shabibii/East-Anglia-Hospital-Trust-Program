@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Software_Engineering_Assignment.Pages;
+using Software_Engineering_Assignment.Support_Classes;
 
 namespace Software_Engineering_Assignment
 {
@@ -22,30 +23,59 @@ namespace Software_Engineering_Assignment
         public delegate void PageCall1(int bayNumber);
         //Page call method with 2 parameters
         public delegate void PageCall2(int bayNumber, int bedNumber);
+
+        public delegate void PageCall3(bool NavBack,int bayNumber, int bedNumber);
         public PageCall0 BayPageCall = delegate { };
 
-       
+        public CentralStation MainPage { get; set; }
+
+        public static Bay bay1;
+        public static Bay bay2;
+
+        public BayPage BayPage1 { get; set; }
+
+        public BayPage BayPage2 { get; set; }
+
+        public ManagementPage ManagementPage { get; set; }
+
+        public RegistrationPage RegisterationPage { get; set; }
+
+        public BedsidePage PatientPage { get; set; }
 
         public Main()
         {
             InitializeComponent();
-            InitalizePages();
-            SetPage(0);
+            bay1 = new Bay(1);
+            bay2 = new Bay(2);
+
+            bay1.StartRandomizingValues();
+            bay2.StartRandomizingValues();
         }
 
         private void InitalizePages()
         {
-            MainPage mainPage = new MainPage(SetPatientPage)
+            MainPage = new CentralStation(SetPatientPage)
             {
-                BayPageCall = SetPageToBay
+                BayPageCall = SetPageToBay,
+                ManagementPageCall = CallManagementPage,
+                RegisterationPageCall = CallRegisterationPage
             };
 
-            pages.Add(0, mainPage);
-            pages.Add(1, new BayPage(1, GoToMainpage) { PatientPageCall = SetPatientPage});
-            pages.Add(2, new BayPage(2, GoToMainpage) { PatientPageCall = SetPatientPage });
-            pages.Add(3, new ManagementPage());
-            pages.Add(4, new RegisterationPage());
-            pages.Add(5, new PatientPage(GoToMainpage));
+           
+
+            BayPage1 = new BayPage(ref bay1, GoToMainpage) { PatientPageCall = SetPatientPage };
+            BayPage2 = new BayPage(ref bay2, GoToMainpage) { PatientPageCall = SetPatientPage };
+            ManagementPage = new ManagementPage() { pageCall0 = GoToMainpage };
+            RegisterationPage = new RegistrationPage() { goBackToParentPage = GoToMainpage };
+            PatientPage = new BedsidePage(GoToMainpage);
+            PatientPage.NavBack = PatientPage.NavForward = NavigatePatientPage;
+
+            pages.Add(0, MainPage);
+            pages.Add(1, BayPage1);
+            pages.Add(2, BayPage2);
+            pages.Add(3, ManagementPage);
+            pages.Add(4, RegisterationPage);
+            pages.Add(5, PatientPage);
         } 
 
         public void SetPage(int pageNumber)
@@ -53,13 +83,32 @@ namespace Software_Engineering_Assignment
             //Pages have to be the same size for the design theme to work
             Controls.Clear();
             Controls.Add(pages[pageNumber]);
+            Text = pages[pageNumber].Text;
         }
 
-        public void SetPatientPage(int bayNumber,int pageNumber)
+        public void SetPatientPage(int bayNumber,int bedNumber)
         {
             //Set page to patient page
-            ((PatientPage)pages[5]).SetPatient(bayNumber, pageNumber);
+            if(bayNumber == 1)
+                ((BedsidePage)pages[5]).SetBedside(bay1.GetBedside(bedNumber));
+            else
+                ((BedsidePage)pages[5]).SetBedside(bay2.GetBedside(bedNumber));
+
             SetPage(5);
+        }
+
+        public void NavigatePatientPage(bool NavigateBackwards,int baynumber, int patientNumber)
+        {
+            int pNum = patientNumber;
+            if(pNum != 1 && pNum != 8)
+            {
+                if (NavigateBackwards)
+                    SetPatientPage(baynumber, patientNumber - 1);
+                else
+                    SetPatientPage(baynumber, patientNumber + 1);
+            }
+
+           
         }
 
         public void GoToMainpage()
@@ -70,21 +119,35 @@ namespace Software_Engineering_Assignment
 
         public void SetPageToBay(int bayNumber)
         {
-            switch(bayNumber)
-            {
-                case 1:
-                    SetPage(1);
-                    break;
-
-                case 2:
-                    SetPage(2);
-                    break;
-            }
+            if (bayNumber == 1 || bayNumber == 2) SetPage(bayNumber);
         }
 
-        private void Main_SizeChanged(object sender, EventArgs e)
+        public void CallManagementPage()
         {
-            Text = Size.ToString();
+            //Go to Page 3
+            SetPage(3);
+        }
+
+        public void CallRegisterationPage()
+        {
+            //Go to Page 4
+            SetPage(4);
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            InitalizePages();
+            SetPage(0);
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainPage.Dispose();
+            BayPage1.Dispose();
+            BayPage2.Dispose();
+            ManagementPage.Dispose();
+            RegisterationPage.Dispose();
+            PatientPage.Dispose();
         }
     }
 }

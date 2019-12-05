@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.bedsideInfoControl7 = new Software_Engineering_Assignment.CustomControls.BedsideInfoControl();
@@ -38,6 +39,7 @@
             this.bedsideInfoControl3 = new Software_Engineering_Assignment.CustomControls.BedsideInfoControl();
             this.bedsideInfoControl2 = new Software_Engineering_Assignment.CustomControls.BedsideInfoControl();
             this.bedsideInfoControl1 = new Software_Engineering_Assignment.CustomControls.BedsideInfoControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(71, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bay X";
+            this.label1.TextChanged += new System.EventHandler(this.Label1_TextChanged);
             // 
             // button2
             // 
@@ -135,6 +138,9 @@
             this.bedsideInfoControl1.Size = new System.Drawing.Size(471, 101);
             this.bedsideInfoControl1.TabIndex = 14;
             // 
+            // timer1
+            // 
+            // 
             // BayPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,5 +175,6 @@
         private CustomControls.BedsideInfoControl bedsideInfoControl6;
         private CustomControls.BedsideInfoControl bedsideInfoControl7;
         private CustomControls.BedsideInfoControl bedsideInfoControl8;
+        private System.Windows.Forms.Timer timer1;
     }
 }

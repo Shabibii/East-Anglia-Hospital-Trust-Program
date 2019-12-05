@@ -14,104 +14,68 @@ namespace Software_Engineering_Assignment
 {
     public partial class BayPreviewControl : UserControl
     {
-        Bay bay;
+        Bay currentBay;
 
         public Main.PageCall2 PatientPageCall = delegate { };
 
         public BayPreviewControl()
         {
             InitializeComponent();
-            pictureBox1.Hide();
+            alarmDisplay.Hide();
+           
         }
 
-        public void SetBay(Bay bay, Main.PageCall2 patientPageCall)
+        public void SetBay(Bay selectedBay, Main.PageCall2 patientPageCall)
         {
-            this.bay = bay;
-            SetProperties();
+            currentBay = selectedBay;
+            SetProperties(ref selectedBay);
+
             PatientPageCall = patientPageCall;
+            alarmCheck.Start();
         }
 
-
-        private void SetProperties()
+        private void SetProperties(ref Bay bay)
         {
             title.Text = $"Bay {bay.BayNumber}";
-            linkLabel1.Text = $"(1) {bay.GetPatient(1).FirstName}";
-            linkLabel2.Text = $"(2) {bay.GetPatient(2).FirstName}";
-            linkLabel3.Text = $"(3) {bay.GetPatient(3).FirstName}";
-            linkLabel4.Text = $"(4) {bay.GetPatient(4).FirstName}";
-            linkLabel5.Text = $"(5) {bay.GetPatient(5).FirstName}";
-            linkLabel6.Text = $"(6) {bay.GetPatient(6).FirstName}";
-            linkLabel7.Text = $"(7) {bay.GetPatient(7).FirstName}";
-            linkLabel8.Text = $"(8) {bay.GetPatient(8).FirstName}";
-
-            this.DoubleBuffered = true;
+            patient1.Text = $"(1) {bay.GetBedside(1).patient.FullName}";
+            patient2.Text = $"(2) {bay.GetBedside(2).patient.FullName}";
+            patient3.Text = $"(3) {bay.GetBedside(3).patient.FullName}";
+            patient4.Text = $"(4) {bay.GetBedside(4).patient.FullName}";
+            patient5.Text = $"(5) {bay.GetBedside(5).patient.FullName}";
+            patient6.Text = $"(6) {bay.GetBedside(6).patient.FullName}";
+            patient7.Text = $"(7) {bay.GetBedside(7).patient.FullName}";
+            patient8.Text = $"(8) {bay.GetBedside(8).patient.FullName}";
+            DoubleBuffered = true;
         }
 
-        public void DisplayWarningSign()
-        {
-            //Display warning sign (Show that an alarm is triggered regarding patient in current bay)
-            pictureBox1.Show();
-        }
+        private void Bay_MouseHover(object sender, EventArgs e) => BackColor = Color.Gainsboro;
 
-        private void Bay_MouseHover(object sender, EventArgs e)
-        {
-            
-            BackColor = Color.Gainsboro;
-        }
+        private void Bay_MouseDown(object sender, MouseEventArgs e) => BackColor = Color.DarkGray;
 
-        private void Bay_MouseDown(object sender, MouseEventArgs e)
-        {
-            BackColor = Color.DarkGray;
-        }
+        private void Bay_MouseUp(object sender, MouseEventArgs e) => BackColor = Color.White;
 
-        private void Bay_MouseUp(object sender, MouseEventArgs e)
-        {
-            BackColor = Color.White;
-        }
+        private void BayControl_MouseLeave(object sender, EventArgs e) => BackColor = Color.White;
 
-        private void BayControl_MouseLeave(object sender, EventArgs e)
-        {
-            BackColor = Color.White;
-        }
+        private void Patient1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 1);
 
-        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PatientPageCall(bay.BayNumber, 1);
-        }
+        private void Patient2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 2);
 
-        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PatientPageCall(bay.BayNumber, 2);
-        }
+        private void Patient3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 3);
 
-        private void LinkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PatientPageCall(bay.BayNumber, 3);
-        }
+        private void Patient4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 4);
 
-        private void LinkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PatientPageCall(bay.BayNumber, 4);
-        }
+        private void Patient5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 5);
 
-        private void LinkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PatientPageCall(bay.BayNumber, 5);
-        }
+        private void Patient6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 6);
 
-        private void LinkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PatientPageCall(bay.BayNumber, 6);
-        }
+        private void Patient7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 7);
 
-        private void LinkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PatientPageCall(bay.BayNumber, 7);
-        }
+        private void Patient8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => PatientPageCall(currentBay.BayNumber, 8);
 
-        private void LinkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void alarmCheck_Tick(object sender, EventArgs e)
         {
-            PatientPageCall(bay.BayNumber, 8);
+            alarmDisplay.Visible = currentBay.Throw_Alarm;
         }
     }
 }

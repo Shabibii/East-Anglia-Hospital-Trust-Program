@@ -14,7 +14,7 @@ namespace Software_Engineering_Assignment.CustomControls
     public partial class BedsideInfoControl : UserControl
     {
         private Patient patient;
-        Image WarningImage => Alarm() ? Properties.Resources.ImportantNotification3 : null;
+        Image WarningImage => Alarm ? Properties.Resources.ImportantNotification3 : null;
 
         public delegate void PageCall(int bayNumber, int bedNumber);
         public PageCall PatientPageCall = delegate { };
@@ -25,14 +25,13 @@ namespace Software_Engineering_Assignment.CustomControls
             button2.Image = WarningImage;
         }
 
-        bool Alarm()
-        {
-            return false;
-        }
+        bool Alarm = false;
 
         public void AssignPatient(Patient p)
         {
+            //Assign patient to bedside
             patient = p;
+            patient.ThrowPatientAlarm = ThrowAlarm;
 
             textBox1.Clear();
             textBox1.Text = $"{Environment.NewLine}";
@@ -42,12 +41,26 @@ namespace Software_Engineering_Assignment.CustomControls
             textBox1.Text += $"{p.IntakeReason}{Environment.NewLine}";
             textBox1.Text += $"{p.ModulesActive}";
 
-            button2.Text = $"Bedside {p.bedNumber}";
+            string name = $"{Environment.NewLine}({p.FirstName}{Environment.NewLine}{p.Surname})";
+            button2.Text = $"Bedside {p.bedNumber}{Environment.NewLine}{name}";
+            timer1.Start();
+        }
+
+        private void ThrowAlarm(Patient patient, bool on)
+        {
+            Alarm = on;
+            button2.Image = WarningImage;
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             PatientPageCall(patient.bayNumber, patient.bedNumber);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Alarm = patient.ThrowAlarm;
+            button2.Image = WarningImage;
         }
     }
 }
