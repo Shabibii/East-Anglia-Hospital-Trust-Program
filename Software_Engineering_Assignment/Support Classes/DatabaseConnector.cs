@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
-    internal class DatabaseConnector
+    public class DatabaseConnector
     {
         //This class is to be accessable to all other classes in this project
         private static DatabaseConnector instance;
@@ -385,8 +385,6 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
-
-
         }
 
         public void UpdateModule(Module module, bool logEvent = false)
