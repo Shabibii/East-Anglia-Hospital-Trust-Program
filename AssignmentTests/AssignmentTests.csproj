@@ -49,8 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ManagementPageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support Classes\DatabaseConnectorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

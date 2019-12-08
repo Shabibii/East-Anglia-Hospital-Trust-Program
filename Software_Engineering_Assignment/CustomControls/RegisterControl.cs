@@ -51,17 +51,13 @@ namespace Software_Engineering_Assignment
                 }
             }
 
-            if (onCallStaff == null) return;
+            if (onCallStaff == null || onCallStaff.Count < 1) return;
 
-            if (onCallStaff.Count > 0)
+            for (int i = 0; i < onCallStaff.Count; i++)
             {
-                foreach (Staff staff in onCallStaff)
-                {
-                    if(!ListContains(staff))
-                    {
-                        onCallStaffList.Items.Add(new StaffListViewItem(staff));
-                    }
-                }
+                Staff staff = onCallStaff[i];
+                if (!ListContains(staff))
+                    onCallStaffList.Items.Add(new StaffListViewItem(staff));
             }
         }
 
@@ -76,25 +72,14 @@ namespace Software_Engineering_Assignment
 
             foreach (string[] log in eveLog)
             {
-                EventLogNode eLog = new EventLogNode(log);
+                EventLogNode eLog = new EventLogNode(log); //Custom tree node object that holds event log
 
-                switch (eLog.eventType)
-                {
-                    case "patient":
-                        patientNode.Nodes.Add(eLog);
-                        break;
-
-                    case "bedside":
-                        bedsideNode.Nodes.Add(eLog);
-                        break;
-
-                    case "module":
-                        moduleNode.Nodes.Add(eLog);
-                        break;
-                }
+                if(eLog.eventType == "patient") patientNode.Nodes.Add(eLog);
+                else if (eLog.eventType == "bedside") bedsideNode.Nodes.Add(eLog);
+                else if (eLog.eventType == "module") moduleNode.Nodes.Add(eLog);
             }
 
-
+            //Expand all three parent nodes
             patientNode.Expand();
             bedsideNode.Expand();
             moduleNode.Expand();
@@ -102,14 +87,13 @@ namespace Software_Engineering_Assignment
 
         private void RefreshDisplayData_Tick(object sender, EventArgs e)
         {
-            //Display data, check for changes and repeat
-            DisplayOnCallStaff();
-            DisplayEventLog();
+            DisplayOnCallStaff(); //Display on call staff
+            DisplayEventLog(); //Display event log
         }
 
         public void StartRealtimeDataDisplay()
         {
-            refreshDisplayData.Start();
+            refreshDisplayData.Start(); // Start refreshing data being displayed on the form
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Software_Engineering_Assignment.Support_Classes
 {
-    public class DatabaseConnector
+    internal class DatabaseConnector
     {
         //This class is to be accessable to all other classes in this project
         private static DatabaseConnector instance;
