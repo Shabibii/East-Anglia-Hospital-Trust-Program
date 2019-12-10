@@ -245,7 +245,7 @@ namespace Software_Engineering_Assignment.Pages
             }
             catch (Exception)
             {
-                refreshModuleData.Stop();
+               
             }
             
         }
