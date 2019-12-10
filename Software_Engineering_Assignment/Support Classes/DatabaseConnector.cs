@@ -385,6 +385,8 @@ namespace Software_Engineering_Assignment.Support_Classes
             sqlCommand.Parameters.AddWithValue("@m5", $"{module.CurrentValue}");
             sqlCommand.ExecuteNonQuery();
             CloseConnection();
+
+
         }
 
         public void UpdateModule(Module module, bool logEvent = false)

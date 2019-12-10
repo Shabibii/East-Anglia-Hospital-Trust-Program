@@ -71,7 +71,7 @@ namespace Software_Engineering_Assignment.CustomControls
         {
             // Register staff   
             DatabaseConnector.Instance.RegisterStaff(currentStaff.StaffId, dateRegisterActivity.Value.ToString("yyyy-MM-dd"));
-            DatabaseConnector.Instance.LogEvent($"Registered for shift ({staffNameText.Text})", "Staff", int.Parse(staffIdText.Text));
+            DatabaseConnector.Instance.LogEvent("Registered for shift", "Staff", int.Parse(staffIdText.Text));
         }
 
         /// <summary>

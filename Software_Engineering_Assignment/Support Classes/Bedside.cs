@@ -19,12 +19,15 @@ namespace Software_Engineering_Assignment.Support_Classes
         {
             get
             {
-                if (patient.Module1 == null) return false;
-                if (patient.Module2 == null) return false;
-                if (patient.Module3 == null) return false;
-                if (patient.Module4 == null) return false;
-
-                return patient.Module1.ThrowAlarm || patient.Module2.ThrowAlarm || patient.Module3.ThrowAlarm || patient.Module4.ThrowAlarm;
+                try
+                {
+                    return patient.Module1.ThrowAlarm || patient.Module2.ThrowAlarm || patient.Module3.ThrowAlarm || patient.Module4.ThrowAlarm;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                
             }
         }
 
